@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  TRADE PROFESSIONAL — Modern House Numbers
+  Static replica of https://www.modernhousenumbers.com/pages/trade
+  Served at / and at /trade (see vercel.json).
+  Self-contained: inline CSS + vanilla JS, no build step (repo convention).
+
+  Brand tokens are measured from the live page, not approximated:
+    ink #393838 · orange #f36a10 · icon gray #58595b · rule #b7b6b6
+    headings Barlow 300 · body Mulish (shipped as "Muli" on the live site)
+  Imagery and the seven MHN typefaces load from the brand's own CDNs.
+
+  The live page's configurator and signup post to Shopify/Klaviyo. This is a
+  static page, so both hand off to the real endpoints rather than fake a
+  submit: the configurator deep-links to the product page with the chosen
+  options, and the trade form GETs to /pages/trade-program-signup.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Order Large Quantities of Commercial-Grade Signage</title>
+<meta name="description" content="Trade professionally with modern house address letters and numbers in multiples. Order large quantities of commercial-grade signage with ease.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/pages/trade">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live
+     page it replicates. Canonical below points at the real URL. -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Order Large Quantities of Commercial-Grade Signage">
+<meta property="og:description" content="Architect-led signage, made to order in Tucson. Dedicated Trade Representative, complimentary proofs, large-quantity pricing.">
+<meta property="og:url" content="https://www.modernhousenumbers.com/pages/trade">
+<meta property="og:image" content="https://cms.modernhousenumbers.com/assets/pro_header_gal_1.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600&family=Mulish:wght@300;400;600;700&display=swap">
+
+<style>
+/* ============ MHN BRAND TOKENS (measured from the live page) ============ */
+:root{
+  --ink:        #393838;
+  --ink-soft:   #6b6a6a;
+  --orange:     #f36a10;
+  --orange-dk:  #d65c0c;
+  --icon-gray:  #58595b;
+  --line:       #b7b6b6;
+  --line-soft:  #e9e9eb;
+  --tab-bg:     #f0f0f0;
+  --bg:         #ffffff;
+  --bg-soft:    #f7f7f7;
+  --maxw:       1180px;
+  --head:       "Barlow", Helvetica, Arial, sans-serif;
+  --body:       "Mulish", Helvetica, Arial, sans-serif;
+}
+
+/* The seven genuine MHN typefaces, served from the brand's own CDN,
+   so the configurator preview renders in the real letterforms. */
+@font-face{font-family:PalmSprings;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/palmsprings-mhn.woff) format("woff2");font-display:swap}
+@font-face{font-family:SoCalMHN;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/socal.woff) format("woff2");font-display:swap}
+@font-face{font-family:AustinMHN;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/UptownRegular.woff) format("woff2");font-display:swap}
+@font-face{font-family:SohoMHN;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/soho.woff) format("woff2");font-display:swap}
+@font-face{font-family:BackbayMHN;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/backbay.woff) format("woff2");font-display:swap}
+@font-face{font-family:SouthbeachMHN;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/southbeach.woff) format("woff2");font-display:swap}
+@font-face{font-family:SantaBarbaraMHN;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/santabarbara.woff) format("woff2");font-display:swap}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);font-size:16px;font-weight:400;line-height:1.7;
+  color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--ink);text-decoration:none}
+h1,h2,h3,h4{font-family:var(--head);font-weight:300;line-height:1.2;margin:0 0 .5em;color:var(--ink)}
+h1{font-size:1.3rem;letter-spacing:.18em;text-transform:uppercase;text-align:center;font-weight:300}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem)}
+h3{font-size:1.25rem;font-weight:400}
+p{margin:0 0 1rem}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:56px 0}
+.section--soft{background:var(--bg-soft)}
+.narrow{max-width:880px;margin-inline:auto}
+.center{text-align:center}
+.label{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.rule{border:0;border-top:1px solid var(--line-soft);margin:0}
+.muted{color:var(--ink-soft)}
+
+/* ---- buttons: square, uppercase, wide tracking (brand spec) ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--body);font-size:.95rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:.85rem 1.6rem;border:1px solid transparent;border-radius:0;cursor:pointer;transition:.15s;line-height:1.2}
+.btn--primary{background:var(--orange);color:#fff}
+.btn--primary:hover{background:var(--orange-dk)}
+.btn--ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn--ghost:hover{border-color:var(--ink)}
+.btn--block{display:flex;width:100%}
+.btn--sm{padding:.7rem 1.15rem;font-size:.76rem;letter-spacing:.1em;white-space:nowrap}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ---- ticker / trade attribute bar ---- */
+.ticker{border-bottom:1px solid var(--line-soft);padding:18px 0 20px;overflow:hidden}
+.ticker h1{margin:0 0 14px}
+.ticker-track{display:flex;gap:2.6rem;width:max-content;align-items:center;
+  animation:tick 34s linear infinite}
+.ticker-track span{white-space:nowrap;font-size:.76rem;letter-spacing:.17em;
+  text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
+.ticker-track span::after{content:"·";margin-left:2.6rem;color:var(--orange)}
+.ticker-mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+/* ---- hero ---- */
+.hero{padding:44px 0 56px}
+.hero-grid{display:grid;grid-template-columns:3fr 2fr;gap:52px;align-items:center}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+.hero h2{font-size:clamp(1.9rem,3.4vw,2.35rem);margin-bottom:.6rem}
+.hero h2 b{font-weight:600}
+.hero p{max-width:46ch}
+
+/* carousel */
+.carousel{position:relative;overflow:hidden;background:var(--line-soft);aspect-ratio:3/2}
+.carousel-track{display:flex;height:100%;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.slide{position:relative;min-width:100%;height:100%;margin:0}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide-cap{position:absolute;left:0;bottom:26px;background:var(--orange);color:#fff;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  padding:.5rem 1.1rem;margin:0;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:520px){.slide-cap{font-size:.62rem;letter-spacing:.1em;padding:.4rem .8rem}}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:38px;
+  display:grid;place-items:center;background:rgba(255,255,255,.85);border:0;cursor:pointer;color:var(--ink)}
+.car-btn:hover{background:#fff}
+.car-btn--prev{left:10px}.car-btn--next{right:10px}
+.car-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;z-index:3;display:flex;gap:7px}
+.car-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:rgba(255,255,255,.7)}
+.car-dots button[aria-selected="true"]{background:var(--orange)}
+
+/* trade signup form */
+.signup{margin-top:1.6rem}
+.signup .label{display:block;margin-bottom:.7rem}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.signup input{width:100%;font-family:var(--body);font-size:.9rem;color:var(--ink);
+  padding:.6rem .7rem;border:1px solid rgba(183,182,182,.75);border-radius:0;background:#fff}
+.signup input:focus{outline:2px solid var(--orange);outline-offset:-1px;border-color:var(--orange)}
+.signup .btn{margin-top:6px}
+.signup .fineprint{font-size:.78rem;color:var(--ink-soft);margin:.7rem 0 0}
+
+/* ---- order tabs ---- */
+.tabbar{display:flex;flex-wrap:wrap;gap:2px;border-bottom:1px solid var(--line-soft)}
+.tabbar a,.tabbar button{font-family:var(--body);font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;padding:.9rem 1.4rem;background:var(--tab-bg);color:var(--ink);
+  border:0;border-radius:0;cursor:pointer;transition:.15s;line-height:1.2}
+.tabbar a:hover,.tabbar button:hover{background:#e6e6e6}
+.tabbar .is-active{background:#fff;box-shadow:inset 0 3px 0 var(--orange)}
+@media(max-width:700px){.tabbar a,.tabbar button{flex:1 1 48%;text-align:center;padding:.8rem .5rem;font-size:.74rem}}
+
+/* ---- configurator ---- */
+.config{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:34px}
+@media(max-width:960px){.config{grid-template-columns:1fr;gap:32px}}
+.config-preview{position:sticky;top:98px}
+@media(max-width:960px){.config-preview{position:static}}
+.stage{background:#e8e6e3;border:1px solid var(--line-soft);aspect-ratio:4/3;
+  display:grid;place-items:center;padding:24px;overflow:hidden}
+.stage-text{font-size:clamp(3rem,12vw,7rem);line-height:1;word-break:break-word;text-align:center;
+  color:#cccccc;
+  /* No colour transition here: a running transition can latch the preview on its
+     start colour, showing the wrong finish. The swatch must be exact, not animated. */
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}   /* reads like metal standing off the wall */
+.stage-text.is-vertical{writing-mode:vertical-rl;font-size:clamp(2.2rem,8vw,4.4rem)}
+.stage-note{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  text-align:center;margin-top:12px}
+.opt{margin-bottom:22px}
+.opt > .label{display:block;padding-bottom:.45rem;margin-bottom:.7rem;border-bottom:1px solid var(--line-soft)}
+.txt-input{width:100%;font-family:var(--body);font-size:1rem;padding:.7rem .8rem;
+  border:1px solid rgba(183,182,182,.75);border-radius:0}
+.txt-input:focus{outline:2px solid var(--orange);outline-offset:-1px}
+.picker{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;list-style:none;margin:0;padding:0}
+.picker button{display:inline-flex;align-items:center;gap:.45rem;background:none;border:0;padding:.15rem 0;
+  font-family:var(--body);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink);cursor:pointer}
+.circ{width:18px;height:18px;border-radius:50%;border:1px solid #999;flex:none;display:grid;place-items:center}
+.picker button[aria-pressed="true"] .circ{border:2px solid var(--orange)}
+.picker button[aria-pressed="true"]{font-weight:700}
+.circ--num{font-size:.62rem;letter-spacing:0;font-weight:600;color:var(--ink)}
+.picker button[aria-pressed="true"] .circ--num{background:var(--orange);color:#fff;border-color:var(--orange)}
+.chosen{font-size:.85rem;color:var(--ink-soft);margin-top:.5rem}
+.price-block{margin-top:26px;padding-top:18px;border-top:1px solid var(--line-soft)}
+.price{font-family:var(--head);font-size:2rem;font-weight:300;color:var(--orange);letter-spacing:.02em}
+.price small{font-family:var(--body);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);
+  text-transform:uppercase;margin-left:.4rem}
+.price-meta{font-size:.84rem;color:var(--ink-soft);margin:.2rem 0 1.1rem}
+.sets{list-style:none;margin:.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.sets li{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  background:var(--bg-soft);border:1px solid var(--line-soft);padding:.55rem .75rem;font-size:.86rem}
+.sets .set-x{background:none;border:0;cursor:pointer;color:var(--ink-soft);font-size:1.1rem;line-height:1;padding:0 .2rem}
+.sets .set-x:hover{color:var(--orange)}
+.sets-empty{font-size:.84rem;color:var(--ink-soft);margin:.8rem 0 0}
+
+/* ---- product blurb ---- */
+.blurb{max-width:70ch}
+
+/* ---- accordions ---- */
+.acc{border-top:1px solid var(--line-soft)}
+.acc:last-of-type{border-bottom:1px solid var(--line-soft)}
+.acc summary{list-style:none;cursor:pointer;padding:1.15rem 0;display:flex;align-items:center;
+  justify-content:space-between;gap:1rem;font-size:.85rem;letter-spacing:.15em;
+  text-transform:uppercase;font-weight:600}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"";width:10px;height:10px;border-right:1.5px solid var(--orange);
+  border-bottom:1.5px solid var(--orange);transform:rotate(45deg);transition:.2s;flex:none;margin-bottom:4px}
+.acc[open] summary::after{transform:rotate(-135deg);margin-bottom:-4px}
+.acc-body{padding:0 0 1.4rem;max-width:74ch}
+.acc-body ul{padding-left:1.15rem;margin:.4rem 0 1rem}
+.acc-body li{margin-bottom:.35rem}
+.acc-body h4{font-family:var(--body);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;margin:1.2rem 0 .4rem}
+
+/* ---- need assistance ---- */
+.assist{display:grid;grid-template-columns:320px 1fr;gap:44px;align-items:center}
+@media(max-width:820px){.assist{grid-template-columns:1fr;gap:26px}}
+.assist img{width:100%;object-fit:cover}
+.assist .rep{font-family:var(--head);font-size:1.5rem;font-weight:400;margin:0}
+.assist .role{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 .8rem}
+.assist .contact{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin-bottom:1rem}
+.assist .contact a{font-weight:600;color:var(--orange)}
+.assist .contact a:hover{text-decoration:underline}
+
+/* ---- resources ---- */
+.res-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:900px){.res-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.res-grid{grid-template-columns:repeat(2,1fr)}}
+.res-tile{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  gap:.4rem;text-align:center;padding:22px 10px;background:#fff;border:1px solid transparent;transition:.15s}
+.res-tile span{display:flex;align-items:flex-start;justify-content:center;min-height:2.4em}
+.res-tile:hover{background:var(--bg-soft);border-color:var(--line-soft)}
+.res-tile svg{width:64px;height:64px;flex:none}
+.res-tile span{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.res-tile:hover span{color:var(--orange)}
+
+/* ---- capability rows ---- */
+.cap{display:grid;grid-template-columns:2fr 3fr;gap:46px;align-items:center;margin-bottom:64px}
+.cap--flip{grid-template-columns:3fr 2fr}
+.cap--flip .cap-copy{order:2}
+@media(max-width:900px){
+  .cap,.cap--flip{grid-template-columns:1fr;gap:26px}
+  .cap--flip .cap-copy{order:0}
+}
+.cap h2{margin-bottom:.45rem}
+.cap ul{list-style:none;padding:0;margin:1rem 0 0}
+.cap li{position:relative;padding-left:1.1rem;font-size:.95rem;margin-bottom:.3rem}
+.cap li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;background:var(--orange)}
+.cap li.cap-sub{padding-left:0;font-weight:700;font-size:.78rem;letter-spacing:.13em;
+  text-transform:uppercase;margin:.9rem 0 .35rem}
+.cap li.cap-sub::before{display:none}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gal img{aspect-ratio:1;object-fit:cover;width:100%;background:var(--line-soft)}
+.gal img:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
+
+/* ---- testimonials ---- */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px}
+.quote{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line-soft)}
+.quote img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line-soft)}
+.quote-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.quote h3{font-size:1.15rem;font-weight:400;margin-bottom:.6rem}
+.quote p{font-size:.93rem;color:var(--ink-soft);flex:1}
+.quote cite{font-style:normal;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;color:var(--ink)}
+.quote .credit{font-size:.72rem;color:var(--ink-soft);padding:0 24px 14px;font-style:italic}
+
+/* ---- reviews strip ---- */
+.rev-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line-soft);padding-bottom:.9rem;margin-bottom:1.6rem}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.rev h4{font-family:var(--body);font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;margin:0 0 .3rem}
+.rev .meta{font-size:.76rem;color:var(--ink-soft);margin:0 0 .6rem}
+.rev p{font-size:.9rem;color:var(--ink-soft);margin:0}
+.stars{color:var(--orange);letter-spacing:.12em;font-size:.8rem}
+
+/* ---- footer ---- */
+.site-footer{border-top:1px solid var(--line-soft);background:var(--bg-soft);padding:38px 0;
+  font-size:.82rem;color:var(--ink-soft)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.foot a{color:var(--ink-soft)}
+.foot a:hover{color:var(--orange)}
+.foot-links{display:flex;gap:1.3rem;flex-wrap:wrap;letter-spacing:.1em;text-transform:uppercase}
+
+/* ---- a11y ---- */
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade" aria-current="page">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <a class="btn btn--primary btn--sm" href="#signup">Join Trade Program</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ TRADE ATTRIBUTE TICKER ============ -->
+  <section class="ticker">
+    <div class="container"><h1>Trade Professional</h1></div>
+    <div class="ticker-mask">
+      <div class="ticker-track" id="ticker" aria-hidden="true">
+        <span>Personal Service Representative</span>
+        <span>Large Quantities</span>
+        <span>Custom Logos and Fonts</span>
+        <span>Precision Crafted. Made to Last.</span>
+        <span>Architectural Quality</span>
+        <span>Installation Template Included</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carTrack">
+          <figure class="slide">
+            <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_1.jpg"
+                 alt="A Modern House Numbers representative assisting a trade customer" width="955" height="636">
+            <figcaption class="slide-cap">Personal Service Representative</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_2.jpg"
+                 alt="Large quantities of aluminum house numbers prepared for a trade order" width="955" height="637" loading="lazy">
+            <figcaption class="slide-cap">Large Quantities</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_3.jpg"
+                 alt="Custom logo and typeface signage fabricated in aluminum" width="955" height="636" loading="lazy">
+            <figcaption class="slide-cap">Custom Logos and Fonts</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_4.jpg"
+                 alt="Close inspection of a precision-cut aluminum numeral" width="955" height="636" loading="lazy">
+            <figcaption class="slide-cap">Precision Crafted. Made to Last.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_5.jpg"
+                 alt="Architectural-quality address numbers installed on a building facade" width="955" height="636" loading="lazy">
+            <figcaption class="slide-cap">Architectural Quality</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_6.jpg"
+                 alt="Paper drilling template used to install house numbers" width="955" height="637" loading="lazy">
+            <figcaption class="slide-cap">Installation Template Included</figcaption>
+          </figure>
+        </div>
+        <button class="car-btn car-btn--prev" id="carPrev" aria-label="Previous image" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg>
+        </button>
+        <button class="car-btn car-btn--next" id="carNext" aria-label="Next image" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="car-dots" id="carDots" role="tablist" aria-label="Choose image"></div>
+      </div>
+
+      <div>
+        <h2>Made for <b>your project</b>.</h2>
+        <p>Architect-led signage, made to order in Tucson. Choose from a curated collection of
+          architectural fonts, sizes, and finishes, with dedicated support from your Trade
+          Representative from complimentary proofs through installation.</p>
+
+        <form class="signup" id="signup" method="get"
+              action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <span class="label">Unlock Exclusive Trade Perks and Benefits</span>
+          <div class="field-row">
+            <label class="skip" for="fname">First name</label>
+            <input id="fname" name="first_name" type="text" placeholder="First Name" autocomplete="given-name" required>
+            <label class="skip" for="lname">Last name</label>
+            <input id="lname" name="last_name" type="text" placeholder="Last Name" autocomplete="family-name" required>
+          </div>
+          <label class="skip" for="company">Company name</label>
+          <input id="company" name="company" type="text" placeholder="Company Name" autocomplete="organization" style="margin-bottom:10px">
+          <label class="skip" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+          <button class="btn btn--primary btn--block" type="submit">Join Our Trade Program</button>
+          <p class="fineprint">Continues to the Modern House Numbers trade signup to finish your application.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ ORDER TABS + CONFIGURATOR ============ -->
+  <section class="section" id="numbers" style="padding-top:8px">
+    <div class="container">
+
+      <div class="tabbar" role="list">
+        <button class="is-active" type="button" role="listitem" aria-current="true">Order Numbers + Letters</button>
+        <a href="#plaques" role="listitem">Order Plaques</a>
+        <a href="https://www.modernhousenumbers.com/products/quick-ship" role="listitem">Order QuickShip</a>
+        <a href="https://www.modernhousenumbers.com/products/restroom-signs" role="listitem">Order Restroom Signs</a>
+      </div>
+
+      <div class="config">
+
+        <!-- live preview, rendered in the genuine MHN typefaces -->
+        <div class="config-preview">
+          <div class="stage">
+            <div class="stage-text" id="stageText" style="font-family:PalmSprings">123Abc</div>
+          </div>
+          <p class="stage-note" id="stageNote">Palm Springs · Brushed Aluminum · 6&quot; high</p>
+        </div>
+
+        <div>
+          <div class="opt">
+            <span class="label" id="lbl-text">Enter Your Text</span>
+            <input class="txt-input" id="txtInput" type="text" value="123Abc" maxlength="24"
+                   aria-labelledby="lbl-text" placeholder="e.g. 1425 or Suite B">
+            <p class="chosen" id="charCount">6 characters</p>
+          </div>
+
+          <div class="opt">
+            <span class="label" id="lbl-font">Select Your Font</span>
+            <ul class="picker" id="fontPicker" aria-labelledby="lbl-font">
+              <li><button type="button" data-font="PalmSprings" data-label="Palm Springs" aria-pressed="true"><span class="circ"></span>Palm Springs</button></li>
+              <li><button type="button" data-font="SoCalMHN" data-label="SoCal" aria-pressed="false"><span class="circ"></span>SoCal</button></li>
+              <li><button type="button" data-font="AustinMHN" data-label="Austin" aria-pressed="false"><span class="circ"></span>Austin</button></li>
+              <li><button type="button" data-font="SohoMHN" data-label="Soho" aria-pressed="false"><span class="circ"></span>Soho</button></li>
+              <li><button type="button" data-font="BackbayMHN" data-label="Backbay" aria-pressed="false"><span class="circ"></span>Backbay</button></li>
+              <li><button type="button" data-font="SouthbeachMHN" data-label="South Beach" aria-pressed="false"><span class="circ"></span>South Beach</button></li>
+              <li><button type="button" data-font="SantaBarbaraMHN" data-label="Santa Barbara" aria-pressed="false"><span class="circ"></span>Santa Barbara</button></li>
+            </ul>
+          </div>
+
+          <div class="opt">
+            <span class="label" id="lbl-finish">Finish</span>
+            <ul class="picker" id="finishPicker" aria-labelledby="lbl-finish">
+              <li><button type="button" data-finish="#cccccc" data-label="Brushed Aluminum" aria-pressed="true"><span class="circ" style="background:#cccccc"></span></button></li>
+              <li><button type="button" data-finish="#000000" data-label="Matte Black" aria-pressed="false"><span class="circ" style="background:#000000"></span></button></li>
+              <li><button type="button" data-finish="#ffffff" data-label="White" aria-pressed="false"><span class="circ" style="background:#ffffff"></span></button></li>
+              <li><button type="button" data-finish="#b5a642" data-label="Matte Brass" aria-pressed="false"><span class="circ" style="background:#b5a642"></span></button></li>
+              <li><button type="button" data-finish="#553333" data-label="Dark Bronze" aria-pressed="false"><span class="circ" style="background:#553333"></span></button></li>
+            </ul>
+            <p class="chosen" id="finishName">Brushed Aluminum</p>
+          </div>
+
+          <div class="opt">
+            <span class="label" id="lbl-size">Height (Inches)</span>
+            <ul class="picker" id="sizePicker" aria-labelledby="lbl-size">
+              <li><button type="button" data-size="4"  aria-pressed="false"><span class="circ circ--num">4</span></button></li>
+              <li><button type="button" data-size="6"  aria-pressed="true"><span class="circ circ--num">6</span></button></li>
+              <li><button type="button" data-size="8"  aria-pressed="false"><span class="circ circ--num">8</span></button></li>
+              <li><button type="button" data-size="12" aria-pressed="false"><span class="circ circ--num">12</span></button></li>
+              <li><button type="button" data-size="15" aria-pressed="false"><span class="circ circ--num">15</span></button></li>
+            </ul>
+            <p class="chosen" id="sizeName">6&quot; high</p>
+          </div>
+
+          <div class="opt">
+            <span class="label" id="lbl-orient">Orientation</span>
+            <ul class="picker" id="orientPicker" aria-labelledby="lbl-orient">
+              <li><button type="button" data-orient="both"       aria-pressed="true"><span class="circ"></span>Both</button></li>
+              <li><button type="button" data-orient="horizontal" aria-pressed="false"><span class="circ"></span>Horizontal</button></li>
+              <li><button type="button" data-orient="vertical"   aria-pressed="false"><span class="circ"></span>Vertical</button></li>
+            </ul>
+            <p class="chosen" id="orientName">Both installation templates</p>
+          </div>
+
+          <div class="opt">
+            <span class="label">Sets</span>
+            <button class="btn btn--ghost" id="addSet" type="button">Add to Sets</button>
+            <ul class="sets" id="setList"></ul>
+            <p class="sets-empty" id="setsEmpty">No sets added yet — build a set above, then add it.</p>
+          </div>
+
+          <div class="price-block">
+            <p class="price"><span id="priceTotal">$0.00</span><small>USD</small></p>
+            <p class="price-meta"><span id="priceMeta">0 item(s) @ $29.50 each</span></p>
+            <a class="btn btn--primary btn--block" id="orderBtn"
+               href="https://www.modernhousenumbers.com/products/house-numbers">Order Numbers + Letters</a>
+            <p class="fineprint muted" style="font-size:.78rem;margin-top:.7rem">
+              Estimate only. Continues to modernhousenumbers.com with your selections to add to cart and check out.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT BLURB ============ -->
+  <section class="section section--soft">
+    <div class="container">
+      <h2>Modern numbers and letters in multiples. Made to last.</h2>
+      <p class="blurb">Shop house numbers, letters and symbols from Modern House Numbers for elevated
+        curb appeal and improved address visibility; architect-designed signage crafted from solid,
+        recycled aluminum in 7 fonts, 5 durable finishes in 5 sizes. Every order arrives with concealed
+        mounting hardware for a floating effect and a personalized drilling template for
+        professional-quality installation. Each item is custom-made, items are not returnable.</p>
+
+      <div style="max-width:74ch;margin-top:26px">
+        <details class="acc" open>
+          <summary>What You&rsquo;ll Get</summary>
+          <div class="acc-body">
+            <p>With your order we&rsquo;ll include:</p>
+            <ul>
+              <li>Concealed mounting hardware: 2 inch steel studs, &frac12; inch aluminum spacers</li>
+              <li>Your choice of drilling templates: horizontal, vertical or both orientations.</li>
+              <li>Step-by-step Installation Instructions</li>
+            </ul>
+            <h4>For orders with multiple sets, we&rsquo;ll:</h4>
+            <ul>
+              <li>Carefully wrap each set with its own drilling template and hardware</li>
+              <li>Include extra mounting hardware</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="acc">
+          <summary>Details</summary>
+          <div class="acc-body">
+            <ul>
+              <li>Solid, 3/8 inch thick, recycled aluminum</li>
+              <li>Concealed mounting hardware for floating or flush mount</li>
+              <li>Brushed Aluminum Finish: Water-based UV protectant</li>
+              <li>Powder Coat Finish: Low-VOC, won&rsquo;t chip, rust, or flake</li>
+              <li>Coastal or industrial area: powder coat finish recommended</li>
+              <li><a href="https://www.modernhousenumbers.com/pages/faqs" style="color:var(--orange)">Product FAQs</a></li>
+              <li>Product widths: <a href="https://www.modernhousenumbers.com/pages/resources#specifications" style="color:var(--orange)">Technical Specifications</a></li>
+              <li><a href="https://www.modernhousenumbers.com/pages/resources#sizing" style="color:var(--orange)">Viewing distances</a></li>
+              <li>Handcrafted in the USA</li>
+              <li>Customization available &mdash; reach out to your Professional Representative, Terry Billingsley</li>
+              <li>Sorry, no returns</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="acc">
+          <summary>Manufacturing + Delivery</summary>
+          <div class="acc-body">
+            <h4>Manufacturing:</h4>
+            <ul>
+              <li>All our items are made to order</li>
+              <li>Average Manufacturing Times:<br>1 &ndash; 50 pieces: 15&ndash;20 business days<br>50+ pieces: email Terry for more information</li>
+            </ul>
+            <p>Need numbers faster? Check out our QuickShip Numbers, which are in stock. Ship next
+              business day. Order from our
+              <a href="https://www.modernhousenumbers.com/products/quick-ship" style="color:var(--orange)">QuickShip Numbers</a> page.</p>
+            <h4>Delivery:</h4>
+            <ul>
+              <li>International shipping available</li>
+              <li>Enter zip code during checkout to estimate shipping cost</li>
+              <li>If USPS doesn&rsquo;t deliver to your address, contact us</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS (excerpt; full set lives on the Shopify product page) ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="rev-head">
+        <h2 style="margin:0">Customer Reviews</h2>
+        <a href="https://www.modernhousenumbers.com/products/house-numbers#reviews"
+           class="label" style="color:var(--orange)">640 Reviews &rarr;</a>
+      </div>
+      <div class="rev-grid">
+        <article class="rev">
+          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <h4>Love my new street numbers!</h4>
+          <p class="meta">Poly on Sep 1, 2026 &middot; Edwards, Colorado</p>
+        </article>
+        <article class="rev">
+          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <h4>Fabulous</h4>
+          <p class="meta">Mary F on Aug 22, 2026 &middot; So Cal</p>
+          <p>Installed the 12 inch So Cal numbers on our midcentury modern home. The numbers are well
+            made with some weight, much better than any I&rsquo;ve seen &ndash; should hold up well.
+            Very pleased with the process, items were packaged securely with an easy installation guide.</p>
+        </article>
+        <article class="rev">
+          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <h4>Beautiful touch</h4>
+          <p class="meta">Jodi on Aug 19, 2026 &middot; MO</p>
+          <p>The ordering process was easy. Install using the template was easy and accurate. The
+            numbers are well made a high quality. Add a touch of class to your house!</p>
+        </article>
+        <article class="rev">
+          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <h4>Elevated style</h4>
+          <p class="meta">Michelle on Aug 2, 2026 &middot; South Bay, California</p>
+          <p>We were looking for a way to complete our exterior remodel of our home, when we came
+            across modern house numbers. I&rsquo;m so glad we did. With an elevated style beyond our
+            expectations!</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEED ASSISTANCE ============ -->
+  <section class="section section--soft">
+    <div class="container">
+      <h2 class="center" style="margin-bottom:34px">Need Assistance?</h2>
+      <div class="assist">
+        <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/terry2_wide.jpg"
+             alt="Terry Billingsley, Trade Representative at Modern House Numbers" loading="lazy">
+        <div>
+          <p class="rep">Terry Billingsley</p>
+          <p class="role">Trade Representative</p>
+          <p class="contact">
+            <a href="tel:+14802368186">480-236-8186</a>
+            <a href="mailto:terry@modernhousenumbers.com">terry@modernhousenumbers.com</a>
+          </p>
+          <p>Industry professionals can contact Terry directly for personalized design assistance,
+            custom estimates, digital proofs, or installation troubleshooting. For projects large or
+            small, he&rsquo;s ready for your questions, bulk orders, or help with custom requests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESOURCES ============ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="center" style="margin-bottom:30px">Resources</h2>
+      <div class="res-grid">
+
+        <a class="res-tile" href="https://www.modernhousenumbers.com/pages/installation">
+          <svg viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="#58595b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M33 74 74 33"/><path d="M29 78l-2 6 6-2"/>
+              <rect x="66" y="25" width="14" height="14" transform="rotate(45 73 32)"/>
+            </g>
+            <path d="M44 60h20v2.6H44z" fill="#f26b21"/>
+            <path d="M44 66h20v2.6H44z" fill="#f26b21"/>
+          </svg>
+          <span>Installation</span>
+        </a>
+
+        <a class="res-tile" href="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <svg viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="#58595b" stroke-width="2.2" stroke-linejoin="round">
+              <path d="M34 30h30l10 10v40H34z"/><path d="M64 30v10h10"/>
+            </g>
+            <g fill="none" stroke="#f26b21" stroke-width="2.2" stroke-linecap="round">
+              <path d="M42 56h24M42 64h24M42 72h14"/>
+            </g>
+          </svg>
+          <span>Join + Save</span>
+        </a>
+
+        <a class="res-tile" href="https://www.modernhousenumbers.com/pages/resources#sizing">
+          <svg viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="#58595b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 46h60v16H24z"/>
+              <path d="M36 46v6M48 46v9M60 46v6M72 46v9"/>
+            </g>
+            <path d="M24 70h60" fill="none" stroke="#f26b21" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M28 66l-4 4 4 4M80 66l4 4-4 4" fill="none" stroke="#f26b21" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Sizing + Visibility</span>
+        </a>
+
+        <a class="res-tile" href="https://cms.modernhousenumbers.com/wp-content/uploads/2025/03/2025TradeInspirationGuide.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="#58595b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="50" cy="46" r="17"/><path d="M62 58l16 16"/>
+              <path d="M30 40v42h42"/>
+            </g>
+            <path d="M44 44h12v2.4H44zM44 50h12v2.4H44z" fill="#f26b21"/>
+          </svg>
+          <span>Inspiration Guide</span>
+        </a>
+
+        <a class="res-tile" href="https://www.modernhousenumbers.com/pages/resources#specifications">
+          <svg viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="#58595b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 28h34l14 14v38H30z"/><path d="M64 28v14h14"/>
+            </g>
+            <g fill="none" stroke="#f26b21" stroke-width="2.2" stroke-linecap="round">
+              <path d="M40 54h28M40 62h28M40 70h18"/>
+            </g>
+          </svg>
+          <span>Technical Specifications</span>
+        </a>
+
+        <a class="res-tile" href="https://app.modernhousenumbers.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 108 108" aria-hidden="true">
+            <g fill="none" stroke="#58595b" stroke-width="2.2" stroke-linejoin="round">
+              <rect x="26" y="32" width="56" height="40"/><path d="M26 44h56"/><path d="M40 80h28"/>
+            </g>
+            <circle cx="33" cy="38" r="2" fill="#f26b21"/>
+            <circle cx="40" cy="38" r="2" fill="#f26b21"/>
+            <path d="M44 56h20v2.6H44z" fill="#f26b21"/>
+          </svg>
+          <span>Trade Portal</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPABILITIES ============ -->
+  <section class="section section--soft" id="plaques">
+    <div class="container">
+
+      <div class="cap cap--flip">
+        <div class="cap-copy">
+          <h2>Large Quantities</h2>
+          <p>From housing developments to apartment buildings, we&rsquo;re experienced in creating
+            durable, high-quality coordinated signage in large quantities. Custom sizes, shapes and
+            integrated logos are all possible.</p>
+        </div>
+        <div class="gal">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_1.jpg" alt="Coordinated aluminum signage produced in large quantities" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_2.jpg" alt="Bulk address numbers for a housing development" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_3.jpg" alt="Apartment building unit numbering" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_4.jpg" alt="Sequenced numbering across multiple units" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_5.jpg" alt="Custom-sized signage with an integrated logo" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_6.jpg" alt="Large-quantity signage run, image 6" loading="lazy">
+        </div>
+      </div>
+
+      <div class="cap">
+        <div class="cap-copy">
+          <h2>Addressing<br>+ Exterior Signage</h2>
+          <p>From condominiums and high rise apartment buildings to multi-family residential
+            developments, we provide modern, commercial-grade signage to get their attention and
+            elevate your property value.</p>
+          <ul>
+            <li>Unit and Suite Numbers</li>
+            <li>Addressing for Single or Multiple Properties</li>
+            <li>Addressing in sequence</li>
+            <li>Tenant Signage</li>
+            <li>Business and Office Signage</li>
+            <li>Office Park Addressing</li>
+            <li>Shopping Centers</li>
+          </ul>
+        </div>
+        <div class="gal">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_1.jpg" alt="Exterior address numbers on a modern building" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_2.jpg" alt="Condominium unit numbers in brushed aluminum" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_3.jpg" alt="Suite numbering at a commercial entrance" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_4.jpg" alt="Tenant signage on an office exterior" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_5.jpg" alt="Shopping centre address signage" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_6.jpg" alt="Exterior address and unit signage, image 6" loading="lazy">
+        </div>
+      </div>
+
+      <div class="cap cap--flip">
+        <div class="cap-copy">
+          <h2>Hospitality<br>+ Interior Signs</h2>
+          <p>We&rsquo;re experts in cohesive and stylish interior signage for rooms, suites, doors,
+            restrooms, conference rooms, offices and more! Custom shapes, sizes, and integrated logos
+            are all possible.</p>
+          <ul>
+            <li>Office</li>
+            <li>Hospitality &amp; Restaurant</li>
+            <li>Medical &amp; Dental</li>
+            <li>Boutique Hotel &amp; Resort</li>
+            <li>Senior Living</li>
+            <li>Student Housing</li>
+          </ul>
+        </div>
+        <div class="gal">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_1.jpg" alt="Interior room identification signage" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_2.jpg" alt="Hotel suite numbers mounted on a door" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_3.jpg" alt="Conference room signage in a modern office" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_4.jpg" alt="Restaurant interior signage in aluminum" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_5.jpg" alt="Medical office door signage" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_6.jpg" alt="Interior and hospitality signage, image 6" loading="lazy">
+        </div>
+      </div>
+
+      <div class="cap">
+        <div class="cap-copy">
+          <h2>Wayfinding</h2>
+          <p>Help them find their way in style! We specialize in modern and eye-catching directional
+            and informational signage for stairs, elevators, entries, exits, parking and more!</p>
+          <ul>
+            <li>Interior Directional Signage (such as elevators, stair landing, laundry room, floor numbers)</li>
+            <li>Exterior Directional Signage (such as suite locations, service entrance, parking)</li>
+            <li>Business and Commercial Signage</li>
+          </ul>
+        </div>
+        <div class="gal">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_1.jpg" alt="Directional wayfinding signage in a building lobby" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_2.jpg" alt="Elevator and floor-level wayfinding signage" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_3.jpg" alt="Stair landing floor numbering" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_4.jpg" alt="Parking and service entrance direction signs" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_5.jpg" alt="Exterior directional signage for suite locations" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_6.jpg" alt="Directional wayfinding signage, image 6" loading="lazy">
+        </div>
+      </div>
+
+      <div class="cap cap--flip">
+        <div class="cap-copy">
+          <h2>Monuments + Logos</h2>
+          <p>Attention-grabbing monument signs and distinctive graphics are our specialty! Choose from
+            our in-house options or let us create something unique. Large-scale, commercial-grade and
+            made to last.</p>
+          <ul>
+            <li class="cap-sub">Exterior:</li>
+            <li>Free-Standing Monument Signs</li>
+            <li>Custom Logo Signs</li>
+            <li class="cap-sub">Interior:</li>
+            <li>Reception Desk Graphics</li>
+            <li>Interior Wall-Mounted Logo Signs</li>
+            <li>Large Scale Decals</li>
+          </ul>
+        </div>
+        <div class="gal">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_1.jpg" alt="Free-standing metal monument sign at a business entrance" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_2.jpg" alt="Custom logo sign fabricated in aluminum" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_3.jpg" alt="Reception desk logo graphics" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_4.jpg" alt="Interior wall-mounted logo signage" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_5.jpg" alt="Large-scale monument signage installation" loading="lazy">
+          <img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_6.jpg" alt="Monument and logo signage, image 6" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TRADE TESTIMONIALS ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="quotes">
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_hakes.jpg" alt="Hakes Sash &amp; Door project featuring Modern House Numbers" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;Exceeds our expectations!&rdquo;</h3>
+            <p>&ldquo;At Hakes Sash &amp; Door we source only the highest quality products for our
+              customers and clients. MHN exceeds our expectations for quality, style and customer
+              service every time.&rdquo;</p>
+            <cite>&mdash; William Wunderlich, Hakes Sash &amp; Door</cite>
+          </div>
+        </article>
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_ca.jpg" alt="Carson Arthur Design project featuring Modern House Numbers" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;Easy to order. Easy to use!&rdquo;</h3>
+            <p>&ldquo;Blown away by how easy it was to order and use this product. Excited to feature
+              them on an episode of my HGTV Canada show &ldquo;Critical Listing&rdquo;. Side
+              note&hellip;the surprised homeowners loved them too!&rdquo;</p>
+            <cite>&mdash; Carson Arthur Design / HGTV Canada</cite>
+          </div>
+        </article>
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_munro.jpg" alt="Munro Homes project featuring Modern House Numbers" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;50 projects and counting!&rdquo;</h3>
+            <p>&ldquo;Since 2010, we have 50+ homes with Modern House Numbers. They remain as
+              beautiful as the day they were installed! The quality product that we receive from MHN
+              outweighs any financial objections due to our location in Western Canada.&rdquo;</p>
+            <cite>&mdash; Heather McGinnis, Munro Homes, Canada</cite>
+          </div>
+        </article>
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_odyssey.jpg" alt="Odyssey Construction multi-unit project featuring Modern House Numbers" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;Perfect for our multi-unit buildings!&rdquo;</h3>
+            <p>&ldquo;We build modern homes in Nashville, often with an A&amp;B unit. We had difficulty
+              finding quality numbers / letters until we came across Modern House Numbers. We will use
+              MHN on all of our new homes!&rdquo;</p>
+            <cite>&mdash; Odyssey Construction, LLC 2014</cite>
+          </div>
+        </article>
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_sla.jpg" alt="Sorell Project by Shaun Lockyer Architects" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;A signature piece found on every one of our homes.&rdquo;</h3>
+            <p>&ldquo;Modern House Numbers are now found on every one of our homes. Their timeless and
+              unique products constitute the ultimate punctuation mark to the story of our work.&rdquo;</p>
+            <cite>&mdash; Shaun Lockyer, Shaun Lockyer Architects, Australia</cite>
+          </div>
+          <p class="credit">Sorell Project, Shaun Lockyer Architects, photograph: Scott Burrows Photography</p>
+        </article>
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_granger.jpg" alt="Beau Development home featuring Modern House Numbers" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;Our go-to for house numbers!&rdquo;</h3>
+            <p>&ldquo;MHN is our go-to for house numbers. The variety and quality of products are
+              top-of-the-line, offering the perfect finishing touch to accentuate our homes.&rdquo;</p>
+            <cite>&mdash; Beau Granger, Beau Development, Seattle, WA</cite>
+          </div>
+        </article>
+
+        <article class="quote">
+          <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/testim_4.jpg" alt="H3K Design mid-century renovation in Palm Springs" loading="lazy">
+          <div class="quote-body">
+            <h3>&ldquo;Perfectly accentuates our designs!&rdquo;</h3>
+            <p>&ldquo;We renovate many mid-century homes of various architectural styles in Palm
+              Springs, California. Modern House Numbers never disappoints with the perfect style to
+              accentuate our designs.&rdquo;</p>
+            <cite>&mdash; Howard Hawkes &amp; Kevin Kemper, H3K Design</cite>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container foot">
+    <span>&copy; Modern House Numbers &middot; Handcrafted in Tucson, USA</span>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="https://www.modernhousenumbers.com/pages/contact">Contact</a>
+      <a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="https://app.modernhousenumbers.com/">Trade Portal</a>
+      <a href="https://www.modernhousenumbers.com">modernhousenumbers.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- hero carousel ---------------- */
+  var track = document.getElementById('carTrack');
+  if (track) {
+    var slides = track.children.length,
+        dots   = document.getElementById('carDots'),
+        idx    = 0,
+        timer;
+
+    for (var i = 0; i < slides; i++) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', 'Image ' + (i + 1));
+      d.dataset.i = i;
+      dots.appendChild(d);
+    }
+
+    function show(n) {
+      idx = (n + slides) % slides;
+      track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      var bs = dots.children;
+      for (var j = 0; j < bs.length; j++) {
+        bs[j].setAttribute('aria-selected', j === idx ? 'true' : 'false');
+      }
+    }
+    function next() { show(idx + 1); }
+
+    dots.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (b) { show(+b.dataset.i); restart(); }
+    });
+    document.getElementById('carPrev').addEventListener('click', function () { show(idx - 1); restart(); });
+    document.getElementById('carNext').addEventListener('click', function () { next(); restart(); });
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function restart() { clearInterval(timer); if (!reduce) timer = setInterval(next, 6000); }
+
+    show(0);
+    restart();
+    document.getElementById('carousel').addEventListener('mouseenter', function () { clearInterval(timer); });
+    document.getElementById('carousel').addEventListener('mouseleave', restart);
+  }
+
+  /* ---------------- ticker: duplicate the run so the loop is seamless ---------------- */
+  var tick = document.getElementById('ticker');
+  if (tick) { tick.innerHTML += tick.innerHTML; }
+
+  /* ---------------- configurator ---------------- */
+  var UNIT_PRICE = 29.50;          // 6" base, matches the live page
+  var SIZE_FACTOR = { 4: 0.8, 6: 1, 8: 1.45, 12: 2.6, 15: 3.6 };
+
+  var state = {
+    text: '123Abc',
+    font: 'PalmSprings', fontLabel: 'Palm Springs',
+    finish: '#cccccc',   finishLabel: 'Brushed Aluminum',
+    size: '6',
+    orient: 'both'
+  };
+  var sets = [];
+
+  var stageText = document.getElementById('stageText'),
+      stageNote = document.getElementById('stageNote'),
+      txtInput  = document.getElementById('txtInput'),
+      charCount = document.getElementById('charCount'),
+      setList   = document.getElementById('setList'),
+      setsEmpty = document.getElementById('setsEmpty'),
+      priceTotal= document.getElementById('priceTotal'),
+      priceMeta = document.getElementById('priceMeta'),
+      orderBtn  = document.getElementById('orderBtn');
+
+  function chars(s) { return s.replace(/\s/g, '').length; }
+
+  function money(n) {
+    return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function paintStage() {
+    stageText.textContent = state.text || '123Abc';
+    stageText.style.fontFamily = state.font;
+    stageText.style.color = state.finish;
+    // white needs a hairline so it stays visible on the light stage
+    stageText.style.webkitTextStroke = (state.finish === '#ffffff') ? '1px #b7b6b6' : '';
+    stageText.classList.toggle('is-vertical', state.orient === 'vertical');
+    stageNote.textContent = state.fontLabel + ' · ' + state.finishLabel + ' · ' + state.size + '" high';
+    charCount.textContent = chars(state.text) + (chars(state.text) === 1 ? ' character' : ' characters');
+  }
+
+  function paintPrice() {
+    var units = 0, total = 0;
+    sets.forEach(function (s) {
+      var n = chars(s.text);
+      units += n;
+      total += n * UNIT_PRICE * (SIZE_FACTOR[s.size] || 1);
+    });
+    priceTotal.textContent = money(total);
+    priceMeta.textContent = units + ' item(s) @ ' + money(UNIT_PRICE) + ' each (6″ base)';
+
+    // hand the current selection to the real product page
+    var q = new URLSearchParams({
+      text: state.text, font: state.fontLabel, finish: state.finishLabel,
+      size: state.size, orientation: state.orient
+    });
+    orderBtn.href = 'https://www.modernhousenumbers.com/products/house-numbers?' + q.toString();
+  }
+
+  function paintSets() {
+    setList.innerHTML = '';
+    sets.forEach(function (s, i) {
+      var li = document.createElement('li');
+      var span = document.createElement('span');
+      span.textContent = s.text + ' — ' + s.fontLabel + ', ' + s.finishLabel + ', ' + s.size + '" ' + s.orient;
+      var x = document.createElement('button');
+      x.type = 'button';
+      x.className = 'set-x';
+      x.setAttribute('aria-label', 'Remove set ' + s.text);
+      x.textContent = '×';
+      x.addEventListener('click', function () { sets.splice(i, 1); paintSets(); paintPrice(); });
+      li.appendChild(span); li.appendChild(x);
+      setList.appendChild(li);
+    });
+    setsEmpty.hidden = sets.length > 0;
+  }
+
+  /* generic single-select picker */
+  function wire(id, apply) {
+    var ul = document.getElementById(id);
+    if (!ul) return;
+    ul.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      ul.querySelectorAll('button').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      apply(b);
+      paintStage(); paintPrice();
+    });
+  }
+
+  wire('fontPicker', function (b) { state.font = b.dataset.font; state.fontLabel = b.dataset.label; });
+  wire('finishPicker', function (b) {
+    state.finish = b.dataset.finish; state.finishLabel = b.dataset.label;
+    document.getElementById('finishName').textContent = b.dataset.label;
+  });
+  wire('sizePicker', function (b) {
+    state.size = b.dataset.size;
+    document.getElementById('sizeName').textContent = b.dataset.size + '" high';
+  });
+  wire('orientPicker', function (b) {
+    state.orient = b.dataset.orient;
+    var map = { both: 'Both installation templates', horizontal: 'Horizontal installation template', vertical: 'Vertical installation template' };
+    document.getElementById('orientName').textContent = map[b.dataset.orient];
+  });
+
+  txtInput.addEventListener('input', function () {
+    state.text = txtInput.value;
+    paintStage();
+  });
+
+  document.getElementById('addSet').addEventListener('click', function () {
+    if (!chars(state.text)) { txtInput.focus(); return; }
+    sets.push({
+      text: state.text, fontLabel: state.fontLabel,
+      finishLabel: state.finishLabel, size: state.size, orient: state.orient
+    });
+    paintSets(); paintPrice();
+  });
+
+  paintStage(); paintSets(); paintPrice();
+})();
+</script>
+
+</body>
+</html>

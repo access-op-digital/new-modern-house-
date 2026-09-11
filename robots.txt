@@ -1,0 +1,5 @@
+# Preview deployment of a page that already exists at
+# https://www.modernhousenumbers.com/pages/trade
+# Kept out of search so it never competes with the live page.
+User-agent: *
+Disallow: /
