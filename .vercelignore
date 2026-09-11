@@ -1,0 +1,3 @@
+# Repo-only files — kept in git, never served on the deployment.
+*.md
+.claude/
