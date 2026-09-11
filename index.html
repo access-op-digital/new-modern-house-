@@ -265,6 +265,9 @@ p{margin:0 0 1rem}
 
 /* right column */
 .pageheader{font-family:var(--head);font-size:1.4rem;font-weight:500;margin:0 0 .5rem}
+.tab-hero{width:100%;height:auto;object-fit:cover}
+.section-head{font-family:var(--head);font-size:clamp(1.5rem,2.8vw,2rem);font-weight:300;margin:0 0 .5rem}
+.section-lead{max-width:74ch;font-size:.95rem;margin:0 0 1.2rem}
 .cfg-desc{font-size:.88rem;margin-bottom:.5rem}
 .price_block{margin-top:16px}
 .price{color:var(--orange);letter-spacing:.02em}
@@ -367,9 +370,10 @@ p{margin:0 0 1rem}
   .assist-col,.res-col{width:50%}
 }
 .assist-col{background:#fff;padding:28px 24px 32px}
-.assist-col h2{text-align:center;font-size:clamp(1.5rem,2.6vw,1.85rem);margin:0 0 1.2rem}
+.assist-col .sr-head{text-align:center;font-size:clamp(1.5rem,2.6vw,1.85rem);margin:0 0 1.2rem}
 .assist-col img{width:100%;height:auto;object-fit:contain;margin-bottom:1rem;background:var(--line-soft)}
 .assist-contact{margin:.5rem 0}
+.assist-intro{font-size:.92rem}
 .assist-contact .rep{font-family:var(--head);font-size:1.15rem;font-weight:400}
 .assist-contact .role{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 .assist-contact a{color:var(--orange);font-weight:600;font-size:.9rem;margin-right:1rem}
@@ -419,6 +423,9 @@ p{margin:0 0 1rem}
 .quote-copy p{font-size:.95rem;color:var(--ink);margin:0 0 .8rem}
 .quote-copy cite{font-style:normal;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
   font-weight:600;color:var(--ink)}
+.cap-sub{font-size:.9rem;color:var(--ink-soft);margin-bottom:.7rem}
+.proj-loc{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 .7rem}
+.needs-quote{color:var(--orange);font-style:italic}
 .quote-credit{font-size:.7rem;color:var(--ink-soft);font-style:italic;margin:.4rem 0 0}
 
 /* ---- reviews strip ---- */
@@ -455,6 +462,90 @@ p{margin:0 0 1rem}
   border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
 .foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
 
+/* ---- new doc sections: who we serve, benefits, final CTA ---- */
+.center{text-align:center}
+.section-lead.center,.section-head.center{margin-inline:auto;text-align:center}
+.who-serve{padding:44px 0 8px}
+.serve-list{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 2.4rem;
+  margin:1.4rem 0 0;padding:0}
+.serve-list li{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  color:var(--ink);position:relative}
+.serve-list li+li::before{content:"|";position:absolute;left:-1.25rem;color:var(--line);font-weight:400}
+.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:1.8rem}
+.benefit h3{font-family:var(--head);font-size:1.1rem;font-weight:500;margin:0 0 .5rem;
+  padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.benefit p{font-size:.88rem;color:var(--ink);margin:0}
+.final-cta{background:var(--bg-soft)}
+.final-actions{display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.2rem}
+.final-mail{color:var(--orange);font-weight:600;font-size:.92rem}
+.final-mail:hover{text-decoration:underline}
+.final-join{font-size:.9rem;margin-top:1.4rem;display:flex;align-items:center;justify-content:center;
+  gap:.8rem;flex-wrap:wrap}
+
+/* ---- suggestion review mode (same mechanics as the /revised/ page) ---- */
+:root{--sg:#188038;--sg-bg:#e6f4ea;--sg-strong:#0f5c28;--sg-bar:#fffbe6;--sg-bar-line:#f1e3a3}
+.sg-bar{position:sticky;top:0;z-index:60;background:var(--sg-bar);
+  border-bottom:1px solid var(--sg-bar-line);font-size:.82rem}
+.sg-bar-inner{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 24px}
+.sg-bar-title{display:inline-flex;align-items:center;gap:.4rem;font-weight:800;
+  color:var(--sg-strong);letter-spacing:.02em}
+.sg-bar-title svg{width:1em;height:1em;fill:var(--sg);flex:none}
+.sg-bar-note{color:#6b6b6b;flex:1 1 0}
+.sg-bar-actions{display:inline-flex;gap:.4rem;flex-wrap:wrap}
+.sg-mode,.sg-open,.sg-jump{font:inherit;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:700;padding:.35rem .8rem;border:1px solid var(--line);background:#fff;color:var(--ink);
+  cursor:pointer;border-radius:0}
+.sg-mode.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sg-open{background:var(--sg);border-color:var(--sg);color:#fff}
+
+/* inline marks */
+.sg{cursor:pointer}
+.sg del{color:var(--sg);text-decoration:line-through 2px;background:var(--sg-bg)}
+.sg ins{color:var(--sg);text-decoration:underline 2px;text-underline-offset:.15em;background:var(--sg-bg)}
+.sg del::after{content:" "}
+.sg:hover del,.sg:hover ins,.sg.is-active del,.sg.is-active ins{background:#c8e6cf}
+.sg-new{display:block}
+.sg-new > ins{display:block;text-decoration:none;background:var(--sg-bg);
+  box-shadow:inset 3px 0 0 var(--sg);padding:.1rem 0 .1rem .9rem}
+.sg-tag{display:inline-block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:800;color:#fff;background:var(--sg);padding:.12rem .45rem;margin-bottom:.5rem}
+
+/* preview-final mode: drop the old wording, show the new as plain copy */
+body.sg-final .sg del{display:none}
+body.sg-final .sg ins,body.sg-final .sg-new > ins{color:inherit;text-decoration:none;background:none;
+  box-shadow:none;padding:0}
+body.sg-final .sg{cursor:auto}
+body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
+
+/* comments drawer */
+.sg-drawer{position:fixed;top:0;right:0;height:100vh;width:min(390px,100vw);background:#fff;
+  border-left:1px solid var(--line);z-index:80;transform:translateX(102%);transition:transform .25s;
+  display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.12)}
+.sg-drawer.is-open{transform:none}
+.sg-drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;
+  border-bottom:1px solid var(--line);font-size:1rem}
+.sg-close{font:inherit;font-size:1.5rem;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink-soft)}
+.sg-close:hover{color:var(--orange)}
+.sg-drawer-intro{padding:1rem 1.2rem;border-bottom:1px solid var(--line);background:#fafafa;font-size:.84rem}
+.sg-drawer-intro p{margin:0 0 .6rem}
+.sg-drawer-intro small{color:var(--ink-soft);font-size:.74rem;display:block}
+.sg-cards{overflow-y:auto;padding:0 1.2rem 2rem;flex:1}
+.sg-card{padding:1.1rem 0;border-bottom:1px solid var(--line-soft)}
+.sg-card.is-active{background:#f6fbf7;margin:0 -1.2rem;padding:1.1rem 1.2rem}
+.sg-card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.sg-avatar{width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;
+  display:grid;place-items:center;font-size:.64rem;font-weight:800;flex:none}
+.sg-card-head b{display:block;font-size:.86rem}
+.sg-card-head small{color:var(--ink-soft);font-size:.72rem}
+.sg-card-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--ink-soft);margin-bottom:.35rem}
+.sg-card p{font-size:.84rem;margin:0 0 .5rem}
+.sg-jump{border-color:var(--sg);color:var(--sg);background:#fff;padding:.3rem .6rem;margin-top:.2rem}
+.sg-jump:hover{background:var(--sg);color:#fff}
+.sg-flash{animation:sgflash 1.4s ease-out}
+@keyframes sgflash{0%,40%{background:#ffe9a8}100%{background:transparent}}
+@media(prefers-reduced-motion:reduce){.sg-drawer{transition:none}.sg-flash{animation:none}}
+
 /* ---- a11y ---- */
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
@@ -464,6 +555,21 @@ p{margin:0 0 1rem}
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
+
+<div class="sg-bar" data-sg-bar>
+  <div class="sg-bar-inner">
+    <span class="sg-bar-title">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+      Suggesting &middot; 17 content edits proposed</span>
+    <span class="sg-bar-note">Green = proposed wording &middot; <s>strikethrough</s> = current wording.
+      Click any highlight to read why.</span>
+    <span class="sg-bar-actions">
+      <button type="button" class="sg-mode is-active" data-mode="suggest">Show suggestions</button>
+      <button type="button" class="sg-mode" data-mode="final">Preview final</button>
+      <button type="button" class="sg-open" data-sg-open>Comments</button>
+    </span>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="container nav">
@@ -485,7 +591,7 @@ p{margin:0 0 1rem}
 
   <!-- ============ PAGE TITLE ============ -->
   <section class="pagetitle">
-    <div class="container"><h1>Trade Professional</h1></div>
+    <div class="container"><h1><span class="sg" data-card="1"><del>Trade Professionals</del><ins>House Numbers and Signage for the Trade</ins></span></h1></div>
   </section>
 
   <!-- ============ HERO ============ -->
@@ -536,7 +642,7 @@ p{margin:0 0 1rem}
         <h2>Made for <b>your project</b>.</h2>
         <p>Architect-led signage, made to order in Tucson. Choose from a curated collection of
           architectural fonts, sizes, and finishes, with dedicated support from your Trade
-          Representative from complimentary proofs through installation.</p>
+          Representative<span class="sg" data-card="2"><del></del><ins>,</ins></span> from complimentary proofs through installation.</p>
 
         <form class="signup" id="signup" method="get"
               action="https://www.modernhousenumbers.com/pages/trade-program-signup">
@@ -559,6 +665,62 @@ p{margin:0 0 1rem}
     </div>
   </section>
 
+  <!-- ============ SECTION 2 (NEW): WHO WE SERVE ============ -->
+  <section class="section who-serve">
+    <div class="container">
+      <div class="sg sg-new" data-card="13">
+        <ins>
+          <span class="sg-tag">New section</span>
+          <h2 class="section-head center">Designed for the Trade.</h2>
+          <p class="section-lead center">We partner with design and building professionals on projects
+            large and small, from individual residences to multifamily communities and commercial spaces.</p>
+          <ul class="serve-list">
+            <li>Builders + Design-Build</li>
+            <li>Architects + Designers</li>
+            <li>Multifamily + Property Management</li>
+            <li>Developers + Hospitality</li>
+          </ul>
+        </ins>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3 (NEW): WHY TRADE PROFESSIONALS CHOOSE MHN ============ -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="sg sg-new" data-card="14">
+        <ins>
+          <span class="sg-tag">New section</span>
+          <h2 class="section-head center">Why Trade Professionals Choose Modern House Numbers</h2>
+          <p class="section-lead center">From first specification to final installation, Modern House
+            Numbers provides the products, resources, and support teams need to keep projects moving
+            forward.</p>
+          <div class="benefit-grid">
+                <div class="benefit">
+                  <h3>Reliable Project Support</h3>
+                  <p>Responsive, personal support and dependable fulfillment help keep projects moving forward from complimentary proofs through installation.</p>
+                </div>
+                <div class="benefit">
+                  <h3>Specify with Confidence</h3>
+                  <p>Premium materials, curated options, and technical resources make it easy to select signage that complements your project&rsquo;s vision.</p>
+                </div>
+                <div class="benefit">
+                  <h3>Scalable Solutions</h3>
+                  <p>From custom homes to multifamily and commercial properties, we support projects of every size with consistent products and volume-order capabilities.</p>
+                </div>
+                <div class="benefit">
+                  <h3>Long-Term Consistency</h3>
+                  <p>Dependable product availability and easy reordering help maintain consistency across future phases, renovations, and replacements.</p>
+                </div>
+          </div>
+          <p class="center" style="margin-top:1.6rem">
+            <a class="btn btn--primary" href="mailto:terry@modernhousenumbers.com?subject=Trade%20project%20quote%20request">Request Quote</a>
+          </p>
+        </ins>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ ORDER TABS + CONFIGURATORS ============
        Two tab sections, as on the live page: only one is visible at a time.
        Layout, option sets and pricing are all measured from the source, not
@@ -566,11 +728,22 @@ p{margin:0 0 1rem}
   <section class="section" id="order" style="padding-top:8px">
     <div class="container">
 
+      <div class="sg sg-new" data-card="3">
+        <ins>
+          <span class="sg-tag">New heading</span>
+          <h2 class="section-head">Order Custom Signage in Trade Quantities</h2>
+          <p class="section-lead">From a single custom sign to property-wide identification, configure and
+            order the products your project needs, including solid aluminum numbers and letters, custom
+            plaques, QuickShip bestsellers, and restroom signs. Choose from architectural fonts, sizes,
+            finishes, and mounting orientations, with made-to-order products crafted in Tucson.</p>
+        </ins>
+      </div>
+
       <ul class="proswitcher" role="tablist">
         <li><button type="button" role="tab" data-tab="numbers" aria-selected="true">Order Numbers + Letters</button></li>
         <li><button type="button" role="tab" data-tab="plaques" aria-selected="false">Order Plaques</button></li>
-        <li><a href="https://www.modernhousenumbers.com/products/quick-ship">Order QuickShip</a></li>
-        <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Order Restroom Signs</a></li>
+        <li><button type="button" role="tab" data-tab="quickship" aria-selected="false">Order QuickShip</button></li>
+        <li><button type="button" role="tab" data-tab="restroom" aria-selected="false">Order Restroom Signs</button></li>
       </ul>
 
       <!-- ---------- NUMBERS + LETTERS ---------- -->
@@ -737,13 +910,18 @@ p{margin:0 0 1rem}
             </div>
 
             <div class="cfg-right">
-              <h2 class="pageheader">Modern numbers and letters in multiples. Made to last.</h2>
-              <p class="cfg-desc">Shop house numbers, letters and symbols from Modern House Numbers for
+              <h2 class="pageheader"><span class="sg" data-card="4"><del>Modern numbers and letters in multiples. Made to last.</del><ins>Architectural Numbers + Letters</ins></span></h2>
+              <p class="cfg-desc"><span class="sg" data-card="4"><del>Shop house numbers, letters and symbols from Modern House Numbers for
                 elevated curb appeal and improved address visibility; architect-designed signage crafted
                 from solid, recycled aluminum in 7 fonts, 5 durable finishes in 5 sizes. Every order
                 arrives with concealed mounting hardware for a floating effect and a personalized
                 drilling template for professional-quality installation. Each item is custom-made, items
-                are not returnable.</p>
+                are not returnable.</del><ins>Shop our signature collection of architectural numbers, letters, and symbols, made to
+                order in Tucson from solid recycled aluminum. Choose from seven architect-designed fonts,
+                five sizes, and five durable finishes to create a consistent look across a single address
+                or an entire property.<br><br>Every order includes concealed mounting hardware and
+                architecturally spaced drilling templates for consistent placement and a professional
+                installation.</ins></span></p>
 
               <div class="price_block">
                 <span class="price">$ <span data-el="total">0.00</span></span>
@@ -1005,14 +1183,19 @@ p{margin:0 0 1rem}
             </div>
 
             <div class="cfg-right">
-              <h2 class="pageheader">Premium quality plaques and signage. Made to order.</h2>
-              <p class="cfg-desc">Shop address plaques from Modern House Numbers for elevated curb appeal
+              <h2 class="pageheader"><span class="sg" data-card="5"><del>Premium quality plaques and signage. Made to order.</del><ins>Architectural Address Plaques</ins></span></h2>
+              <p class="cfg-desc"><span class="sg" data-card="5"><del>Shop address plaques from Modern House Numbers for elevated curb appeal
                 and clear address visibility. Each plaque features precision stencil-cut characters from
                 solid recycled aluminum with durable powder coat or UV-protectant finishes for
                 long-lasting performance. Choose from circle, square, or rectangular plaques in varying
                 sizes. Customize your house plaque with three modern fonts, five finishes, and center or
                 right-aligned layouts. Includes concealed hardware and a personalized drilling template
-                for easy installation. Final sale, no returns.</p>
+                for easy installation. Final sale, no returns.</del><ins>Shop our collection of made-to-order address plaques, precision cut from solid
+                recycled aluminum with stencil-cut characters that create a distinctive, architectural
+                look. Choose from circle, square, and rectangular designs in a range of sizes, three
+                architectural fonts, five durable finishes, and center- or right-aligned layouts.<br><br>
+                Every plaque includes concealed mounting hardware and an architecturally spaced drilling
+                template for a clean, professional installation.</ins></span></p>
 
               <div class="price_block">
                 <span class="price">$ <span data-el="total">0.00</span></span>
@@ -1106,6 +1289,54 @@ p{margin:0 0 1rem}
         </div>
       </div>
 
+      <!-- ---------- QUICKSHIP NUMBERS + LETTERS ---------- -->
+      <div class="tabsection" id="quickship" hidden>
+        <div class="picker-band">
+          <div class="sg sg-new" data-card="6">
+            <ins>
+              <span class="sg-tag">New section</span>
+              <div class="cfg-row">
+                <div class="cfg-left">
+                  <img class="tab-hero" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_3.jpg" alt="QuickShip Numbers + Letters" loading="lazy">
+                </div>
+                <div class="cfg-right">
+                  <h2 class="pageheader">QuickShip Numbers + Letters</h2>
+              <p>Shop our QuickShip collection of architectural numbers, letters, and symbols, ready to ship the next business day. Featuring our bestselling Palm Springs font in 4&quot;, 6&quot;, and 8&quot; sizes and brushed aluminum or matte black finishes, QuickShip makes it easy to meet tight project timelines without compromising on quality.</p>
+              <p>Every piece includes concealed mounting hardware and an individual drilling template for a clean, professional installation.</p>
+                  <a class="add-to-cart" href="https://www.modernhousenumbers.com/products/quick-ship">Order QuickShip
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.4l-1.8 8H8.1L6.2 6zM1 2h3.3l.7 3H21a1 1 0 0 1 1 1.2l-2.2 9.6a1.5 1.5 0 0 1-1.5 1.2H7.4a1.5 1.5 0 0 1-1.5-1.2L3.3 4H1V2z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </ins>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- ARCHITECTURAL RESTROOM SIGNS ---------- -->
+      <div class="tabsection" id="restroom" hidden>
+        <div class="picker-band">
+          <div class="sg sg-new" data-card="7">
+            <ins>
+              <span class="sg-tag">New section</span>
+              <div class="cfg-row">
+                <div class="cfg-left">
+                  <img class="tab-hero" src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_3.jpg" alt="Architectural Restroom Signs" loading="lazy">
+                </div>
+                <div class="cfg-right">
+                  <h2 class="pageheader">Architectural Restroom Signs</h2>
+              <p>Shop our collection of restroom signs, precision cut from solid recycled aluminum with stencil-cut icons and letters for a clean, architectural look. Choose from men, women, unisex, wheelchair-accessible, and water closet designs in a curated range of plaque shapes and five durable finishes.</p>
+              <p>Every sign includes concealed mounting hardware and an architecturally spaced drilling template for a clean, professional installation.</p>
+                  <a class="add-to-cart" href="https://www.modernhousenumbers.com/products/restroom-signs">Order Restroom Signs
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.4l-1.8 8H8.1L6.2 6zM1 2h3.3l.7 3H21a1 1 0 0 1 1 1.2l-2.2 9.6a1.5 1.5 0 0 1-1.5 1.2H7.4a1.5 1.5 0 0 1-1.5-1.2L3.3 4H1V2z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </ins>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1115,32 +1346,44 @@ p{margin:0 0 1rem}
        half, Resources on a grey half with the tiles two-up over three rows. -->
   <section class="section assist-section">
     <div class="container">
+      <div class="sg sg-new" data-card="8">
+        <ins>
+          <span class="sg-tag">Merged heading</span>
+          <h2 class="section-head" style="text-align:center">Trade Support and Signage Specification Resources</h2>
+        </ins>
+      </div>
+
       <div class="assist-row">
 
         <div class="assist-col">
-          <h2>Need Assistance?</h2>
+          <h2 class="sr-head"><span class="sg" data-card="8"><del>Need Assistance?</del><ins>Dedicated Trade Support</ins></span></h2>
           <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/terry2_wide.jpg"
                alt="Terry Billingsley, Trade Representative at Modern House Numbers" loading="lazy">
+          <p class="assist-intro"><span class="sg" data-card="9"><del>Industry professionals can contact Terry directly for personalized design assistance,
+            custom estimates, digital proofs, or installation troubleshooting.</del><ins>Work directly with your Trade Representative for project pricing, custom estimates,
+            design assistance, product recommendations, installation guidance, and bulk order support.</ins></span></p>
           <p class="assist-contact">
-            <span class="rep">Terry Billingsley</span><br>
+            <span class="rep"><span class="sg" data-card="9"><del></del><ins>Contact </ins></span>Terry Billingsley</span><br>
             <span class="role">Trade Representative</span><br>
             <a href="tel:+14802368186">480-236-8186</a>
             <a href="mailto:terry@modernhousenumbers.com">terry@modernhousenumbers.com</a>
           </p>
-          <p>Industry professionals can contact Terry directly for personalized design assistance,
-            custom estimates, digital proofs, or installation troubleshooting. For projects large or
-            small, he&rsquo;s ready for your questions, bulk orders, or help with custom requests.</p>
+          <div class="sg sg-new" data-card="9">
+            <ins><span class="sg-tag">New CTA</span>
+              <a class="btn btn--primary" href="mailto:terry@modernhousenumbers.com?subject=Trade%20project%20quote%20request">Request Quote</a>
+            </ins>
+          </div>
         </div>
 
         <div class="res-col">
           <h2 class="res-head">Resources</h2>
           <div class="res-row">
-            <div class="res-cell"><a href="https://www.modernhousenumbers.com/pages/installation"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M68.17,51.3l1.74,1.75a.78.78,0,0,0,1.1,0l6.6-6.6a.77.77,0,0,0,0-1.1L75.87,43.6a2.32,2.32,0,0,0-1.65-.68H71.88l-.32-.33,1.1-1.1a.77.77,0,0,0,0-1.1h0l-4.31-4.31a7,7,0,0,0-3.13-1.81l-.09,0A16.27,16.27,0,0,0,57.69,34l-7.16,1.22a.78.78,0,0,0,0,1.53l6.55,1.09a8.64,8.64,0,0,1,4,2l-2.74,2.74a.77.77,0,0,0,0,1.1l.54.55L53,50.18l-1.54-1.54,2.2-2.2a.78.78,0,0,0,0-1.1l-1.06-1.07A.8.8,0,0,0,52,44l-1.66,0-.27-1a.75.75,0,0,0-.2-.34L39.46,32.26A5.45,5.45,0,0,0,31.75,40l10.41,10.4a.79.79,0,0,0,.33.2l1,.31.06,1.71a.8.8,0,0,0,.23.52l1,1a.78.78,0,0,0,1.1,0l2.2-2.2,1.54,1.54L30.91,72.24a2.33,2.33,0,0,0,0,3.29l0,0,1.1,1.1a2.34,2.34,0,0,0,3.3,0h0L54.08,57.89l14,14a.75.75,0,0,0,.07.39l1.1,2.2a.83.83,0,0,0,.26.3l3.3,2.2a.77.77,0,0,0,1-.1l2.2-2.2a.76.76,0,0,0,.1-1l-2.2-3.3a.76.76,0,0,0-.3-.26L72,69.32a.68.68,0,0,0-.18-.32L57.38,54.58l5.93-5.93.55.54a.78.78,0,0,0,1.1,0l2.2-2.2.32.33v2.33A2.31,2.31,0,0,0,68.17,51.3ZM45.39,52.49l-.26-.26-.07-2a.79.79,0,0,0-.56-.72l-1.38-.41L32.86,38.87a3.89,3.89,0,0,1,5.5-5.5l10.3,10.3L49,45a.8.8,0,0,0,.74.57l1.92,0,.29.3ZM34.21,75.55a.78.78,0,0,1-1.1,0h0L32,74.45a.77.77,0,0,1,0-1.09h0L50.77,54.58,53,56.79Zm38.51-4.12L74.45,74l-1.3,1.3L70.56,73.6l-.76-1.51,1.41-1.41Zm-2.58-1.88L69,70.65,49.23,50.84l1.1-1.1ZM56.28,53.48l-2.21-2.2L60,45.34l2.2,2.21Zm10.88-8.36a.76.76,0,0,0-.55.23l-2.2,2.2L63.87,47v0L60,43.14l2.75-2.75a.78.78,0,0,0,0-1.1l-.2-.2a10.13,10.13,0,0,0-5.2-2.77l-2-.34L58,35.53a15,15,0,0,1,6.76.22l.08,0a5.45,5.45,0,0,1,2.44,1.41L71,40.94,69.91,42a.78.78,0,0,0,0,1.1l1.1,1.1a.78.78,0,0,0,.55.23h2.66a.78.78,0,0,1,.55.23L76,45.89l-5.5,5.51-1.19-1.2a.75.75,0,0,1-.23-.55V47a.75.75,0,0,0-.23-.55l-1.1-1.1A.76.76,0,0,0,67.16,45.12Z"/><line fill="#f26b21" x1="50.33" y1="49.74" x2="70.14" y2="69.55"/></svg><span>Installation</span></a></div>
-            <div class="res-cell"><a href="https://www.modernhousenumbers.com/pages/trade-program-signup"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M32.7,32.7V80.85a.93.93,0,0,0,.93.93H68.82a.92.92,0,0,0,.92-.93V42s0,0,0-.06a.59.59,0,0,0,0-.23.32.32,0,0,0,0-.09,1,1,0,0,0-.18-.27l-9.26-9.26a.92.92,0,0,0-.28-.19l-.08,0a1,1,0,0,0-.24,0h-26A.93.93,0,0,0,32.7,32.7ZM66.58,41h-6.1v-6.1Zm-32-7.41H58.63V42a.93.93,0,0,0,.93.93h8.33v37H34.55Z"/><path fill="#58595b" d="M71.59,74.37v1.85h2.78a.93.93,0,0,0,.93-.92V27.15a.93.93,0,0,0-.93-.93H39.18a.92.92,0,0,0-.92.93v2.77h1.85V28.07H73.45v46.3Z"/><path fill="#58595b" d="M40.11,55.85H62.33V57.7H40.11Z"/><path fill="#58595b" d="M40.11,67H62.33v1.86H40.11Z"/><path fill="#58595b" d="M48.44,61.41H62.33v1.85H48.44Z"/><path fill="#58595b" d="M40.11,61.41h6.48v1.85H40.11Z"/><path fill="#58595b" d="M40.11,72.52h3.7v1.85h-3.7Z"/><path fill="#58595b" d="M45.67,72.52H62.33v1.85H45.67Z"/><path fill="#f26b21" d="M48.52,43.51v2.18H46.34V43.51h2.18m.71-.7H45.64V46.4h3.59V42.81Z"/><path fill="#f26b21" d="M51.46,37v3.6h3.6l-.63-.71H52.17V37.69Z"/><path fill="#f26b21" d="M42.7,37.69v2.18H40.51l-.7.71h3.6V37Z"/><path fill="#f26b21" d="M52.17,51.52V49.34h2.1l.79-.71h-3.6v3.6Z"/><path fill="#f26b21" d="M43.41,52.23v-3.6h-3.6l.77.71H42.7v2.18Z"/><polygon fill="#58595b" points="48.52 39.87 46.34 39.87 46.34 36.98 45.64 36.98 45.64 40.58 49.23 40.58 49.23 36.98 48.52 36.98 48.52 39.87"/><polygon fill="#58595b" points="48.52 49.34 46.34 49.34 46.34 52.23 45.64 52.23 45.64 48.63 49.23 48.63 49.23 52.23 48.52 52.23 48.52 49.34"/><polygon fill="#58595b" points="52.17 45.7 52.17 43.52 55.06 43.52 55.06 42.81 51.46 42.81 51.46 46.4 55.06 46.4 55.06 45.7 52.17 45.7"/><polygon fill="#58595b" points="42.7 45.7 42.7 43.52 39.81 43.52 39.81 42.81 43.41 42.81 43.41 46.4 39.81 46.4 39.81 45.7 42.7 45.7"/></svg><span>Join + Save</span></a></div>
+            <div class="res-cell"><a href="https://www.modernhousenumbers.com/pages/installation"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M68.17,51.3l1.74,1.75a.78.78,0,0,0,1.1,0l6.6-6.6a.77.77,0,0,0,0-1.1L75.87,43.6a2.32,2.32,0,0,0-1.65-.68H71.88l-.32-.33,1.1-1.1a.77.77,0,0,0,0-1.1h0l-4.31-4.31a7,7,0,0,0-3.13-1.81l-.09,0A16.27,16.27,0,0,0,57.69,34l-7.16,1.22a.78.78,0,0,0,0,1.53l6.55,1.09a8.64,8.64,0,0,1,4,2l-2.74,2.74a.77.77,0,0,0,0,1.1l.54.55L53,50.18l-1.54-1.54,2.2-2.2a.78.78,0,0,0,0-1.1l-1.06-1.07A.8.8,0,0,0,52,44l-1.66,0-.27-1a.75.75,0,0,0-.2-.34L39.46,32.26A5.45,5.45,0,0,0,31.75,40l10.41,10.4a.79.79,0,0,0,.33.2l1,.31.06,1.71a.8.8,0,0,0,.23.52l1,1a.78.78,0,0,0,1.1,0l2.2-2.2,1.54,1.54L30.91,72.24a2.33,2.33,0,0,0,0,3.29l0,0,1.1,1.1a2.34,2.34,0,0,0,3.3,0h0L54.08,57.89l14,14a.75.75,0,0,0,.07.39l1.1,2.2a.83.83,0,0,0,.26.3l3.3,2.2a.77.77,0,0,0,1-.1l2.2-2.2a.76.76,0,0,0,.1-1l-2.2-3.3a.76.76,0,0,0-.3-.26L72,69.32a.68.68,0,0,0-.18-.32L57.38,54.58l5.93-5.93.55.54a.78.78,0,0,0,1.1,0l2.2-2.2.32.33v2.33A2.31,2.31,0,0,0,68.17,51.3ZM45.39,52.49l-.26-.26-.07-2a.79.79,0,0,0-.56-.72l-1.38-.41L32.86,38.87a3.89,3.89,0,0,1,5.5-5.5l10.3,10.3L49,45a.8.8,0,0,0,.74.57l1.92,0,.29.3ZM34.21,75.55a.78.78,0,0,1-1.1,0h0L32,74.45a.77.77,0,0,1,0-1.09h0L50.77,54.58,53,56.79Zm38.51-4.12L74.45,74l-1.3,1.3L70.56,73.6l-.76-1.51,1.41-1.41Zm-2.58-1.88L69,70.65,49.23,50.84l1.1-1.1ZM56.28,53.48l-2.21-2.2L60,45.34l2.2,2.21Zm10.88-8.36a.76.76,0,0,0-.55.23l-2.2,2.2L63.87,47v0L60,43.14l2.75-2.75a.78.78,0,0,0,0-1.1l-.2-.2a10.13,10.13,0,0,0-5.2-2.77l-2-.34L58,35.53a15,15,0,0,1,6.76.22l.08,0a5.45,5.45,0,0,1,2.44,1.41L71,40.94,69.91,42a.78.78,0,0,0,0,1.1l1.1,1.1a.78.78,0,0,0,.55.23h2.66a.78.78,0,0,1,.55.23L76,45.89l-5.5,5.51-1.19-1.2a.75.75,0,0,1-.23-.55V47a.75.75,0,0,0-.23-.55l-1.1-1.1A.76.76,0,0,0,67.16,45.12Z"/><line fill="#f26b21" x1="50.33" y1="49.74" x2="70.14" y2="69.55"/></svg><span><span class="sg" data-card="10"><del>Installation</del><ins>Installation Guides</ins></span></span></a></div>
+            <div class="res-cell"><a href="https://www.modernhousenumbers.com/pages/trade-program-signup"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M32.7,32.7V80.85a.93.93,0,0,0,.93.93H68.82a.92.92,0,0,0,.92-.93V42s0,0,0-.06a.59.59,0,0,0,0-.23.32.32,0,0,0,0-.09,1,1,0,0,0-.18-.27l-9.26-9.26a.92.92,0,0,0-.28-.19l-.08,0a1,1,0,0,0-.24,0h-26A.93.93,0,0,0,32.7,32.7ZM66.58,41h-6.1v-6.1Zm-32-7.41H58.63V42a.93.93,0,0,0,.93.93h8.33v37H34.55Z"/><path fill="#58595b" d="M71.59,74.37v1.85h2.78a.93.93,0,0,0,.93-.92V27.15a.93.93,0,0,0-.93-.93H39.18a.92.92,0,0,0-.92.93v2.77h1.85V28.07H73.45v46.3Z"/><path fill="#58595b" d="M40.11,55.85H62.33V57.7H40.11Z"/><path fill="#58595b" d="M40.11,67H62.33v1.86H40.11Z"/><path fill="#58595b" d="M48.44,61.41H62.33v1.85H48.44Z"/><path fill="#58595b" d="M40.11,61.41h6.48v1.85H40.11Z"/><path fill="#58595b" d="M40.11,72.52h3.7v1.85h-3.7Z"/><path fill="#58595b" d="M45.67,72.52H62.33v1.85H45.67Z"/><path fill="#f26b21" d="M48.52,43.51v2.18H46.34V43.51h2.18m.71-.7H45.64V46.4h3.59V42.81Z"/><path fill="#f26b21" d="M51.46,37v3.6h3.6l-.63-.71H52.17V37.69Z"/><path fill="#f26b21" d="M42.7,37.69v2.18H40.51l-.7.71h3.6V37Z"/><path fill="#f26b21" d="M52.17,51.52V49.34h2.1l.79-.71h-3.6v3.6Z"/><path fill="#f26b21" d="M43.41,52.23v-3.6h-3.6l.77.71H42.7v2.18Z"/><polygon fill="#58595b" points="48.52 39.87 46.34 39.87 46.34 36.98 45.64 36.98 45.64 40.58 49.23 40.58 49.23 36.98 48.52 36.98 48.52 39.87"/><polygon fill="#58595b" points="48.52 49.34 46.34 49.34 46.34 52.23 45.64 52.23 45.64 48.63 49.23 48.63 49.23 52.23 48.52 52.23 48.52 49.34"/><polygon fill="#58595b" points="52.17 45.7 52.17 43.52 55.06 43.52 55.06 42.81 51.46 42.81 51.46 46.4 55.06 46.4 55.06 45.7 52.17 45.7"/><polygon fill="#58595b" points="42.7 45.7 42.7 43.52 39.81 43.52 39.81 42.81 43.41 42.81 43.41 46.4 39.81 46.4 39.81 45.7 42.7 45.7"/></svg><span><span class="sg" data-card="11"><del>Join + Save</del><ins>Join Trade Program</ins></span></span></a></div>
           </div>
           <div class="res-row">
             <div class="res-cell"><a href="https://www.modernhousenumbers.com/pages/resources#sizing"><img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/icon_sizeViewing.png" alt="" width="64" height="64" loading="lazy"><span>Sizing + Visibility</span></a></div>
-            <div class="res-cell"><a href="https://cms.modernhousenumbers.com/wp-content/uploads/2025/03/2025TradeInspirationGuide.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M81.79,63.82l-8.57-8.57A18.54,18.54,0,0,0,74,33.84a.83.83,0,1,0-1.39.92,16.92,16.92,0,1,1-2.19-2.68l.05.05A.84.84,0,0,0,71.62,31l-.05-.05a18.58,18.58,0,0,0-26.24,0q-.34.34-.66.69H26.31a.85.85,0,0,0-.84.84v3.7a.84.84,0,0,0,1.68,0V33.27H43.33a17.67,17.67,0,0,0-1.65,2.81H31.27a.84.84,0,1,0,0,1.67H41a18.31,18.31,0,0,0-.6,2H31.27a.85.85,0,0,0-.84.84.84.84,0,0,0,.84.83h8.81a20,20,0,0,0-.17,2H31.27a.84.84,0,0,0-.84.83.85.85,0,0,0,.84.84h8.67a18.52,18.52,0,0,0,1.87,7.06h-1.4a.83.83,0,0,0-.84.83V77.82a.83.83,0,0,0,.84.83h6.68a.84.84,0,0,0,.84-.83V59.31a18.33,18.33,0,0,0,2.34,1.37V77.82a.83.83,0,0,0,.83.83h6.69a.83.83,0,0,0,.83-.83V62.57c.66,0,1.31,0,2-.12V75.36a.83.83,0,0,0,.83.83.84.84,0,0,0,.84-.83V62.18a18.39,18.39,0,0,0,7.42-3.39l8.58,8.58a2.51,2.51,0,1,0,3.54-3.55ZM46.26,77h-5V53.91h1.51a18.29,18.29,0,0,0,2.58,3.23q.45.45.93.87Zm5.68,0V61.4a18.91,18.91,0,0,0,5,1.11V77ZM80.61,66.19a.85.85,0,0,1-1.18,0L71,57.72l.61-.58.58-.6L80.61,65A.84.84,0,0,1,80.61,66.19Z"/><path fill="#58595b" d="M61.41,78.12a.84.84,0,0,0-.83.84v1.89H27.15V39.75a.84.84,0,1,0-1.68,0V81.69a.85.85,0,0,0,.84.84h35.1a.85.85,0,0,0,.84-.84V79A.85.85,0,0,0,61.41,78.12Z"/><path fill="#58595b" d="M29.1,59.76V77.82a.83.83,0,0,0,.83.83h6.69a.83.83,0,0,0,.83-.83V59.76a.84.84,0,0,0-.83-.84H29.93A.84.84,0,0,0,29.1,59.76Zm1.67.84h5V77h-5Z"/><path fill="#58595b" d="M37.52,48.89a.83.83,0,0,0,.83-.83.84.84,0,0,0-.83-.84H31.27a.85.85,0,0,0-.84.84.84.84,0,0,0,.84.83Z"/><path fill="#58595b" d="M58.45,28.82A15.18,15.18,0,1,0,69.2,33.26,15.14,15.14,0,0,0,58.45,28.82ZM68,53.6A13.56,13.56,0,1,1,72,44,13.45,13.45,0,0,1,68,53.6Z"/><path fill="#f26b21" d="M59.54,42.93v2.18H57.36V42.93h2.18m.71-.71h-3.6v3.6h3.6v-3.6Z"/><path fill="#f26b21" d="M62.48,36.4V40h3.59l-.63-.7H63.18V37.11Z"/><path fill="#f26b21" d="M53.71,37.11v2.18H51.53l-.7.7h3.59V36.4Z"/><path fill="#f26b21" d="M63.18,50.94V48.76h2.11l.78-.71H62.48v3.59Z"/><path fill="#f26b21" d="M54.42,51.64V48.05H50.83l.76.71h2.12v2.18Z"/><polygon fill="#58595b" points="59.54 39.29 57.36 39.29 57.36 36.4 56.65 36.4 56.65 39.99 60.24 39.99 60.24 36.4 59.54 36.4 59.54 39.29"/><polygon fill="#58595b" points="59.54 48.76 57.36 48.76 57.36 51.65 56.65 51.65 56.65 48.05 60.24 48.05 60.24 51.65 59.54 51.65 59.54 48.76"/><polygon fill="#58595b" points="63.18 45.11 63.18 42.93 66.07 42.93 66.07 42.22 62.48 42.22 62.48 45.82 66.07 45.82 66.07 45.11 63.18 45.11"/><polygon fill="#58595b" points="53.71 45.11 53.71 42.93 50.83 42.93 50.83 42.22 54.42 42.22 54.42 45.82 50.83 45.82 50.83 45.11 53.71 45.11"/></svg><span>Inspiration Guide</span></a></div>
+            <div class="res-cell"><a href="https://cms.modernhousenumbers.com/wp-content/uploads/2025/03/2025TradeInspirationGuide.pdf" target="_blank" rel="noopener"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M81.79,63.82l-8.57-8.57A18.54,18.54,0,0,0,74,33.84a.83.83,0,1,0-1.39.92,16.92,16.92,0,1,1-2.19-2.68l.05.05A.84.84,0,0,0,71.62,31l-.05-.05a18.58,18.58,0,0,0-26.24,0q-.34.34-.66.69H26.31a.85.85,0,0,0-.84.84v3.7a.84.84,0,0,0,1.68,0V33.27H43.33a17.67,17.67,0,0,0-1.65,2.81H31.27a.84.84,0,1,0,0,1.67H41a18.31,18.31,0,0,0-.6,2H31.27a.85.85,0,0,0-.84.84.84.84,0,0,0,.84.83h8.81a20,20,0,0,0-.17,2H31.27a.84.84,0,0,0-.84.83.85.85,0,0,0,.84.84h8.67a18.52,18.52,0,0,0,1.87,7.06h-1.4a.83.83,0,0,0-.84.83V77.82a.83.83,0,0,0,.84.83h6.68a.84.84,0,0,0,.84-.83V59.31a18.33,18.33,0,0,0,2.34,1.37V77.82a.83.83,0,0,0,.83.83h6.69a.83.83,0,0,0,.83-.83V62.57c.66,0,1.31,0,2-.12V75.36a.83.83,0,0,0,.83.83.84.84,0,0,0,.84-.83V62.18a18.39,18.39,0,0,0,7.42-3.39l8.58,8.58a2.51,2.51,0,1,0,3.54-3.55ZM46.26,77h-5V53.91h1.51a18.29,18.29,0,0,0,2.58,3.23q.45.45.93.87Zm5.68,0V61.4a18.91,18.91,0,0,0,5,1.11V77ZM80.61,66.19a.85.85,0,0,1-1.18,0L71,57.72l.61-.58.58-.6L80.61,65A.84.84,0,0,1,80.61,66.19Z"/><path fill="#58595b" d="M61.41,78.12a.84.84,0,0,0-.83.84v1.89H27.15V39.75a.84.84,0,1,0-1.68,0V81.69a.85.85,0,0,0,.84.84h35.1a.85.85,0,0,0,.84-.84V79A.85.85,0,0,0,61.41,78.12Z"/><path fill="#58595b" d="M29.1,59.76V77.82a.83.83,0,0,0,.83.83h6.69a.83.83,0,0,0,.83-.83V59.76a.84.84,0,0,0-.83-.84H29.93A.84.84,0,0,0,29.1,59.76Zm1.67.84h5V77h-5Z"/><path fill="#58595b" d="M37.52,48.89a.83.83,0,0,0,.83-.83.84.84,0,0,0-.83-.84H31.27a.85.85,0,0,0-.84.84.84.84,0,0,0,.84.83Z"/><path fill="#58595b" d="M58.45,28.82A15.18,15.18,0,1,0,69.2,33.26,15.14,15.14,0,0,0,58.45,28.82ZM68,53.6A13.56,13.56,0,1,1,72,44,13.45,13.45,0,0,1,68,53.6Z"/><path fill="#f26b21" d="M59.54,42.93v2.18H57.36V42.93h2.18m.71-.71h-3.6v3.6h3.6v-3.6Z"/><path fill="#f26b21" d="M62.48,36.4V40h3.59l-.63-.7H63.18V37.11Z"/><path fill="#f26b21" d="M53.71,37.11v2.18H51.53l-.7.7h3.59V36.4Z"/><path fill="#f26b21" d="M63.18,50.94V48.76h2.11l.78-.71H62.48v3.59Z"/><path fill="#f26b21" d="M54.42,51.64V48.05H50.83l.76.71h2.12v2.18Z"/><polygon fill="#58595b" points="59.54 39.29 57.36 39.29 57.36 36.4 56.65 36.4 56.65 39.99 60.24 39.99 60.24 36.4 59.54 36.4 59.54 39.29"/><polygon fill="#58595b" points="59.54 48.76 57.36 48.76 57.36 51.65 56.65 51.65 56.65 48.05 60.24 48.05 60.24 51.65 59.54 51.65 59.54 48.76"/><polygon fill="#58595b" points="63.18 45.11 63.18 42.93 66.07 42.93 66.07 42.22 62.48 42.22 62.48 45.82 66.07 45.82 66.07 45.11 63.18 45.11"/><polygon fill="#58595b" points="53.71 45.11 53.71 42.93 50.83 42.93 50.83 42.22 54.42 42.22 54.42 45.82 50.83 45.82 50.83 45.11 53.71 45.11"/></svg><span><span class="sg" data-card="12"><del>Inspiration Guide</del><ins>Project Inspiration</ins></span></span></a></div>
           </div>
           <div class="res-row">
             <div class="res-cell"><a href="https://www.modernhousenumbers.com/pages/resources#specifications"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><path fill="#58595b" d="M54.73,60.57a.87.87,0,0,0-1.16-.41,14.06,14.06,0,0,1-2.19.82.87.87,0,0,0-.62.67l-.92,4.59a1,1,0,0,1-1,.78H46.38a1,1,0,0,1-1-.78l-.92-4.59a.87.87,0,0,0-.62-.67,13.93,13.93,0,0,1-3-1.26.88.88,0,0,0-.91,0L36,62.35a1,1,0,0,1-1.22-.12L33,60.46a1,1,0,0,1-.12-1.23l2.6-3.9a.88.88,0,0,0,0-.91,13.93,13.93,0,0,1-1.26-3,.85.85,0,0,0-.66-.62L29,49.84a1,1,0,0,1-.78-1V46.38a1,1,0,0,1,.78-1l4.6-.92a.85.85,0,0,0,.66-.62,13.93,13.93,0,0,1,1.26-3,.88.88,0,0,0,0-.91L32.92,36A1,1,0,0,1,33,34.82L34.82,33A1,1,0,0,1,36,32.92l3.9,2.6a.88.88,0,0,0,.91,0,13.93,13.93,0,0,1,3-1.26.85.85,0,0,0,.62-.67L45.43,29a1,1,0,0,1,1-.78h2.51a1,1,0,0,1,1,.78l.92,4.59a.85.85,0,0,0,.62.67,14,14,0,0,1,3,1.26.86.86,0,0,0,.9,0l3.9-2.6a1,1,0,0,1,1.23.12l1.77,1.78A1,1,0,0,1,62.35,36l-2.6,3.9a.88.88,0,0,0,0,.91,13.93,13.93,0,0,1,1.26,3,.87.87,0,0,0,.67.62l4.59.92a1,1,0,0,1,.78,1v2.51a1,1,0,0,1-.78,1l-4.59.92a.87.87,0,0,0-.67.62,13.76,13.76,0,0,1-.85,2.24.87.87,0,0,0,1.57.76,16,16,0,0,0,.8-2l4.08-.82a2.71,2.71,0,0,0,2.17-2.65V46.38a2.71,2.71,0,0,0-2.17-2.65l-4.08-.82a16.28,16.28,0,0,0-1-2.44L63.79,37a2.71,2.71,0,0,0-.34-3.42l-1.77-1.77a2.71,2.71,0,0,0-3.42-.34L54.8,33.79a15.34,15.34,0,0,0-2.44-1l-.82-4.08a2.71,2.71,0,0,0-2.65-2.17H46.38a2.71,2.71,0,0,0-2.65,2.17l-.82,4.08a15.34,15.34,0,0,0-2.44,1L37,31.48a2.71,2.71,0,0,0-3.42.34l-1.77,1.77A2.71,2.71,0,0,0,31.48,37l2.31,3.46a15.34,15.34,0,0,0-1,2.44l-4.08.82a2.71,2.71,0,0,0-2.17,2.65v2.51a2.71,2.71,0,0,0,2.17,2.65l4.08.82a15.34,15.34,0,0,0,1,2.44l-2.31,3.47a2.7,2.7,0,0,0,.34,3.41l1.77,1.77a2.71,2.71,0,0,0,3.42.34l3.46-2.3a16.28,16.28,0,0,0,2.44,1l.82,4.08a2.71,2.71,0,0,0,2.65,2.17h2.51a2.71,2.71,0,0,0,2.65-2.17l.82-4.08a15.62,15.62,0,0,0,2-.77A.88.88,0,0,0,54.73,60.57Z"/><path fill="#f26b21" d="M55.15,52.46a.93.93,0,0,0,.4.09.86.86,0,0,0,.77-.47A9.75,9.75,0,0,0,40.83,40.65.87.87,0,1,0,42,41.89a8,8,0,0,1,12.74,9.4A.87.87,0,0,0,55.15,52.46Z"/><path fill="#f26b21" d="M39.51,43.92a.87.87,0,0,0-1.1.54A9.76,9.76,0,0,0,53.35,55.54a.87.87,0,1,0-1-1.4A8,8,0,0,1,40.05,45,.87.87,0,0,0,39.51,43.92Z"/><path fill="#58595b" d="M79.81,64.45,77.3,64a9.08,9.08,0,0,0-.55-1.33l1.42-2.13a2.07,2.07,0,0,0-.26-2.62L76.75,56.7a2.09,2.09,0,0,0-2.62-.26L72,57.86a11,11,0,0,0-1.33-.55l-.5-2.51a2.09,2.09,0,0,0-2-1.67H66.48a2.08,2.08,0,0,0-2,1.67L64,57.31a12,12,0,0,0-1.33.55l-2.13-1.42a2.09,2.09,0,0,0-2.62.26L56.7,57.87a2.09,2.09,0,0,0-.26,2.62l1.42,2.13a11.1,11.1,0,0,0-.71,1.84.87.87,0,0,0,.61,1.07.85.85,0,0,0,1.06-.6A8.47,8.47,0,0,1,59.63,63a.88.88,0,0,0,0-.91l-1.7-2.56a.34.34,0,0,1,0-.43l1.16-1.16a.34.34,0,0,1,.43,0l2.56,1.7a.88.88,0,0,0,.91,0,8.47,8.47,0,0,1,1.94-.81.87.87,0,0,0,.62-.66l.6-3a.33.33,0,0,1,.33-.27h1.65a.35.35,0,0,1,.34.27l.6,3a.87.87,0,0,0,.62.67,8.12,8.12,0,0,1,1.93.8.88.88,0,0,0,.91,0l2.56-1.7a.33.33,0,0,1,.43,0l1.17,1.16a.35.35,0,0,1,0,.43L75,62.08A.88.88,0,0,0,75,63a8.91,8.91,0,0,1,.8,1.94.9.9,0,0,0,.67.62l3,.6a.34.34,0,0,1,.28.33v1.65a.36.36,0,0,1-.28.34l-3,.6a.87.87,0,0,0-.67.62,9,9,0,0,1-.8,1.93.88.88,0,0,0,0,.91l1.71,2.56a.35.35,0,0,1,0,.43l-1.17,1.17a.35.35,0,0,1-.43,0L72.53,75a.88.88,0,0,0-.91,0,9,9,0,0,1-1.93.8.87.87,0,0,0-.62.67l-.6,3a.36.36,0,0,1-.34.28H66.48a.34.34,0,0,1-.33-.28l-.6-3a.9.9,0,0,0-.62-.67A8.91,8.91,0,0,1,63,75a.88.88,0,0,0-.91,0l-2.56,1.71a.35.35,0,0,1-.43,0l-1.16-1.17a.33.33,0,0,1,0-.43l1.7-2.56a.88.88,0,0,0,0-.91,8.58,8.58,0,0,1-.81-1.93.84.84,0,0,0-.66-.62l-3-.6a.35.35,0,0,1-.27-.34V66.48a.33.33,0,0,1,.27-.33l.19,0a.87.87,0,1,0-.34-1.7l-.19,0a2.08,2.08,0,0,0-1.67,2v1.65a2.09,2.09,0,0,0,1.67,2l2.51.5A11,11,0,0,0,57.86,72l-1.42,2.13a2.08,2.08,0,0,0,.26,2.62l1.17,1.16a2.07,2.07,0,0,0,2.62.26l2.13-1.42A9.08,9.08,0,0,0,64,77.3l.5,2.51a2.08,2.08,0,0,0,2,1.67h1.65a2.09,2.09,0,0,0,2-1.67l.5-2.51A9.56,9.56,0,0,0,72,76.75l2.13,1.42a2.08,2.08,0,0,0,2.62-.26l1.16-1.16a2.08,2.08,0,0,0,.26-2.62L76.75,72a9.56,9.56,0,0,0,.55-1.33l2.51-.5a2.09,2.09,0,0,0,1.67-2V66.48A2.08,2.08,0,0,0,79.81,64.45Z"/><path fill="#58595b" d="M67.31,64.18a3.13,3.13,0,0,1,3.12,3.13.87.87,0,1,0,1.74,0,4.85,4.85,0,1,0-1.89,3.85.87.87,0,0,0-1.06-1.38,3.06,3.06,0,0,1-1.91.65,3.13,3.13,0,1,1,0-6.25Z"/><path fill="#58595b" d="M52.92,47.64a5.29,5.29,0,1,0-5.28,5.28A5.29,5.29,0,0,0,52.92,47.64Zm-8.84,0a3.56,3.56,0,1,1,3.56,3.55A3.57,3.57,0,0,1,44.08,47.64Z"/></svg><span>Technical Specifications</span></a></div>
@@ -1152,47 +1395,70 @@ p{margin:0 0 1rem}
     </div>
   </section>
 
-  <!-- ============ CAPABILITIES ============ -->
+  <!-- ============ SECTION 6: TRADE SIGNAGE BY PROPERTY TYPE ============ -->
   <section class="section section--soft">
     <div class="container">
+      <div class="sg sg-new" data-card="16">
+        <ins>
+          <span class="sg-tag">Replaces the previous capability rows</span>
+          <h2 class="section-head center">Trade Signage by Property Type: House Numbers, Wayfinding and
+            Monument Signs</h2>
+        </ins>
+      </div>
 
       <div class="cap cap--flip">
         <div class="cap-copy">
-          <h2>Large Quantities</h2>
-          <p>From housing developments to apartment buildings, we&rsquo;re experienced in creating
-            durable, high-quality coordinated signage in large quantities. Custom sizes, shapes and
-            integrated logos are all possible.</p>
+          <h2>1. Unit + Building Identification</h2>
+          <p class="cap-sub">Premium architectural numbers and letters for residential and commercial applications. For custom homes, production builders, and design-focused residential projects.</p>
+          <p>Create a polished first impression with premium address numbers and letters available in a range of architectural styles, sizes, and finishes. Ideal for builders seeking consistency across projects and designers specifying products that complement the overall vision.</p>
+          <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Unit + Building Identification &rarr;</a></p>
         </div>
         <div class="carousel cap-carousel" data-carousel='{"wrapAround":true}'>
           <div class="carousel-track">
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_1.jpg" alt="Large-quantity signage, image 1"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_2.jpg" alt="Large-quantity signage, image 2" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_3.jpg" alt="Large-quantity signage, image 3" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_4.jpg" alt="Large-quantity signage, image 4" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_5.jpg" alt="Large-quantity signage, image 5" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_6.jpg" alt="Large-quantity signage, image 6" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_7.jpg" alt="Large-quantity signage, image 7" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_8.jpg" alt="Large-quantity signage, image 8" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_9.jpg" alt="Large-quantity signage, image 9" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_10.jpg" alt="Large-quantity signage, image 10" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_11.jpg" alt="Large-quantity signage, image 11" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_12.jpg" alt="Large-quantity signage, image 12" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_13.jpg" alt="Large-quantity signage, image 13" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_14.jpg" alt="Large-quantity signage, image 14" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_15.jpg" alt="Large-quantity signage, image 15" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_16.jpg" alt="Large-quantity signage, image 16" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_17.jpg" alt="Large-quantity signage, image 17" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_18.jpg" alt="Large-quantity signage, image 18" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_19.jpg" alt="Large-quantity signage, image 19" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_20.jpg" alt="Large-quantity signage, image 20" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_21.jpg" alt="Large-quantity signage, image 21" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_22.jpg" alt="Large-quantity signage, image 22" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_23.jpg" alt="Large-quantity signage, image 23" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_24.jpg" alt="Large-quantity signage, image 24" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_25.jpg" alt="Large-quantity signage, image 25" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_26.jpg" alt="Large-quantity signage, image 26" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_27.jpg" alt="Large-quantity signage, image 27" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_28.jpg" alt="Large-quantity signage, image 28" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_1.jpg" alt="Unit + Building Identification, image 1"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_2.jpg" alt="Unit + Building Identification, image 2" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_3.jpg" alt="Unit + Building Identification, image 3" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_4.jpg" alt="Unit + Building Identification, image 4" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_5.jpg" alt="Unit + Building Identification, image 5" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_6.jpg" alt="Unit + Building Identification, image 6" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_7.jpg" alt="Unit + Building Identification, image 7" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_8.jpg" alt="Unit + Building Identification, image 8" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_9.jpg" alt="Unit + Building Identification, image 9" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_10.jpg" alt="Unit + Building Identification, image 10" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_11.jpg" alt="Unit + Building Identification, image 11" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_12.jpg" alt="Unit + Building Identification, image 12" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_13.jpg" alt="Unit + Building Identification, image 13" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_14.jpg" alt="Unit + Building Identification, image 14" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_15.jpg" alt="Unit + Building Identification, image 15" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_16.jpg" alt="Unit + Building Identification, image 16" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_17.jpg" alt="Unit + Building Identification, image 17" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_18.jpg" alt="Unit + Building Identification, image 18" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_19.jpg" alt="Unit + Building Identification, image 19" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_20.jpg" alt="Unit + Building Identification, image 20" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_21.jpg" alt="Unit + Building Identification, image 21" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_22.jpg" alt="Unit + Building Identification, image 22" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_23.jpg" alt="Unit + Building Identification, image 23" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_24.jpg" alt="Unit + Building Identification, image 24" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_25.jpg" alt="Unit + Building Identification, image 25" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_26.jpg" alt="Unit + Building Identification, image 26" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_27.jpg" alt="Unit + Building Identification, image 27" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_28.jpg" alt="Unit + Building Identification, image 28" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_29.jpg" alt="Unit + Building Identification, image 29" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_30.jpg" alt="Unit + Building Identification, image 30" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_31.jpg" alt="Unit + Building Identification, image 31" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_32.jpg" alt="Unit + Building Identification, image 32" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_33.jpg" alt="Unit + Building Identification, image 33" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_34.jpg" alt="Unit + Building Identification, image 34" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_35.jpg" alt="Unit + Building Identification, image 35" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_36.jpg" alt="Unit + Building Identification, image 36" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_37.jpg" alt="Unit + Building Identification, image 37" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_38.jpg" alt="Unit + Building Identification, image 38" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_39.jpg" alt="Unit + Building Identification, image 39" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_40.jpg" alt="Unit + Building Identification, image 40" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_41.jpg" alt="Unit + Building Identification, image 41" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_42.jpg" alt="Unit + Building Identification, image 42" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_43.jpg" alt="Unit + Building Identification, image 43" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_44.jpg" alt="Unit + Building Identification, image 44" loading="lazy"></div>
           </div>
         <button class="car-btn car-btn--prev" type="button" aria-label="Previous image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
@@ -1203,66 +1469,41 @@ p{margin:0 0 1rem}
 
       <div class="cap">
         <div class="cap-copy">
-          <h2>Addressing<br>+ Exterior Signage</h2>
-          <p>From condominiums and high rise apartment buildings to multi-family residential
-            developments, we provide modern, commercial-grade signage to get their attention and
-            elevate your property value.</p>
-          <ul>
-            <li>Unit and Suite Numbers</li>
-            <li>Addressing for Single or Multiple Properties</li>
-            <li>Addressing in sequence</li>
-            <li>Tenant Signage</li>
-            <li>Business and Office Signage</li>
-            <li>Office Park Addressing</li>
-            <li>Shopping Centers</li>
-          </ul>
+          <h2>2. Multifamily Signage</h2>
+          <p class="cap-sub">Unit numbering, building identification, and property-wide signage for apartments, condominiums, and mixed-use communities.</p>
+          <p>Carry a cohesive identification system across every unit, building, and shared space. Consistent products, finishes, and easy reordering make it simple to carry one architectural aesthetic throughout your property and into future phases.</p>
+          <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Multifamily Identification &rarr;</a></p>
         </div>
         <div class="carousel cap-carousel" data-carousel='{"wrapAround":true}'>
           <div class="carousel-track">
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_1.jpg" alt="Exterior address and unit signage, image 1"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_2.jpg" alt="Exterior address and unit signage, image 2" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_3.jpg" alt="Exterior address and unit signage, image 3" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_4.jpg" alt="Exterior address and unit signage, image 4" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_5.jpg" alt="Exterior address and unit signage, image 5" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_6.jpg" alt="Exterior address and unit signage, image 6" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_7.jpg" alt="Exterior address and unit signage, image 7" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_8.jpg" alt="Exterior address and unit signage, image 8" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_9.jpg" alt="Exterior address and unit signage, image 9" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_10.jpg" alt="Exterior address and unit signage, image 10" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_11.jpg" alt="Exterior address and unit signage, image 11" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_12.jpg" alt="Exterior address and unit signage, image 12" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_13.jpg" alt="Exterior address and unit signage, image 13" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_14.jpg" alt="Exterior address and unit signage, image 14" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_15.jpg" alt="Exterior address and unit signage, image 15" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_16.jpg" alt="Exterior address and unit signage, image 16" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_17.jpg" alt="Exterior address and unit signage, image 17" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_18.jpg" alt="Exterior address and unit signage, image 18" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_19.jpg" alt="Exterior address and unit signage, image 19" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_20.jpg" alt="Exterior address and unit signage, image 20" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_21.jpg" alt="Exterior address and unit signage, image 21" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_22.jpg" alt="Exterior address and unit signage, image 22" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_23.jpg" alt="Exterior address and unit signage, image 23" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_24.jpg" alt="Exterior address and unit signage, image 24" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_25.jpg" alt="Exterior address and unit signage, image 25" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_26.jpg" alt="Exterior address and unit signage, image 26" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_27.jpg" alt="Exterior address and unit signage, image 27" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_28.jpg" alt="Exterior address and unit signage, image 28" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_29.jpg" alt="Exterior address and unit signage, image 29" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_30.jpg" alt="Exterior address and unit signage, image 30" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_31.jpg" alt="Exterior address and unit signage, image 31" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_32.jpg" alt="Exterior address and unit signage, image 32" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_33.jpg" alt="Exterior address and unit signage, image 33" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_34.jpg" alt="Exterior address and unit signage, image 34" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_35.jpg" alt="Exterior address and unit signage, image 35" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_36.jpg" alt="Exterior address and unit signage, image 36" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_37.jpg" alt="Exterior address and unit signage, image 37" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_38.jpg" alt="Exterior address and unit signage, image 38" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_39.jpg" alt="Exterior address and unit signage, image 39" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_40.jpg" alt="Exterior address and unit signage, image 40" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_41.jpg" alt="Exterior address and unit signage, image 41" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_42.jpg" alt="Exterior address and unit signage, image 42" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_43.jpg" alt="Exterior address and unit signage, image 43" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_44.jpg" alt="Exterior address and unit signage, image 44" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_1.jpg" alt="Multifamily Signage, image 1"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_2.jpg" alt="Multifamily Signage, image 2" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_3.jpg" alt="Multifamily Signage, image 3" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_4.jpg" alt="Multifamily Signage, image 4" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_5.jpg" alt="Multifamily Signage, image 5" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_6.jpg" alt="Multifamily Signage, image 6" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_7.jpg" alt="Multifamily Signage, image 7" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_8.jpg" alt="Multifamily Signage, image 8" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_9.jpg" alt="Multifamily Signage, image 9" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_10.jpg" alt="Multifamily Signage, image 10" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_11.jpg" alt="Multifamily Signage, image 11" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_12.jpg" alt="Multifamily Signage, image 12" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_13.jpg" alt="Multifamily Signage, image 13" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_14.jpg" alt="Multifamily Signage, image 14" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_15.jpg" alt="Multifamily Signage, image 15" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_16.jpg" alt="Multifamily Signage, image 16" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_17.jpg" alt="Multifamily Signage, image 17" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_18.jpg" alt="Multifamily Signage, image 18" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_19.jpg" alt="Multifamily Signage, image 19" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_20.jpg" alt="Multifamily Signage, image 20" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_21.jpg" alt="Multifamily Signage, image 21" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_22.jpg" alt="Multifamily Signage, image 22" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_23.jpg" alt="Multifamily Signage, image 23" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_24.jpg" alt="Multifamily Signage, image 24" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_25.jpg" alt="Multifamily Signage, image 25" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_26.jpg" alt="Multifamily Signage, image 26" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_27.jpg" alt="Multifamily Signage, image 27" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_28.jpg" alt="Multifamily Signage, image 28" loading="lazy"></div>
           </div>
         <button class="car-btn car-btn--prev" type="button" aria-label="Previous image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
@@ -1273,57 +1514,40 @@ p{margin:0 0 1rem}
 
       <div class="cap cap--flip">
         <div class="cap-copy">
-          <h2>Hospitality<br>+ Interior Signs</h2>
-          <p>We&rsquo;re experts in cohesive and stylish interior signage for rooms, suites, doors,
-            restrooms, conference rooms, offices and more! Custom shapes, sizes, and integrated logos
-            are all possible.</p>
-          <ul>
-            <li>Office</li>
-            <li>Hospitality &amp; Restaurant</li>
-            <li>Medical &amp; Dental</li>
-            <li>Boutique Hotel &amp; Resort</li>
-            <li>Senior Living</li>
-            <li>Student Housing</li>
-          </ul>
+          <h2>3. Wayfinding &amp; Directional Signage</h2>
+          <p class="cap-sub">Considered wayfinding for multifamily communities, hospitality properties, campuses, and commercial spaces.</p>
+          <p>Guide residents, guests, and visitors with cohesive identification signage. From building and amenity directions and destination markers, each piece is coordinated to improve navigation while maintaining a cohesive visual identity across your property.</p>
+          <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Wayfinding &rarr;</a></p>
         </div>
         <div class="carousel cap-carousel" data-carousel='{"wrapAround":true}'>
           <div class="carousel-track">
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_1.jpg" alt="Interior and hospitality signage, image 1"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_2.jpg" alt="Interior and hospitality signage, image 2" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_3.jpg" alt="Interior and hospitality signage, image 3" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_4.jpg" alt="Interior and hospitality signage, image 4" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_5.jpg" alt="Interior and hospitality signage, image 5" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_6.jpg" alt="Interior and hospitality signage, image 6" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_7.jpg" alt="Interior and hospitality signage, image 7" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_8.jpg" alt="Interior and hospitality signage, image 8" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_9.jpg" alt="Interior and hospitality signage, image 9" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_10.jpg" alt="Interior and hospitality signage, image 10" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_11.jpg" alt="Interior and hospitality signage, image 11" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_12.jpg" alt="Interior and hospitality signage, image 12" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_13.jpg" alt="Interior and hospitality signage, image 13" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_14.jpg" alt="Interior and hospitality signage, image 14" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_15.jpg" alt="Interior and hospitality signage, image 15" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_16.jpg" alt="Interior and hospitality signage, image 16" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_17.jpg" alt="Interior and hospitality signage, image 17" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_18.jpg" alt="Interior and hospitality signage, image 18" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_19.jpg" alt="Interior and hospitality signage, image 19" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_20.jpg" alt="Interior and hospitality signage, image 20" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_21.jpg" alt="Interior and hospitality signage, image 21" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_22.jpg" alt="Interior and hospitality signage, image 22" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_23.jpg" alt="Interior and hospitality signage, image 23" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_24.jpg" alt="Interior and hospitality signage, image 24" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_25.jpg" alt="Interior and hospitality signage, image 25" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_26.jpg" alt="Interior and hospitality signage, image 26" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_27.jpg" alt="Interior and hospitality signage, image 27" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_28.jpg" alt="Interior and hospitality signage, image 28" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_29.jpg" alt="Interior and hospitality signage, image 29" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_30.jpg" alt="Interior and hospitality signage, image 30" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_31.jpg" alt="Interior and hospitality signage, image 31" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_32.jpg" alt="Interior and hospitality signage, image 32" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_33.jpg" alt="Interior and hospitality signage, image 33" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_34.jpg" alt="Interior and hospitality signage, image 34" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_35.jpg" alt="Interior and hospitality signage, image 35" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_36.jpg" alt="Interior and hospitality signage, image 36" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_1.jpg" alt="Wayfinding &amp; Directional Signage, image 1"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_2.jpg" alt="Wayfinding &amp; Directional Signage, image 2" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_3.jpg" alt="Wayfinding &amp; Directional Signage, image 3" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_4.jpg" alt="Wayfinding &amp; Directional Signage, image 4" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_5.jpg" alt="Wayfinding &amp; Directional Signage, image 5" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_6.jpg" alt="Wayfinding &amp; Directional Signage, image 6" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_7.jpg" alt="Wayfinding &amp; Directional Signage, image 7" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_8.jpg" alt="Wayfinding &amp; Directional Signage, image 8" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_9.jpg" alt="Wayfinding &amp; Directional Signage, image 9" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_10.jpg" alt="Wayfinding &amp; Directional Signage, image 10" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_11.jpg" alt="Wayfinding &amp; Directional Signage, image 11" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_12.jpg" alt="Wayfinding &amp; Directional Signage, image 12" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_13.jpg" alt="Wayfinding &amp; Directional Signage, image 13" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_14.jpg" alt="Wayfinding &amp; Directional Signage, image 14" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_15.jpg" alt="Wayfinding &amp; Directional Signage, image 15" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_16.jpg" alt="Wayfinding &amp; Directional Signage, image 16" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_17.jpg" alt="Wayfinding &amp; Directional Signage, image 17" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_18.jpg" alt="Wayfinding &amp; Directional Signage, image 18" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_19.jpg" alt="Wayfinding &amp; Directional Signage, image 19" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_20.jpg" alt="Wayfinding &amp; Directional Signage, image 20" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_21.jpg" alt="Wayfinding &amp; Directional Signage, image 21" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_22.jpg" alt="Wayfinding &amp; Directional Signage, image 22" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_23.jpg" alt="Wayfinding &amp; Directional Signage, image 23" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_24.jpg" alt="Wayfinding &amp; Directional Signage, image 24" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_25.jpg" alt="Wayfinding &amp; Directional Signage, image 25" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_26.jpg" alt="Wayfinding &amp; Directional Signage, image 26" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_27.jpg" alt="Wayfinding &amp; Directional Signage, image 27" loading="lazy"></div>
           </div>
         <button class="car-btn car-btn--prev" type="button" aria-label="Previous image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
@@ -1334,44 +1558,40 @@ p{margin:0 0 1rem}
 
       <div class="cap">
         <div class="cap-copy">
-          <h2>Wayfinding</h2>
-          <p>Help them find their way in style! We specialize in modern and eye-catching directional
-            and informational signage for stairs, elevators, entries, exits, parking and more!</p>
-          <ul>
-            <li>Interior Directional Signage (such as elevators, stair landing, laundry room, floor numbers)</li>
-            <li>Exterior Directional Signage (such as suite locations, service entrance, parking)</li>
-            <li>Business and Commercial Signage</li>
-          </ul>
+          <h2>4. Monument &amp; Branded Signage</h2>
+          <p class="cap-sub">Custom property identification, logos, and branded signage for residential communities, commercial developments, and hospitality properties.</p>
+          <p>Bring your property&rsquo;s identity into the architecture with custom monument signs, logos, and large-scale identification. Designed to reinforce brand standards and establish a strong sense of place, these solutions help distinguish your property while maintaining a cohesive visual identity.</p>
+          <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Monument + Branded Signage &rarr;</a></p>
         </div>
         <div class="carousel cap-carousel" data-carousel='{"wrapAround":true}'>
           <div class="carousel-track">
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_1.jpg" alt="Directional wayfinding signage, image 1"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_2.jpg" alt="Directional wayfinding signage, image 2" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_3.jpg" alt="Directional wayfinding signage, image 3" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_4.jpg" alt="Directional wayfinding signage, image 4" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_5.jpg" alt="Directional wayfinding signage, image 5" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_6.jpg" alt="Directional wayfinding signage, image 6" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_7.jpg" alt="Directional wayfinding signage, image 7" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_8.jpg" alt="Directional wayfinding signage, image 8" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_9.jpg" alt="Directional wayfinding signage, image 9" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_10.jpg" alt="Directional wayfinding signage, image 10" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_11.jpg" alt="Directional wayfinding signage, image 11" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_12.jpg" alt="Directional wayfinding signage, image 12" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_13.jpg" alt="Directional wayfinding signage, image 13" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_14.jpg" alt="Directional wayfinding signage, image 14" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_15.jpg" alt="Directional wayfinding signage, image 15" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_16.jpg" alt="Directional wayfinding signage, image 16" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_17.jpg" alt="Directional wayfinding signage, image 17" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_18.jpg" alt="Directional wayfinding signage, image 18" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_19.jpg" alt="Directional wayfinding signage, image 19" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_20.jpg" alt="Directional wayfinding signage, image 20" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_21.jpg" alt="Directional wayfinding signage, image 21" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_22.jpg" alt="Directional wayfinding signage, image 22" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_23.jpg" alt="Directional wayfinding signage, image 23" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_24.jpg" alt="Directional wayfinding signage, image 24" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_25.jpg" alt="Directional wayfinding signage, image 25" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_26.jpg" alt="Directional wayfinding signage, image 26" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_wayfind_27.jpg" alt="Directional wayfinding signage, image 27" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_1.jpg" alt="Monument &amp; Branded Signage, image 1"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_2.jpg" alt="Monument &amp; Branded Signage, image 2" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_3.jpg" alt="Monument &amp; Branded Signage, image 3" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_4.jpg" alt="Monument &amp; Branded Signage, image 4" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_5.jpg" alt="Monument &amp; Branded Signage, image 5" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_6.jpg" alt="Monument &amp; Branded Signage, image 6" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_7.jpg" alt="Monument &amp; Branded Signage, image 7" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_8.jpg" alt="Monument &amp; Branded Signage, image 8" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_9.jpg" alt="Monument &amp; Branded Signage, image 9" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_10.jpg" alt="Monument &amp; Branded Signage, image 10" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_11.jpg" alt="Monument &amp; Branded Signage, image 11" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_12.jpg" alt="Monument &amp; Branded Signage, image 12" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_13.jpg" alt="Monument &amp; Branded Signage, image 13" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_14.jpg" alt="Monument &amp; Branded Signage, image 14" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_15.jpg" alt="Monument &amp; Branded Signage, image 15" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_16.jpg" alt="Monument &amp; Branded Signage, image 16" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_17.jpg" alt="Monument &amp; Branded Signage, image 17" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_18.jpg" alt="Monument &amp; Branded Signage, image 18" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_19.jpg" alt="Monument &amp; Branded Signage, image 19" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_20.jpg" alt="Monument &amp; Branded Signage, image 20" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_21.jpg" alt="Monument &amp; Branded Signage, image 21" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_22.jpg" alt="Monument &amp; Branded Signage, image 22" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_23.jpg" alt="Monument &amp; Branded Signage, image 23" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_24.jpg" alt="Monument &amp; Branded Signage, image 24" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_25.jpg" alt="Monument &amp; Branded Signage, image 25" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_26.jpg" alt="Monument &amp; Branded Signage, image 26" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_27.jpg" alt="Monument &amp; Branded Signage, image 27" loading="lazy"></div>
           </div>
         <button class="car-btn car-btn--prev" type="button" aria-label="Previous image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
@@ -1382,49 +1602,49 @@ p{margin:0 0 1rem}
 
       <div class="cap cap--flip">
         <div class="cap-copy">
-          <h2>Monuments + Logos</h2>
-          <p>Attention-grabbing monument signs and distinctive graphics are our specialty! Choose from
-            our in-house options or let us create something unique. Large-scale, commercial-grade and
-            made to last.</p>
-          <ul>
-            <li class="cap-sub">Exterior:</li>
-            <li>Free-Standing Monument Signs</li>
-            <li>Custom Logo Signs</li>
-            <li class="cap-sub">Interior:</li>
-            <li>Reception Desk Graphics</li>
-            <li>Interior Wall-Mounted Logo Signs</li>
-            <li>Large Scale Decals</li>
-          </ul>
+          <h2>5. Interior &amp; Hospitality Signage</h2>
+          <p class="cap-sub">Room identification and amenity signage for hotels, resorts, multifamily communities, and commercial properties.</p>
+          <p>Enhance the visitor experience with interior signage designed for clarity, consistency, and style. From room identification and amenity signage to directories and guest-facing applications, our collection of products help create intuitive, well-branded environments throughout your property.</p>
+          <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Interior + Hospitality Signage &rarr;</a></p>
         </div>
         <div class="carousel cap-carousel" data-carousel='{"wrapAround":true}'>
           <div class="carousel-track">
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_1.jpg" alt="Monument and logo signage, image 1"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_2.jpg" alt="Monument and logo signage, image 2" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_3.jpg" alt="Monument and logo signage, image 3" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_4.jpg" alt="Monument and logo signage, image 4" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_5.jpg" alt="Monument and logo signage, image 5" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_6.jpg" alt="Monument and logo signage, image 6" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_7.jpg" alt="Monument and logo signage, image 7" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_8.jpg" alt="Monument and logo signage, image 8" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_9.jpg" alt="Monument and logo signage, image 9" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_10.jpg" alt="Monument and logo signage, image 10" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_11.jpg" alt="Monument and logo signage, image 11" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_12.jpg" alt="Monument and logo signage, image 12" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_13.jpg" alt="Monument and logo signage, image 13" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_14.jpg" alt="Monument and logo signage, image 14" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_15.jpg" alt="Monument and logo signage, image 15" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_16.jpg" alt="Monument and logo signage, image 16" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_17.jpg" alt="Monument and logo signage, image 17" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_18.jpg" alt="Monument and logo signage, image 18" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_19.jpg" alt="Monument and logo signage, image 19" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_20.jpg" alt="Monument and logo signage, image 20" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_21.jpg" alt="Monument and logo signage, image 21" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_22.jpg" alt="Monument and logo signage, image 22" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_23.jpg" alt="Monument and logo signage, image 23" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_24.jpg" alt="Monument and logo signage, image 24" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_25.jpg" alt="Monument and logo signage, image 25" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_26.jpg" alt="Monument and logo signage, image 26" loading="lazy"></div>
-            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_monu_27.jpg" alt="Monument and logo signage, image 27" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_1.jpg" alt="Interior &amp; Hospitality Signage, image 1"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_2.jpg" alt="Interior &amp; Hospitality Signage, image 2" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_3.jpg" alt="Interior &amp; Hospitality Signage, image 3" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_4.jpg" alt="Interior &amp; Hospitality Signage, image 4" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_5.jpg" alt="Interior &amp; Hospitality Signage, image 5" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_6.jpg" alt="Interior &amp; Hospitality Signage, image 6" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_7.jpg" alt="Interior &amp; Hospitality Signage, image 7" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_8.jpg" alt="Interior &amp; Hospitality Signage, image 8" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_9.jpg" alt="Interior &amp; Hospitality Signage, image 9" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_10.jpg" alt="Interior &amp; Hospitality Signage, image 10" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_11.jpg" alt="Interior &amp; Hospitality Signage, image 11" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_12.jpg" alt="Interior &amp; Hospitality Signage, image 12" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_13.jpg" alt="Interior &amp; Hospitality Signage, image 13" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_14.jpg" alt="Interior &amp; Hospitality Signage, image 14" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_15.jpg" alt="Interior &amp; Hospitality Signage, image 15" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_16.jpg" alt="Interior &amp; Hospitality Signage, image 16" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_17.jpg" alt="Interior &amp; Hospitality Signage, image 17" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_18.jpg" alt="Interior &amp; Hospitality Signage, image 18" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_19.jpg" alt="Interior &amp; Hospitality Signage, image 19" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_20.jpg" alt="Interior &amp; Hospitality Signage, image 20" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_21.jpg" alt="Interior &amp; Hospitality Signage, image 21" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_22.jpg" alt="Interior &amp; Hospitality Signage, image 22" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_23.jpg" alt="Interior &amp; Hospitality Signage, image 23" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_24.jpg" alt="Interior &amp; Hospitality Signage, image 24" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_25.jpg" alt="Interior &amp; Hospitality Signage, image 25" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_26.jpg" alt="Interior &amp; Hospitality Signage, image 26" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_27.jpg" alt="Interior &amp; Hospitality Signage, image 27" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_28.jpg" alt="Interior &amp; Hospitality Signage, image 28" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_29.jpg" alt="Interior &amp; Hospitality Signage, image 29" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_30.jpg" alt="Interior &amp; Hospitality Signage, image 30" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_31.jpg" alt="Interior &amp; Hospitality Signage, image 31" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_32.jpg" alt="Interior &amp; Hospitality Signage, image 32" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_33.jpg" alt="Interior &amp; Hospitality Signage, image 33" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_34.jpg" alt="Interior &amp; Hospitality Signage, image 34" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_35.jpg" alt="Interior &amp; Hospitality Signage, image 35" loading="lazy"></div>
+            <div class="carousel-cell"><img src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_36.jpg" alt="Interior &amp; Hospitality Signage, image 36" loading="lazy"></div>
           </div>
         <button class="car-btn car-btn--prev" type="button" aria-label="Previous image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
@@ -1432,114 +1652,90 @@ p{margin:0 0 1rem}
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor" transform="translate(100,100) rotate(180)"/></svg></button>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ============ TRADE TESTIMONIALS ============
-       One carousel, seven cells, autoPlay 5000 + wrapAround and no page dots,
-       matching the live page's "main-carousel higharrows" instance. -->
+  <!-- ============ SECTION 7: FEATURED TRADE PROJECTS ============ -->
   <section class="section">
     <div class="container">
+      <div class="sg sg-new" data-card="17">
+        <ins>
+          <span class="sg-tag">Replaces the testimonial carousel</span>
+          <h2 class="section-head center">See Our House Numbers and Signage on Real Trade Projects</h2>
+          <p class="section-lead center">Explore how architects, designers, builders, and developers use
+            Modern House Numbers to bring identity and detail to their projects.</p>
+        </ins>
+      </div>
+
       <div class="carousel quote-carousel" data-carousel='{"autoPlay":5000,"wrapAround":true}'>
         <div class="carousel-track">
           <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_hakes.jpg"
-                 alt="Hakes Sash &amp; Door project featuring Modern House Numbers" loading="lazy">
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;Exceeds our expectations!&rdquo;</h2>
-            <p>&ldquo;At Hakes Sash &amp; Door we source only the highest quality products for our customers and clients. MHN exceeds our expectations for quality, style and customer service every time.&rdquo;</p>
-            <cite>- William Wunderlich, Hakes Sash &amp; Door</cite>
-          </div>
-        </div>
-          </div>
-          <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_ca.jpg"
-                 alt="Carson Arthur Design project featuring Modern House Numbers" loading="lazy">
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;Easy to order. Easy to use!&rdquo;</h2>
-            <p>&ldquo;Blown away by how easy it was to order and use this product. Excited to feature them on an episode of my HGTV Canada show &ldquo;Critical Listing&rdquo;. Side note&hellip;the surprised homeowners loved them too!&rdquo;</p>
-            <cite>- Carson Arthur Design / HGTV Canada</cite>
-          </div>
-        </div>
+            <div class="quote-row">
+              <div class="quote-media">
+                <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_hakes.jpg"
+                     alt="Rivendale Homes project featuring Modern House Numbers" loading="lazy">
+              </div>
+              <div class="quote-copy">
+                <h2>Rivendale Homes</h2>
+                <p class="proj-loc">Austin, Texas</p>
+                <p>&ldquo;We&rsquo;ve been a Modern House Number customer for 5 years. We choose MHN because of their variety of fonts, sizing, finishes and the ease of ordering online. Their quality and customer service are excellent.&rdquo;</p>
+                <cite>Diane Faccenda, Purchasing Manager</cite>
+              </div>
+            </div>
           </div>
           <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_munro.jpg"
-                 alt="Munro Homes project featuring Modern House Numbers" loading="lazy">
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;50 projects and counting!&rdquo;</h2>
-            <p>&ldquo;Since 2010, we have 50+ homes with Modern House Numbers. They remain as beautiful as the day they were installed! The quality product that we receive from MHN outweighs any financial objections due to our location in Western Canada.&rdquo;</p>
-            <cite>- Heather McGinnis, Munro Homes, Canada</cite>
-          </div>
-        </div>
-          </div>
-          <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_odyssey.jpg"
-                 alt="Odyssey Construction multi-unit project featuring Modern House Numbers" loading="lazy">
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;Perfect for our multi-unit buildings!&rdquo;</h2>
-            <p>&ldquo;We build modern homes in Nashville, often with an A&amp;B unit. We had difficulty finding quality numbers / letters until we came across Modern House Numbers. We will use MHN on all of our new homes!&rdquo;</p>
-            <cite>- Odyssey Construction, LLC 2014</cite>
-          </div>
-        </div>
+            <div class="quote-row">
+              <div class="quote-media">
+                <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_granger.jpg"
+                     alt="Granger Family Homes and Imagine Homes project featuring Modern House Numbers" loading="lazy">
+              </div>
+              <div class="quote-copy">
+                <h2>Granger Family Homes and Imagine Homes</h2>
+                <p class="proj-loc">Kirkland, Washington</p>
+                <p>&ldquo;Modern House Numbers is our most trusted go-to for address numbers! The variety and quality of products are top-of-the-line, offering the perfect finishing touch to accentuate our homes.&rdquo;</p>
+                <cite>Beau Granger, Real-Estate Developer and General Contractor</cite>
+              </div>
+            </div>
           </div>
           <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_sla.jpg"
-                 alt="Sorell Project by Shaun Lockyer Architects" loading="lazy">
-            <p class="quote-credit">Sorell Project, Shaun Lockyer Architects, photograph: Scott Burrows Photography</p>
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;A signature piece found on every one of our homes.&rdquo;</h2>
-            <p>&ldquo;Modern House Numbers are now found on every one of our homes. Their timeless and unique products constitute the ultimate punctuation mark to the story of our work.&rdquo;</p>
-            <cite>- Shaun Lockyer, Shaun Lockyer Architects, Australia</cite>
-          </div>
-        </div>
-          </div>
-          <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_granger.jpg"
-                 alt="Beau Development home featuring Modern House Numbers" loading="lazy">
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;Our go-to for house numbers!&rdquo;</h2>
-            <p>&ldquo;MHN is our go-to for house numbers. The variety and quality of products are top-of-the-line, offering the perfect finishing touch to accentuate our homes.&rdquo;</p>
-            <cite>- Beau Granger, Beau Development, Seattle, WA</cite>
-          </div>
-        </div>
-          </div>
-          <div class="carousel-cell">
-      <div class="quote-row">
-          <div class="quote-media">
-            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/testim_4.jpg"
-                 alt="H3K Design mid-century renovation in Palm Springs" loading="lazy">
-          </div>
-          <div class="quote-copy">
-            <h2>&ldquo;Perfectly accentuates our designs!&rdquo;</h2>
-            <p>&ldquo;We renovate many mid-century homes of various architectural styles in Palm Springs, California. Modern House Numbers never disappoints with the perfect style to accentuate our designs.&rdquo;</p>
-            <cite>- Howard Hawkes &amp; Kevin Kemper, H3K Design</cite>
-          </div>
-        </div>
+            <div class="quote-row">
+              <div class="quote-media">
+                <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/testim_4.jpg"
+                     alt="Garden Studio Design project featuring Modern House Numbers" loading="lazy">
+              </div>
+              <div class="quote-copy">
+                <h2>Garden Studio Design</h2>
+                <p class="proj-loc">Costa Mesa, California</p>
+                <p><em class="needs-quote">[Quote needed]</em></p>
+                <cite>Chris Fenmore, Founder &amp; Principal Designer</cite>
+              </div>
+            </div>
           </div>
         </div>
         <button class="car-btn car-btn--prev" type="button" aria-label="Previous image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
         <button class="car-btn car-btn--next" type="button" aria-label="Next image">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor" transform="translate(100,100) rotate(180)"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 8 (NEW): FINAL CTA ============ -->
+  <section class="section final-cta">
+    <div class="container">
+      <div class="sg sg-new" data-card="15">
+        <ins>
+          <span class="sg-tag">New section</span>
+          <h2 class="section-head center">Have a Trade Project That Needs House Numbers or Custom Signage?</h2>
+          <p class="section-lead center">Tell us what you&rsquo;re working on. We&rsquo;ll help with product
+            selection, complimentary dimensioned proofs, and custom estimates.</p>
+          <p class="center final-actions">
+            <a class="btn btn--primary" href="mailto:terry@modernhousenumbers.com?subject=Trade%20project%20quote%20request">Request Quote &rarr;</a>
+            <a class="final-mail" href="mailto:terry@modernhousenumbers.com">terry@modernhousenumbers.com</a>
+          </p>
+          <p class="center final-join">Unlock exclusive Trade perks and benefits.
+            <a class="btn btn--ghost" href="#signup">Join our Trade Program &rarr;</a></p>
+        </ins>
       </div>
     </div>
   </section>
@@ -1618,6 +1814,142 @@ p{margin:0 0 1rem}
     </div>
   </div>
 </footer>
+
+<aside class="sg-drawer" data-sg-drawer aria-label="Content suggestions">
+  <div class="sg-drawer-head"><b>Why these edits?</b>
+    <button type="button" class="sg-close" data-sg-close aria-label="Close comments">&times;</button></div>
+  <div class="sg-drawer-intro">
+    <p>These are the revisions from <b>Trade Landing Page Revisions &mdash; DRAFT 2028.09.03</b>, applied
+      to this page exactly as written in the document.</p>
+    <p>The brief&rsquo;s grey &ldquo;Page Goal&rdquo;, &ldquo;The Experience&rdquo; and &ldquo;Page
+      Diagram&rdquo; passages are marked in the document as page orientation for internal reference, so
+      they are not treated as page copy.</p>
+    <small>Two items still need input: the Garden Studio Design quote is marked QUOTE NEEDED in the
+      brief, and the benefit block is noted as &ldquo;replicate DWR benefit block design&rdquo;, which
+      is a visual reference rather than copy.</small>
+  </div>
+  <div class="sg-cards">
+        <article class="sg-card" id="sg-card-1" data-card="1">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 1 of 17</small></div></div>
+          <div class="sg-card-label">Page H1</div>
+          <p>H1 changes from <em>Trade Professionals</em> to <em>House Numbers and Signage for the Trade</em>, so the heading names the products as well as the audience.</p>
+          <button type="button" class="sg-jump" data-jump="1">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-2" data-card="2">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 2 of 17</small></div></div>
+          <div class="sg-card-label">Hero paragraph</div>
+          <p>Comma added after &ldquo;Trade Representative&rdquo; so the closing clause reads as a separate thought.</p>
+          <button type="button" class="sg-jump" data-jump="2">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-3" data-card="3">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 3 of 17</small></div></div>
+          <div class="sg-card-label">Section 4 heading + intro</div>
+          <p>New heading <em>Order Custom Signage in Trade Quantities</em> replaces the four-product list, with an intro covering all four tabs.</p>
+          <button type="button" class="sg-jump" data-jump="3">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-4" data-card="4">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 4 of 17</small></div></div>
+          <div class="sg-card-label">Numbers + Letters tab</div>
+          <p>Heading becomes <em>Architectural Numbers + Letters</em>; the description is rewritten around the seven fonts, five sizes and five finishes, with hardware and templates in a second paragraph.</p>
+          <button type="button" class="sg-jump" data-jump="4">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-5" data-card="5">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 5 of 17</small></div></div>
+          <div class="sg-card-label">Plaques tab</div>
+          <p>Heading becomes <em>Architectural Address Plaques</em>; description rewritten around the stencil-cut characters, shapes, three fonts and alignment options.</p>
+          <button type="button" class="sg-jump" data-jump="5">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-6" data-card="6">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 6 of 17</small></div></div>
+          <div class="sg-card-label">QuickShip tab (new)</div>
+          <p>QuickShip moves from an outbound link to a tab with its own copy: next-business-day shipping, Palm Springs in 4&quot;/6&quot;/8&quot;, brushed aluminium or matte black.</p>
+          <button type="button" class="sg-jump" data-jump="6">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-7" data-card="7">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 7 of 17</small></div></div>
+          <div class="sg-card-label">Restroom Signs tab (new)</div>
+          <p>Restroom Signs moves from an outbound link to a tab: stencil-cut icons, five designs, curated plaque shapes and five finishes.</p>
+          <button type="button" class="sg-jump" data-jump="7">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-8" data-card="8">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 8 of 17</small></div></div>
+          <div class="sg-card-label">Section 5 heading</div>
+          <p>The two headings &ldquo;Need Assistance?&rdquo; and &ldquo;Resources&rdquo; are replaced by one centred title, <em>Trade Support and Signage Specification Resources</em>. The left column keeps a heading of its own, <em>Dedicated Trade Support</em>.</p>
+          <button type="button" class="sg-jump" data-jump="8">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-9" data-card="9">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 9 of 17</small></div></div>
+          <div class="sg-card-label">Trade support copy</div>
+          <p>Paragraph rewritten around what Terry actually does &mdash; project pricing, custom estimates, design assistance, product recommendations, installation guidance, bulk orders &mdash; and a <em>Request Quote</em> CTA is added.</p>
+          <button type="button" class="sg-jump" data-jump="9">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-10" data-card="10">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 10 of 17</small></div></div>
+          <div class="sg-card-label">Resource card 1</div>
+          <p><em>Installation</em> becomes <em>Installation Guides</em>.</p>
+          <button type="button" class="sg-jump" data-jump="10">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-11" data-card="11">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 11 of 17</small></div></div>
+          <div class="sg-card-label">Resource card 2</div>
+          <p><em>Join + Save</em> becomes <em>Join Trade Program</em>.</p>
+          <button type="button" class="sg-jump" data-jump="11">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-12" data-card="12">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 12 of 17</small></div></div>
+          <div class="sg-card-label">Resource card 4</div>
+          <p><em>Inspiration Guide</em> becomes <em>Project Inspiration</em>. Sizing + Visibility, Technical Specifications and Trade Portal are unchanged.</p>
+          <button type="button" class="sg-jump" data-jump="12">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-13" data-card="13">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 13 of 17</small></div></div>
+          <div class="sg-card-label">Section 2 (new)</div>
+          <p>A short banner between the hero and the benefits: <em>Designed for the Trade.</em> plus the four audiences &mdash; builders, architects, multifamily, developers.</p>
+          <button type="button" class="sg-jump" data-jump="13">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-14" data-card="14">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 14 of 17</small></div></div>
+          <div class="sg-card-label">Section 3 (new)</div>
+          <p><em>Why Trade Professionals Choose Modern House Numbers</em>, with the four benefit blocks from the brief and a <em>Request Quote</em> CTA.</p>
+          <button type="button" class="sg-jump" data-jump="14">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-15" data-card="15">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 15 of 17</small></div></div>
+          <div class="sg-card-label">Section 8 (new)</div>
+          <p>Closing CTA: <em>Have a Trade Project That Needs House Numbers or Custom Signage?</em> with Request Quote, Terry&rsquo;s address and the Trade Program link.</p>
+          <button type="button" class="sg-jump" data-jump="15">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-16" data-card="16">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 16 of 17</small></div></div>
+          <div class="sg-card-label">Section 6</div>
+          <p>Heading becomes <em>Trade Signage by Property Type</em>, and the five capability rows are replaced by the five property types from the brief, each with its own CTA.</p>
+          <button type="button" class="sg-jump" data-jump="16">Show me on the page &rarr;</button>
+        </article>
+        <article class="sg-card" id="sg-card-17" data-card="17">
+          <div class="sg-card-head"><span class="sg-avatar">1%</span>
+            <div><b>One Percent SEO</b><small>Suggestion 17 of 17</small></div></div>
+          <div class="sg-card-label">Section 7</div>
+          <p>The testimonial carousel becomes <em>Featured Trade Projects</em> &mdash; Rivendale Homes, Granger Family Homes and Garden Studio Design, with location and role on each.</p>
+          <button type="button" class="sg-jump" data-jump="17">Show me on the page &rarr;</button>
+        </article>
+  </div>
+</aside>
 
 <script>
 (function () {
@@ -1704,7 +2036,7 @@ p{margin:0 0 1rem}
     btn.addEventListener('click', function () {
       tabs.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
       btn.setAttribute('aria-selected', 'true');
-      ['numbers', 'plaques'].forEach(function (id) {
+      ['numbers', 'plaques', 'quickship', 'restroom'].forEach(function (id) {
         document.getElementById(id).hidden = (id !== btn.dataset.tab);
       });
     });
@@ -1891,8 +2223,65 @@ p{margin:0 0 1rem}
 
   document.querySelectorAll('[data-config]').forEach(initConfigurator);
 
+
+  /* ---------------- suggestion review mode ---------------- */
+  (function () {
+    var body = document.body, drawer = document.querySelector('[data-sg-drawer]');
+    if (!drawer) return;
+    body.classList.add('sg-suggest');
+
+    document.querySelectorAll('.sg-mode').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('.sg-mode').forEach(function (o) { o.classList.remove('is-active'); });
+        b.classList.add('is-active');
+        body.classList.toggle('sg-final', b.dataset.mode === 'final');
+      });
+    });
+
+    function openDrawer(card) {
+      drawer.classList.add('is-open');
+      drawer.querySelectorAll('.sg-card').forEach(function (c) { c.classList.remove('is-active'); });
+      if (card) {
+        var el = document.getElementById('sg-card-' + card);
+        if (el) { el.classList.add('is-active'); el.scrollIntoView({ block: 'center' }); }
+      }
+    }
+    document.querySelector('[data-sg-open]').addEventListener('click', function () { openDrawer(); });
+    document.querySelector('[data-sg-close]').addEventListener('click', function () {
+      drawer.classList.remove('is-open');
+    });
+
+    // clicking any highlight opens its note
+    document.querySelectorAll('.sg[data-card]').forEach(function (m) {
+      m.addEventListener('click', function () {
+        if (body.classList.contains('sg-final')) return;
+        document.querySelectorAll('.sg').forEach(function (o) { o.classList.remove('is-active'); });
+        m.classList.add('is-active');
+        openDrawer(m.dataset.card);
+      });
+    });
+
+    // "show me on the page" scrolls to the mark and flashes it
+    drawer.querySelectorAll('[data-jump]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var t = document.querySelector('.sg[data-card="' + b.dataset.jump + '"]');
+        if (!t) return;
+        var panel = t.closest('.tabsection');
+        if (panel && panel.hidden) {
+          var tab = document.querySelector('.proswitcher [data-tab="' + panel.id + '"]');
+          if (tab) tab.click();
+        }
+        drawer.classList.remove('is-open');
+        t.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        t.classList.add('sg-flash');
+        setTimeout(function () { t.classList.remove('sg-flash'); }, 1500);
+      });
+    });
+  })();
 })();
 </script>
+
+
 
 </body>
 </html>
