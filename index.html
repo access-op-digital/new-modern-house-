@@ -109,18 +109,9 @@ p{margin:0 0 1rem}
 .nav-links a[aria-current]{color:var(--orange)}
 @media(max-width:900px){.nav-links{display:none}}
 
-/* ---- ticker / trade attribute bar ---- */
-.ticker{border-bottom:1px solid var(--line-soft);padding:18px 0 20px;overflow:hidden}
-.ticker h1{margin:0 0 14px}
-.ticker-track{display:flex;gap:2.6rem;width:max-content;align-items:center;
-  animation:tick 34s linear infinite}
-.ticker-track span{white-space:nowrap;font-size:.76rem;letter-spacing:.17em;
-  text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
-.ticker-track span::after{content:"·";margin-left:2.6rem;color:var(--orange)}
-.ticker-mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-@keyframes tick{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+/* ---- page title ---- */
+.pagetitle{border-bottom:1px solid var(--line-soft);padding:18px 0 20px}
+.pagetitle h1{margin:0}
 
 /* ---- hero ---- */
 .hero{padding:44px 0 56px}
@@ -272,6 +263,9 @@ p{margin:0 0 1rem}
 .accordions .tab-content h4{font-family:var(--body);font-size:.8rem;letter-spacing:.12em;
   text-transform:uppercase;font-weight:700;margin:.9rem 0 .3rem}
 .rev-stars{color:var(--orange);letter-spacing:.06em}
+.rev-pager{font-size:.78rem;color:var(--ink-soft);margin:.6rem 0 0}
+.rev-pager a{color:var(--orange)}
+.ori-ico{width:20px;height:20px;margin-left:-2px}
 .half-star{display:inline-block;width:.5em;overflow:hidden;vertical-align:top}
 .rev-count{color:var(--ink-soft);font-size:.72rem;letter-spacing:.06em}
 
@@ -429,25 +423,14 @@ p{margin:0 0 1rem}
       <a href="/trade" aria-current="page">Trade</a>
       <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
     </nav>
-    <a class="btn btn--primary btn--sm" href="#signup">Join Trade Program</a>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- ============ TRADE ATTRIBUTE TICKER ============ -->
-  <section class="ticker">
+  <!-- ============ PAGE TITLE ============ -->
+  <section class="pagetitle">
     <div class="container"><h1>Trade Professional</h1></div>
-    <div class="ticker-mask">
-      <div class="ticker-track" id="ticker" aria-hidden="true">
-        <span>Personal Service Representative</span>
-        <span>Large Quantities</span>
-        <span>Custom Logos and Fonts</span>
-        <span>Precision Crafted. Made to Last.</span>
-        <span>Architectural Quality</span>
-        <span>Installation Template Included</span>
-      </div>
-    </div>
   </section>
 
   <!-- ============ HERO ============ -->
@@ -690,8 +673,8 @@ p{margin:0 0 1rem}
                 <div>
                   <p class="opt-label">Orientation</p>
                   <ul class="picker" data-picker="orient">
-                    <li><button type="button" data-orient="horizontal" data-label="Horizontal Installation Template" aria-pressed="true"><span class="circsel"></span><span class="sub">&#8597;</span></button></li>
-                    <li><button type="button" data-orient="vertical" data-label="Vertical Installation Template" aria-pressed="false"><span class="circsel"></span><span class="sub">&#8596;</span></button></li>
+                    <li><button type="button" data-orient="horizontal" data-label="Horizontal Installation Template" aria-pressed="true"><span class="circsel"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="ori-ico" style="transform:rotate(90deg)"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"/></svg></button></li>
+                    <li><button type="button" data-orient="vertical" data-label="Vertical Installation Template" aria-pressed="false"><span class="circsel"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="ori-ico"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"/></svg></button></li>
                     <li><button type="button" data-orient="both" data-label="Vertical &amp; Horizontal Templates" aria-pressed="false"><span class="circsel"></span>Both</button></li>
                   </ul>
                   <p class="picker-result" data-el="orientName">Horizontal Installation<br>Template</p>
@@ -729,6 +712,11 @@ p{margin:0 0 1rem}
                   <p style="margin:0 0 1rem"><a href="https://cms.modernhousenumbers.com/write-a-review/?prod=numbers" target="_blank" rel="noopener" style="color:var(--orange)">Write a review</a></p>
                   <article class="rev" style="margin-bottom:1rem">
                     <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>Love my new street numbers!</h4>
+                    <p class="meta">Poly on Sep 1, 2026 &middot; Edwards, Colorado</p>
+                  </article>
+                  <article class="rev" style="margin-bottom:1rem">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
                     <h4>Fabulous</h4>
                     <p class="meta">Mary F on Aug 22, 2026 &middot; So Cal</p>
                     <p>Installed the 12 inch So Cal numbers on our midcentury modern home. The numbers
@@ -751,6 +739,16 @@ p{margin:0 0 1rem}
                       came across modern house numbers. I&rsquo;m so glad we did. With an elevated style
                       beyond our expectations!</p>
                   </article>
+                  <article class="rev" style="margin-bottom:1rem">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>Upgrade alert!</h4>
+                    <p class="meta">Mary A on Jul 31, 2026 &middot; Virginia Beach, VA</p>
+                    <p>I knew the new street numbers and plaque would look better when I purchased them
+                      but I didn&rsquo;t know how much of an upgrade and refresh it would be. Thanks!</p>
+                  </article>
+                  <p class="rev-pager">Showing page 1 of 128 &nbsp;
+                    <a href="https://www.modernhousenumbers.com/products/house-numbers#reviews"
+                       target="_blank" rel="noopener">Next &raquo;</a></p>
                 </div>
               </details>
               <details>
@@ -782,7 +780,7 @@ p{margin:0 0 1rem}
                     <li>Product widths: <a href="https://www.modernhousenumbers.com/pages/resources#specifications" style="color:var(--orange)">Technical Specifications</a></li>
                     <li><a href="https://www.modernhousenumbers.com/pages/resources#sizing" style="color:var(--orange)">Viewing distances</a></li>
                     <li>Handcrafted in the USA</li>
-                    <li>Customization available &mdash; reach out to your Professional Representative, Terry Billingsley</li>
+                    <li>Customization available- reach out to your Professional Representative, Terry Billingsley</li>
                     <li>Sorry, no returns</li>
                   </ul>
                 </div>
@@ -1025,7 +1023,7 @@ p{margin:0 0 1rem}
                     <li>Product widths: <a href="https://www.modernhousenumbers.com/pages/resources#specifications" style="color:var(--orange)">Technical Specifications</a></li>
                     <li><a href="https://www.modernhousenumbers.com/pages/resources#sizing" style="color:var(--orange)">Viewing distances</a></li>
                     <li>Handcrafted in the USA</li>
-                    <li>Customization available &mdash; reach out to your Professional Representative, Terry Billingsley</li>
+                    <li>Customization available- reach out to your Professional Representative, Terry Billingsley</li>
                     <li>Sorry, no returns</li>
                   </ul>
                 </div>
@@ -1430,10 +1428,6 @@ p{margin:0 0 1rem}
     document.getElementById('carousel').addEventListener('mouseenter', function () { clearInterval(timer); });
     document.getElementById('carousel').addEventListener('mouseleave', restart);
   }
-
-  /* ---------------- ticker: duplicate the run so the loop is seamless ---------------- */
-  var tick = document.getElementById('ticker');
-  if (tick) { tick.innerHTML += tick.innerHTML; }
 
   /* ---------------- tab switching ---------------- */
   var tabs = document.querySelectorAll('.proswitcher [data-tab]');
