@@ -142,6 +142,13 @@ p{margin:0 0 1rem}
 .hero-carousel{background:var(--line-soft);aspect-ratio:3/2}
 .hero-cell{position:relative;height:100%}
 .hero-cell img{height:100%;object-fit:cover}
+/* the orange caption chip on each hero slide — lost when the carousel CSS was
+   consolidated; the markup was still there, just unstyled */
+.slide-cap{position:absolute;left:0;bottom:26px;background:var(--orange);color:#fff;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  padding:.5rem 1.1rem;margin:0;white-space:nowrap;max-width:100%;overflow:hidden;
+  text-overflow:ellipsis;z-index:2}
+@media(max-width:520px){.slide-cap{font-size:.62rem;letter-spacing:.1em;padding:.4rem .8rem}}
 
 /* capability galleries: arrows sit outside the image edge, no dots */
 .cap-carousel .car-btn{background:rgba(255,255,255,.9)}
@@ -243,6 +250,12 @@ p{margin:0 0 1rem}
 .circsel--finish{border:1px solid #999}
 .picker button[aria-pressed="true"] .circsel--finish{border:2px solid var(--orange)}
 .picker-result{font-size:.82rem;color:var(--ink);margin:.15rem 0 0}
+/* orientation: three options sit on one line on the live page, so keep the
+   two icon choices and "Both" from wrapping in the narrow third column */
+.picker[data-picker="orient"]{flex-wrap:nowrap;gap:.2rem .5rem;align-items:center}
+.picker[data-picker="orient"] button{font-size:.66rem;letter-spacing:.08em;gap:.2rem;white-space:nowrap}
+.picker[data-picker="orient"] .circsel{width:20px;height:20px}
+.ori-ico{width:17px;height:17px;margin-left:-2px}
 
 /* finish / height / orientation, three across */
 .opt-3col{display:flex;flex-wrap:wrap;margin:0 -16px}
@@ -282,7 +295,6 @@ p{margin:0 0 1rem}
 .rev-stars{color:var(--orange);letter-spacing:.06em}
 .rev-pager{font-size:.78rem;color:var(--ink-soft);margin:.6rem 0 0}
 .rev-pager a{color:var(--orange)}
-.ori-ico{width:20px;height:20px;margin-left:-2px}
 .half-star{display:inline-block;width:.5em;overflow:hidden;vertical-align:top}
 .rev-count{color:var(--ink-soft);font-size:.72rem;letter-spacing:.06em}
 
