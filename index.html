@@ -410,6 +410,24 @@ p{margin:0 0 1rem}
 .cap li.cap-sub{padding-left:0;font-weight:700;font-size:.78rem;letter-spacing:.13em;
   text-transform:uppercase;margin:.9rem 0 .35rem}
 .cap li.cap-sub::before{display:none}
+/* ---- featured trade projects: photo grid + headshot + quote ---- */
+.proj{max-width:780px;margin:0 auto 52px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.proj-grid img,.proj-grid .ph{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--line-soft);display:block}
+.ph{display:grid;place-items:center;border:1px dashed var(--line);background:repeating-linear-gradient(
+  45deg,#f4f4f4,#f4f4f4 10px,#efefef 10px,#efefef 20px)}
+.ph span{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.proj-name{font-family:var(--head);font-size:1.15rem;font-weight:500;margin:1.1rem 0 .15rem}
+.proj-quote{display:flex;gap:1rem;align-items:flex-start;margin-top:1rem}
+.proj-avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;flex:none;background:var(--line-soft)}
+.ph-avatar{display:grid;place-items:center;border:1px dashed var(--line);background:#f4f4f4}
+.ph-avatar span{font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--ink-soft)}
+.proj-quote p{font-size:.92rem;margin:0 0 .5rem}
+.proj-quote cite{font-style:normal;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;color:var(--ink)}
+.more-voices{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:var(--ink-soft);text-align:center;margin:8px 0 20px}
+
 /* ---- testimonials: full-width rows, image left / copy right ---- */
 .quote-row{display:block;margin-bottom:48px}
 @media(min-width:768px){
@@ -1413,13 +1431,7 @@ body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
   <!-- ============ SECTION 6: TRADE SIGNAGE BY PROPERTY TYPE ============ -->
   <section class="section section--soft">
     <div class="container">
-      <div class="sg sg-new" data-card="16">
-        <ins>
-          <span class="sg-tag">Replaces the previous capability rows</span>
-          <h2 class="section-head center">Trade Signage by Property Type: House Numbers, Wayfinding and
-            Monument Signs</h2>
-        </ins>
-      </div>
+      <h2 class="section-head center"><span class="sg" data-card="16"><del>Products Designed for Projects of Every Scale</del><ins>Trade Signage by Property Type: House Numbers, Wayfinding and Monument Signs</ins></span></h2>
 
       <div class="cap cap--flip">
         <div class="cap-copy">
@@ -1671,9 +1683,10 @@ body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
   </section>
 
   <!-- ============ SECTION 7: FEATURED TRADE PROJECTS ============
-       The brief names three projects; the remaining six are the real
-       testimonials already on the live trade page, kept with their own
-       attributions. -->
+       Stacked project blocks: a four-up photo grid, the project name and
+       location, then the headshot, quote and attribution. The brief supplies
+       no photography for Rivendale or Garden Studio, so those tiles and all
+       three headshots are labelled placeholders. -->
   <section class="section">
     <div class="container">
       <div class="sg sg-new" data-card="17">
@@ -1685,50 +1698,63 @@ body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
         </ins>
       </div>
 
+      <article class="proj">
+        <div class="proj-grid">
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+        </div>
+        <h3 class="proj-name">Rivendale Homes</h3>
+        <p class="proj-loc">Austin, Texas</p>
+        <div class="proj-quote">
+          <div class="proj-avatar ph-avatar" role="img" aria-label="Headshot placeholder"><span>DF</span></div>
+          <div>
+            <p>&ldquo;We&rsquo;ve been a Modern House Number customer for 5 years. We choose MHN because of their variety of fonts, sizing, finishes and the ease of ordering online. Their quality and customer service are excellent.&rdquo;</p>
+            <cite>Diane Faccenda, Purchasing Manager</cite>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-grid">
+            <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_granger.jpg" alt="" loading="lazy">
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+        </div>
+        <h3 class="proj-name">Granger Family Homes and Imagine Homes</h3>
+        <p class="proj-loc">Kirkland, Washington</p>
+        <div class="proj-quote">
+          <div class="proj-avatar ph-avatar" role="img" aria-label="Headshot placeholder"><span>BG</span></div>
+          <div>
+            <p>&ldquo;Modern House Numbers is our most trusted go-to for address numbers! The variety and quality of products are top-of-the-line, offering the perfect finishing touch to accentuate our homes.&rdquo;</p>
+            <cite>Beau Granger, Real-Estate Developer and General Contractor</cite>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-grid">
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+            <div class="ph" role="img" aria-label="Project photo placeholder"><span>Project photo</span></div>
+        </div>
+        <h3 class="proj-name">Garden Studio Design</h3>
+        <p class="proj-loc">Costa Mesa, California</p>
+        <div class="proj-quote">
+          <div class="proj-avatar ph-avatar" role="img" aria-label="Headshot placeholder"><span>CF</span></div>
+          <div>
+            <p><em class="needs-quote">[Quote needed]</em></p>
+            <cite>Chris Fenmore, Founder &amp; Principal Designer</cite>
+          </div>
+        </div>
+      </article>
+
+      <h3 class="more-voices">More from the trade</h3>
       <div class="carousel quote-carousel" data-carousel='{"autoPlay":5000,"wrapAround":true}'>
         <div class="carousel-track">
-          <div class="carousel-cell">
-            <div class="quote-row">
-              <div class="quote-media">
-                <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_hakes.jpg"
-                     alt="Rivendale Homes project featuring Modern House Numbers" loading="lazy">
-              </div>
-              <div class="quote-copy">
-                <h2>Rivendale Homes</h2>
-                <p class="proj-loc">Austin, Texas</p>
-                <p>&ldquo;We&rsquo;ve been a Modern House Number customer for 5 years. We choose MHN because of their variety of fonts, sizing, finishes and the ease of ordering online. Their quality and customer service are excellent.&rdquo;</p>
-                <cite>Diane Faccenda, Purchasing Manager</cite>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-cell">
-            <div class="quote-row">
-              <div class="quote-media">
-                <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/pro_testim_granger.jpg"
-                     alt="Granger Family Homes and Imagine Homes project featuring Modern House Numbers" loading="lazy">
-              </div>
-              <div class="quote-copy">
-                <h2>Granger Family Homes and Imagine Homes</h2>
-                <p class="proj-loc">Kirkland, Washington</p>
-                <p>&ldquo;Modern House Numbers is our most trusted go-to for address numbers! The variety and quality of products are top-of-the-line, offering the perfect finishing touch to accentuate our homes.&rdquo;</p>
-                <cite>Beau Granger, Real-Estate Developer and General Contractor</cite>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-cell">
-            <div class="quote-row">
-              <div class="quote-media">
-                <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/testim_4.jpg"
-                     alt="Garden Studio Design project featuring Modern House Numbers" loading="lazy">
-              </div>
-              <div class="quote-copy">
-                <h2>Garden Studio Design</h2>
-                <p class="proj-loc">Costa Mesa, California</p>
-                <p><em class="needs-quote">[Quote needed]</em></p>
-                <cite>Chris Fenmore, Founder &amp; Principal Designer</cite>
-              </div>
-            </div>
-          </div>
           <div class="carousel-cell">
             <div class="quote-row">
               <div class="quote-media">
@@ -1813,9 +1839,9 @@ body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
             </div>
           </div>
         </div>
-        <button class="car-btn car-btn--prev" type="button" aria-label="Previous project">
+        <button class="car-btn car-btn--prev" type="button" aria-label="Previous">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
-        <button class="car-btn car-btn--next" type="button" aria-label="Next project">
+        <button class="car-btn car-btn--next" type="button" aria-label="Next">
           <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor" transform="translate(100,100) rotate(180)"/></svg></button>
       </div>
     </div>
