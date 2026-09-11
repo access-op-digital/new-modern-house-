@@ -471,10 +471,19 @@ p{margin:0 0 1rem}
 .serve-list li{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
   color:var(--ink);position:relative}
 .serve-list li+li::before{content:"|";position:absolute;left:-1.25rem;color:var(--line);font-weight:400}
-.benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:1.8rem}
-.benefit h3{font-family:var(--head);font-size:1.1rem;font-weight:500;margin:0 0 .5rem;
-  padding-bottom:.5rem;border-bottom:1px solid var(--line)}
-.benefit p{font-size:.88rem;color:var(--ink);margin:0}
+.benefit-rail{margin-top:1.8rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.benefit-rail::-webkit-scrollbar{display:none}
+.benefit-track{display:flex;gap:22px;width:max-content}
+@media(min-width:900px){
+  .benefit-rail{overflow:visible}
+  .benefit-track{width:auto;display:grid;grid-template-columns:repeat(4,1fr)}
+}
+.benefit{flex:0 0 258px;text-align:left;margin:0}
+@media(min-width:900px){.benefit{flex:initial}}
+.benefit img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--line-soft);margin-bottom:.9rem}
+.benefit h3{font-family:var(--body);font-size:1.05rem;font-weight:700;margin:0 0 .4rem;
+  padding:0;border:0;letter-spacing:0}
+.benefit p{font-size:.82rem;line-height:1.55;color:var(--ink);margin:0}
 .final-cta{background:var(--bg-soft)}
 .final-actions{display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:1.2rem}
 .final-mail{color:var(--orange);font-weight:600;font-size:.92rem}
@@ -695,23 +704,29 @@ body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
           <p class="section-lead center">From first specification to final installation, Modern House
             Numbers provides the products, resources, and support teams need to keep projects moving
             forward.</p>
-          <div class="benefit-grid">
-                <div class="benefit">
-                  <h3>Reliable Project Support</h3>
-                  <p>Responsive, personal support and dependable fulfillment help keep projects moving forward from complimentary proofs through installation.</p>
-                </div>
-                <div class="benefit">
-                  <h3>Specify with Confidence</h3>
-                  <p>Premium materials, curated options, and technical resources make it easy to select signage that complements your project&rsquo;s vision.</p>
-                </div>
-                <div class="benefit">
-                  <h3>Scalable Solutions</h3>
-                  <p>From custom homes to multifamily and commercial properties, we support projects of every size with consistent products and volume-order capabilities.</p>
-                </div>
-                <div class="benefit">
-                  <h3>Long-Term Consistency</h3>
-                  <p>Dependable product availability and easy reordering help maintain consistency across future phases, renovations, and replacements.</p>
-                </div>
+          <div class="benefit-rail">
+            <div class="benefit-track">
+              <article class="benefit">
+                <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_1.jpg" alt="A Modern House Numbers representative packing a trade order" loading="lazy">
+                <h3>Reliable Project Support</h3>
+                <p>Responsive, personal support and dependable fulfillment help keep projects moving forward from complimentary proofs through installation.</p>
+              </article>
+              <article class="benefit">
+                <img src="https://cms.modernhousenumbers.com/assets/pro_header_gal_4.jpg" alt="Close inspection of a precision-cut aluminum numeral" loading="lazy">
+                <h3>Specify with Confidence</h3>
+                <p>Premium materials, curated options, and technical resources make it easy to select signage that complements your project&rsquo;s vision.</p>
+              </article>
+              <article class="benefit">
+                <img src="https://cms.modernhousenumbers.com/assets/pro_gal_lg_qty_1.jpg" alt="Coordinated aluminum signage produced in large quantities" loading="lazy">
+                <h3>Scalable Solutions</h3>
+                <p>From custom homes to multifamily and commercial properties, we support projects of every size with consistent products and volume-order capabilities.</p>
+              </article>
+              <article class="benefit">
+                <img src="https://cms.modernhousenumbers.com/assets/pro_gal_exterior_1.jpg" alt="Installed exterior address numbers on a modern building" loading="lazy">
+                <h3>Long-Term Consistency</h3>
+                <p>Dependable product availability and easy reordering help maintain consistency across future phases, renovations, and replacements.</p>
+              </article>
+            </div>
           </div>
           <p class="center" style="margin-top:1.6rem">
             <a class="btn btn--primary" href="mailto:terry@modernhousenumbers.com?subject=Trade%20project%20quote%20request">Request Quote</a>
