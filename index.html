@@ -167,57 +167,155 @@ p{margin:0 0 1rem}
 .tabbar .is-active{background:#fff;box-shadow:inset 0 3px 0 var(--orange)}
 @media(max-width:700px){.tabbar a,.tabbar button{flex:1 1 48%;text-align:center;padding:.8rem .5rem;font-size:.74rem}}
 
-/* ---- configurator ---- */
-.config{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:34px}
-@media(max-width:960px){.config{grid-template-columns:1fr;gap:32px}}
-.config-preview{position:sticky;top:98px}
-@media(max-width:960px){.config-preview{position:static}}
-.stage{background:#e8e6e3;border:1px solid var(--line-soft);aspect-ratio:4/3;
-  display:grid;place-items:center;padding:24px;overflow:hidden}
-.stage-text{font-size:clamp(3rem,12vw,7rem);line-height:1;word-break:break-word;text-align:center;
-  color:#cccccc;
-  /* No colour transition here: a running transition can latch the preview on its
-     start colour, showing the wrong finish. The swatch must be exact, not animated. */
-  filter:drop-shadow(0 2px 3px rgba(0,0,0,.28))}   /* reads like metal standing off the wall */
-.stage-text.is-vertical{writing-mode:vertical-rl;font-size:clamp(2.2rem,8vw,4.4rem)}
-/* plaque preview: the shape itself is the product, so it carries the finish */
-.plaque{position:relative;display:grid;background:#d9d6d2;border:1px solid rgba(0,0,0,.08);
-  width:min(78%,330px);aspect-ratio:1;border-radius:50%;padding:9%;
-  box-shadow:0 10px 24px rgba(0,0,0,.16);transition:border-radius .2s,aspect-ratio .2s}
-.plaque[data-align="center"]{place-items:center}
-.plaque[data-align="right"]{place-items:center end}
-.plaque[data-align="bottom"]{place-items:end center}
-.stage-text--plaque{font-size:clamp(1.6rem,7vw,3.4rem);line-height:1;word-break:break-word;
-  text-align:center;color:#cccccc}
-.picker--wrap{gap:.45rem .9rem}
-.stage-note{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
-  text-align:center;margin-top:12px}
-.opt{margin-bottom:22px}
-.opt > .label{display:block;padding-bottom:.45rem;margin-bottom:.7rem;border-bottom:1px solid var(--line-soft)}
-.txt-input{width:100%;font-family:var(--body);font-size:1rem;padding:.7rem .8rem;
-  border:1px solid rgba(183,182,182,.75);border-radius:0}
-.txt-input:focus{outline:2px solid var(--orange);outline-offset:-1px}
-.picker{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;list-style:none;margin:0;padding:0}
-.picker button{display:inline-flex;align-items:center;gap:.45rem;background:none;border:0;padding:.15rem 0;
-  font-family:var(--body);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--ink);cursor:pointer}
-.circ{width:18px;height:18px;border-radius:50%;border:1px solid #999;flex:none;display:grid;place-items:center}
-.picker button[aria-pressed="true"] .circ{border:2px solid var(--orange)}
-.picker button[aria-pressed="true"]{font-weight:700}
-.circ--num{font-size:.62rem;letter-spacing:0;font-weight:600;color:var(--ink)}
-.picker button[aria-pressed="true"] .circ--num{background:var(--orange);color:#fff;border-color:var(--orange)}
-.chosen{font-size:.85rem;color:var(--ink-soft);margin-top:.5rem}
-.price-block{margin-top:26px;padding-top:18px;border-top:1px solid var(--line-soft)}
-.price{font-family:var(--head);font-size:2rem;font-weight:300;color:var(--orange);letter-spacing:.02em}
-.price small{font-family:var(--body);font-size:.8rem;letter-spacing:.1em;color:var(--ink-soft);
-  text-transform:uppercase;margin-left:.4rem}
-.price-meta{font-size:.84rem;color:var(--ink-soft);margin:.2rem 0 1.1rem}
-.sets{list-style:none;margin:.8rem 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
-.sets li{display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  background:var(--bg-soft);border:1px solid var(--line-soft);padding:.55rem .75rem;font-size:.86rem}
-.sets .set-x{background:none;border:0;cursor:pointer;color:var(--ink-soft);font-size:1.1rem;line-height:1;padding:0 .2rem}
-.sets .set-x:hover{color:var(--orange)}
-.sets-empty{font-size:.84rem;color:var(--ink-soft);margin:.8rem 0 0}
+/* ---- configurator ----------------------------------------------------
+   Geometry below is measured from the live page, not eyeballed:
+   grey band #f0f0f0 / 20px 8px · left col 3/5, right col 2/5 at lg
+   preview + sets boxes white · swatches 24px circles
+   active finish = 2px solid orange · active font/size = filled #393838 */
+.picker-band{background:var(--tab-bg);padding:20px 8px;color:var(--ink)}
+@media(min-width:768px){.picker-band{padding:20px 32px}}
+
+.cfg-row{display:block}
+@media(min-width:768px){
+  .cfg-row{display:flex}
+  .cfg-left{width:50%;padding-right:24px}
+  .cfg-right{width:50%;padding-left:24px}
+}
+@media(min-width:1024px){
+  .cfg-left{width:60%}
+  .cfg-right{width:40%}
+}
+.cfg-left,.cfg-right{text-align:center}
+@media(min-width:768px){.cfg-left,.cfg-right{text-align:left}}
+
+/* build row: preview | add-to-sets | sets */
+.cfg-labels,.cfg-build{display:flex}
+.cfg-build{align-items:center}
+.cfg-labels .pl,.cfg-build .pl{flex:1 1 auto;min-width:0}
+.cfg-labels .pg,.cfg-build .pg{flex:0 0 104px;text-align:center}
+.cfg-labels .pr,.cfg-build .pr{flex:0 0 34%}
+.opt-label{font-family:var(--body);font-size:.82rem;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;margin:20px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.cfg-labels .opt-label{margin-top:0}
+.opt-label .sub{font-size:.68rem;letter-spacing:.1em}
+
+.previewwrapper{background:#fff;padding:8px;height:190px;display:grid;place-items:center;
+  overflow:hidden;margin-right:8px}
+.preview{font-size:clamp(2.4rem,7vw,4.4rem);line-height:1.1;color:#cccccc;
+  word-break:break-word;text-align:center;width:100%;outline:none}
+.preview:focus{outline:2px solid var(--orange);outline-offset:4px}
+.setbox{background:#fff;padding:4px;min-height:166px;margin:8px 0 8px 8px;overflow-y:auto;
+  font-size:.78rem;text-align:left}
+.setbox:empty::after{content:"";display:block}
+.setbox li{display:flex;align-items:center;justify-content:space-between;gap:.4rem;
+  padding:.3rem .35rem;border-bottom:1px solid var(--line-soft)}
+.setbox ul{list-style:none;margin:0;padding:0}
+.setbox .set-x{background:none;border:0;cursor:pointer;color:var(--ink-soft);line-height:1;padding:0 .2rem}
+.setbox .set-x:hover{color:var(--orange)}
+.add-to-sets{display:inline-flex;flex-direction:column;align-items:center;gap:.2rem;
+  font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);cursor:pointer;
+  background:none;border:0;font-family:var(--body)}
+.add-to-sets svg{width:26px;height:26px;fill:currentColor}
+.add-to-sets:hover{color:var(--orange)}
+
+/* option pickers */
+.picker{display:flex;flex-wrap:wrap;gap:.35rem .9rem;list-style:none;margin:0;padding:0;
+  justify-content:center}
+@media(min-width:768px){.picker{justify-content:flex-start}}
+.picker button{display:inline-flex;align-items:center;gap:.35rem;background:none;border:0;padding:0;
+  font-family:var(--body);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);cursor:pointer;margin-bottom:8px}
+.circsel{width:24px;height:24px;border-radius:100%;border:1px solid var(--ink);flex:none;
+  display:grid;place-items:center;font-size:.8rem;background:#fff;transition:.12s}
+.picker button[aria-pressed="true"] .circsel{background:var(--ink)}
+/* numbered size swatches */
+.circsel--num{border-color:#999;color:var(--ink);background:transparent}
+.picker button[aria-pressed="true"] .circsel--num{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* finish swatches keep their colour; selection is an orange ring */
+.circsel--finish{border:1px solid #999}
+.picker button[aria-pressed="true"] .circsel--finish{border:2px solid var(--orange)}
+.picker-result{font-size:.82rem;color:var(--ink);margin:.15rem 0 0}
+
+/* finish / height / orientation, three across */
+.opt-3col{display:flex;flex-wrap:wrap;margin:0 -16px}
+.opt-3col > div{width:50%;padding:0 16px}
+.opt-3col > div:last-child{width:100%}
+@media(min-width:768px){.opt-3col > div,.opt-3col > div:last-child{width:33.333%}}
+
+/* right column */
+.pageheader{font-family:var(--head);font-size:1.4rem;font-weight:500;margin:0 0 .5rem}
+.cfg-desc{font-size:.88rem;margin-bottom:.5rem}
+.price_block{margin-top:16px}
+.price{color:var(--orange);letter-spacing:.02em}
+.currency{color:var(--orange);font-size:.82rem;margin-left:.2rem}
+.price-details{font-style:italic;color:var(--ink-soft);font-size:.82rem;margin-left:1rem}
+.add-to-cart{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;
+  margin:16px 0;padding:.55rem 2rem;border:1px solid transparent;border-radius:9999px;
+  background:var(--orange);color:#fff;font-family:var(--body);font-size:.95rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.15s}
+.add-to-cart:hover{background:var(--ink);color:#fff}
+.add-to-cart svg{width:1.1em;height:1.1em;fill:currentColor}
+.cart-note{font-size:.78rem;color:var(--ink-soft);margin:.4rem 0 0}
+
+/* accordions (CSS-only, like the source) */
+.accordions{margin-top:8px;border-bottom:1px solid var(--line-soft);text-align:left}
+.accordions details{border-top:1px solid var(--line-soft)}
+.accordions summary{list-style:none;cursor:pointer;font-size:.75rem;letter-spacing:.12em;
+  text-transform:uppercase;padding:8px 0 4px;display:flex;align-items:center;
+  justify-content:space-between;gap:.6rem}
+.accordions summary::-webkit-details-marker{display:none}
+.accordions summary::after{content:"+";font-size:1rem;line-height:1;color:var(--ink-soft)}
+.accordions details[open] summary::after{content:"\2212"}
+.accordions .tab-content{font-size:.85rem;padding:0 0 12px}
+.accordions .tab-content ul{padding-left:1.1rem;margin:.3rem 0 .8rem}
+.accordions .tab-content li{margin-bottom:.25rem}
+.accordions .tab-content h4{font-family:var(--body);font-size:.8rem;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:700;margin:.9rem 0 .3rem}
+.rev-stars{color:var(--orange);letter-spacing:.06em}
+.half-star{display:inline-block;width:.5em;overflow:hidden;vertical-align:top}
+.rev-count{color:var(--ink-soft);font-size:.72rem;letter-spacing:.06em}
+
+/* product image strip above each configurator */
+.pickergallery{position:relative;margin:4px 0 16px}
+.gal-track{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track img{width:200px;height:200px;object-fit:cover;flex:none;background:var(--line-soft)}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:34px;height:34px;
+  display:grid;place-items:center;background:rgba(255,255,255,.9);border:0;cursor:pointer;color:var(--ink)}
+.gal-btn:hover{background:#fff}
+.gal-btn--prev{left:-4px}.gal-btn--next{right:-4px}
+
+/* tab bar (proswitcher) */
+.proswitcher{display:flex;flex-wrap:wrap;gap:2px;list-style:none;margin:0;padding:0}
+.proswitcher li{display:flex}
+.proswitcher button,.proswitcher a{font-family:var(--body);font-size:.82rem;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;padding:.9rem 1.4rem;background:var(--tab-bg);
+  color:var(--ink);border:0;cursor:pointer;line-height:1.2;transition:.15s}
+.proswitcher button:hover,.proswitcher a:hover{background:#e6e6e6}
+.proswitcher [aria-selected="true"]{background:var(--tab-bg);box-shadow:inset 0 3px 0 var(--orange)}
+@media(max-width:700px){.proswitcher button,.proswitcher a{flex:1 1 48%;text-align:center;padding:.8rem .5rem;font-size:.74rem}}
+.tabsection[hidden]{display:none}
+
+/* plaque preview: the plate carries the finish, characters are stencil-cut */
+.previewwrapper--plaque{background:#cccccc;padding:0;display:grid;width:min(86%,300px);
+  aspect-ratio:1;border-radius:50%;margin-inline:auto;transition:border-radius .2s,aspect-ratio .2s}
+@media(min-width:768px){.previewwrapper--plaque{margin-inline:0}}
+.previewwrapper--plaque[data-align="center"]{place-items:center}
+.previewwrapper--plaque[data-align="right"]{place-items:center end;padding-right:9%}
+.previewwrapper--plaque[data-align="bottom"]{place-items:end center;padding-bottom:9%}
+.preview--plaque{font-size:clamp(1.4rem,5.5vw,2.8rem);color:#fff;width:auto;
+  mix-blend-mode:normal;padding:0 .2em}
+
+/* plaques option rows */
+.opt-2col{display:flex;flex-wrap:wrap;margin:0 -16px}
+.opt-2col > div{padding:0 16px;width:100%}
+@media(min-width:768px){.opt-2col > .c-wide{width:50%}.opt-2col > .c-narrow{width:50%}}
+@media(min-width:1024px){.opt-2col > .c-wide{width:66.666%}.opt-2col > .c-narrow{width:33.333%}}
+.shape-groups{display:flex;flex-wrap:wrap;gap:0}
+.shape-group{flex:1 1 33%;padding:0 8px;border-right:1px solid var(--line-soft);text-align:left}
+.shape-group--last{border-right:0}
+.shape-head{font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft);display:block;margin-bottom:.3rem}
+.shape-group .picker{flex-direction:column;align-items:flex-start;gap:0;justify-content:flex-start}
 
 /* ---- product blurb ---- */
 .blurb{max-width:70ch}
@@ -425,347 +523,541 @@ p{margin:0 0 1rem}
     </div>
   </section>
 
-  <!-- ============ ORDER TABS + CONFIGURATOR ============ -->
-  <section class="section" id="numbers" style="padding-top:8px">
+  <!-- ============ ORDER TABS + CONFIGURATORS ============
+       Two tab sections, as on the live page: only one is visible at a time.
+       Layout, option sets and pricing are all measured from the source, not
+       invented — see the price matrix in the script below. -->
+  <section class="section" id="order" style="padding-top:8px">
     <div class="container">
 
-      <div class="tabbar" role="list">
-        <button class="is-active" type="button" role="listitem" aria-current="true">Order Numbers + Letters</button>
-        <a href="#plaques" role="listitem">Order Plaques</a>
-        <a href="https://www.modernhousenumbers.com/products/quick-ship" role="listitem">Order QuickShip</a>
-        <a href="https://www.modernhousenumbers.com/products/restroom-signs" role="listitem">Order Restroom Signs</a>
-      </div>
+      <ul class="proswitcher" role="tablist">
+        <li><button type="button" role="tab" data-tab="numbers" aria-selected="true">Order Numbers + Letters</button></li>
+        <li><button type="button" role="tab" data-tab="plaques" aria-selected="false">Order Plaques</button></li>
+        <li><a href="https://www.modernhousenumbers.com/products/quick-ship">Order QuickShip</a></li>
+        <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Order Restroom Signs</a></li>
+      </ul>
 
-      <div class="config" data-config="numbers">
+      <!-- ---------- NUMBERS + LETTERS ---------- -->
+      <div class="tabsection" id="numbers">
+        <div class="picker-band">
 
-        <!-- live preview, rendered in the genuine MHN typefaces -->
-        <div class="config-preview">
-          <div class="stage">
-            <div data-el="stage" style="font-family:PalmSprings" class="stage-text">123Abc</div>
+          <div class="pickergallery">
+            <div class="gal-track" data-gallery>
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_1.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_2.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_3.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_4.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_5.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_6.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_7.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_8.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_9.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_10.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_11.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_12.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_13.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_14.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_15.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_16.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_17.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_18.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_10.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_socal_pro_11.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_austin_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_10.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="soho" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_soho_pro_11.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="backbay" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_backbay_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="southbeach" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sbeach_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_10.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="santabarbara" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_sb_pro_11.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+            </div>
+        <button class="gal-btn gal-btn--prev" type="button" aria-label="Previous images">
+          <svg width="15" height="15" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
+        <button class="gal-btn gal-btn--next" type="button" aria-label="Next images">
+          <svg width="15" height="15" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor" transform="translate(100,100) rotate(180)"/></svg></button>
           </div>
-          <p data-el="note" class="stage-note">Palm Springs · Brushed Aluminum · 6&quot; high</p>
-        </div>
 
-        <div>
-          <div class="opt">
-            <span class="label" id="lbl-text">Enter Your Text</span>
-            <input data-el="text" type="text" value="123Abc" maxlength="24"
-                   aria-labelledby="lbl-text" placeholder="e.g. 1425 or Suite B" class="txt-input">
-            <p data-el="count" class="chosen">6 characters</p>
-          </div>
+          <div class="cfg-row" data-config="numbers">
+            <div class="cfg-left">
 
-          <div class="opt">
-            <span class="label" id="lbl-font">Select Your Font</span>
-            <ul data-picker="font" aria-labelledby="lbl-font" class="picker">
-              <li><button type="button" data-font="PalmSprings" data-label="Palm Springs" aria-pressed="true"><span class="circ"></span>Palm Springs</button></li>
-              <li><button type="button" data-font="SoCalMHN" data-label="SoCal" aria-pressed="false"><span class="circ"></span>SoCal</button></li>
-              <li><button type="button" data-font="AustinMHN" data-label="Austin" aria-pressed="false"><span class="circ"></span>Austin</button></li>
-              <li><button type="button" data-font="SohoMHN" data-label="Soho" aria-pressed="false"><span class="circ"></span>Soho</button></li>
-              <li><button type="button" data-font="BackbayMHN" data-label="Backbay" aria-pressed="false"><span class="circ"></span>Backbay</button></li>
-              <li><button type="button" data-font="SouthbeachMHN" data-label="South Beach" aria-pressed="false"><span class="circ"></span>South Beach</button></li>
-              <li><button type="button" data-font="SantaBarbaraMHN" data-label="Santa Barbara" aria-pressed="false"><span class="circ"></span>Santa Barbara</button></li>
-            </ul>
-          </div>
+              <div class="cfg-labels">
+                <div class="pl"><p class="opt-label">Enter your text</p></div>
+                <div class="pg"></div>
+                <div class="pr"><p class="opt-label">Sets</p></div>
+              </div>
 
-          <div class="opt">
-            <span class="label" id="lbl-finish">Finish</span>
-            <ul data-picker="finish" aria-labelledby="lbl-finish" class="picker">
-              <li><button type="button" data-finish="#cccccc" data-label="Brushed Aluminum" aria-pressed="true"><span class="circ" style="background:#cccccc"></span></button></li>
-              <li><button type="button" data-finish="#000000" data-label="Matte Black" aria-pressed="false"><span class="circ" style="background:#000000"></span></button></li>
-              <li><button type="button" data-finish="#ffffff" data-label="White" aria-pressed="false"><span class="circ" style="background:#ffffff"></span></button></li>
-              <li><button type="button" data-finish="#b5a642" data-label="Matte Brass" aria-pressed="false"><span class="circ" style="background:#b5a642"></span></button></li>
-              <li><button type="button" data-finish="#553333" data-label="Dark Bronze" aria-pressed="false"><span class="circ" style="background:#553333"></span></button></li>
-            </ul>
-            <p data-el="finishName" class="chosen">Brushed Aluminum</p>
-          </div>
+              <div class="cfg-build">
+                <div class="pl">
+                  <div class="previewwrapper">
+                    <div class="preview" data-el="preview" contenteditable="true" spellcheck="false"
+                         role="textbox" aria-label="Your text">123Abc</div>
+                  </div>
+                </div>
+                <div class="pg">
+                  <button class="add-to-sets" type="button" data-el="addSet">
+                    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" transform="translate(100,100) rotate(180)"/></svg>
+                    Add to Sets
+                  </button>
+                </div>
+                <div class="pr"><div class="setbox" data-el="setBox"></div></div>
+              </div>
 
-          <div class="opt">
-            <span class="label" id="lbl-size">Height (Inches)</span>
-            <ul data-picker="size" aria-labelledby="lbl-size" class="picker">
-              <li><button type="button" data-size="4"  aria-pressed="false"><span class="circ circ--num">4</span></button></li>
-              <li><button type="button" data-size="6"  aria-pressed="true"><span class="circ circ--num">6</span></button></li>
-              <li><button type="button" data-size="8"  aria-pressed="false"><span class="circ circ--num">8</span></button></li>
-              <li><button type="button" data-size="12" aria-pressed="false"><span class="circ circ--num">12</span></button></li>
-              <li><button type="button" data-size="15" aria-pressed="false"><span class="circ circ--num">15</span></button></li>
-            </ul>
-            <p data-el="sizeName" class="chosen">6&quot; high</p>
-          </div>
+              <p class="opt-label">Select your Font</p>
+              <ul class="picker" data-picker="font">
+                <li><button type="button" data-font="palmsprings" data-family="PalmSprings" data-label="Palm Springs" aria-pressed="true"><span class="circsel"></span>Palm Springs</button></li>
+                <li><button type="button" data-font="socal" data-family="SoCalMHN" data-label="SoCal" aria-pressed="false"><span class="circsel"></span>SoCal</button></li>
+                <li><button type="button" data-font="austin" data-family="AustinMHN" data-label="Austin" aria-pressed="false"><span class="circsel"></span>Austin</button></li>
+                <li><button type="button" data-font="soho" data-family="SohoMHN" data-label="SoHo" aria-pressed="false"><span class="circsel"></span>SoHo</button></li>
+                <li><button type="button" data-font="backbay" data-family="BackbayMHN" data-label="Backbay" aria-pressed="false"><span class="circsel"></span>Backbay</button></li>
+                <li><button type="button" data-font="southbeach" data-family="SouthbeachMHN" data-label="South Beach" aria-pressed="false"><span class="circsel"></span>South Beach</button></li>
+                <li><button type="button" data-font="santabarbara" data-family="SantaBarbaraMHN" data-label="Santa Barbara" aria-pressed="false"><span class="circsel"></span>Santa Barbara</button></li>
+              </ul>
 
-          <div class="opt">
-            <span class="label" id="lbl-orient">Orientation</span>
-            <ul data-picker="orient" aria-labelledby="lbl-orient" class="picker">
-              <li><button type="button" data-orient="both"       aria-pressed="true"><span class="circ"></span>Both</button></li>
-              <li><button type="button" data-orient="horizontal" aria-pressed="false"><span class="circ"></span>Horizontal</button></li>
-              <li><button type="button" data-orient="vertical"   aria-pressed="false"><span class="circ"></span>Vertical</button></li>
-            </ul>
-            <p data-el="orientName" class="chosen">Both installation templates</p>
-          </div>
+              <div class="opt-3col">
+                <div>
+                  <p class="opt-label">Finish</p>
+                  <ul class="picker" data-picker="finish">
+                <li><button type="button" data-finish="brushed" data-hex="#cccccc" data-label="Brushed Aluminum" aria-pressed="true"><span class="circsel circsel--finish" style="background:#cccccc"></span></button></li>
+                <li><button type="button" data-finish="black" data-hex="#000000" data-label="Matte Black" aria-pressed="false"><span class="circsel circsel--finish" style="background:#000000"></span></button></li>
+                <li><button type="button" data-finish="white" data-hex="#ffffff" data-label="White" aria-pressed="false"><span class="circsel circsel--finish" style="background:#ffffff"></span></button></li>
+                <li><button type="button" data-finish="brass" data-hex="#b5a642" data-label="Matte Brass" aria-pressed="false"><span class="circsel circsel--finish" style="background:#b5a642"></span></button></li>
+                <li><button type="button" data-finish="bronze" data-hex="#553333" data-label="Dark Bronze" aria-pressed="false"><span class="circsel circsel--finish" style="background:#553333"></span></button></li>
+                  </ul>
+                  <p class="picker-result" data-el="finishName">Brushed Aluminum</p>
+                </div>
+                <div>
+                  <p class="opt-label">Height <span class="sub">(inches)</span></p>
+                  <ul class="picker" data-picker="size">
+                    <li><button type="button" data-size="4"  aria-pressed="false"><span class="circsel circsel--num">4</span></button></li>
+                    <li><button type="button" data-size="6"  aria-pressed="true"><span class="circsel circsel--num">6</span></button></li>
+                    <li><button type="button" data-size="8"  aria-pressed="false"><span class="circsel circsel--num">8</span></button></li>
+                    <li><button type="button" data-size="12" aria-pressed="false"><span class="circsel circsel--num">12</span></button></li>
+                    <li><button type="button" data-size="15" aria-pressed="false"><span class="circsel circsel--num">15</span></button></li>
+                  </ul>
+                  <p class="picker-result" data-el="sizeName">6&quot; high</p>
+                </div>
+                <div>
+                  <p class="opt-label">Orientation</p>
+                  <ul class="picker" data-picker="orient">
+                    <li><button type="button" data-orient="horizontal" data-label="Horizontal Installation Template" aria-pressed="true"><span class="circsel"></span><span class="sub">&#8597;</span></button></li>
+                    <li><button type="button" data-orient="vertical" data-label="Vertical Installation Template" aria-pressed="false"><span class="circsel"></span><span class="sub">&#8596;</span></button></li>
+                    <li><button type="button" data-orient="both" data-label="Vertical &amp; Horizontal Templates" aria-pressed="false"><span class="circsel"></span>Both</button></li>
+                  </ul>
+                  <p class="picker-result" data-el="orientName">Horizontal Installation<br>Template</p>
+                </div>
+              </div>
 
-          <div class="opt">
-            <span class="label">Sets</span>
-            <button data-el="addSet" type="button" class="btn btn--ghost">Add to Sets</button>
-            <ul data-el="setList" class="sets"></ul>
-            <p data-el="setsEmpty" class="sets-empty">No sets added yet — build a set above, then add it.</p>
-          </div>
+            </div>
 
-          <div class="price-block">
-            <p class="price"><span data-el="total">$0.00</span><small>USD</small></p>
-            <p class="price-meta"><span data-el="meta">0 item(s) @ $29.50 each</span></p>
-            <a class="btn btn--primary btn--block" data-el="orderBtn"
-               href="https://www.modernhousenumbers.com/products/house-numbers">Order Numbers + Letters</a>
-            <p class="fineprint muted" style="font-size:.78rem;margin-top:.7rem">
-              Estimate only. Continues to modernhousenumbers.com with your selections to add to cart and check out.
-            </p>
-          </div>
-        </div>
+            <div class="cfg-right">
+              <h2 class="pageheader">Modern numbers and letters in multiples. Made to last.</h2>
+              <p class="cfg-desc">Shop house numbers, letters and symbols from Modern House Numbers for
+                elevated curb appeal and improved address visibility; architect-designed signage crafted
+                from solid, recycled aluminum in 7 fonts, 5 durable finishes in 5 sizes. Every order
+                arrives with concealed mounting hardware for a floating effect and a personalized
+                drilling template for professional-quality installation. Each item is custom-made, items
+                are not returnable.</p>
 
-      </div>
-    </div>
-  </section>
+              <div class="price_block">
+                <span class="price">$ <span data-el="total">0.00</span></span>
+                <span class="currency">USD</span>
+                <span class="price-details"><span data-el="qty">0</span> item(s) @ $ <span data-el="unit">29.50</span> each</span>
+              </div>
 
-  <!-- ============ PRODUCT BLURB ============ -->
-  <section class="section section--soft">
-    <div class="container">
-      <h2>Modern numbers and letters in multiples. Made to last.</h2>
-      <p class="blurb">Shop house numbers, letters and symbols from Modern House Numbers for elevated
-        curb appeal and improved address visibility; architect-designed signage crafted from solid,
-        recycled aluminum in 7 fonts, 5 durable finishes in 5 sizes. Every order arrives with concealed
-        mounting hardware for a floating effect and a personalized drilling template for
-        professional-quality installation. Each item is custom-made, items are not returnable.</p>
+              <a class="add-to-cart" data-el="orderBtn"
+                 href="https://www.modernhousenumbers.com/products/house-numbers">Add to Cart
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.4l-1.8 8H8.1L6.2 6zM1 2h3.3l.7 3H21a1 1 0 0 1 1 1.2l-2.2 9.6a1.5 1.5 0 0 1-1.5 1.2H7.4a1.5 1.5 0 0 1-1.5-1.2L3.3 4H1V2z"/></svg>
+              </a>
+              <p class="cart-note">Estimate only. Continues to modernhousenumbers.com with your selections.</p>
 
-      <div style="max-width:74ch;margin-top:26px">
-        <details class="acc" open>
-          <summary>What You&rsquo;ll Get</summary>
-          <div class="acc-body">
-            <p>With your order we&rsquo;ll include:</p>
-            <ul>
-              <li>Concealed mounting hardware: 2 inch steel studs, &frac12; inch aluminum spacers</li>
-              <li>Your choice of drilling templates: horizontal, vertical or both orientations.</li>
-              <li>Step-by-step Installation Instructions</li>
-            </ul>
-            <h4>For orders with multiple sets, we&rsquo;ll:</h4>
-            <ul>
-              <li>Carefully wrap each set with its own drilling template and hardware</li>
-              <li>Include extra mounting hardware</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="acc">
-          <summary>Details</summary>
-          <div class="acc-body">
-            <ul>
-              <li>Solid, 3/8 inch thick, recycled aluminum</li>
-              <li>Concealed mounting hardware for floating or flush mount</li>
-              <li>Brushed Aluminum Finish: Water-based UV protectant</li>
-              <li>Powder Coat Finish: Low-VOC, won&rsquo;t chip, rust, or flake</li>
-              <li>Coastal or industrial area: powder coat finish recommended</li>
-              <li><a href="https://www.modernhousenumbers.com/pages/faqs" style="color:var(--orange)">Product FAQs</a></li>
-              <li>Product widths: <a href="https://www.modernhousenumbers.com/pages/resources#specifications" style="color:var(--orange)">Technical Specifications</a></li>
-              <li><a href="https://www.modernhousenumbers.com/pages/resources#sizing" style="color:var(--orange)">Viewing distances</a></li>
-              <li>Handcrafted in the USA</li>
-              <li>Customization available &mdash; reach out to your Professional Representative, Terry Billingsley</li>
-              <li>Sorry, no returns</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="acc">
-          <summary>Manufacturing + Delivery</summary>
-          <div class="acc-body">
-            <h4>Manufacturing:</h4>
-            <ul>
-              <li>All our items are made to order</li>
-              <li>Average Manufacturing Times:<br>1 &ndash; 50 pieces: 15&ndash;20 business days<br>50+ pieces: email Terry for more information</li>
-            </ul>
-            <p>Need numbers faster? Check out our QuickShip Numbers, which are in stock. Ship next
-              business day. Order from our
-              <a href="https://www.modernhousenumbers.com/products/quick-ship" style="color:var(--orange)">QuickShip Numbers</a> page.</p>
-            <h4>Delivery:</h4>
-            <ul>
-              <li>International shipping available</li>
-              <li>Enter zip code during checkout to estimate shipping cost</li>
-              <li>If USPS doesn&rsquo;t deliver to your address, contact us</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ REVIEWS (excerpt; full set lives on the Shopify product page) ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="rev-head">
-        <h2 style="margin:0">Customer Reviews</h2>
-        <a href="https://www.modernhousenumbers.com/products/house-numbers#reviews"
-           class="label" style="color:var(--orange)">640 Reviews &rarr;</a>
-      </div>
-      <div class="rev-grid">
-        <article class="rev">
-          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <h4>Love my new street numbers!</h4>
-          <p class="meta">Poly on Sep 1, 2026 &middot; Edwards, Colorado</p>
-        </article>
-        <article class="rev">
-          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <h4>Fabulous</h4>
-          <p class="meta">Mary F on Aug 22, 2026 &middot; So Cal</p>
-          <p>Installed the 12 inch So Cal numbers on our midcentury modern home. The numbers are well
-            made with some weight, much better than any I&rsquo;ve seen &ndash; should hold up well.
-            Very pleased with the process, items were packaged securely with an easy installation guide.</p>
-        </article>
-        <article class="rev">
-          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <h4>Beautiful touch</h4>
-          <p class="meta">Jodi on Aug 19, 2026 &middot; MO</p>
-          <p>The ordering process was easy. Install using the template was easy and accurate. The
-            numbers are well made a high quality. Add a touch of class to your house!</p>
-        </article>
-        <article class="rev">
-          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <h4>Elevated style</h4>
-          <p class="meta">Michelle on Aug 2, 2026 &middot; South Bay, California</p>
-          <p>We were looking for a way to complete our exterior remodel of our home, when we came
-            across modern house numbers. I&rsquo;m so glad we did. With an elevated style beyond our
-            expectations!</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ORDER PLAQUES (second configurator, as on the live page) ============ -->
-  <section class="section" id="plaques" style="padding-top:8px">
-    <div class="container">
-
-      <div class="tabbar" role="list">
-        <a href="#numbers" role="listitem">Order Numbers + Letters</a>
-        <button class="is-active" type="button" role="listitem" aria-current="true">Order Plaques</button>
-        <a href="https://www.modernhousenumbers.com/products/quick-ship" role="listitem">Order QuickShip</a>
-        <a href="https://www.modernhousenumbers.com/products/restroom-signs" role="listitem">Order Restroom Signs</a>
-      </div>
-
-      <div class="config" data-config="plaques">
-
-        <div class="config-preview">
-          <div class="stage">
-            <div class="plaque" data-el="plaque">
-              <span class="stage-text stage-text--plaque" data-el="stage" style="font-family:PalmSprings">1425</span>
+            <div class="accordions">
+              <details>
+                <summary>Reviews <span class="rev-stars" aria-label="4.5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;<span class="half-star">&#9733;</span></span> <span class="rev-count">640 Reviews</span></summary>
+                <div class="tab-content">
+                  <h2 style="font-size:1.3rem;margin:.2rem 0 .6rem">Customer Reviews</h2>
+                  <p style="margin:0 0 1rem"><a href="https://cms.modernhousenumbers.com/write-a-review/?prod=numbers" target="_blank" rel="noopener" style="color:var(--orange)">Write a review</a></p>
+                  <article class="rev" style="margin-bottom:1rem">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>Fabulous</h4>
+                    <p class="meta">Mary F on Aug 22, 2026 &middot; So Cal</p>
+                    <p>Installed the 12 inch So Cal numbers on our midcentury modern home. The numbers
+                      are well made with some weight, much better than any I&rsquo;ve seen &ndash; should hold
+                      up well. Very pleased with the process, items were packaged securely with an easy
+                      installation guide.</p>
+                  </article>
+                  <article class="rev" style="margin-bottom:1rem">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>Beautiful touch</h4>
+                    <p class="meta">Jodi on Aug 19, 2026 &middot; MO</p>
+                    <p>The ordering process was easy. Install using the template was easy and accurate.
+                      The numbers are well made a high quality. Add a touch of class to your house!</p>
+                  </article>
+                  <article class="rev">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>Elevated style</h4>
+                    <p class="meta">Michelle on Aug 2, 2026 &middot; South Bay, California</p>
+                    <p>We were looking for a way to complete our exterior remodel of our home, when we
+                      came across modern house numbers. I&rsquo;m so glad we did. With an elevated style
+                      beyond our expectations!</p>
+                  </article>
+                </div>
+              </details>
+              <details>
+                <summary>What you&rsquo;ll get</summary>
+                <div class="tab-content">
+                  <p>With your order we&rsquo;ll include:</p>
+                  <ul>
+                    <li>Concealed mounting hardware: 2 inch steel studs, &frac12; inch aluminum spacers</li>
+                    <li>Your choice of drilling templates: horizontal, vertical or both orientations.</li>
+                    <li>Step-by-step Installation Instructions</li>
+                  </ul>
+                  <h4>For orders with multiple sets, we&rsquo;ll:</h4>
+                  <ul>
+                    <li>Carefully wrap each set with its own drilling template and hardware</li>
+                    <li>Include extra mounting hardware</li>
+                  </ul>
+                </div>
+              </details>
+              <details>
+                <summary>Details</summary>
+                <div class="tab-content">
+                  <ul>
+                    <li>Solid, 3/8 inch thick, recycled aluminum</li>
+                    <li>Concealed mounting hardware for floating or flush mount</li>
+                    <li>Brushed Aluminum Finish: Water-based UV protectant</li>
+                    <li>Powder Coat Finish: Low-VOC, won&rsquo;t chip, rust, or flake</li>
+                    <li>Coastal or industrial area: powder coat finish recommended</li>
+                    <li><a href="https://www.modernhousenumbers.com/pages/faqs" style="color:var(--orange)">Product FAQs</a></li>
+                    <li>Product widths: <a href="https://www.modernhousenumbers.com/pages/resources#specifications" style="color:var(--orange)">Technical Specifications</a></li>
+                    <li><a href="https://www.modernhousenumbers.com/pages/resources#sizing" style="color:var(--orange)">Viewing distances</a></li>
+                    <li>Handcrafted in the USA</li>
+                    <li>Customization available &mdash; reach out to your Professional Representative, Terry Billingsley</li>
+                    <li>Sorry, no returns</li>
+                  </ul>
+                </div>
+              </details>
+              <details>
+                <summary>Manufacturing + Delivery</summary>
+                <div class="tab-content">
+                  <h4>Manufacturing:</h4>
+                  <ul>
+                    <li>All our items are made to order</li>
+                    <li>Average Manufacturing Times:<br>1 &ndash; 50 pieces: 15&ndash;20 business days<br>50+ pieces: email Terry for more information</li>
+                  </ul>
+                  <p>Need numbers faster? Check out our QuickShip Numbers, which are in stock. Ship next
+                    business day. Order from our
+                    <a href="https://www.modernhousenumbers.com/products/quick-ship" style="color:var(--orange)">QuickShip Numbers</a> page.</p>
+                  <h4>Delivery:</h4>
+                  <ul>
+                    <li>International shipping available</li>
+                    <li>Enter zip code during checkout to estimate shipping cost</li>
+                    <li>If USPS doesn&rsquo;t deliver to your address, contact us</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
             </div>
           </div>
-          <p class="stage-note" data-el="note">Palm Springs &middot; Brushed Aluminum &middot; 7&quot; circle</p>
         </div>
-
-        <div>
-          <div class="opt">
-            <span class="label" id="plq-lbl-text">Enter Your Text</span>
-            <input class="txt-input" data-el="text" type="text" value="1425" maxlength="18"
-                   aria-labelledby="plq-lbl-text" placeholder="e.g. 1425">
-            <p class="chosen" data-el="count">4 characters</p>
-          </div>
-
-          <div class="opt">
-            <span class="label" id="plq-lbl-font">Select Your Font</span>
-            <ul class="picker" data-picker="font" aria-labelledby="plq-lbl-font">
-              <li><button type="button" data-font="PalmSprings" data-label="Palm Springs" aria-pressed="true"><span class="circ"></span>Palm Springs</button></li>
-              <li><button type="button" data-font="SoCalMHN" data-label="SoCal" aria-pressed="false"><span class="circ"></span>SoCal</button></li>
-              <li><button type="button" data-font="AustinMHN" data-label="Austin" aria-pressed="false"><span class="circ"></span>Austin</button></li>
-            </ul>
-          </div>
-
-          <div class="opt">
-            <span class="label" id="plq-lbl-finish">Finish</span>
-            <ul class="picker" data-picker="finish" aria-labelledby="plq-lbl-finish">
-              <li><button type="button" data-finish="#cccccc" data-label="Brushed Aluminum" aria-pressed="true"><span class="circ" style="background:#cccccc"></span></button></li>
-              <li><button type="button" data-finish="#000000" data-label="Matte Black" aria-pressed="false"><span class="circ" style="background:#000000"></span></button></li>
-              <li><button type="button" data-finish="#ffffff" data-label="White" aria-pressed="false"><span class="circ" style="background:#ffffff"></span></button></li>
-              <li><button type="button" data-finish="#b5a642" data-label="Matte Brass" aria-pressed="false"><span class="circ" style="background:#b5a642"></span></button></li>
-              <li><button type="button" data-finish="#553333" data-label="Dark Bronze" aria-pressed="false"><span class="circ" style="background:#553333"></span></button></li>
-            </ul>
-            <p class="chosen" data-el="finishName">Brushed Aluminum</p>
-          </div>
-
-          <div class="opt">
-            <span class="label" id="plq-lbl-shape">Size &amp; Shape</span>
-            <ul class="picker picker--wrap" data-picker="shape" aria-labelledby="plq-lbl-shape">
-              <li><button type="button" data-label="5&quot; circle"        data-ratio="1"    data-round="50%" aria-pressed="false"><span class="circ"></span>5&quot; circle</button></li>
-              <li><button type="button" data-label="7&quot; circle"        data-ratio="1"    data-round="50%" aria-pressed="true"><span class="circ"></span>7&quot; circle</button></li>
-              <li><button type="button" data-label="10&quot; circle"       data-ratio="1"    data-round="50%" aria-pressed="false"><span class="circ"></span>10&quot; circle</button></li>
-              <li><button type="button" data-label="3x8&quot; rectangle"   data-ratio="2.67" data-round="0" aria-pressed="false"><span class="circ"></span>3&times;8&quot;</button></li>
-              <li><button type="button" data-label="4x11&quot; rectangle"  data-ratio="2.75" data-round="0" aria-pressed="false"><span class="circ"></span>4&times;11&quot;</button></li>
-              <li><button type="button" data-label="5x16&quot; rectangle"  data-ratio="3.2"  data-round="0" aria-pressed="false"><span class="circ"></span>5&times;16&quot;</button></li>
-              <li><button type="button" data-label="8x8&quot; square"      data-ratio="1"    data-round="0" aria-pressed="false"><span class="circ"></span>8&times;8&quot;</button></li>
-            </ul>
-            <p class="chosen" data-el="shapeName">7&quot; circle</p>
-          </div>
-
-          <div class="opt">
-            <span class="label" id="plq-lbl-align">Alignment</span>
-            <ul class="picker" data-picker="align" aria-labelledby="plq-lbl-align">
-              <li><button type="button" data-align="center" aria-pressed="true"><span class="circ"></span>Center</button></li>
-              <li><button type="button" data-align="right"  aria-pressed="false"><span class="circ"></span>Right</button></li>
-              <li><button type="button" data-align="bottom" aria-pressed="false"><span class="circ"></span>Bottom</button></li>
-            </ul>
-            <p class="chosen" data-el="alignName">Center aligned</p>
-          </div>
-
-          <div class="opt">
-            <span class="label">Sets</span>
-            <button class="btn btn--ghost" data-el="addSet" type="button">Add to Sets</button>
-            <ul class="sets" data-el="setList"></ul>
-            <p class="sets-empty" data-el="setsEmpty">No plaques added yet &mdash; build one above, then add it.</p>
-          </div>
-
-          <div class="price-block">
-            <p class="price"><span data-el="total">$0.00</span><small>USD</small></p>
-            <p class="price-meta"><span data-el="meta">0 plaque(s) @ $29.50 each</span></p>
-            <a class="btn btn--primary btn--block" data-el="orderBtn"
-               href="https://www.modernhousenumbers.com/products/address-plaques">Order Plaques</a>
-            <p class="fineprint muted" style="font-size:.78rem;margin-top:.7rem">
-              Estimate only. Continues to modernhousenumbers.com with your selections to add to cart and check out.
-            </p>
-          </div>
-        </div>
-
       </div>
+
+      <!-- ---------- PLAQUES ---------- -->
+      <div class="tabsection" id="plaques" hidden>
+        <div class="picker-band">
+
+          <div class="pickergallery">
+            <div class="gal-track" data-gallery>
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_1.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_2.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_3.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_4.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_5.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_6.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_7.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_8.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_9.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_10.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_11.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_12.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="palmsprings" class="gal-cell" src="https://cms.modernhousenumbers.com/assets/preview_plaque_ps_pro_13.jpg" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_10.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_11.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_12.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_13.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_14.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_15.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_16.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="socal" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_socal_pro_17.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_1.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_2.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_3.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_4.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_5.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_6.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_7.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_8.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_9.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_10.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+          <img data-font="austin" class="gal-cell hidden" src="https://cms.modernhousenumbers.com/assets/preview_plaque_austin_pro_11.jpg" loading="lazy" width="200" height="200" alt="Gallery Image">
+            </div>
+        <button class="gal-btn gal-btn--prev" type="button" aria-label="Previous images">
+          <svg width="15" height="15" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor"/></svg></button>
+        <button class="gal-btn gal-btn--next" type="button" aria-label="Next images">
+          <svg width="15" height="15" viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" fill="currentColor" transform="translate(100,100) rotate(180)"/></svg></button>
+          </div>
+
+          <div class="cfg-row" data-config="plaques">
+            <div class="cfg-left">
+
+              <div class="cfg-labels">
+                <div class="pl"><p class="opt-label">Enter your text</p></div>
+                <div class="pg"></div>
+                <div class="pr"><p class="opt-label">Sets</p></div>
+              </div>
+
+              <div class="cfg-build">
+                <div class="pl">
+                  <div class="previewwrapper previewwrapper--plaque" data-el="plate">
+                    <div class="preview preview--plaque" data-el="preview" contenteditable="true"
+                         spellcheck="false" role="textbox" aria-label="Your text">1425</div>
+                  </div>
+                </div>
+                <div class="pg">
+                  <button class="add-to-sets" type="button" data-el="addSet">
+                    <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M 10,50 L 60,100 L 70,90 L 30,50 L 70,10 L 60,0 Z" transform="translate(100,100) rotate(180)"/></svg>
+                    Add to Sets
+                  </button>
+                </div>
+                <div class="pr"><div class="setbox" data-el="setBox"></div></div>
+              </div>
+
+              <div class="opt-2col">
+                <div class="c-wide">
+                  <p class="opt-label">Select your Font</p>
+                  <ul class="picker" data-picker="font">
+                <li><button type="button" data-font="palmsprings" data-family="PalmSprings" data-label="Palm Springs" aria-pressed="true"><span class="circsel"></span>Palm Springs</button></li>
+                <li><button type="button" data-font="socal" data-family="SoCalMHN" data-label="SoCal" aria-pressed="false"><span class="circsel"></span>SoCal</button></li>
+                <li><button type="button" data-font="austin" data-family="AustinMHN" data-label="Austin" aria-pressed="false"><span class="circsel"></span>Austin</button></li>
+                  </ul>
+                </div>
+                <div class="c-narrow">
+                  <p class="opt-label">Finish</p>
+                  <ul class="picker" data-picker="finish">
+                <li><button type="button" data-finish="brushed" data-hex="#cccccc" data-label="Brushed Aluminum" aria-pressed="true"><span class="circsel circsel--finish" style="background:#cccccc"></span></button></li>
+                <li><button type="button" data-finish="black" data-hex="#000000" data-label="Matte Black" aria-pressed="false"><span class="circsel circsel--finish" style="background:#000000"></span></button></li>
+                <li><button type="button" data-finish="white" data-hex="#ffffff" data-label="White" aria-pressed="false"><span class="circsel circsel--finish" style="background:#ffffff"></span></button></li>
+                <li><button type="button" data-finish="brass" data-hex="#b5a642" data-label="Matte Brass" aria-pressed="false"><span class="circsel circsel--finish" style="background:#b5a642"></span></button></li>
+                <li><button type="button" data-finish="bronze" data-hex="#553333" data-label="Dark Bronze" aria-pressed="false"><span class="circsel circsel--finish" style="background:#553333"></span></button></li>
+                  </ul>
+                  <p class="picker-result" data-el="finishName">Brushed Aluminum</p>
+                </div>
+              </div>
+
+              <div class="opt-2col">
+                <div class="c-wide">
+                  <p class="opt-label">Size &amp; Shape</p>
+                  <div class="shape-groups">
+                    <div class="shape-group">
+                      <span class="shape-head">Circle</span>
+                      <ul class="picker" data-picker="shape">
+                        <li><button type="button" data-shape="circle-5"  data-label="5&quot; circle"  data-ratio="1" data-round="50%" aria-pressed="false"><span class="circsel"></span>5&quot;</button></li>
+                        <li><button type="button" data-shape="circle-7"  data-label="7&quot; circle"  data-ratio="1" data-round="50%" aria-pressed="true"><span class="circsel"></span>7&quot;</button></li>
+                        <li><button type="button" data-shape="circle-10" data-label="10&quot; circle" data-ratio="1" data-round="50%" aria-pressed="false"><span class="circsel"></span>10&quot;</button></li>
+                      </ul>
+                    </div>
+                    <div class="shape-group">
+                      <span class="shape-head">Rectangle</span>
+                      <ul class="picker" data-picker="shape">
+                        <li><button type="button" data-shape="rect-3-8"  data-label="3x8&quot; rectangle"  data-ratio="2.67" data-round="0" aria-pressed="false"><span class="circsel"></span>3&quot;x8&quot;</button></li>
+                        <li><button type="button" data-shape="rect-4-11" data-label="4x11&quot; rectangle" data-ratio="2.75" data-round="0" aria-pressed="false"><span class="circsel"></span>4&quot;x11&quot;</button></li>
+                        <li><button type="button" data-shape="rect-5-16" data-label="5x16&quot; rectangle" data-ratio="3.2"  data-round="0" aria-pressed="false"><span class="circsel"></span>5&quot;x16&quot;</button></li>
+                      </ul>
+                    </div>
+                    <div class="shape-group shape-group--last">
+                      <span class="shape-head">Square</span>
+                      <ul class="picker" data-picker="shape">
+                        <li><button type="button" data-shape="square-8" data-label="8x8&quot; square" data-ratio="1" data-round="0" aria-pressed="false"><span class="circsel"></span>8&quot;x8&quot;</button></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="c-narrow">
+                  <p class="opt-label">Alignment</p>
+                  <ul class="picker" data-picker="align">
+                    <li><button type="button" data-align="center" data-label="Center" aria-pressed="true"><span class="circsel"></span>Center</button></li>
+                    <li><button type="button" data-align="right"  data-label="Right"  aria-pressed="false"><span class="circsel"></span>Right</button></li>
+                    <li><button type="button" data-align="bottom" data-label="Bottom" aria-pressed="false"><span class="circsel"></span>Bottom</button></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="cfg-right">
+              <h2 class="pageheader">Premium quality plaques and signage. Made to order.</h2>
+              <p class="cfg-desc">Shop address plaques from Modern House Numbers for elevated curb appeal
+                and clear address visibility. Each plaque features precision stencil-cut characters from
+                solid recycled aluminum with durable powder coat or UV-protectant finishes for
+                long-lasting performance. Choose from circle, square, or rectangular plaques in varying
+                sizes. Customize your house plaque with three modern fonts, five finishes, and center or
+                right-aligned layouts. Includes concealed hardware and a personalized drilling template
+                for easy installation. Final sale, no returns.</p>
+
+              <div class="price_block">
+                <span class="price">$ <span data-el="total">0.00</span></span>
+                <span class="currency">USD</span>
+                <span class="price-details"><span data-el="qty">0</span> plaque(s) @ $ <span data-el="unit">29.50</span> each</span>
+              </div>
+
+              <a class="add-to-cart" data-el="orderBtn"
+                 href="https://www.modernhousenumbers.com/products/address-plaques">Add to Cart
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.2 6h14.4l-1.8 8H8.1L6.2 6zM1 2h3.3l.7 3H21a1 1 0 0 1 1 1.2l-2.2 9.6a1.5 1.5 0 0 1-1.5 1.2H7.4a1.5 1.5 0 0 1-1.5-1.2L3.3 4H1V2z"/></svg>
+              </a>
+              <p class="cart-note">Estimate only. Continues to modernhousenumbers.com with your selections.</p>
+
+            <div class="accordions">
+              <details>
+                <summary>Reviews <span class="rev-stars" aria-label="4.5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;<span class="half-star">&#9733;</span></span> <span class="rev-count">640 Reviews</span></summary>
+                <div class="tab-content">
+                  <h2 style="font-size:1.3rem;margin:.2rem 0 .6rem">Customer Reviews</h2>
+                  <p style="margin:0 0 1rem"><a href="https://cms.modernhousenumbers.com/write-a-review/?prod=plaque" target="_blank" rel="noopener" style="color:var(--orange)">Write a review</a></p>
+                  <article class="rev" style="margin-bottom:1rem">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>Heavy Duty!</h4>
+                    <p>Number plaque looks great. Very pleased with the product. Heavy duty and easy to
+                      install. I altered the mounting a little to a screw on plaque.</p>
+                  </article>
+                  <article class="rev">
+                    <p class="rev-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    <h4>The best way to say hello is &ldquo;Ciao&rdquo;</h4>
+                    <p>Wanted something fun and reflective my Italian heritage. And after installing the
+                      Ring doorbell this was the perfect place for a Modern House Numbers plaque. So easy
+                      to install and just perfection. We had it up in less that 20 minutes.</p>
+                  </article>
+                </div>
+              </details>
+              <details>
+                <summary>What you&rsquo;ll get</summary>
+                <div class="tab-content">
+                  <p>With your order we&rsquo;ll include:</p>
+                  <ul>
+                    <li>Concealed mounting hardware: 2 inch steel studs, &frac12; inch aluminum spacers</li>
+                    <li>Your choice of drilling templates: horizontal, vertical or both orientations.</li>
+                    <li>Step-by-step Installation Instructions</li>
+                  </ul>
+                  <h4>For orders with multiple sets, we&rsquo;ll:</h4>
+                  <ul>
+                    <li>Carefully wrap each set with its own drilling template and hardware</li>
+                    <li>Include extra mounting hardware</li>
+                  </ul>
+                </div>
+              </details>
+              <details>
+                <summary>Details</summary>
+                <div class="tab-content">
+                  <ul>
+                    <li>Solid, 3/8 inch thick, recycled aluminum</li>
+                    <li>Concealed mounting hardware for floating or flush mount</li>
+                    <li>Brushed Aluminum Finish: Water-based UV protectant</li>
+                    <li>Powder Coat Finish: Low-VOC, won&rsquo;t chip, rust, or flake</li>
+                    <li>Coastal or industrial area: powder coat finish recommended</li>
+                    <li><a href="https://www.modernhousenumbers.com/pages/faqs" style="color:var(--orange)">Product FAQs</a></li>
+                    <li>Product widths: <a href="https://www.modernhousenumbers.com/pages/resources#specifications" style="color:var(--orange)">Technical Specifications</a></li>
+                    <li><a href="https://www.modernhousenumbers.com/pages/resources#sizing" style="color:var(--orange)">Viewing distances</a></li>
+                    <li>Handcrafted in the USA</li>
+                    <li>Customization available &mdash; reach out to your Professional Representative, Terry Billingsley</li>
+                    <li>Sorry, no returns</li>
+                  </ul>
+                </div>
+              </details>
+              <details>
+                <summary>Manufacturing + Delivery</summary>
+                <div class="tab-content">
+                  <h4>Manufacturing:</h4>
+                  <ul>
+                    <li>All our items are made to order</li>
+                    <li>Average Manufacturing Times:<br>1 &ndash; 50 pieces: 15&ndash;20 business days<br>50+ pieces: email Terry for more information</li>
+                  </ul>
+                  <p>Need numbers faster? Check out our QuickShip Numbers, which are in stock. Ship next
+                    business day. Order from our
+                    <a href="https://www.modernhousenumbers.com/products/quick-ship" style="color:var(--orange)">QuickShip Numbers</a> page.</p>
+                  <h4>Delivery:</h4>
+                  <ul>
+                    <li>International shipping available</li>
+                    <li>Enter zip code during checkout to estimate shipping cost</li>
+                    <li>If USPS doesn&rsquo;t deliver to your address, contact us</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ============ PLAQUES BLURB ============ -->
-  <section class="section section--soft">
-    <div class="container">
-      <h2>Premium quality plaques and signage. Made to order.</h2>
-      <p class="blurb">Shop address plaques from Modern House Numbers for elevated curb appeal and
-        clear address visibility. Each plaque features precision stencil-cut characters from solid
-        recycled aluminum with durable powder coat or UV-protectant finishes for long-lasting
-        performance. Choose from circle, square, or rectangular plaques in varying sizes. Customize
-        your house plaque with three modern fonts, five finishes, and center or right-aligned
-        layouts. Includes concealed hardware and a personalized drilling template for easy
-        installation. Final sale, no returns.</p>
-
-      <div class="rev-head" style="margin-top:34px">
-        <h2 style="margin:0;font-size:1.5rem">Customer Reviews</h2>
-        <a href="https://www.modernhousenumbers.com/products/address-plaques#reviews"
-           class="label" style="color:var(--orange)">Read all plaque reviews &rarr;</a>
-      </div>
-      <div class="rev-grid">
-        <article class="rev">
-          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <h4>Heavy Duty!</h4>
-          <p>Number plaque looks great. Very pleased with the product. Heavy duty and easy to
-            install. I altered the mounting a little to a screw on plaque.</p>
-        </article>
-        <article class="rev">
-          <p class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-          <h4>The best way to say hello is &ldquo;Ciao&rdquo;</h4>
-          <p>Wanted something fun and reflective my Italian heritage. And after installing the Ring
-            doorbell this was the perfect place for a Modern House Numbers plaque. So easy to install
-            and just perfection. We had it up in less that 20 minutes. The provided template made
-            placement a breeze.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ NEED ASSISTANCE ============ -->
   <section class="section section--soft">
@@ -1143,147 +1435,195 @@ p{margin:0 0 1rem}
   var tick = document.getElementById('ticker');
   if (tick) { tick.innerHTML += tick.innerHTML; }
 
-  /* ---------------- configurators (numbers + plaques) ----------------
-     Both sections share this implementation; each root element is scoped by
-     its own data-* hooks so the two never collide. */
-  var UNIT_PRICE  = 29.50;                                   // matches the live page
-  var SIZE_FACTOR = { 4:0.8, 6:1, 8:1.45, 12:2.6, 15:3.6 };  // numbers only, 6" = base
+  /* ---------------- tab switching ---------------- */
+  var tabs = document.querySelectorAll('.proswitcher [data-tab]');
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.setAttribute('aria-selected', 'false'); });
+      btn.setAttribute('aria-selected', 'true');
+      ['numbers', 'plaques'].forEach(function (id) {
+        document.getElementById(id).hidden = (id !== btn.dataset.tab);
+      });
+    });
+  });
 
-  function money(n){ return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
-  function chars(t){ return t.replace(/\s/g, '').length; }
+  /* ---------------- configurators ----------------
+     PRICES ARE MEASURED FROM THE LIVE PAGE, not derived from a multiplier.
+     Brushed aluminium is uncoated and cheaper; the four powder-coat finishes
+     all share one price. Read off the live configurator per finish x height. */
+  var PRICE = {
+    numbers: {
+      brushed: { 4: 24.50, 6: 29.50, 8: 36.50, 12: 57.50, 15: 75.50 },
+      coated:  { 4: 26.95, 6: 32.95, 8: 39.95, 12: 63.95, 15: 82.95 }
+    },
+    plaques: { brushed: 29.50, coated: 32.95 }   // flat, independent of shape
+  };
+  function tier(finish) { return finish === 'brushed' ? 'brushed' : 'coated'; }
 
-  function initConfigurator(root){
-    var kind  = root.dataset.config;                 // "numbers" | "plaques"
+  function money(n) { return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function chars(t) { return (t || '').replace(/\s/g, '').length; }
+
+  function initConfigurator(root) {
+    var kind  = root.dataset.config;
     var isNum = kind === 'numbers';
-    var el    = function(n){ return root.querySelector('[data-el="' + n + '"]'); };
-    var pick  = function(n){ return root.querySelector('[data-picker="' + n + '"]'); };
+    var el    = function (n) { return root.querySelector('[data-el="' + n + '"]'); };
+    var pick  = function (n) { return root.querySelectorAll('[data-picker="' + n + '"]'); };
 
-    var stage   = el('stage'), note = el('note'), input = el('text'),
-        count   = el('count'), setList = el('setList'), setsEmpty = el('setsEmpty'),
-        total   = el('total'), meta = el('meta'), orderBtn = el('orderBtn'),
-        plaque  = el('plaque');
+    var preview = el('preview'), setBox = el('setBox'), plate = el('plate'),
+        total   = el('total'),   qty    = el('qty'),    unit  = el('unit'),
+        orderBtn= el('orderBtn');
+    var band    = root.closest('.picker-band');
+    var gallery = band ? band.querySelector('[data-gallery]') : null;
 
     var state = {
-      text: input.value,
-      font: 'PalmSprings', fontLabel: 'Palm Springs',
-      finish: '#cccccc',   finishLabel: 'Brushed Aluminum',
-      size: '6', orient: 'both',                                   // numbers
-      shapeLabel: '7" circle', ratio: 1, round: '50%', align: 'center'  // plaques
+      text: preview.textContent.trim(),
+      font: 'palmsprings', family: 'PalmSprings', fontLabel: 'Palm Springs',
+      finish: 'brushed', hex: '#cccccc', finishLabel: 'Brushed Aluminum',
+      size: '6', orient: 'horizontal', orientLabel: 'Horizontal Installation Template',
+      shapeLabel: '7" circle', ratio: 1, round: '50%', align: 'center'
     };
     var sets = [];
 
-    function paintStage(){
-      stage.textContent = state.text || (isNum ? '123Abc' : '1425');
-      stage.style.fontFamily = state.font;
-      stage.style.color = state.finish;
-      // white needs a hairline or it disappears into the plate
-      stage.style.webkitTextStroke = (state.finish === '#ffffff') ? '1px #b7b6b6' : '';
-      count.textContent = chars(state.text) + (chars(state.text) === 1 ? ' character' : ' characters');
-
-      if (isNum) {
-        stage.classList.toggle('is-vertical', state.orient === 'vertical');
-        note.textContent = state.fontLabel + ' \u00b7 ' + state.finishLabel + ' \u00b7 ' + state.size + '" high';
-      } else {
-        plaque.style.aspectRatio   = String(state.ratio);
-        plaque.style.borderRadius  = state.round;
-        plaque.dataset.align       = state.align;
-        note.textContent = state.fontLabel + ' \u00b7 ' + state.finishLabel + ' \u00b7 ' + state.shapeLabel;
-      }
+    function unitPrice() {
+      return isNum ? PRICE.numbers[tier(state.finish)][state.size]
+                   : PRICE.plaques[tier(state.finish)];
     }
 
-    function paintPrice(){
-      var units = 0, sum = 0;
-      sets.forEach(function(st){
-        if (isNum) {
-          var n = chars(st.text);
-          units += n;
-          sum   += n * UNIT_PRICE * (SIZE_FACTOR[st.size] || 1);
-        } else {
-          units += 1;                       // a plaque is priced as one piece
-          sum   += UNIT_PRICE;
-        }
+    function paint() {
+      preview.style.fontFamily = state.family;
+      if (isNum) {
+        // the characters themselves are the product, so they take the finish
+        preview.style.color = state.hex;
+        preview.style.webkitTextStroke = (state.hex === '#ffffff') ? '1px #b7b6b6' : '';
+      } else {
+        // on a plaque the PLATE is the finish and the characters are cut out of it
+        plate.style.background   = state.hex;
+        plate.style.aspectRatio  = String(state.ratio);
+        plate.style.borderRadius = state.round;
+        plate.dataset.align      = state.align;
+        preview.style.color = (state.finish === 'white' || state.finish === 'brushed')
+                            ? '#393838' : '#ffffff';
+      }
+      // the image strip only shows the selected font's photographs
+      if (gallery) {
+        gallery.querySelectorAll('.gal-cell').forEach(function (img) {
+          img.hidden = img.dataset.font !== state.font;
+        });
+        gallery.scrollLeft = 0;
+      }
+      unit.textContent = money(unitPrice());
+    }
+
+    function paintPrice() {
+      var n = 0, sum = 0;
+      sets.forEach(function (st) {
+        var c = isNum ? chars(st.text) : 1;
+        n += c; sum += c * st.unit;
       });
+      qty.textContent   = n;
       total.textContent = money(sum);
-      meta.textContent  = units + (isNum ? ' item(s) @ ' : ' plaque(s) @ ') + money(UNIT_PRICE) + ' each'
-                        + (isNum ? ' (6\u2033 base)' : '');
 
       var q = isNum
-        ? { text:state.text, font:state.fontLabel, finish:state.finishLabel,
-            size:state.size, orientation:state.orient }
-        : { text:state.text, font:state.fontLabel, finish:state.finishLabel,
-            shape:state.shapeLabel, alignment:state.align };
-      var base = isNum
+        ? { text: state.text, font: state.fontLabel, finish: state.finishLabel,
+            size: state.size, orientation: state.orient }
+        : { text: state.text, font: state.fontLabel, finish: state.finishLabel,
+            shape: state.shapeLabel, alignment: state.align };
+      orderBtn.href = (isNum
         ? 'https://www.modernhousenumbers.com/products/house-numbers'
-        : 'https://www.modernhousenumbers.com/products/address-plaques';
-      orderBtn.href = base + '?' + new URLSearchParams(q).toString();
+        : 'https://www.modernhousenumbers.com/products/address-plaques')
+        + '?' + new URLSearchParams(q).toString();
     }
 
-    function paintSets(){
-      setList.innerHTML = '';
-      sets.forEach(function(st, i){
+    function paintSets() {
+      setBox.innerHTML = '';
+      if (!sets.length) return;
+      var ul = document.createElement('ul');
+      sets.forEach(function (st, i) {
         var li = document.createElement('li');
         var span = document.createElement('span');
-        span.textContent = isNum
-          ? st.text + ' \u2014 ' + st.fontLabel + ', ' + st.finishLabel + ', ' + st.size + '" ' + st.orient
-          : st.text + ' \u2014 ' + st.fontLabel + ', ' + st.finishLabel + ', ' + st.shapeLabel + ', ' + st.align;
+        span.textContent = st.text + ' — ' + st.detail;
         var x = document.createElement('button');
-        x.type = 'button'; x.className = 'set-x'; x.textContent = '\u00d7';
+        x.type = 'button'; x.className = 'set-x'; x.textContent = '×';
         x.setAttribute('aria-label', 'Remove ' + st.text);
-        x.addEventListener('click', function(){ sets.splice(i,1); paintSets(); paintPrice(); });
+        x.addEventListener('click', function () { sets.splice(i, 1); paintSets(); paintPrice(); });
         li.appendChild(span); li.appendChild(x);
-        setList.appendChild(li);
+        ul.appendChild(li);
       });
-      setsEmpty.hidden = sets.length > 0;
+      setBox.appendChild(ul);
     }
 
-    function wire(name, apply){
-      var ul = pick(name);
-      if (!ul) return;
-      ul.addEventListener('click', function(e){
-        var b = e.target.closest('button');
-        if (!b) return;
-        ul.querySelectorAll('button').forEach(function(o){ o.setAttribute('aria-pressed','false'); });
-        b.setAttribute('aria-pressed','true');
-        apply(b);
-        paintStage(); paintPrice();
+    function wire(name, apply) {
+      pick(name).forEach(function (ul) {
+        ul.addEventListener('click', function (e) {
+          var b = e.target.closest('button');
+          if (!b) return;
+          // shape lives in three sibling lists, so clear across all of them
+          pick(name).forEach(function (u) {
+            u.querySelectorAll('button').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          });
+          b.setAttribute('aria-pressed', 'true');
+          apply(b);
+          paint(); paintPrice();
+        });
       });
     }
 
-    wire('font',   function(b){ state.font = b.dataset.font; state.fontLabel = b.dataset.label; });
-    wire('finish', function(b){
-      state.finish = b.dataset.finish; state.finishLabel = b.dataset.label;
+    wire('font', function (b) {
+      state.font = b.dataset.font; state.family = b.dataset.family; state.fontLabel = b.dataset.label;
+    });
+    wire('finish', function (b) {
+      state.finish = b.dataset.finish; state.hex = b.dataset.hex; state.finishLabel = b.dataset.label;
       el('finishName').textContent = b.dataset.label;
     });
-    wire('size',   function(b){ state.size = b.dataset.size; el('sizeName').textContent = b.dataset.size + '" high'; });
-    wire('orient', function(b){
-      state.orient = b.dataset.orient;
-      el('orientName').textContent = { both:'Both installation templates',
-        horizontal:'Horizontal installation template',
-        vertical:'Vertical installation template' }[b.dataset.orient];
+    wire('size', function (b) {
+      state.size = b.dataset.size;
+      el('sizeName').textContent = b.dataset.size + '" high';
     });
-    wire('shape',  function(b){
+    wire('orient', function (b) {
+      state.orient = b.dataset.orient; state.orientLabel = b.dataset.label;
+      el('orientName').innerHTML = b.dataset.label.replace(' Template', '<br>Template');
+    });
+    wire('shape', function (b) {
       state.shapeLabel = b.dataset.label;
       state.ratio = parseFloat(b.dataset.ratio);
       state.round = b.dataset.round;
-      el('shapeName').textContent = b.dataset.label;
     });
-    wire('align',  function(b){
-      state.align = b.dataset.align;
-      el('alignName').textContent = { center:'Center aligned', right:'Right aligned',
-        bottom:'Bottom aligned' }[b.dataset.align];
+    wire('align', function (b) { state.align = b.dataset.align; });
+
+    preview.addEventListener('input', function () { state.text = preview.textContent.trim(); });
+    preview.addEventListener('blur',  function () {
+      if (!chars(preview.textContent)) { preview.textContent = isNum ? '123Abc' : '1425'; }
+      state.text = preview.textContent.trim();
+    });
+    // keep it single-line plain text, like the source
+    preview.addEventListener('keydown', function (e) { if (e.key === 'Enter') e.preventDefault(); });
+    preview.addEventListener('paste', function (e) {
+      e.preventDefault();
+      document.execCommand('insertText', false, (e.clipboardData || window.clipboardData).getData('text'));
     });
 
-    input.addEventListener('input', function(){ state.text = input.value; paintStage(); });
-
-    el('addSet').addEventListener('click', function(){
-      if (!chars(state.text)) { input.focus(); return; }
-      sets.push({ text:state.text, fontLabel:state.fontLabel, finishLabel:state.finishLabel,
-                  size:state.size, orient:state.orient,
-                  shapeLabel:state.shapeLabel, align:state.align });
+    el('addSet').addEventListener('click', function () {
+      if (!chars(state.text)) { preview.focus(); return; }
+      sets.push({
+        text: state.text,
+        unit: unitPrice(),
+        detail: isNum
+          ? state.fontLabel + ', ' + state.finishLabel + ', ' + state.size + '"'
+          : state.fontLabel + ', ' + state.finishLabel + ', ' + state.shapeLabel
+      });
       paintSets(); paintPrice();
     });
 
-    paintStage(); paintSets(); paintPrice();
+    // image strip arrows
+    if (band) {
+      var prev = band.querySelector('.gal-btn--prev'), next = band.querySelector('.gal-btn--next');
+      if (prev && next && gallery) {
+        prev.addEventListener('click', function () { gallery.scrollBy({ left: -624, behavior: 'smooth' }); });
+        next.addEventListener('click', function () { gallery.scrollBy({ left:  624, behavior: 'smooth' }); });
+      }
+    }
+
+    paint(); paintSets(); paintPrice();
   }
 
   document.querySelectorAll('[data-config]').forEach(initConfigurator);
