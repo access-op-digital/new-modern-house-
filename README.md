@@ -11,29 +11,45 @@ Static replica of <https://www.modernhousenumbers.com/pages/trade>, deployed on
 | `/trade` | same page, via a rewrite in `vercel.json` |
 
 
-## Suggestion review mode
+## How the page renders
 
-The page ships in Google-Docs-style review mode. Every proposed change is an
-inline `<del>`/`<ins>` pair (or an `sg-new` block for whole new sections) tied to
-a numbered card in the right-hand drawer by a shared `data-card` attribute.
-Nothing is hard-coded in JS — to add a suggestion, add the mark and the card.
+The page is the **final copy** — every revision from the brief is applied and
+reads as finished text. The one exception is **headings**, which keep the cut so
+the wording being replaced is still visible: struck old, new wording after it.
 
-There are **two layers**, told apart by colour:
+There is no toolbar, no drawer and no JS for any of this; it is CSS only. `.sg
+del` is hidden by default and re-shown under `h1`/`h2`/`h3`. Body copy, intros
+and the nine whole-new sections (`sg-new`) therefore render clean.
 
-| Layer | Cards | Colour | Where it comes from |
-| --- | --- | --- | --- |
-| Brief | 1–17 | green | `Trade Landing Page Revisions — DRAFT 2026.09.03`, applied exactly as written |
-| Search demand | 18–25 | blue | Ours. Headings whose wording has little or no search volume behind it, replaced with the term buyers use. DataForSEO, Google Ads, US, September 2026 |
+Headings carry two colours:
 
-Three toolbar modes:
+| Colour | Source |
+| --- | --- |
+| green | `Trade Landing Page Revisions — DRAFT 2026.09.03`, applied as written |
+| blue | Ours — headings the brief left on wording with little or no search demand |
 
-- **Show suggestions** — both layers, full redline (default)
-- **Brief only** — collapses the blue layer to the brief's wording, so the client
-  can review what they asked for on its own
-- **Preview final** — every suggestion accepted, no markup
+`data-card` attributes are kept on every mark. They drive nothing now, but they
+are what a review drawer would hook back onto.
 
-Suggestions 18, 19 and 22 revise a heading the brief had already revised, so the
-mark shows the chain: live wording struck, brief wording struck, new wording.
+### The blue headings, and why
+
+Volumes are DataForSEO, Google Ads, United States, September 2026.
+
+| Heading | Replaces | Demand |
+| --- | --- | --- |
+| Modern House Numbers and Letters | brief's *Architectural Numbers + Letters* | 40 → **22,200** (*modern house numbers* 6,600) |
+| Custom Address Plaques | brief's *Architectural Address Plaques* | 10 → **4,400** (*custom address signs* 1,000) |
+| QuickShip House Numbers and Letters, Shipped Next Business Day | *QuickShip Numbers + Letters* | states the lead time the tab exists to answer |
+| Restroom Signs in Solid Recycled Aluminum | *Architectural Restroom Signs* | no data → **12,100** |
+| House Numbers and Signage by Property Type | brief's 76-char enumerating heading | stops listing the five rows directly beneath it |
+| House Numbers and Building Numbers for Residential Projects | *1. Unit + Building Identification* | no data → **720** |
+| Apartment Unit Numbers and Multifamily Building Signage | *2. Multifamily Signage* | 10 → **480** |
+| Wayfinding / Monument / Room Number rows | *3.–5.* prefixed labels | 4,400 · 1,600 · 170 |
+
+**Open before shipping:** *ADA restroom signs* draws 1,600 a month and is the
+obvious next heading, but ADA signage needs tactile characters and Grade 2
+Braille. This page describes stencil-cut aluminium only, so ADA stays out of the
+heading until the product is confirmed to comply.
 
 ## Not indexed, on purpose
 

@@ -509,94 +509,24 @@ p{margin:0 0 1rem}
 .final-join{font-size:.9rem;margin-top:1.4rem;display:flex;align-items:center;justify-content:center;
   gap:.8rem;flex-wrap:wrap}
 
-/* ---- suggestion review mode (same mechanics as the /revised/ page) ---- */
-:root{--sg:#188038;--sg-bg:#e6f4ea;--sg-strong:#0f5c28;--sg-bar:#fffbe6;--sg-bar-line:#f1e3a3}
-.sg-bar{position:sticky;top:0;z-index:60;background:var(--sg-bar);
-  border-bottom:1px solid var(--sg-bar-line);font-size:.82rem}
-.sg-bar-inner{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:.5rem 24px}
-.sg-bar-title{display:inline-flex;align-items:center;gap:.4rem;font-weight:800;
-  color:var(--sg-strong);letter-spacing:.02em}
-.sg-bar-title svg{width:1em;height:1em;fill:var(--sg);flex:none}
-.sg-bar-note{color:#6b6b6b;flex:1 1 0}
-.sg-bar-actions{display:inline-flex;gap:.4rem;flex-wrap:wrap}
-.sg-mode,.sg-open,.sg-jump{font:inherit;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;
-  font-weight:700;padding:.35rem .8rem;border:1px solid var(--line);background:#fff;color:var(--ink);
-  cursor:pointer;border-radius:0}
-.sg-mode.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.sg-open{background:var(--sg);border-color:var(--sg);color:#fff}
+/* ---- final copy, with the heading changes still shown as a cut ----
+   Body copy, intros and the new sections render as the finished page.
+   Headings keep the redline: the wording being replaced struck, the new after it.
+   Green = from the revisions brief. Blue = search-demand changes. */
+:root{--sg:#188038;--sg-bg:#e6f4ea;--sg2:#1a56c4;--sg2-bg:#e8eefb}
 
-/* inline marks */
-.sg{cursor:pointer}
-.sg del{color:var(--sg);text-decoration:line-through 2px;background:var(--sg-bg)}
-.sg ins{color:var(--sg);text-decoration:underline 2px;text-underline-offset:.15em;background:var(--sg-bg)}
-.sg del::after{content:" "}
-.sg:hover del,.sg:hover ins,.sg.is-active del,.sg.is-active ins{background:#c8e6cf}
-.sg-new{display:block;cursor:auto}
-.sg-new > ins{display:block;text-decoration:none;background:none;padding:0}
+.sg del{display:none}
+.sg ins{color:inherit;text-decoration:none;background:none}
+.sg-new{display:block}
+.sg-new > ins{display:block;color:inherit;text-decoration:none;background:none;padding:0}
 
-/* preview-final mode: drop the old wording, show the new as plain copy */
-body.sg-final .sg del{display:none}
-body.sg-final .sg ins,body.sg-final .sg-new > ins{color:inherit;text-decoration:none;background:none;
-  box-shadow:none;padding:0}
-body.sg-final .sg{cursor:auto}
-body.sg-final .sg-bar-note{display:none}
-
-/* ---- second layer: search-demand suggestions (not from the brief) ---- */
-:root{--sg2:#1a56c4;--sg2-bg:#e8eefb;--sg2-strong:#12408f}
-.sg.sg-seo del{color:var(--sg2);background:var(--sg2-bg)}
-.sg.sg-seo ins{color:var(--sg2);background:var(--sg2-bg)}
-.sg.sg-seo:hover del,.sg.sg-seo:hover ins,.sg.sg-seo.is-active del,.sg.sg-seo.is-active ins{background:#cfdcf6}
-.sg-legend{display:inline-flex;align-items:center;gap:.3rem}
-.sg-swatch{width:.7em;height:.7em;display:inline-block;flex:none}
-.sg-swatch--brief{background:var(--sg-bg);box-shadow:inset 0 0 0 1px var(--sg)}
-.sg-swatch--seo{background:var(--sg2-bg);box-shadow:inset 0 0 0 1px var(--sg2)}
-
-/* brief-only mode: collapse the search-demand layer to the brief's wording */
-body.sg-brief .sg-seo ins{display:none}
-body.sg-brief .sg-seo del{color:inherit;text-decoration:none;background:none}
-body.sg-brief .sg-seo[data-brief] del{color:var(--sg);text-decoration:line-through 2px;background:var(--sg-bg)}
-body.sg-brief .sg-seo[data-brief]::after{content:attr(data-brief);color:inherit}
-body.sg-brief .sg-seo{cursor:auto}
-body.sg-brief .sg-card--seo{display:none}
-
-/* drawer: tell the two sets apart */
-.sg-card--seo .sg-avatar{background:var(--sg2)}
-.sg-card--seo .sg-card-label{color:var(--sg2-strong)}
-.sg-card--seo.is-active{background:#f4f7fd}
-.sg-card--seo .sg-jump{border-color:var(--sg2);color:var(--sg2)}
-.sg-card--seo .sg-jump:hover{background:var(--sg2);color:#fff}
-.sg-vol{font-size:.74rem;color:var(--ink-soft);margin:0 0 .5rem}
-.sg-vol b{color:var(--sg2-strong);font-variant-numeric:tabular-nums}
-.sg-warn{font-size:.78rem;background:#fdf4e3;border-left:3px solid #c98a00;padding:.5rem .6rem;margin:0 0 .5rem}
-
-/* comments drawer */
-.sg-drawer{position:fixed;top:0;right:0;height:100vh;width:min(390px,100vw);background:#fff;
-  border-left:1px solid var(--line);z-index:80;transform:translateX(102%);transition:transform .25s;
-  display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.12)}
-.sg-drawer.is-open{transform:none}
-.sg-drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;
-  border-bottom:1px solid var(--line);font-size:1rem}
-.sg-close{font:inherit;font-size:1.5rem;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink-soft)}
-.sg-close:hover{color:var(--orange)}
-.sg-drawer-intro{padding:1rem 1.2rem;border-bottom:1px solid var(--line);background:#fafafa;font-size:.84rem}
-.sg-drawer-intro p{margin:0 0 .6rem}
-.sg-drawer-intro small{color:var(--ink-soft);font-size:.74rem;display:block}
-.sg-cards{overflow-y:auto;padding:0 1.2rem 2rem;flex:1}
-.sg-card{padding:1.1rem 0;border-bottom:1px solid var(--line-soft)}
-.sg-card.is-active{background:#f6fbf7;margin:0 -1.2rem;padding:1.1rem 1.2rem}
-.sg-card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
-.sg-avatar{width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;
-  display:grid;place-items:center;font-size:.64rem;font-weight:800;flex:none}
-.sg-card-head b{display:block;font-size:.86rem}
-.sg-card-head small{color:var(--ink-soft);font-size:.72rem}
-.sg-card-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
-  color:var(--ink-soft);margin-bottom:.35rem}
-.sg-card p{font-size:.84rem;margin:0 0 .5rem}
-.sg-jump{border-color:var(--sg);color:var(--sg);background:#fff;padding:.3rem .6rem;margin-top:.2rem}
-.sg-jump:hover{background:var(--sg);color:#fff}
-.sg-flash{animation:sgflash 1.4s ease-out}
-@keyframes sgflash{0%,40%{background:#ffe9a8}100%{background:transparent}}
-@media(prefers-reduced-motion:reduce){.sg-drawer{transition:none}.sg-flash{animation:none}}
+h1 .sg del,h2 .sg del,h3 .sg del{display:inline;color:var(--sg);
+  text-decoration:line-through 2px;background:var(--sg-bg)}
+h1 .sg del::after,h2 .sg del::after,h3 .sg del::after{content:" "}
+h1 .sg ins,h2 .sg ins,h3 .sg ins{color:var(--sg);text-decoration:underline 2px;
+  text-underline-offset:.15em;background:var(--sg-bg)}
+h1 .sg-seo del,h2 .sg-seo del,h3 .sg-seo del{color:var(--sg2);background:var(--sg2-bg)}
+h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--sg2-bg)}
 
 /* ---- a11y ---- */
 .skip{position:absolute;left:-9999px}
@@ -607,23 +537,6 @@ body.sg-brief .sg-card--seo{display:none}
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
-
-<div class="sg-bar" data-sg-bar>
-  <div class="sg-bar-inner">
-    <span class="sg-bar-title">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-      Suggesting &middot; 25 edits proposed &middot; 17 from the brief, 8 on search demand</span>
-    <span class="sg-bar-note"><span class="sg-legend"><i class="sg-swatch sg-swatch--brief"></i>from the brief</span>
-      &middot; <span class="sg-legend"><i class="sg-swatch sg-swatch--seo"></i>search demand</span>
-      &middot; <s>strikethrough</s> = wording being replaced. Click any highlight to read why.</span>
-    <span class="sg-bar-actions">
-      <button type="button" class="sg-mode is-active" data-mode="suggest">Show suggestions</button>
-      <button type="button" class="sg-mode" data-mode="brief">Brief only</button>
-      <button type="button" class="sg-mode" data-mode="final">Preview final</button>
-      <button type="button" class="sg-open" data-sg-open>Comments</button>
-    </span>
-  </div>
-</div>
 
 <header class="site-header">
   <div class="container nav">
@@ -967,7 +880,7 @@ body.sg-brief .sg-card--seo{display:none}
             </div>
 
             <div class="cfg-right">
-              <h2 class="pageheader"><span class="sg sg-seo" data-card="18" data-brief="Architectural Numbers + Letters"><del>Modern numbers and letters in multiples. Made to last.</del><ins>Modern House Numbers and Letters</ins></span></h2>
+              <h2 class="pageheader"><span class="sg sg-seo" data-card="18"><del>Modern numbers and letters in multiples. Made to last.</del><ins>Modern House Numbers and Letters</ins></span></h2>
               <p class="cfg-desc"><span class="sg" data-card="4"><del>Shop house numbers, letters and symbols from Modern House Numbers for
                 elevated curb appeal and improved address visibility; architect-designed signage crafted
                 from solid, recycled aluminum in 7 fonts, 5 durable finishes in 5 sizes. Every order
@@ -1240,7 +1153,7 @@ body.sg-brief .sg-card--seo{display:none}
             </div>
 
             <div class="cfg-right">
-              <h2 class="pageheader"><span class="sg sg-seo" data-card="19" data-brief="Architectural Address Plaques"><del>Premium quality plaques and signage. Made to order.</del><ins>Custom Address Plaques</ins></span></h2>
+              <h2 class="pageheader"><span class="sg sg-seo" data-card="19"><del>Premium quality plaques and signage. Made to order.</del><ins>Custom Address Plaques</ins></span></h2>
               <p class="cfg-desc"><span class="sg" data-card="5"><del>Shop address plaques from Modern House Numbers for elevated curb appeal
                 and clear address visibility. Each plaque features precision stencil-cut characters from
                 solid recycled aluminum with durable powder coat or UV-protectant finishes for
@@ -1452,7 +1365,7 @@ body.sg-brief .sg-card--seo{display:none}
   <!-- ============ SECTION 6: TRADE SIGNAGE BY PROPERTY TYPE ============ -->
   <section class="section section--soft">
     <div class="container">
-      <h2 class="section-head center"><span class="sg sg-seo" data-card="22" data-brief="Trade Signage by Property Type: House Numbers, Wayfinding and Monument Signs"><del>Products Designed for Projects of Every Scale</del><ins>House Numbers and Signage by Property Type</ins></span></h2>
+      <h2 class="section-head center"><span class="sg sg-seo" data-card="22"><del>Products Designed for Projects of Every Scale</del><ins>House Numbers and Signage by Property Type</ins></span></h2>
 
       <div class="cap cap--flip">
         <div class="cap-copy">
@@ -1961,216 +1874,6 @@ body.sg-brief .sg-card--seo{display:none}
   </div>
 </footer>
 
-<aside class="sg-drawer" data-sg-drawer aria-label="Content suggestions">
-  <div class="sg-drawer-head"><b>Why these edits?</b>
-    <button type="button" class="sg-close" data-sg-close aria-label="Close comments">&times;</button></div>
-  <div class="sg-drawer-intro">
-    <p><b>Suggestions 1&ndash;17</b> are the revisions from <b>Trade Landing Page Revisions &mdash; DRAFT
-      2026.09.03</b>, applied to this page exactly as written in the document.</p>
-    <p><b>Suggestions 18&ndash;25</b> are ours and are <b>not in the brief</b>. Each replaces a heading
-      whose wording has little or no search demand behind it with the term buyers actually use. Volumes
-      are DataForSEO, Google Ads, United States, September 2026. Use <b>Brief only</b> in the toolbar to
-      hide this layer.</p>
-    <p>The brief&rsquo;s grey &ldquo;Page Goal&rdquo;, &ldquo;The Experience&rdquo; and &ldquo;Page
-      Diagram&rdquo; passages are marked in the document as page orientation for internal reference, so
-      they are not treated as page copy.</p>
-    <small>Two items still need input: the Garden Studio Design quote is marked QUOTE NEEDED in the
-      brief, and the benefit block is noted as &ldquo;replicate DWR benefit block design&rdquo;, which
-      is a visual reference rather than copy.</small>
-  </div>
-  <div class="sg-cards">
-        <article class="sg-card" id="sg-card-1" data-card="1">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 1 of 25</small></div></div>
-          <div class="sg-card-label">Page H1</div>
-          <p>H1 changes from <em>Trade Professionals</em> to <em>House Numbers and Signage for the Trade</em>, so the heading names the products as well as the audience.</p>
-          <button type="button" class="sg-jump" data-jump="1">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-2" data-card="2">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 2 of 25</small></div></div>
-          <div class="sg-card-label">Hero paragraph</div>
-          <p>Comma added after &ldquo;Trade Representative&rdquo; so the closing clause reads as a separate thought.</p>
-          <button type="button" class="sg-jump" data-jump="2">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-3" data-card="3">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 3 of 25</small></div></div>
-          <div class="sg-card-label">Section 4 heading + intro</div>
-          <p>New heading <em>Order Custom Signage in Trade Quantities</em> replaces the four-product list, with an intro covering all four tabs.</p>
-          <button type="button" class="sg-jump" data-jump="3">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-4" data-card="4">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 4 of 25</small></div></div>
-          <div class="sg-card-label">Numbers + Letters tab</div>
-          <p>Heading becomes <em>Architectural Numbers + Letters</em>; the description is rewritten around the seven fonts, five sizes and five finishes, with hardware and templates in a second paragraph.</p>
-          <p class="sg-vol">The heading is revised again in <b>suggestion 18</b>, on search demand.</p>
-          <button type="button" class="sg-jump" data-jump="4">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-5" data-card="5">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 5 of 25</small></div></div>
-          <div class="sg-card-label">Plaques tab</div>
-          <p>Heading becomes <em>Architectural Address Plaques</em>; description rewritten around the stencil-cut characters, shapes, three fonts and alignment options.</p>
-          <p class="sg-vol">The heading is revised again in <b>suggestion 19</b>, on search demand.</p>
-          <button type="button" class="sg-jump" data-jump="5">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-6" data-card="6">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 6 of 25</small></div></div>
-          <div class="sg-card-label">QuickShip tab (new)</div>
-          <p>QuickShip moves from an outbound link to a tab with its own copy: next-business-day shipping, Palm Springs in 4&quot;/6&quot;/8&quot;, brushed aluminium or matte black.</p>
-          <button type="button" class="sg-jump" data-jump="6">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-7" data-card="7">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 7 of 25</small></div></div>
-          <div class="sg-card-label">Restroom Signs tab (new)</div>
-          <p>Restroom Signs moves from an outbound link to a tab: stencil-cut icons, five designs, curated plaque shapes and five finishes.</p>
-          <button type="button" class="sg-jump" data-jump="7">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-8" data-card="8">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 8 of 25</small></div></div>
-          <div class="sg-card-label">Section 5 heading</div>
-          <p>The two headings &ldquo;Need Assistance?&rdquo; and &ldquo;Resources&rdquo; are replaced by one centred title, <em>Trade Support and Signage Specification Resources</em>. The left column keeps a heading of its own, <em>Dedicated Trade Support</em>.</p>
-          <button type="button" class="sg-jump" data-jump="8">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-9" data-card="9">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 9 of 25</small></div></div>
-          <div class="sg-card-label">Trade support copy</div>
-          <p>Paragraph rewritten around what Terry actually does &mdash; project pricing, custom estimates, design assistance, product recommendations, installation guidance, bulk orders &mdash; and a <em>Request Quote</em> CTA is added.</p>
-          <button type="button" class="sg-jump" data-jump="9">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-10" data-card="10">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 10 of 25</small></div></div>
-          <div class="sg-card-label">Resource card 1</div>
-          <p><em>Installation</em> becomes <em>Installation Guides</em>.</p>
-          <button type="button" class="sg-jump" data-jump="10">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-11" data-card="11">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 11 of 25</small></div></div>
-          <div class="sg-card-label">Resource card 2</div>
-          <p><em>Join + Save</em> becomes <em>Join Trade Program</em>.</p>
-          <button type="button" class="sg-jump" data-jump="11">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-12" data-card="12">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 12 of 25</small></div></div>
-          <div class="sg-card-label">Resource card 4</div>
-          <p><em>Inspiration Guide</em> becomes <em>Project Inspiration</em>. Sizing + Visibility, Technical Specifications and Trade Portal are unchanged.</p>
-          <button type="button" class="sg-jump" data-jump="12">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-13" data-card="13">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 13 of 25</small></div></div>
-          <div class="sg-card-label">Section 2 (new)</div>
-          <p>A short banner between the hero and the benefits: <em>Designed for the Trade.</em> plus the four audiences &mdash; builders, architects, multifamily, developers.</p>
-          <button type="button" class="sg-jump" data-jump="13">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-14" data-card="14">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 14 of 25</small></div></div>
-          <div class="sg-card-label">Section 3 (new)</div>
-          <p><em>Why Trade Professionals Choose Modern House Numbers</em>, with the four benefit blocks from the brief and a <em>Request Quote</em> CTA.</p>
-          <button type="button" class="sg-jump" data-jump="14">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-15" data-card="15">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 15 of 25</small></div></div>
-          <div class="sg-card-label">Section 8 (new)</div>
-          <p>Closing CTA: <em>Have a Trade Project That Needs House Numbers or Custom Signage?</em> with Request Quote, Terry&rsquo;s address and the Trade Program link.</p>
-          <button type="button" class="sg-jump" data-jump="15">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card" id="sg-card-16" data-card="16">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 16 of 25</small></div></div>
-          <div class="sg-card-label">Section 6</div>
-          <p>Heading becomes <em>Trade Signage by Property Type</em>, and the five capability rows are replaced by the five property types from the brief, each with its own CTA.</p>
-          <p class="sg-vol">The heading now shows under <b>suggestion 22</b> and the five rows under <b>23&ndash;25</b>, so it carries no separate mark on the page.</p>
-        </article>
-        <article class="sg-card" id="sg-card-17" data-card="17">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 17 of 25</small></div></div>
-          <div class="sg-card-label">Section 7</div>
-          <p>The testimonial carousel becomes <em>Featured Trade Projects</em> &mdash; Rivendale Homes, Granger Family Homes and Garden Studio Design, with location and role on each.</p>
-          <p class="sg-vol">The brief reads &ldquo;Real Trade Project&rdquo;; corrected here to the plural.</p>
-          <button type="button" class="sg-jump" data-jump="17">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-18" data-card="18">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 18 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Numbers + Letters heading</div>
-          <p><em>Architectural</em> occupies the strongest position in the heading and is the one word there with almost no demand behind it. <em>Modern</em> &mdash; the brand&rsquo;s own name &mdash; turns an internal collection label into the domain&rsquo;s primary head term.</p>
-          <p class="sg-vol">Replaces the brief&rsquo;s <em>Architectural Numbers + Letters</em> as well as the live heading.</p>
-          <p class="sg-vol">architectural house numbers <b>40</b>/mo &middot; house numbers <b>22,200</b> &middot; modern house numbers <b>6,600</b></p>
-          <button type="button" class="sg-jump" data-jump="18">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-19" data-card="19">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 19 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Plaques heading</div>
-          <p><em>Architectural</em> comes out for the same reason as in suggestion 18. <em>Custom</em> replaces it because the body copy already earns the made-to-order claim, and it picks up a second real head term rather than just dropping a word.</p>
-          <p class="sg-vol">Replaces the brief&rsquo;s <em>Architectural Address Plaques</em> as well as the live heading.</p>
-          <p class="sg-vol">architectural address plaques <b>10</b>/mo &middot; address plaques <b>4,400</b> &middot; custom address signs <b>1,000</b></p>
-          <button type="button" class="sg-jump" data-jump="19">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-20" data-card="20">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 20 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">QuickShip heading</div>
-          <p>The tab exists to answer a lead-time question and the heading never states the lead time. Putting <em>next business day</em> in it gives a specifier on a deadline the answer without opening the tab, and <em>House Numbers</em> binds the tab to the page&rsquo;s head term.</p>
-          <p class="sg-vol">house numbers <b>22,200</b>/mo</p>
-          <button type="button" class="sg-jump" data-jump="20">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-21" data-card="21">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 21 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Restroom Signs heading</div>
-          <p><em>Restroom signs</em> is the second-highest-demand term on this page, and the brief leaves it behind a modifier that returns no measurable data at all. Material is the real differentiator against the stamped-plastic market, so it replaces <em>Architectural</em> rather than the word simply being dropped.</p>
-          <p class="sg-vol">architectural restroom signs <b>no data</b> &middot; restroom signs <b>12,100</b>/mo</p>
-          <p class="sg-warn"><b>Verify before shipping.</b> <em>ADA restroom signs</em> carries <b>1,600</b> a month and is the obvious next heading &mdash; but ADA signage requires tactile characters and Grade 2 Braille, and this page describes stencil-cut aluminium only. Do not put ADA in the heading unless the product genuinely complies.</p>
-          <button type="button" class="sg-jump" data-jump="21">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-22" data-card="22">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 22 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Section 6 heading</div>
-          <p>At 76 characters the brief&rsquo;s heading enumerates three of the five rows sitting directly beneath it. A container names its set; the children name themselves. The shorter form keeps the property-type axis &mdash; which is what makes this section different from Section 4 &mdash; and keeps the entity noun in front of it.</p>
-          <p class="sg-vol">Replaces the brief&rsquo;s <em>Trade Signage by Property Type: House Numbers, Wayfinding and Monument Signs</em> as well as the live heading.</p>
-          <button type="button" class="sg-jump" data-jump="22">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-23" data-card="23">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 23 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Section 6, row 1</div>
-          <p><em>Unit + Building Identification</em> is an invented category: no measurable demand, and it repeats Section 4&rsquo;s first product. The numeric prefix is layout rather than heading content, so it comes off all five rows.</p>
-          <p class="sg-vol">unit + building identification <b>no data</b> &middot; building numbers <b>720</b>/mo</p>
-          <button type="button" class="sg-jump" data-jump="23">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-24" data-card="24">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 24 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Section 6, row 2</div>
-          <p><em>Multifamily signage</em> is industry vocabulary &mdash; the person specifying the job types something else. The trade term is kept, just not in the load-bearing position.</p>
-          <p class="sg-vol">multifamily signage <b>10</b>/mo &middot; apartment unit numbers <b>480</b></p>
-          <button type="button" class="sg-jump" data-jump="24">Show me on the page &rarr;</button>
-        </article>
-        <article class="sg-card sg-card--seo" id="sg-card-25" data-card="25">
-          <div class="sg-card-head"><span class="sg-avatar">1%</span>
-            <div><b>One Percent SEO</b><small>Suggestion 25 of 25 &middot; search demand</small></div></div>
-          <div class="sg-card-label">Section 6, rows 3&ndash;5</div>
-          <p>These three nouns were already right, so the only changes are the numeric prefix and a property qualifier that puts each row on the axis the section heading now states. Row 5&rsquo;s two abstractions are replaced by the artefact people actually search for.</p>
-          <p class="sg-vol">wayfinding signs <b>4,400</b>/mo &middot; monument signs <b>1,600</b> &middot; hotel room number signs <b>170</b></p>
-          <button type="button" class="sg-jump" data-jump="25">Show me on the page &rarr;</button>
-        </article>
-      
-  </div>
-</aside>
 
 <script>
 (function () {
@@ -2445,61 +2148,6 @@ body.sg-brief .sg-card--seo{display:none}
   document.querySelectorAll('[data-config]').forEach(initConfigurator);
 
 
-  /* ---------------- suggestion review mode ---------------- */
-  (function () {
-    var body = document.body, drawer = document.querySelector('[data-sg-drawer]');
-    if (!drawer) return;
-    body.classList.add('sg-suggest');
-
-    document.querySelectorAll('.sg-mode').forEach(function (b) {
-      b.addEventListener('click', function () {
-        document.querySelectorAll('.sg-mode').forEach(function (o) { o.classList.remove('is-active'); });
-        b.classList.add('is-active');
-        body.classList.toggle('sg-final', b.dataset.mode === 'final');
-        body.classList.toggle('sg-brief', b.dataset.mode === 'brief');
-      });
-    });
-
-    function openDrawer(card) {
-      drawer.classList.add('is-open');
-      drawer.querySelectorAll('.sg-card').forEach(function (c) { c.classList.remove('is-active'); });
-      if (card) {
-        var el = document.getElementById('sg-card-' + card);
-        if (el) { el.classList.add('is-active'); el.scrollIntoView({ block: 'center' }); }
-      }
-    }
-    document.querySelector('[data-sg-open]').addEventListener('click', function () { openDrawer(); });
-    document.querySelector('[data-sg-close]').addEventListener('click', function () {
-      drawer.classList.remove('is-open');
-    });
-
-    // clicking any highlight opens its note
-    document.querySelectorAll('.sg[data-card]').forEach(function (m) {
-      m.addEventListener('click', function () {
-        if (body.classList.contains('sg-final')) return;
-        document.querySelectorAll('.sg').forEach(function (o) { o.classList.remove('is-active'); });
-        m.classList.add('is-active');
-        openDrawer(m.dataset.card);
-      });
-    });
-
-    // "show me on the page" scrolls to the mark and flashes it
-    drawer.querySelectorAll('[data-jump]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var t = document.querySelector('.sg[data-card="' + b.dataset.jump + '"]');
-        if (!t) return;
-        var panel = t.closest('.tabsection');
-        if (panel && panel.hidden) {
-          var tab = document.querySelector('.proswitcher [data-tab="' + panel.id + '"]');
-          if (tab) tab.click();
-        }
-        drawer.classList.remove('is-open');
-        t.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        t.classList.add('sg-flash');
-        setTimeout(function () { t.classList.remove('sg-flash'); }, 1500);
-      });
-    });
-  })();
 })();
 </script>
 
