@@ -531,18 +531,15 @@ p{margin:0 0 1rem}
 .sg ins{color:var(--sg);text-decoration:underline 2px;text-underline-offset:.15em;background:var(--sg-bg)}
 .sg del::after{content:" "}
 .sg:hover del,.sg:hover ins,.sg.is-active del,.sg.is-active ins{background:#c8e6cf}
-.sg-new{display:block}
-.sg-new > ins{display:block;text-decoration:none;background:var(--sg-bg);
-  box-shadow:inset 3px 0 0 var(--sg);padding:.1rem 0 .1rem .9rem}
-.sg-tag{display:inline-block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:800;color:#fff;background:var(--sg);padding:.12rem .45rem;margin-bottom:.5rem}
+.sg-new{display:block;cursor:auto}
+.sg-new > ins{display:block;text-decoration:none;background:none;padding:0}
 
 /* preview-final mode: drop the old wording, show the new as plain copy */
 body.sg-final .sg del{display:none}
 body.sg-final .sg ins,body.sg-final .sg-new > ins{color:inherit;text-decoration:none;background:none;
   box-shadow:none;padding:0}
 body.sg-final .sg{cursor:auto}
-body.sg-final .sg-bar-note,body.sg-final .sg-tag{display:none}
+body.sg-final .sg-bar-note{display:none}
 
 /* ---- second layer: search-demand suggestions (not from the brief) ---- */
 :root{--sg2:#1a56c4;--sg2-bg:#e8eefb;--sg2-strong:#12408f}
@@ -725,7 +722,6 @@ body.sg-brief .sg-card--seo{display:none}
     <div class="container">
       <div class="sg sg-new" data-card="13">
         <ins>
-          <span class="sg-tag">New section</span>
           <h2 class="section-head center">Designed for the Trade.</h2>
           <p class="section-lead center">We partner with design and building professionals on projects
             large and small, from individual residences to multifamily communities and commercial spaces.</p>
@@ -745,7 +741,6 @@ body.sg-brief .sg-card--seo{display:none}
     <div class="container">
       <div class="sg sg-new" data-card="14">
         <ins>
-          <span class="sg-tag">New section</span>
           <h2 class="section-head center">Why Trade Professionals Choose Modern House Numbers</h2>
           <p class="section-lead center">From first specification to final installation, Modern House
             Numbers provides the products, resources, and support teams need to keep projects moving
@@ -792,7 +787,6 @@ body.sg-brief .sg-card--seo{display:none}
       <h2 class="section-head"><span class="sg" data-card="3"><del>Architectural Numbers + Letters, Plaques, QuickShip and Restroom Signs</del><ins>Order Custom Signage in Trade Quantities</ins></span></h2>
       <div class="sg sg-new" data-card="3">
         <ins>
-          <span class="sg-tag">New intro</span>
           <p class="section-lead">From a single custom sign to property-wide identification, configure and
             order the products your project needs, including solid aluminum numbers and letters, custom
             plaques, QuickShip bestsellers, and restroom signs. Choose from architectural fonts, sizes,
@@ -1355,7 +1349,6 @@ body.sg-brief .sg-card--seo{display:none}
         <div class="picker-band">
           <div class="sg sg-new" data-card="6">
             <ins>
-              <span class="sg-tag">New section</span>
               <div class="cfg-row">
                 <div class="cfg-left">
                   <img class="tab-hero" src="https://cms.modernhousenumbers.com/assets/preview_ps_pro_3.jpg" alt="QuickShip Numbers + Letters" loading="lazy">
@@ -1379,7 +1372,6 @@ body.sg-brief .sg-card--seo{display:none}
         <div class="picker-band">
           <div class="sg sg-new" data-card="7">
             <ins>
-              <span class="sg-tag">New section</span>
               <div class="cfg-row">
                 <div class="cfg-left">
                   <img class="tab-hero" src="https://cms.modernhousenumbers.com/assets/pro_gal_interior_3.jpg" alt="Architectural Restroom Signs" loading="lazy">
@@ -1409,7 +1401,6 @@ body.sg-brief .sg-card--seo{display:none}
     <div class="container">
       <div class="sg sg-new" data-card="8">
         <ins>
-          <span class="sg-tag">Merged heading</span>
           <h2 class="section-head" style="text-align:center">Trade Support and Signage Specification Resources</h2>
         </ins>
       </div>
@@ -1430,7 +1421,7 @@ body.sg-brief .sg-card--seo{display:none}
             <a href="mailto:terry@modernhousenumbers.com">terry@modernhousenumbers.com</a>
           </p>
           <div class="sg sg-new" data-card="9">
-            <ins><span class="sg-tag">New CTA</span>
+            <ins>
               <a class="btn btn--primary" href="mailto:terry@modernhousenumbers.com?subject=Trade%20project%20quote%20request">Request Quote</a>
             </ins>
           </div>
@@ -1719,7 +1710,6 @@ body.sg-brief .sg-card--seo{display:none}
     <div class="container">
       <div class="sg sg-new" data-card="17">
         <ins>
-          <span class="sg-tag">Replaces the testimonial carousel</span>
           <h2 class="section-head center"><span class="sg" data-card="17"><del>Trusted by Trade Professionals</del><ins>See Our House Numbers and Signage on Real Trade Projects</ins></span></h2>
           <p class="section-lead center">Explore how architects, designers, builders, and developers use
             Modern House Numbers to bring identity and detail to their projects.</p>
@@ -1880,7 +1870,6 @@ body.sg-brief .sg-card--seo{display:none}
     <div class="container">
       <div class="sg sg-new" data-card="15">
         <ins>
-          <span class="sg-tag">New section</span>
           <h2 class="section-head center"><span class="sg" data-card="15"><del>Have a Project in Mind?</del><ins>Have a Trade Project That Needs House Numbers or Custom Signage?</ins></span></h2>
           <p class="section-lead center">Tell us what you&rsquo;re working on. We&rsquo;ll help with product
             selection, complimentary dimensioned proofs, and custom estimates.</p>
