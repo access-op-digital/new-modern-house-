@@ -22,9 +22,9 @@ del` is hidden by default and re-shown under `h1`/`h2`/`h3`. Body copy, intros
 and the nine whole-new sections (`sg-new`) therefore render clean.
 
 Every cut is green, whatever its source — the brief and our own heading changes
-are not told apart on the page. Only **section headings** carry a cut -- the H1 and
+are not told apart on the page. Only **section headings** carry a cut — the H1 and
 the five section titles. Sub-headings inside a section — the four product tabs
-and the five Section 6 rows -- carry `sg-quiet` and render finished.
+and the five Section 6 rows — carry `sg-quiet` and render finished.
 
 `data-card` attributes are kept on every mark. They drive nothing now, but they
 are what a review drawer would hook back onto.
