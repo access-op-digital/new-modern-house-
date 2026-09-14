@@ -21,17 +21,14 @@ There is no toolbar, no drawer and no JS for any of this; it is CSS only. `.sg
 del` is hidden by default and re-shown under `h1`/`h2`/`h3`. Body copy, intros
 and the nine whole-new sections (`sg-new`) therefore render clean.
 
-Headings carry two colours:
-
-| Colour | Source |
-| --- | --- |
-| green | `Trade Landing Page Revisions — DRAFT 2026.09.03`, applied as written |
-| blue | Ours — headings the brief left on wording with little or no search demand |
+Every cut is green, whatever its source — the brief and our own heading changes
+are not told apart on the page. The five Section 6 rows carry `sg-quiet` and
+render finished, with no cut at all.
 
 `data-card` attributes are kept on every mark. They drive nothing now, but they
 are what a review drawer would hook back onto.
 
-### The blue headings, and why
+### The heading changes that are ours, and why
 
 Volumes are DataForSEO, Google Ads, United States, September 2026.
 

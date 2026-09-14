@@ -512,8 +512,8 @@ p{margin:0 0 1rem}
 /* ---- final copy, with the heading changes still shown as a cut ----
    Body copy, intros and the new sections render as the finished page.
    Headings keep the redline: the wording being replaced struck, the new after it.
-   Green = from the revisions brief. Blue = search-demand changes. */
-:root{--sg:#188038;--sg-bg:#e6f4ea;--sg2:#1a56c4;--sg2-bg:#e8eefb}
+   All cuts are green. The five Section 6 rows carry sg-quiet and render finished. */
+:root{--sg:#188038;--sg-bg:#e6f4ea}
 
 .sg del{display:none}
 .sg ins{color:inherit;text-decoration:none;background:none}
@@ -525,8 +525,8 @@ h1 .sg del,h2 .sg del,h3 .sg del{display:inline;color:var(--sg);
 h1 .sg del::after,h2 .sg del::after,h3 .sg del::after{content:" "}
 h1 .sg ins,h2 .sg ins,h3 .sg ins{color:var(--sg);text-decoration:underline 2px;
   text-underline-offset:.15em;background:var(--sg-bg)}
-h1 .sg-seo del,h2 .sg-seo del,h3 .sg-seo del{color:var(--sg2);background:var(--sg2-bg)}
-h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--sg2-bg)}
+h1 .sg-quiet del,h2 .sg-quiet del,h3 .sg-quiet del{display:none}
+h1 .sg-quiet ins,h2 .sg-quiet ins,h3 .sg-quiet ins{color:inherit;text-decoration:none;background:none}
 
 /* ---- a11y ---- */
 .skip{position:absolute;left:-9999px}
@@ -1369,7 +1369,7 @@ h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--s
 
       <div class="cap cap--flip">
         <div class="cap-copy">
-          <h2><span class="sg sg-seo" data-card="23"><del>1. Unit + Building Identification</del><ins>House Numbers and Building Numbers for Residential Projects</ins></span></h2>
+          <h2><span class="sg sg-seo sg-quiet" data-card="23"><del>1. Unit + Building Identification</del><ins>House Numbers and Building Numbers for Residential Projects</ins></span></h2>
           <p class="cap-sub">Premium architectural numbers and letters for residential and commercial applications. For custom homes, production builders, and design-focused residential projects.</p>
           <p>Create a polished first impression with premium address numbers and letters available in a range of architectural styles, sizes, and finishes. Ideal for builders seeking consistency across projects and designers specifying products that complement the overall vision.</p>
           <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Unit + Building Identification &rarr;</a></p>
@@ -1430,7 +1430,7 @@ h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--s
 
       <div class="cap">
         <div class="cap-copy">
-          <h2><span class="sg sg-seo" data-card="24"><del>2. Multifamily Signage</del><ins>Apartment Unit Numbers and Multifamily Building Signage</ins></span></h2>
+          <h2><span class="sg sg-seo sg-quiet" data-card="24"><del>2. Multifamily Signage</del><ins>Apartment Unit Numbers and Multifamily Building Signage</ins></span></h2>
           <p class="cap-sub">Unit numbering, building identification, and property-wide signage for apartments, condominiums, and mixed-use communities.</p>
           <p>Carry a cohesive identification system across every unit, building, and shared space. Consistent products, finishes, and easy reordering make it simple to carry one architectural aesthetic throughout your property and into future phases.</p>
           <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Multifamily Identification &rarr;</a></p>
@@ -1475,7 +1475,7 @@ h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--s
 
       <div class="cap cap--flip">
         <div class="cap-copy">
-          <h2><span class="sg sg-seo" data-card="25"><del>3. Wayfinding &amp; Directional Signage</del><ins>Wayfinding Signs for Communities, Campuses and Commercial Properties</ins></span></h2>
+          <h2><span class="sg sg-seo sg-quiet" data-card="25"><del>3. Wayfinding &amp; Directional Signage</del><ins>Wayfinding Signs for Communities, Campuses and Commercial Properties</ins></span></h2>
           <p class="cap-sub">Considered wayfinding for multifamily communities, hospitality properties, campuses, and commercial spaces.</p>
           <p>Guide residents, guests, and visitors with cohesive identification signage. From building and amenity directions and destination markers, each piece is coordinated to improve navigation while maintaining a cohesive visual identity across your property.</p>
           <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Wayfinding &rarr;</a></p>
@@ -1519,7 +1519,7 @@ h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--s
 
       <div class="cap">
         <div class="cap-copy">
-          <h2><span class="sg sg-seo" data-card="25"><del>4. Monument &amp; Branded Signage</del><ins>Monument Signs and Custom Property Identification</ins></span></h2>
+          <h2><span class="sg sg-seo sg-quiet" data-card="25"><del>4. Monument &amp; Branded Signage</del><ins>Monument Signs and Custom Property Identification</ins></span></h2>
           <p class="cap-sub">Custom property identification, logos, and branded signage for residential communities, commercial developments, and hospitality properties.</p>
           <p>Bring your property&rsquo;s identity into the architecture with custom monument signs, logos, and large-scale identification. Designed to reinforce brand standards and establish a strong sense of place, these solutions help distinguish your property while maintaining a cohesive visual identity.</p>
           <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Monument + Branded Signage &rarr;</a></p>
@@ -1563,7 +1563,7 @@ h1 .sg-seo ins,h2 .sg-seo ins,h3 .sg-seo ins{color:var(--sg2);background:var(--s
 
       <div class="cap cap--flip">
         <div class="cap-copy">
-          <h2><span class="sg sg-seo" data-card="25"><del>5. Interior &amp; Hospitality Signage</del><ins>Room Number Signs and Interior Signage for Hotels and Resorts</ins></span></h2>
+          <h2><span class="sg sg-seo sg-quiet" data-card="25"><del>5. Interior &amp; Hospitality Signage</del><ins>Room Number Signs and Interior Signage for Hotels and Resorts</ins></span></h2>
           <p class="cap-sub">Room identification and amenity signage for hotels, resorts, multifamily communities, and commercial properties.</p>
           <p>Enhance the visitor experience with interior signage designed for clarity, consistency, and style. From room identification and amenity signage to directories and guest-facing applications, our collection of products help create intuitive, well-branded environments throughout your property.</p>
           <p style="margin-top:1.1rem"><a class="btn btn--ghost" href="https://www.modernhousenumbers.com/pages/trade">Shop Interior + Hospitality Signage &rarr;</a></p>
