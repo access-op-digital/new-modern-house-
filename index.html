@@ -554,6 +554,8 @@ body.sg-final .sg-bar-note{display:none}
 /* brief-only mode: collapse the search-demand layer to the brief's wording */
 body.sg-brief .sg-seo ins{display:none}
 body.sg-brief .sg-seo del{color:inherit;text-decoration:none;background:none}
+body.sg-brief .sg-seo[data-brief] del{color:var(--sg);text-decoration:line-through 2px;background:var(--sg-bg)}
+body.sg-brief .sg-seo[data-brief]::after{content:attr(data-brief);color:inherit}
 body.sg-brief .sg-seo{cursor:auto}
 body.sg-brief .sg-card--seo{display:none}
 
@@ -965,7 +967,7 @@ body.sg-brief .sg-card--seo{display:none}
             </div>
 
             <div class="cfg-right">
-              <h2 class="pageheader"><span class="sg" data-card="4"><del>Modern numbers and letters in multiples. Made to last.</del></span><span class="sg sg-seo" data-card="18"><del>Architectural Numbers + Letters</del><ins>Modern House Numbers and Letters</ins></span></h2>
+              <h2 class="pageheader"><span class="sg sg-seo" data-card="18" data-brief="Architectural Numbers + Letters"><del>Modern numbers and letters in multiples. Made to last.</del><ins>Modern House Numbers and Letters</ins></span></h2>
               <p class="cfg-desc"><span class="sg" data-card="4"><del>Shop house numbers, letters and symbols from Modern House Numbers for
                 elevated curb appeal and improved address visibility; architect-designed signage crafted
                 from solid, recycled aluminum in 7 fonts, 5 durable finishes in 5 sizes. Every order
@@ -1238,7 +1240,7 @@ body.sg-brief .sg-card--seo{display:none}
             </div>
 
             <div class="cfg-right">
-              <h2 class="pageheader"><span class="sg" data-card="5"><del>Premium quality plaques and signage. Made to order.</del></span><span class="sg sg-seo" data-card="19"><del>Architectural Address Plaques</del><ins>Custom Address Plaques</ins></span></h2>
+              <h2 class="pageheader"><span class="sg sg-seo" data-card="19" data-brief="Architectural Address Plaques"><del>Premium quality plaques and signage. Made to order.</del><ins>Custom Address Plaques</ins></span></h2>
               <p class="cfg-desc"><span class="sg" data-card="5"><del>Shop address plaques from Modern House Numbers for elevated curb appeal
                 and clear address visibility. Each plaque features precision stencil-cut characters from
                 solid recycled aluminum with durable powder coat or UV-protectant finishes for
@@ -1450,7 +1452,7 @@ body.sg-brief .sg-card--seo{display:none}
   <!-- ============ SECTION 6: TRADE SIGNAGE BY PROPERTY TYPE ============ -->
   <section class="section section--soft">
     <div class="container">
-      <h2 class="section-head center"><span class="sg" data-card="16"><del>Products Designed for Projects of Every Scale</del></span><span class="sg sg-seo" data-card="22"><del>Trade Signage by Property Type: House Numbers, Wayfinding and Monument Signs</del><ins>House Numbers and Signage by Property Type</ins></span></h2>
+      <h2 class="section-head center"><span class="sg sg-seo" data-card="22" data-brief="Trade Signage by Property Type: House Numbers, Wayfinding and Monument Signs"><del>Products Designed for Projects of Every Scale</del><ins>House Numbers and Signage by Property Type</ins></span></h2>
 
       <div class="cap cap--flip">
         <div class="cap-copy">
@@ -2089,8 +2091,7 @@ body.sg-brief .sg-card--seo{display:none}
             <div><b>One Percent SEO</b><small>Suggestion 16 of 25</small></div></div>
           <div class="sg-card-label">Section 6</div>
           <p>Heading becomes <em>Trade Signage by Property Type</em>, and the five capability rows are replaced by the five property types from the brief, each with its own CTA.</p>
-          <p class="sg-vol">The heading and all five rows are revised again in <b>suggestions 22&ndash;25</b>.</p>
-          <button type="button" class="sg-jump" data-jump="16">Show me on the page &rarr;</button>
+          <p class="sg-vol">The heading now shows under <b>suggestion 22</b> and the five rows under <b>23&ndash;25</b>, so it carries no separate mark on the page.</p>
         </article>
         <article class="sg-card" id="sg-card-17" data-card="17">
           <div class="sg-card-head"><span class="sg-avatar">1%</span>
@@ -2105,6 +2106,7 @@ body.sg-brief .sg-card--seo{display:none}
             <div><b>One Percent SEO</b><small>Suggestion 18 of 25 &middot; search demand</small></div></div>
           <div class="sg-card-label">Numbers + Letters heading</div>
           <p><em>Architectural</em> occupies the strongest position in the heading and is the one word there with almost no demand behind it. <em>Modern</em> &mdash; the brand&rsquo;s own name &mdash; turns an internal collection label into the domain&rsquo;s primary head term.</p>
+          <p class="sg-vol">Replaces the brief&rsquo;s <em>Architectural Numbers + Letters</em> as well as the live heading.</p>
           <p class="sg-vol">architectural house numbers <b>40</b>/mo &middot; house numbers <b>22,200</b> &middot; modern house numbers <b>6,600</b></p>
           <button type="button" class="sg-jump" data-jump="18">Show me on the page &rarr;</button>
         </article>
@@ -2113,6 +2115,7 @@ body.sg-brief .sg-card--seo{display:none}
             <div><b>One Percent SEO</b><small>Suggestion 19 of 25 &middot; search demand</small></div></div>
           <div class="sg-card-label">Plaques heading</div>
           <p><em>Architectural</em> comes out for the same reason as in suggestion 18. <em>Custom</em> replaces it because the body copy already earns the made-to-order claim, and it picks up a second real head term rather than just dropping a word.</p>
+          <p class="sg-vol">Replaces the brief&rsquo;s <em>Architectural Address Plaques</em> as well as the live heading.</p>
           <p class="sg-vol">architectural address plaques <b>10</b>/mo &middot; address plaques <b>4,400</b> &middot; custom address signs <b>1,000</b></p>
           <button type="button" class="sg-jump" data-jump="19">Show me on the page &rarr;</button>
         </article>
@@ -2138,6 +2141,7 @@ body.sg-brief .sg-card--seo{display:none}
             <div><b>One Percent SEO</b><small>Suggestion 22 of 25 &middot; search demand</small></div></div>
           <div class="sg-card-label">Section 6 heading</div>
           <p>At 76 characters the brief&rsquo;s heading enumerates three of the five rows sitting directly beneath it. A container names its set; the children name themselves. The shorter form keeps the property-type axis &mdash; which is what makes this section different from Section 4 &mdash; and keeps the entity noun in front of it.</p>
+          <p class="sg-vol">Replaces the brief&rsquo;s <em>Trade Signage by Property Type: House Numbers, Wayfinding and Monument Signs</em> as well as the live heading.</p>
           <button type="button" class="sg-jump" data-jump="22">Show me on the page &rarr;</button>
         </article>
         <article class="sg-card sg-card--seo" id="sg-card-23" data-card="23">
