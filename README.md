@@ -9,6 +9,7 @@ Static replica of <https://www.modernhousenumbers.com/pages/trade>, deployed on
 | --- | --- |
 | `/` | `index.html` |
 | `/trade` | same page, via a rewrite in `vercel.json` |
+| `/multifamily-signs` | `multifamily-signs.html` — Rev 3 of the multifamily signage review page, with its photos in `assets/`. Sourced from the `multifamily-rev3-client-edits` branch of `access-op-digital/ModernHouseNumber`, which has no Vercel project of its own. |
 | `/punch-list` | `punch-list.html` — implementation status of the 2026-09-24 revision brief, checked line by line against the deployed page. Internal working document; it is noindexed like the rest of the deployment but anyone holding the link can read it. |
 
 

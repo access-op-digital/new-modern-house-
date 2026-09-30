@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<!--
+  Multifamily Identification Signage — Modern House Numbers
+  Revision 2 · client edits accepted from "2026.06_Trade_ProductLandingPage_Multifamily_Signage_Page_Structure_SEO_MHN_DRAFT"
+  Built with the One Percent SEO Semantic Landing Page framework (pillar page + quote-based Trade overlay).
+  Self-contained: inline CSS + vanilla JS, no dependencies. Photos in /assets (client-supplied).
+  Still open for MHN: real review rating + count (schema aggregateRating left out until supplied).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Multifamily Signage &amp; Building Identification | Modern House Numbers</title>
+<meta name="description" content="Multifamily signage for apartments, condos &amp; mixed-use properties — unit &amp; building identification, monument &amp; logo signs, wayfinding and amenity signage in solid recycled aluminum. Architect-led, made in Tucson, AZ.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/pages/multifamily-signage">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- Modern House Numbers brand font: Muli / Mulish -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ============ THEME — Modern House Numbers architectural palette ============ */
+:root{
+  --brand:        #F36A10;   /* MHN orange — single brand accent / CTA */
+  --brand-dark:   #393838;   /* invert-on-hover dark (MHN gray) */
+  --brand-tint:   #FDEEE2;   /* light orange wash */
+  --accent:       #F36A10;
+  --accent-tint:  #FDEEE2;
+  --ink:          #393838;   /* MHN warm dark gray — headings + body */
+  --muted:        #707070;   /* MHN grayMedium — secondary text */
+  --line:         #DEDEDE;   /* MHN hairline border */
+  --bg:           #ffffff;
+  --bg-soft:      #F0F0F0;   /* MHN grayLight — alternating section bg */
+  --warn:         #F36A10;
+  --radius:       2px;       /* squared / architectural */
+  --shadow:       0 1px 2px rgba(57,56,56,.05), 0 10px 30px rgba(57,56,56,.06);
+  --shadow-lg:    0 14px 40px rgba(57,56,56,.14);
+  --maxw:         1180px;
+  --font:         "Mulish","Muli","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3{line-height:1.18;letter-spacing:-.015em;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,4.8vw,3.3rem);font-weight:800}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800}
+h3{font-size:1.18rem;font-weight:700}
+p{margin:0 0 1rem}
+a{color:var(--brand);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.section{padding:64px 0}
+.section--soft{background:var(--bg-soft)}
+.eyebrow{color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;margin-bottom:.7rem}
+.lead{color:var(--muted);font-size:1.05rem;max-width:68ch}
+.center{text-align:center}.center .lead,.lead.center{margin-inline:auto}
+.accent{color:var(--accent)}
+.intro{max-width:78ch}
+.intro p{color:var(--muted);font-size:1.02rem}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.95rem 1.7rem;border-radius:0;border:1px solid transparent;cursor:pointer;transition:.18s;text-align:center;line-height:1.1}
+.btn--primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn--primary:hover{background:var(--brand-dark);border-color:var(--brand-dark)}
+.btn--ghost{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn--lg{padding:1.05rem 2.1rem;font-size:.88rem}
+.btn--block{display:flex;width:100%;justify-content:center}
+.icon{width:1.25em;height:1.25em;fill:currentColor;flex:none}
+
+/* announcement bar */
+.announce{background:var(--ink);color:#fff;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:.6rem 16px}
+.announce a{color:#FBB98A;font-weight:700;text-decoration:none}
+.announce a:hover{color:#fff}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-header .brand img{height:30px;width:auto;display:block}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:1rem}
+.brand{font-weight:800;font-size:1.18rem;color:var(--ink);letter-spacing:-.02em}
+.brand b{color:var(--brand);font-weight:800}
+.nav-links{display:flex;gap:1.4rem;align-items:center}
+.nav-links a{color:var(--muted);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:880px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding:56px 0 48px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}}
+.hero .tagline{font-size:1.35rem;font-weight:700;color:var(--ink);margin:-.2rem 0 1rem;letter-spacing:-.01em}
+.hero .tagline span{color:var(--brand)}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero .intro p{font-size:1rem}
+.badges{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;padding:0;margin:1.2rem 0}
+.badges li{display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:.95rem}
+.badges .icon{color:var(--accent)}
+.social-proof{display:flex;align-items:center;gap:.8rem;margin-top:1.2rem;flex-wrap:wrap}
+.avatars{display:flex}
+.avatars span{width:38px;height:38px;border-radius:50%;border:2px solid #fff;margin-left:-10px;background:var(--brand-tint);
+  display:grid;place-items:center;font-weight:700;color:var(--brand);font-size:.85rem}
+.avatars span:first-child{margin-left:0}
+.sp-text{color:var(--muted);font-size:.92rem}
+.rev-summary{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:.9rem;font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rev-stars{color:var(--brand);font-size:1.3rem;letter-spacing:.06em;line-height:1}
+.half-star{display:inline-block;width:.5em;overflow:hidden;vertical-align:top}
+.hero-media{position:sticky;top:90px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--bg-soft)}
+.hero-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.hero-media figcaption{font-size:.74rem;color:var(--muted);padding:.7rem 1rem;text-transform:uppercase;letter-spacing:.1em;line-height:1.5;background:#fff;border-top:1px solid var(--line)}
+@media(max-width:900px){.hero-media{position:static}}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+
+/* read more / read less (CSS only: hidden checkbox + label) */
+.readmore-toggle{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.readmore-body{display:block;max-height:0;overflow:hidden;transition:max-height .35s ease}
+.readmore-toggle:checked~.readmore-body{max-height:60rem}
+.readmore-label{display:inline-flex;align-items:center;gap:.35rem;color:var(--brand);font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;user-select:none;margin:0 0 .4rem}
+.readmore-label:hover{color:var(--brand-dark)}
+.readmore-label .icon{width:1.1em;height:1.1em;transition:transform .25s}
+.readmore-label .less{display:none}
+.readmore-toggle:checked~.readmore-label .more{display:none}
+.readmore-toggle:checked~.readmore-label .less{display:inline}
+.readmore-toggle:checked~.readmore-label .icon{transform:rotate(180deg)}
+.readmore-toggle:focus-visible~.readmore-label{outline:2px solid var(--brand);outline-offset:3px}
+
+/* ===== Suggestion mode (Google-Docs style) ===== */
+:root{--sg:#188038;--sg-bg:#e6f4ea;--sg-strong:#0f5f2a}
+.sg-bar{position:sticky;top:0;z-index:60;background:#fffbe6;border-bottom:1px solid #f1e3a3;font-size:.82rem}
+.sg-bar-inner{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:.5rem;padding-bottom:.5rem}
+.sg-bar-title{display:inline-flex;align-items:center;gap:.4rem;font-weight:800;color:var(--sg-strong);letter-spacing:.02em}
+.sg-bar-title .icon{width:1em;height:1em;color:var(--sg)}
+.sg-bar-note{color:#6b6b6b;flex:1}
+.sg-bar-actions{display:inline-flex;gap:.4rem}
+.sg-mode,.sg-open,.sg-jump{font:inherit;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:.4rem .8rem;cursor:pointer;border-radius:2px}
+.sg-mode.is-active{background:var(--ink);color:#fff}
+.sg-open{background:var(--sg);border-color:var(--sg);color:#fff}
+.sg-jump{border-color:var(--sg);color:var(--sg);padding:.3rem .6rem;margin-top:.4rem}
+.sg-jump:hover{background:var(--sg);color:#fff}
+.site-header{top:var(--sg-bar-h,0px)}
+@media(max-width:880px){.site-header{position:static}}
+
+/* inline marks */
+.sg{cursor:pointer;border-radius:2px;outline:none}
+.sg del{color:var(--sg);text-decoration:line-through;text-decoration-thickness:2px;background:var(--sg-bg)}
+.sg ins{color:var(--sg);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.15em;background:var(--sg-bg)}
+.sg del::after{content:" "}
+.sg:hover del,.sg:hover ins,.sg.is-active del,.sg.is-active ins,.sg:focus-visible del,.sg:focus-visible ins{background:#c8e6cf}
+.sg ins em{color:var(--sg)}
+body.sg-final .sg del{display:none}
+body.sg-final .sg ins{color:inherit;text-decoration:none;background:none}
+body.sg-final .sg ins em{color:var(--accent)}
+body.sg-final .sg{cursor:auto}
+body.sg-final .sg-bar-note{visibility:hidden}
+
+/* drawer */
+.sg-drawer{position:fixed;top:0;right:0;height:100vh;width:min(380px,100vw);background:#fff;border-left:1px solid var(--line);box-shadow:-12px 0 40px rgba(0,0,0,.12);z-index:80;transform:translateX(105%);transition:transform .28s ease;display:flex;flex-direction:column;font-size:.9rem}
+.sg-drawer.is-open{transform:none}
+.sg-drawer-head{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid var(--line);font-size:1rem}
+.sg-close{font:inherit;font-size:1.5rem;line-height:1;border:none;background:none;cursor:pointer;color:var(--muted)}
+.sg-drawer-intro{padding:1rem 1.2rem;border-bottom:1px solid var(--line);background:#fafafa}
+.sg-drawer-intro p{margin:0 0 .7rem}
+.sg-drawer-intro small{color:var(--muted);display:block;margin-top:.5rem;font-size:.76rem}
+.sg-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.sg-table th{text-align:left;font-weight:700;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:.2rem 0;border-bottom:1px solid var(--line)}
+.sg-table td{padding:.3rem 0;border-bottom:1px solid #eee}
+.sg-table td:nth-child(2),.sg-table td:nth-child(3),.sg-table th:nth-child(2),.sg-table th:nth-child(3){text-align:right}
+.sg-cards{overflow:auto;padding:.8rem 1.2rem 2rem;flex:1}
+.sg-card{border:1px solid var(--line);border-left:4px solid var(--sg);border-radius:4px;padding:.9rem 1rem;margin-bottom:.8rem;background:#fff;transition:.2s}
+.sg-card.is-active{background:var(--sg-bg);border-color:var(--sg);box-shadow:0 4px 18px rgba(24,128,56,.15)}
+.sg-card-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.sg-card-head b{display:block;font-size:.88rem}
+.sg-card-head small{color:var(--muted);font-size:.74rem}
+.sg-avatar{width:30px;height:30px;border-radius:50%;background:var(--sg);color:#fff;font-weight:800;font-size:.72rem;display:grid;place-items:center;flex:none}
+.sg-card-label{font-weight:700;font-size:.84rem;margin-bottom:.15rem}
+.sg-card-kw{font-size:.74rem;color:var(--sg-strong);margin-bottom:.45rem;font-weight:600}
+.sg-card p{margin:0;color:#444;font-size:.86rem;line-height:1.55}
+
+/* statement band (replaces trust bar) */
+.statement{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.statement .container{padding-top:28px;padding-bottom:28px;display:flex;align-items:center;justify-content:center;gap:1rem;text-align:center}
+.statement h2{margin:0;font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:800;letter-spacing:-.01em}
+.statement .icon{color:var(--brand);width:1.6em;height:1.6em}
+
+/* TABS */
+.tabs{margin-top:1.5rem}
+.tab-nav{display:flex;flex-wrap:wrap;gap:.5rem;border-bottom:2px solid var(--line);margin-bottom:1.4rem}
+.tab-btn{appearance:none;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;
+  padding:.7rem 1rem;font:inherit;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.tab-btn:hover{color:var(--ink)}
+.tab-btn.is-active{color:var(--brand);border-color:var(--brand)}
+.tab-btn .icon{width:1.1em;height:1.1em}
+.tab-panel{display:none;animation:fade .25s ease}
+.tab-panel.is-active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
+.tab-panel h3.zone-title{font-size:1.45rem;margin-bottom:.6rem}
+.panel-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.1rem}
+
+/* cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:1.4rem}
+.card{border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;background:#fff;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
+.card .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700;margin:0 0 .3rem}
+.card h3{margin-bottom:.3rem}
+.card .price{font-size:1.5rem;font-weight:800;margin:.4rem 0;color:var(--ink)}
+.card .price span{font-size:.9rem;font-weight:600;color:var(--muted)}
+.card ul{list-style:none;padding:0;margin:.6rem 0 1.2rem;font-size:.93rem;color:var(--muted)}
+.card ul li{display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0}
+.card ul .icon{color:var(--accent);width:1.05em;height:1.05em;margin-top:.2em}
+.card .btn{margin-top:auto}
+.card--best{border-color:var(--brand);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.badge-best{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;
+  font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.32rem .85rem;border-radius:0;white-space:nowrap}
+.card .range{font-size:1.3rem;font-weight:800;margin:.3rem 0;color:var(--ink)}
+.card .range small{color:var(--muted);font-weight:600;font-size:.85rem;display:block}
+.card .range .per{font-size:.9rem;font-weight:600;color:var(--muted)}
+.note{color:var(--muted);font-size:.92rem;margin-top:1.2rem}
+
+/* benefit cards */
+.benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.benefit{border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;background:#fff;box-shadow:var(--shadow)}
+.benefit .ic{width:46px;height:46px;border-radius:12px;background:var(--brand-tint);display:grid;place-items:center;margin-bottom:.9rem}
+.benefit .ic .icon{color:var(--brand);width:24px;height:24px}
+.benefit h3{font-size:1.08rem}
+.benefit p{color:var(--muted);font-size:.96rem;margin:0}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;counter-reset:s;margin-top:1.5rem}
+.step{position:relative;padding-left:3rem}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:2.1rem;height:2.1rem;border-radius:50%;
+  background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center}
+.step h3{font-size:1.05rem;margin-bottom:.2rem}
+.step p{color:var(--muted);font-size:.94rem;margin:0}
+
+/* testimonial slider (matches modernhousenumbers.com review carousel) */
+.slider{position:relative;margin-top:2.2rem;padding:0 64px}
+.slider-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;outline:none}
+.slider-track::-webkit-scrollbar{display:none}
+.slider-track:focus-visible{outline:2px solid var(--brand);outline-offset:6px}
+.slide{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;padding:.5rem 0}
+.slide-media{border-radius:var(--radius);overflow:hidden;background:var(--bg-soft);aspect-ratio:4/3;display:grid}
+.slide-media img{width:100%;height:100%;object-fit:cover}
+.slide-media--2{grid-template-columns:1fr 1fr;gap:3px}
+.slide-text{max-width:34rem}
+.slide-head{font-size:clamp(1.45rem,2.6vw,2.15rem);font-weight:400;line-height:1.2;letter-spacing:-.01em;margin:0 0 1rem;color:var(--ink)}
+.slide-body{color:var(--ink);font-size:1.02rem;margin:0 0 1.1rem}
+.slide-who{font-weight:700;font-style:italic;font-size:.98rem;margin:0}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:none;color:var(--ink);cursor:pointer;padding:0;display:grid;place-items:center;transition:.18s}
+.slider-btn svg{width:30px;height:30px}
+.slider-btn:hover{color:var(--brand)}
+.slider-btn--prev{left:0}.slider-btn--next{right:0}
+.slider-dots{display:flex;justify-content:center;gap:.45rem;margin-top:1.4rem}
+.slider-dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);padding:0;cursor:pointer;transition:.18s}
+.slider-dots button.is-active{background:var(--brand);transform:scale(1.25)}
+@media(max-width:760px){
+  .slider{padding:0}
+  .slide{grid-template-columns:1fr;gap:1.2rem;align-items:start}
+  .slider-btn{top:auto;bottom:-6px;transform:none;position:static}
+  .slider-dots{margin-top:.6rem}
+  .slider{display:grid;grid-template-columns:auto 1fr auto;align-items:end}
+  .slider-track{grid-column:1/-1;grid-row:1}
+  .slider-btn--prev{grid-column:1;grid-row:2}
+  .slider-dots{grid-column:2;grid-row:2;align-self:center}
+  .slider-btn--next{grid-column:3;grid-row:2}
+}
+
+/* CTA banner */
+.cta-banner{background:var(--ink);color:#fff;border-radius:var(--radius);padding:52px 48px;text-align:center}
+.cta-banner h2{color:#fff}
+.cta-banner p{color:rgba(255,255,255,.82);max-width:62ch;margin-inline:auto}
+.cta-banner .btn--primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.cta-banner .btn--primary:hover{background:#fff;color:var(--ink);border-color:#fff}
+
+/* quote form */
+.lead-form{display:grid;grid-template-columns:1fr 1fr;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow);margin-top:1.4rem}
+.lead-form .full{grid-column:1/-1}
+.lead-form label,.lead-form legend{font-weight:600;font-size:.9rem;display:block;margin-bottom:.3rem;padding:0}
+.lead-form input,.lead-form select,.lead-form textarea{width:100%;padding:.7rem .9rem;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+.lead-form input[type=file]{padding:.55rem .7rem;font-size:.9rem}
+.lead-form fieldset{border:none;padding:0;margin:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chips label{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);border-radius:999px;padding:.38rem .8rem;font-size:.86rem;font-weight:600;cursor:pointer;margin:0;background:#fff}
+.chips label:has(input:checked){border-color:var(--brand);background:var(--brand-tint);color:var(--brand)}
+.chips input{width:auto;margin:0;accent-color:var(--brand)}
+.other-field{margin-top:.55rem}
+.form-trust{display:flex;gap:1.2rem;flex-wrap:wrap;color:var(--muted);font-size:.88rem;margin-top:.6rem}
+.form-trust span{display:inline-flex;align-items:center;gap:.4rem}
+.form-trust .icon{color:var(--accent)}
+.form-help{font-size:.82rem;color:var(--muted);margin:.3rem 0 0}
+.req{color:var(--brand);font-weight:700;margin-left:.1em}
+.form-req-note{font-size:.82rem;color:var(--muted);margin:0 0 .8rem}
+@media(max-width:620px){.lead-form{grid-template-columns:1fr}}
+
+/* accordion / FAQ */
+.accordion{max-width:860px;margin:0 auto}
+.acc-item{border:1px solid var(--line);border-radius:12px;margin-bottom:.7rem;background:#fff;overflow:hidden}
+.acc-header{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;text-align:left;
+  background:none;border:none;font:inherit;font-weight:700;padding:1.05rem 1.2rem;cursor:pointer;color:var(--ink)}
+.acc-icon{flex:none;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--brand-tint);color:var(--brand);
+  display:grid;place-items:center;font-weight:800;transition:.2s}
+.acc-item.is-open .acc-icon{transform:rotate(45deg)}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+.acc-item.is-open .acc-body{grid-template-rows:1fr}
+.acc-body>div{overflow:hidden}
+.acc-body p{margin:0 1.2rem 1.1rem;color:var(--muted)}
+
+/* footer */
+.footer{background:var(--ink);color:#cfc7bb;padding:48px 0 28px}
+.footer a{color:#cfc7bb}
+.footer a:hover{color:#fff}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+.footer .legal a{color:#b3ada4}.footer .legal a:hover{color:#fff}
+.footer h4{color:#fff;font-size:.95rem;margin:0 0 .8rem}
+.footer ul{list-style:none;padding:0;margin:0;font-size:.92rem;line-height:2}
+.footer .legal{border-top:1px solid #4a4a4a;padding-top:18px;font-size:.85rem;color:#b3ada4;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+</style>
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m9 16.2-3.5-3.5L4 14.2l5 5 11-11-1.5-1.4z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 17.3 6.2 3.7-1.6-7L22 9.2l-7.2-.6L12 2 9.2 8.6 2 9.2l5.4 4.8-1.6 7z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.9a15 15 0 0 0-1.3-3.6A8 8 0 0 1 18.9 8ZM12 4c.8 1 1.5 2.4 1.9 4h-3.8c.4-1.6 1.1-3 1.9-4ZM4.3 14a8 8 0 0 1 0-4h3.3a17 17 0 0 0 0 4Zm.8 2h2.9c.3 1.3.8 2.5 1.3 3.6A8 8 0 0 1 5.1 16Zm2.9-8H5.1a8 8 0 0 1 4.2-3.6A15 15 0 0 0 8 8Zm4 12c-.8-1-1.5-2.4-1.9-4h3.8c-.4 1.6-1.1 3-1.9 4Zm2.3-6h-4.6a15 15 0 0 1 0-4h4.6a15 15 0 0 1 0 4Zm.4 5.6c.5-1.1 1-2.3 1.3-3.6h2.9a8 8 0 0 1-4.2 3.6ZM16.4 14a17 17 0 0 0 0-4h3.3a8 8 0 0 1 0 4Z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M21 11.5 12.5 3H4v8.5L12.5 20 21 11.5ZM7 8a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-2.7 0-8 1.3-8 4v3h9v-3c0-1 .4-1.9 1-2.7A13 13 0 0 0 8 13Zm8 0c-.4 0-.8 0-1.3.1A6 6 0 0 1 17 17v3h7v-3c0-2.7-5.3-4-8-4Z"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 7H4v6h3l-1 4h2l1-4V7Zm9 0h-3v6h3l-1 4h2l1-4V7Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 13h11.2l-4.6 4.6L13 19l7-7-7-7-1.4 1.4L16.2 11H5z"/></symbol>
+  <symbol id="i-medal" viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2Zm-3 11-2 9 5-3 5 3-2-9a7 7 0 0 1-6 0Z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11 11 0 0 0 3.5.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 11 11 0 0 0 .6 3.5 1 1 0 0 1-.3 1Z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M3 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v6h6a1 1 0 0 1 1 1v10h-7v-4h-2v4H3Zm4-12h2V7H7v2Zm0 4h2v-2H7v2Zm4-4h2V7h-2v2Zm0 4h2v-2h-2v2Zm6 0h2v-2h-2v2Zm0 4h2v-2h-2v2Z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><path d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 21c-1-5 1-11 7-13 3-1 7-1 7-1s.5 9-5 13c-3 2-6 1-6 1l-2 2-1-1 1-1Zm3-3c2-3 5-5 8-6-3 0-6 1-8 4-1 1-1 2-1 3 0 0 .5-.5 1-1Z"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm4.5-12.5-6 2.5-2.5 6 6-2.5 2.5-6ZM12 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25Zm17.7-10.2a1 1 0 0 0 0-1.4l-2.35-2.35a1 1 0 0 0-1.4 0l-1.85 1.85 3.75 3.75 1.85-1.85Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M12 5C7 5 2.7 8.1 1 12c1.7 3.9 6 7 11 7s9.3-3.1 11-7c-1.7-3.9-6-7-11-7Zm0 11.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Zm0-7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></symbol>
+</svg>
+
+
+<!-- ============ SUGGESTION MODE (Google-Docs-style keyword edits for client review) ============ -->
+<div class="sg-bar" data-sg-bar>
+  <div class="container sg-bar-inner">
+    <span class="sg-bar-title"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg>Suggesting · 14 keyword edits proposed</span>
+    <span class="sg-bar-note">Green = proposed wording · <s>strikethrough</s> = your wording. Click any highlight to read why.</span>
+    <span class="sg-bar-actions">
+      <button type="button" class="sg-mode is-active" data-mode="suggest">Show suggestions</button>
+      <button type="button" class="sg-mode" data-mode="final">Preview final</button>
+      <button type="button" class="sg-open" data-sg-open>Comments</button>
+    </span>
+  </div>
+</div>
+<aside class="sg-drawer" data-sg-drawer aria-label="Keyword suggestions">
+  <div class="sg-drawer-head">
+    <b>Why these edits?</b>
+    <button type="button" class="sg-close" data-sg-close aria-label="Close comments">×</button>
+  </div>
+  <div class="sg-drawer-intro">
+    <p>All of your content comments were accepted as-is. You were also right about “multi-tenant signs”: that phrase returns pylon and shopping-center signage, so it has been dropped everywhere.</p>
+    <p>The page now targets <em>multifamily signage</em>, which has confirmed search demand and describes exactly what you make. The edits below simply place that phrase where Google weighs it most: the title, the H1, section headings and the URL. Your word “multifamily” was already right; only “identification” goes, because searchers don't type it.</p>
+    <small>Source: Semrush Keyword Overview, United States, September 2026. Secondary heading targets (apartment unit number signs, building identification signs, apartment wayfinding signs, apartment amenity signs) are phrased in buyer vocabulary and will be confirmed before publishing.</small>
+  </div>
+  <div class="sg-cards">
+      <article class="sg-card" data-card="1" id="sg-card-1">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 1 of 14</small></div></div>
+        <div class="sg-card-label">Page title (browser tab / Google result)</div>
+        <div class="sg-card-kw">Target: multifamily signage</div>
+        <p>The title tag is the strongest on-page ranking signal. You were right that “multi tenant signs” returns pylon and shopping-center signage, so that term is gone. “Multifamily signage” has confirmed search demand and matches exactly what you make, so it now leads the title. “Identification” was dropped because searchers don't add it.</p>
+        
+      </article>
+      <article class="sg-card" data-card="2" id="sg-card-2">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 2 of 14</small></div></div>
+        <div class="sg-card-label">Meta description</div>
+        <div class="sg-card-kw">Target: multifamily signage</div>
+        <p>Google bolds the searcher's own words in the snippet, so the description opens with “multifamily signage” and then lists the sign types on the page to raise click-through.</p>
+        
+      </article>
+      <article class="sg-card" data-card="3" id="sg-card-3">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 3 of 14</small></div></div>
+        <div class="sg-card-label">H1 headline</div>
+        <div class="sg-card-kw">Target: multifamily signage</div>
+        <p>The H1 should carry the exact target phrase and nothing more. “Multifamily Signage” is your own wording minus “Identification”, which people don't type. The property types are named in the first sentence beneath it.</p>
+        <button class="sg-jump" type="button" data-jump="3">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="4" id="sg-card-4">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 4 of 14</small></div></div>
+        <div class="sg-card-label">Hero opening sentence</div>
+        <div class="sg-card-kw">Target: supports the H1 term</div>
+        <p>The first paragraph is the second place Google weighs most. Using “multifamily signage systems” once here, naturally, is enough. The rest of your paragraph is untouched.</p>
+        <button class="sg-jump" type="button" data-jump="4">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="5" id="sg-card-5">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 5 of 14</small></div></div>
+        <div class="sg-card-label">Products section H2</div>
+        <div class="sg-card-kw">Target: multifamily signage systems</div>
+        <p>Each H2 should answer one search. This is the product overview, so the heading names the category and the property types people add to that search. Your three intro paragraphs are unchanged.</p>
+        <button class="sg-jump" type="button" data-jump="5">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="6" id="sg-card-6">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 6 of 14</small></div></div>
+        <div class="sg-card-label">Unit + Building tab heading</div>
+        <div class="sg-card-kw">Target: apartment unit number signs · building identification signs</div>
+        <p>This tab sells two things, so the heading names both the way they are searched. Your “foundation of every signage system” idea still opens the paragraph below.</p>
+        <button class="sg-jump" type="button" data-jump="6">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="7" id="sg-card-7">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 7 of 14</small></div></div>
+        <div class="sg-card-label">Monument tab heading</div>
+        <div class="sg-card-kw">Target: multifamily monument signs · logo signs</div>
+        <p>The tab label, opening sentence and product card keep your wording. Only the heading changes, so this tab can rank for monument-sign searches from apartment and condo communities rather than shopping centers.</p>
+        <button class="sg-jump" type="button" data-jump="7">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="10" id="sg-card-10">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 8 of 14</small></div></div>
+        <div class="sg-card-label">Hero photo caption, alt text and page URL</div>
+        <div class="sg-card-kw">Target: multifamily signage</div>
+        <p>The photo's caption and alt text describe it as multifamily signage, and the page URL uses the slug /pages/multifamily-signage so the address itself carries the term.</p>
+        <button class="sg-jump" type="button" data-jump="10">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="11" id="sg-card-11">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 9 of 14</small></div></div>
+        <div class="sg-card-label">Wayfinding tab heading</div>
+        <div class="sg-card-kw">Target: apartment wayfinding signs · directional signage</div>
+        <p>“Guide residents and visitors with confidence” is a nice line, but nobody searches it. The heading now names the product the way a property manager searches for it; the benefit language stays in the paragraph underneath.</p>
+        <button class="sg-jump" type="button" data-jump="11">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="12" id="sg-card-12">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 10 of 14</small></div></div>
+        <div class="sg-card-label">Amenity tab heading</div>
+        <div class="sg-card-kw">Target: apartment amenity signs · room identification signs</div>
+        <p>Same principle: name the two products in the tab using the words buyers use. The “consistent experience” idea is already the first sentence of the paragraph.</p>
+        <button class="sg-jump" type="button" data-jump="12">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="13" id="sg-card-13">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 11 of 14</small></div></div>
+        <div class="sg-card-label">Pricing H2</div>
+        <div class="sg-card-kw">Target: multifamily signage pricing · how much does multifamily signage cost</div>
+        <p>Pricing searches are high-intent. Adding the product name lets this section rank for cost questions on its own and matches your FAQ question below.</p>
+        <button class="sg-jump" type="button" data-jump="13">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="14" id="sg-card-14">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 12 of 14</small></div></div>
+        <div class="sg-card-label">Process H2</div>
+        <div class="sg-card-kw">Target: how to order multifamily signage</div>
+        <p>“How to order …” is a classic query shape. Prefixing your heading with it turns a nice phrase into a searchable one without losing “From Concept to Installation”.</p>
+        <button class="sg-jump" type="button" data-jump="14">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="15" id="sg-card-15">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 13 of 14</small></div></div>
+        <div class="sg-card-label">Reviews H2</div>
+        <div class="sg-card-kw">Target: multifamily signage reviews</div>
+        <p>Review-intent searches are common before a trade purchase. The heading now says what the section is and who the reviewers are.</p>
+        <button class="sg-jump" type="button" data-jump="15">Show me on the page →</button>
+      </article>
+      <article class="sg-card" data-card="16" id="sg-card-16">
+        <div class="sg-card-head"><span class="sg-avatar">1%</span><div><b>One Percent SEO</b><small>Keyword suggestion 14 of 14</small></div></div>
+        <div class="sg-card-label">Benefits H2 and new lead-in sentence</div>
+        <div class="sg-card-kw">Target: why choose · brand + product</div>
+        <p>Two changes. The heading gains the product name so it reads as a complete thought in search results. And the section previously jumped straight from the heading into six cards with no context, so a one-sentence lead-in was added to introduce them, matching every other section on the page.</p>
+        <button class="sg-jump" type="button" data-jump="16">Show me on the page →</button>
+      </article>
+  </div>
+</aside>
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div class="announce">Now serving multifamily &amp; mixed-use projects — <a href="#quote">Request a quote &amp; complimentary proofs →</a></div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="https://www.modernhousenumbers.com/"><img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png" alt="Modern House Numbers"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#products">Signage</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">Our Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--primary" href="#quote">Request Quote</a>
+  </div>
+</header>
+
+
+<!-- ============ SECTION 1 · HERO ============ -->
+<section class="hero container">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">For builders, designers, property managers + developers</p>
+      <h1><span class="sg" data-sg="3" tabindex="0"><del>Multifamily Identification Signage</del><ins>Multifamily Signage</ins></span></h1>
+
+      <div class="intro readmore">
+        <p>At Modern House Numbers, we create <span class="sg" data-sg="4" tabindex="0">cohesive signage systems</span> for apartments, condominiums, and mixed-use properties. From unit and building identification to monument signs, logos, wayfinding, and amenity signage, we help bring every element of your property together.</p>
+        <input type="checkbox" id="hero-more" class="readmore-toggle">
+        <div class="readmore-body">
+        <p>Led by a registered architect, our team approaches signage as an intentional extension of your architecture, balancing design, function, and brand identity to create a cohesive experience throughout your property.</p>
+        <p>Every product is precision-cut from solid recycled aluminum and made-to-order in Tucson, Arizona. Choose from seven architect-designed fonts and five durable finishes, with concealed mounting hardware and a complimentary, architecturally spaced drilling template included for a professional grade installation.</p>
+        <p>Whether you're developing a luxury apartment community, condominium, student housing project, senior living campus, or mixed-use development, we partner with property managers, HOAs, developers, designers, and builders to create signage systems that strengthen branding, improve navigation, and enhance the resident experience.</p>
+        </div>
+        <label for="hero-more" class="readmore-label"><span class="more">Read more</span><span class="less">Read less</span><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg></label>
+      </div>
+
+      <ul class="badges">
+        <li><svg class="icon"><use href="#i-pen"/></svg>Architect-led design</li>
+        <li><svg class="icon"><use href="#i-medal"/></svg>Made-to-order in the USA</li>
+        <li><svg class="icon"><use href="#i-shield"/></svg>Solid recycled aluminum</li>
+        <li><svg class="icon"><use href="#i-users"/></svg>Dedicated Trade Support</li>
+      </ul>
+
+      <div class="hero-cta">
+        <a class="btn btn--primary btn--lg" href="#quote">Request Quote</a>
+        <a class="btn btn--ghost btn--lg" href="https://www.modernhousenumbers.com/pages/trade">Shop the Products</a>
+      </div>
+
+      <div class="social-proof">
+        <div class="avatars"><span>BD</span><span>H3</span><span>HS</span><span>+</span></div>
+        <div class="sp-text">Specified by builders, architects &amp; designers nationwide</div>
+      </div>
+      <div class="rev-summary">Reviews <span class="rev-stars" aria-label="4.5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;<span class="half-star">&#9733;</span></span> <span class="rev-count">641 Reviews</span></div>
+    </div>
+
+    <figure class="hero-media">
+      <img src="/assets/hero-beau-development-seattle.jpg" width="1400" height="940" alt="Multifamily signage: matched dimensional address numbers 1905 and 1907 on a multi-unit development by Beau Development in Seattle" fetchpriority="high">
+      <figcaption><span class="sg" data-sg="10" tabindex="0">Beau Development · Seattle, WA — multifamily project</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 3 · CONTACT / TRADE QUOTE FORM ============ -->
+<section class="section section--soft" id="quote">
+  <div class="container" style="max-width:860px">
+    <p class="eyebrow center">Start your project</p>
+    <h2 class="center">Request Quote and Proofs</h2>
+    <p class="lead center">Whether you need a single sign or a property-wide signage package, our team will help you build a cohesive solution that reflects your vision.</p>
+    <p class="lead center">Share your project details and we'll review, help with product selection, and prepare dimensioned proofs along with volume pricing within 1–2 business days. No obligation, just thoughtful guidance to help move your project forward.</p>
+
+    <!-- Submissions route to terry@modernhousenumbers.com (confirmed by MHN). Wire `action` to the form handler / CRM before publishing. -->
+    <form class="lead-form" action="#" method="post" enctype="multipart/form-data" data-route-to="terry@modernhousenumbers.com">
+      <div><label for="f-first-name">First Name<span class="req">*</span></label><input id="f-first-name" name="first_name" required></div>
+      <div><label for="f-last-name">Last Name<span class="req">*</span></label><input id="f-last-name" name="last_name" required></div>
+      <div class="full"><label for="f-company">Company</label><input id="f-company" name="company"></div>
+      <div class="full">
+        <label for="f-industry">Industry</label>
+        <select id="f-industry" name="industry" data-other-toggle="f-industry-other">
+          <option value="">Select your industry</option>
+          <option>Builder</option>
+          <option>Design-Build</option>
+          <option>Architects &amp; Designer</option>
+          <option>Multifamily</option>
+          <option>Property Manager</option>
+          <option>Developer</option>
+          <option>Hospitality</option>
+          <option>Property Owners</option>
+          <option>Contractors</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="other-field" id="f-industry-other" hidden><input name="industry_other" placeholder="Tell us your industry" aria-label="Other industry"></div>
+      </div>
+      <div><label for="f-email">Email<span class="req">*</span></label><input id="f-email" name="email" type="email" required></div>
+      <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel"></div>
+
+      <fieldset class="full">
+        <legend>Signage type</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="signage_type[]" value="Unit Numbers, Letters & Symbols">Unit Numbers, Letters &amp; Symbols</label>
+          <label><input type="checkbox" name="signage_type[]" value="Building Identification Signs">Building Identification Signs</label>
+          <label><input type="checkbox" name="signage_type[]" value="Monument Signs or Logos">Monument Signs or Logos</label>
+          <label><input type="checkbox" name="signage_type[]" value="Wayfinding & Directional Signs">Wayfinding &amp; Directional Signs</label>
+          <label><input type="checkbox" name="signage_type[]" value="Room Identification Signs">Room Identification Signs</label>
+          <label><input type="checkbox" name="signage_type[]" value="Other" data-other-toggle="f-signage-other">Other</label>
+        </div>
+        <div class="other-field" id="f-signage-other" hidden><input name="signage_type_other" placeholder="Describe the signage you need" aria-label="Other signage type"></div>
+      </fieldset>
+
+      <fieldset class="full" data-required-group>
+        <legend>Product type<span class="req">*</span></legend>
+        <div class="chips">
+          <label><input type="checkbox" name="product_type[]" value="Numbers, Letters + Symbols">Numbers, Letters + Symbols</label>
+          <label><input type="checkbox" name="product_type[]" value="QuickShip Products">QuickShip Products</label>
+          <label><input type="checkbox" name="product_type[]" value="Plaques">Plaques</label>
+          <label><input type="checkbox" name="product_type[]" value="Vinyl Decals">Vinyl Decals</label>
+          <label><input type="checkbox" name="product_type[]" value="Logos">Logos</label>
+          <label><input type="checkbox" name="product_type[]" value="Custom Font or Size">Custom Font or Size</label>
+          <label><input type="checkbox" name="product_type[]" value="Other" data-other-toggle="f-product-other">Other</label>
+        </div>
+        <div class="other-field" id="f-product-other" hidden><input name="product_type_other" placeholder="Tell us what you have in mind" aria-label="Other product type"></div>
+      </fieldset>
+
+      <div><label for="f-qty">Quantity</label><input id="f-qty" name="quantity" type="number" min="1" placeholder="e.g. 48"></div>
+      <div><label for="f-files">Upload</label><input id="f-files" name="files[]" type="file" multiple accept=".pdf,.dwg,.dxf,.ai,.eps,.svg,.png,.jpg,.jpeg,.xls,.xlsx,.csv"><p class="form-help">Product spreadsheet, drawings, photos, vector files, etc.</p></div>
+      <div class="full"><label for="f-details">A few project details</label><textarea id="f-details" name="details" rows="3" placeholder="Product font, finish + sizes, and your timeline"></textarea></div>
+
+      <div class="full">
+        <p class="form-req-note"><span class="req">*</span> = Required field</p>
+        <button class="btn btn--primary btn--block btn--lg" type="submit">Request Quote</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 4 · PRODUCT TABS — CORE OF THE PAGE (4 product types) ============ -->
+<section class="section" id="products">
+  <div class="container">
+    <p class="eyebrow">Cohesive Signage Systems</p>
+    <h2><span class="sg" data-sg="5" tabindex="0"><del>Integrated Multifamily Signage Systems Across Every Touchpoint</del><ins>Multifamily Signage Systems for Apartments, Condos + Mixed-Use</ins></span></h2>
+    <div class="intro">
+      <p>Ordering a coordinated Modern House Numbers signage system ensures your unit numbers, building identification, monument signs, wayfinding, and room identification signs all share the same font, finish, and architectural language from the street entrance to the interior corridors.</p>
+      <p>Each product type is designed to work together as part of a unified system that strengthens branding, improves navigation, and complements the architecture of your property.</p>
+      <p>At Modern House Numbers, we help builders, architects, designers, and property managers create cohesive architectural signage that feels like a natural extension of the property itself.</p>
+    </div>
+
+    <div class="tabs" data-tabs>
+      <div class="tab-nav" role="tablist">
+        <button class="tab-btn is-active" data-tab="z-a"><svg class="icon"><use href="#i-building"/></svg>Unit + Building Identification</button>
+        <button class="tab-btn" data-tab="z-b"><svg class="icon"><use href="#i-pen"/></svg>Monument + Logo Signage</button>
+        <button class="tab-btn" data-tab="z-c"><svg class="icon"><use href="#i-compass"/></svg>Wayfinding + Directional Signage</button>
+        <button class="tab-btn" data-tab="z-d"><svg class="icon"><use href="#i-grid"/></svg>Amenity Signage + Room Identification</button>
+      </div>
+      <div class="tab-content">
+
+        <!-- ===== TAB 1: Unit + Building Identification ===== -->
+        <div class="tab-panel is-active" data-panel="z-a">
+          <h3 class="zone-title"><span class="sg" data-sg="6" tabindex="0">Unit Number Signs + Building Identification Signs</span></h3>
+          <div class="intro">
+            <p>From unit numbers and building identification to custom letters and symbols, Modern House Numbers creates architectural signage for multifamily communities, condominiums, student housing, senior living, and mixed-use developments of every size.</p>
+            <p>Precision-cut from solid ⅜" aluminum in sizes from 4" to 15", each element is customized to complement your property's architecture and branding. Our consistent product collections make it easy for property managers to reorder matching numbers and signage as floor plans change, communities expand, or future phases take shape.</p>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <p class="kicker">Unit Identification</p>
+              <h3>Plaques</h3>
+              <div class="price">From $68.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>Sizes from 5" circle to 5" × 16" rectangle</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://www.modernhousenumbers.com/products/plaque">Shop Plaques</a>
+            </div>
+            <div class="card card--best">
+              <span class="badge-best">Most ordered</span>
+              <p class="kicker">Unit Identification</p>
+              <h3>Numbers, Letters + Symbols</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–6″ dimensional numbers, letters + symbols</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--primary btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Unit Numbers + Letters</a>
+            </div>
+            <div class="card">
+              <p class="kicker">Building Identification</p>
+              <h3>Numbers, Letters + Symbols</h3>
+              <div class="price">From $36.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>Oversized 8″–15″ façade numbers, letters + symbols</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Numbers + Letters</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB 2: Monument + Logo Signage ===== -->
+        <div class="tab-panel" data-panel="z-b">
+          <h3 class="zone-title"><span class="sg" data-sg="7" tabindex="0">Multifamily Monument + Custom Logo Signs</span></h3>
+          <div class="intro">
+            <p>From entrance monument signs and dimensional letters to custom logos and branded typography, Modern House Numbers creates architectural signage that makes a memorable first impression and complements your property's design.</p>
+            <p>Precision-cut from solid ⅜" recycled aluminum, each element is customized to your specifications and designed to coordinate with signage throughout the property. Our consistent product collections also make it easy to match future development phases, renovations, and replacement orders for years to come.</p>
+            <p>Every product includes concealed mounting hardware and an architecturally spaced drilling template to support a clean, professional installation.</p>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <p class="kicker">Multifamily Monument Signs</p>
+              <h3>Numbers, Letters + Symbols</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–15″ dimensional numbers, letters + symbols</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Numbers + Letters</a>
+            </div>
+            <div class="card card--best">
+              <span class="badge-best">Customization</span>
+              <p class="kicker">Branded identity</p>
+              <h3>Logo Signage</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–15″ dimensional logos, icons + letters</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Custom sizes available</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architectural finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--primary btn--block" href="#quote">Request Trade Quote</a>
+            </div>
+            <div class="card">
+              <p class="kicker">Custom Branding</p>
+              <h3>Your Custom Typeface</h3>
+              <div class="price">Custom Design from $20</div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>Dimensional custom fonts</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Custom sizes available</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architectural finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#quote">Request Custom Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB 3: Wayfinding + Directional Signage ===== -->
+        <div class="tab-panel" data-panel="z-c">
+          <h3 class="zone-title"><span class="sg" data-sg="11" tabindex="0">Wayfinding Signs + Directional Signage</span></h3>
+          <div class="intro">
+            <p>From directional signs and pedestrian wayfinding to parking identification, Modern House Numbers creates custom architectural signage that provides clear guidance while complementing your property's architecture.</p>
+            <p>Precision-cut from solid ⅜" recycled aluminum, each element can coordinate with your unit, building, and amenity signage for a consistent experience from arrival to destination. As new phases, parking areas, or amenities are added, our consistent product collections make it easy to specify matching products and finishes year after year.</p>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <p class="kicker">Interior Unit + Suite Identification</p>
+              <h3>Lobby + Floor Destination Markers</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–6″ dimensional numbers, letters + symbols</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Numbers + Letters</a>
+            </div>
+            <div class="card card--best">
+              <span class="badge-best">Most popular</span>
+              <p class="kicker">Exterior Directional Signs</p>
+              <h3>Pedestrian + Vehicle Wayfinding</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–8″ dimensional arrows + letters</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--primary btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Numbers + Letters</a>
+            </div>
+            <div class="card">
+              <p class="kicker">Directional Signs</p>
+              <h3>Wayfinding Plaques</h3>
+              <div class="price">From $68.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>Custom sizes available upon request</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#quote">Request Trade Quote</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB 4: Amenity Signage + Room Identification ===== -->
+        <div class="tab-panel" data-panel="z-d">
+          <h3 class="zone-title"><span class="sg" data-sg="12" tabindex="0">Amenity Signs + Room Identification Signs</span></h3>
+          <div class="intro">
+            <p>From fitness centers and clubhouses to mailrooms, pools, and leasing offices, Modern House Numbers creates custom amenity signage and room identification for interior and exterior shared spaces throughout your property.</p>
+            <p>Precision-cut from solid ⅜" recycled aluminum, each number, letter, symbol, or sign can be customized to coordinate with your unit, building, and wayfinding signage. Our consistent product collections also make it easy to add or replace matching signage as amenities evolve and community needs change.</p>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <p class="kicker">Amenity + Room Identification</p>
+              <h3>Plaques</h3>
+              <div class="price">From $68.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>Sizes from 5" circle to 8" × 18" rectangle</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Custom sizes available upon request</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#quote">Request Trade Quote</a>
+            </div>
+            <div class="card card--best">
+              <span class="badge-best">Most popular</span>
+              <p class="kicker">Interior + Exterior Identification</p>
+              <h3>Letters + Symbols</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–8″ dimensional letters + symbols</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--primary btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Numbers + Letters</a>
+            </div>
+            <div class="card">
+              <p class="kicker">Room Identification</p>
+              <h3>Numbers + Letters</h3>
+              <div class="price">From $24.50 <span>/item</span></div>
+              <ul>
+                <li><svg class="icon"><use href="#i-check"/></svg>4″–6″ dimensional numbers + letters</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Solid ⅜" recycled aluminum</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Architect-Designed fonts + finishes</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Concealed stud mounting hardware</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Professional installation drilling template</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Numbers + Letters</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 5 · CTA BANNER ============ -->
+<section class="section" style="padding-top:8px">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Let's Build Your Signage System</h2>
+      <p>Share a few details about your project, and our team will personally guide you through product selection, provide complimentary dimensioned digital proofs, and prepare a custom trade quote tailored to your specifications.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a class="btn btn--primary btn--lg" href="#quote">Talk With Trade Representative</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 6 · PRICING BY PROJECT SCALE ============ -->
+<section class="section section--soft" id="pricing">
+  <div class="container">
+    <h2><span class="sg" data-sg="13" tabindex="0"><del>Pricing for Projects of Every Size</del><ins>Multifamily Signage Pricing for Projects of Every Size</ins></span></h2>
+    <p class="lead">Whether you need a single number or signage for an entire multifamily community, we make it easy to order at the scale your project requires. Pricing varies by quantity, size, finish, product type, and customization.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Single Unit + Boutique Multifamily</h3>
+        <div class="range">From $24.50 <span class="per">/ per item</span></div>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg>Order numbers, letters, symbols, and plaques</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Need it fast? Shop QuickShip from $28.50</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Plaques from $68.50</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Dedicated Trade Representative and design support</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>No minimum order required</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="https://www.modernhousenumbers.com/pages/trade">Shop Products</a>
+      </div>
+      <div class="card card--best">
+        <span class="badge-best">Most projects</span>
+        <h3>Multifamily + Mixed-Use</h3>
+        <div class="range">Trade pricing<small>for qualifying quantities</small></div>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg>Coordinate unit numbers, building identification, plaques, and symbols</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Complimentary dimensioned digital proofs</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Scalable ordering for large communities and property portfolios</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Project specifications maintained for easy future reorders</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Dedicated Trade Representative and design support</li>
+        </ul>
+        <a class="btn btn--primary btn--block" href="#quote">Request Quote</a>
+      </div>
+      <div class="card">
+        <h3>Custom Project Pricing</h3>
+        <div class="range">Size, fonts or logos<small>custom quote</small></div>
+        <ul>
+          <li><svg class="icon"><use href="#i-check"/></svg>Custom design services: sizing, fonts, logos, + plaque shapes</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Complimentary dimensioned digital proofs</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Project specifications maintained for easy future reorders</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Dedicated Trade Representative and design support</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>No minimum order required</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="#quote">Request a Custom Quote</a>
+      </div>
+    </div>
+    <p class="note">Trade discounts apply to orders of 30 or more items. Your Trade Representative will confirm pricing with your quote.</p>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 7 · OUR DESIGN PROCESS ============ -->
+<section class="section" id="how">
+  <div class="container">
+    <p class="eyebrow">Our design process</p>
+    <h2><span class="sg" data-sg="14" tabindex="0"><del>From Concept to Installation</del><ins>How to Order Multifamily Signage: From Concept to Installation</ins></span></h2>
+    <p class="lead">Our straightforward four-step process makes ordering multifamily signage simple, with personalized guidance and support at every step.</p>
+    <div class="steps">
+      <div class="step"><h3>Tell us about your project</h3><p>Share your project goals, quantities, sizes, fonts, finishes, and other specifications. We'll help you select the right products for your project.</p></div>
+      <div class="step"><h3>Review your quote + proofs</h3><p>We'll provide a detailed project quote and complimentary dimensioned digital proofs so you can review and approve every detail before production.</p></div>
+      <div class="step"><h3>We precision craft your order</h3><p>Every sign is precision-cut, finished, and quality inspected in-house at our Tucson, Arizona headquarters.</p></div>
+      <div class="step"><h3>Install with confidence</h3><p>Your signage arrives with installation hardware, pre-spaced drilling templates, and installation instructions to help your crew install every piece consistently.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 9 · PROOF — TRADE ENDORSEMENTS (slider, one review at a time, with client photos) ============ -->
+<section class="section" id="reviews">
+  <div class="container">
+    <p class="eyebrow center">Builder, Architect + Project Manager Endorsements</p>
+    <h2 class="center"><span class="sg" data-sg="15" tabindex="0">Multifamily Signage Reviews</span></h2>
+    <p class="lead center">Real projects featuring Modern House Numbers signage.</p>
+
+    <div class="slider" data-slider>
+      <button class="slider-btn slider-btn--prev" type="button" aria-label="Previous review" data-dir="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 4.6 8 12l7.4 7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="slider-track" tabindex="0" aria-live="polite">
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 14">
+        <div class="slide-media"><img src="/assets/review-rentames-corridor.jpg" width="900" height="596" alt="Apartment corridor with matching round unit identification plaques beside each door, RentAmes Property Management, Iowa" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"Literally the best address numbers you can buy!"</h3>
+          <p class="slide-body">"We have ordered a handful of building and apartment numbers from MHN, and have always been happy with the quality of the numbers and plaques, and their customer service is also top tier."</p>
+          <p class="slide-who">- Matt, RentAmes Property Management, Iowa</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 14">
+        <div class="slide-media"><img src="/assets/hero-beau-development-seattle.jpg" width="1400" height="940" alt="Matched 1905 and 1907 building numbers on a modern multi-unit development, Beau Development, Seattle" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"MHN is our go-to for house numbers."</h3>
+          <p class="slide-body">"The variety and quality of products are top-of-the-line, offering the perfect finishing touch to accentuate our homes."</p>
+          <p class="slide-who">- Beau Granger, Beau Development, Seattle, WA</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 14">
+        <div class="slide-media"><img src="/assets/review-h3k-palm-springs.jpg" width="900" height="573" alt="Mid-century Palm Springs property with 607 address numbers on a white block wall, H3K Design" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"Modern House Numbers never disappoints."</h3>
+          <p class="slide-body">"We renovate many mid-century homes of various architectural styles in Palm Springs. Modern House Numbers never disappoints with the perfect style to accentuate our designs."</p>
+          <p class="slide-who">- Howard Hawkes &amp; Kevin Kemper, H3K Design, Palm Springs, CA</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 14">
+        <div class="slide-media"><img src="/assets/review-hakes-sash-door.jpg" width="900" height="415" alt="Brushed aluminum dimensional number 5 with concealed stud mounts, Hakes Sash and Door" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"MHN exceeds our expectations for quality, style and customer service every time."</h3>
+          <p class="slide-body">"We source only the highest quality finish products for our customers and clients."</p>
+          <p class="slide-who">- Hakes Sash &amp; Door</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 14">
+        <div class="slide-media slide-media--2"><img src="/assets/review-carson-arthur-1.jpg" width="600" height="450" alt="1854 dimensional address numbers in dark bronze on horizontal siding, Carson Arthur Design" loading="lazy"><img src="/assets/review-carson-arthur-2.jpg" width="539" height="279" alt="Front entry with cedar privacy screens and 1854 house numbers, Carson Arthur Design, Canada" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"Blown away by how easy it was to order and use this product."</h3>
+          <p class="slide-body">"I am excited to feature it on an upcoming episode of my HGTV Canada show 'Critical Listing'."</p>
+          <p class="slide-who">- Carson Arthur, Carson Arthur Design, Canada</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 14">
+        <div class="slide-media slide-media--2"><img src="/assets/review-jason-beacon-1.jpg" width="273" height="213" alt="The Beacon 81 Broadway building entrance with dimensional letters over the door" loading="lazy"><img src="/assets/review-jason-beacon-2.jpg" width="273" height="213" alt="Close-up of The Beacon 81 Broadway building name lettering in white aluminum" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"Thanks for the wonderful letters/numbers for my building."</h3>
+          <p class="slide-who">- Jason, The Beacon, 81 Broadway</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="7 of 14">
+        <div class="slide-media slide-media--2"><img src="/assets/review-jo-buffalo-1.jpg" width="228" height="171" alt="Matte black square unit plaques with stencil-cut numbers" loading="lazy"><img src="/assets/review-jo-buffalo-2.jpg" width="217" height="171" alt="Set of eighteen matte black unit number plaques laid out in sequence" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"The finishes are gorgeous and it's amazing what a difference these make to a house or building."</h3>
+          <p class="slide-body">"Modern House Numbers are an Arizona based company designing and making beautiful numbers, letters and plaques for external use (buildings, curbs and mail boxes)."</p>
+          <p class="slide-who">- Jo Buffalo Design, Australia</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="8 of 14">
+        <div class="slide-media"><img src="/assets/review-sgv-management-arcadia.jpg" width="700" height="467" alt="Two-story apartment building with 945 address numbers in matte black, SGV Management, Arcadia, California" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"It made a tremendous difference with the curb appeal."</h3>
+          <p class="slide-body">"Thank you for our recent order. We typically don't retake photos of our buildings once the new numbers are up, but it made a tremendous difference with the curb appeal… and you're about to get another order from us!"</p>
+          <p class="slide-who">- Brian Abernathy, SGV Management LLC, Arcadia, California</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="9 of 14">
+        <div class="slide-media"><img src="/assets/review-one-sky-homes-sf.jpg" width="800" height="1200" alt="1331 brushed aluminum house numbers on navy siding beside a white garage door, One Sky Homes, San Francisco" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"It's a great product and we love that it's made here in the US."</h3>
+          <p class="slide-body">"Our clients are thrilled with their house number and we have more projects that we'll be using them on later this year."</p>
+          <p class="slide-who">- One Sky Homes, San Francisco, California</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="10 of 14">
+        <div class="slide-media"><img src="/assets/review-mike-sunnyvale.jpg" width="900" height="506" alt="Six-unit apartment building with 735 address numbers in matte black on gray siding, Sunnyvale, California" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"They were easy to install and really added a great touch to the property."</h3>
+          <p class="slide-body">"Thanks for the stylish numbers. This is a 6 unit apartment building in Sunnyvale, California."</p>
+          <p class="slide-who">- Mike, Sunnyvale, California</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="11 of 14">
+        <div class="slide-media"><img src="/assets/review-schafer-properties.jpg" width="900" height="675" alt="Yellow apartment building with 1528 address numbers among palm trees, Schafer Properties, California" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"Your House Numbers really make our apartment building stand out."</h3>
+          <p class="slide-who">- Jon Schafer, Schafer Properties, California</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="12 of 14">
+        <div class="slide-media"><img src="/assets/review-frances-zajmi-nz.jpg" width="640" height="480" alt="9A unit identification in brushed aluminum floating off a dark apartment door, New Zealand" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"We ordered these numbers almost two years ago… and they look great."</h3>
+          <p class="slide-body">"We ordered these numbers from you almost two years ago for our apartment in New Zealand and they look great."</p>
+          <p class="slide-who">- Frances Zajmi, New Zealand</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="13 of 14">
+        <div class="slide-media"><img src="/assets/review-hot-hair-inc.jpg" width="640" height="480" alt="Hot Hair Inc brushed aluminum letters mounted on a reclaimed wood front desk, New York" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"Nothing but compliments and positive feedback."</h3>
+          <p class="slide-body">"Thank you again for our awesome front desk letters! We are soooo pleased! Nothing but compliments and positive feedback on the embellishment to our front desk."</p>
+          <p class="slide-who">- Val DeRosa, Hot Hair Inc, New York</p>
+        </div>
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="14 of 14">
+        <div class="slide-media"><img src="/assets/review-bardwell-homes.jpg" width="523" height="784" alt="15356 house numbers beside a wood front door with shutters, Bardwell Homes, Baton Rouge" loading="lazy"></div>
+        <div class="slide-text">
+          <h3 class="slide-head">"They look great as always."</h3>
+          <p class="slide-body">"We just received our first batch of house numbers, they look great as always."</p>
+          <p class="slide-who">- Kayla Abadie, Bardwell Homes, Baton Rouge, Louisiana</p>
+        </div>
+      </div>
+      </div>
+      <button class="slider-btn slider-btn--next" type="button" aria-label="Next review" data-dir="1">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.6 4.6 7.4 7.4-7.4 7.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="slider-dots" role="tablist" aria-label="Choose a review"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 10 · WHY TRADE PROFESSIONALS CHOOSE MHN ============ -->
+<section class="section section--soft">
+  <div class="container">
+    <h2><span class="sg" data-sg="16" tabindex="0"><del>Why Trade Professionals Choose Modern House Numbers</del><ins>Why Trade Professionals Choose Modern House Numbers for Multifamily Signage</ins></span></h2>
+    <p class="lead" style="margin-bottom:1.6rem">We bring design expertise, dedicated project support, in-house manufacturing, and installation guidance together to make your multifamily signage project easier from start to finish.</p>
+    <div class="benefits">
+      <div class="benefit"><div class="ic"><svg class="icon"><use href="#i-grid"/></svg></div><h3>Cohesive Property Branding</h3><p>We coordinate numbers, letters, logos, and signage so every touchpoint, from the property entrance to every unit, feels intentional and connected.</p></div>
+      <div class="benefit"><div class="ic"><svg class="icon"><use href="#i-users"/></svg></div><h3>Dedicated Trade Support</h3><p>Your dedicated Trade Representative and designer are here to help with product selection, custom specifications, estimates, and project questions from start to finish.</p></div>
+      <div class="benefit"><div class="ic"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Architectural-Grade Craftsmanship</h3><p>We use solid recycled ⅜" aluminum, curated fonts, concealed hardware, and durable finishes to create signage made for lasting beauty and performance.</p></div>
+      <div class="benefit"><div class="ic"><svg class="icon"><use href="#i-eye"/></svg></div><h3>Confidence Before Production</h3><p>Complimentary dimensioned digital proofs give you the opportunity to confirm every detail before we manufacture your order.</p></div>
+      <div class="benefit"><div class="ic"><svg class="icon"><use href="#i-bolt"/></svg></div><h3>Easy, Consistent Installation</h3><p>Coordinated hardware, pre-spaced drilling templates, and step-by-step instructions help your crew install every sign accurately and consistently.</p></div>
+      <div class="benefit"><div class="ic"><svg class="icon"><use href="#i-medal"/></svg></div><h3>Designed &amp; Made in USA</h3><p>Architect-led design and in-house manufacturing give us control over every step, from the first proof to the finished product.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 11 · CLOSING CTA ============ -->
+<section class="section" style="padding-top:8px">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Let's Create Your Signage System</h2>
+      <p>We partner with builders, architects, designers, property managers, and developers to bring unit and building signage, logos, wayfinding, and amenity signage together as one cohesive system. With personalized guidance, complimentary digital proofs, and architect-led design expertise, we make specifying signage for your property simple from start to finish.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a class="btn btn--primary btn--lg" href="#quote">Request Your Trade Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 12 · FAQ (6 tabs) ============ -->
+<section class="section section--soft" id="faq">
+  <div class="container">
+    <h2 class="center">Multifamily Signage FAQs</h2>
+    <div class="tabs" data-tabs style="max-width:900px;margin-inline:auto">
+      <div class="tab-nav" role="tablist" style="justify-content:center">
+        <button class="tab-btn is-active" data-tab="faq1">Ordering</button>
+        <button class="tab-btn" data-tab="faq2">Pricing &amp; Project Planning</button>
+        <button class="tab-btn" data-tab="faq3">Customization</button>
+        <button class="tab-btn" data-tab="faq4">Materials</button>
+        <button class="tab-btn" data-tab="faq5">Installation</button>
+        <button class="tab-btn" data-tab="faq6">Wayfinding</button>
+      </div>
+      <div class="tab-content">
+
+        <div class="tab-panel is-active" data-panel="faq1">
+          <div class="accordion" data-accordion>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">How do I order signage for an entire multifamily property?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Send us your project details, including the types and quantities of signage you need, preferred font and finish, sizes, and any available plans or specifications. Our team can help coordinate unit numbers, building identification, wayfinding, plaques, decals, and other signage into one cohesive system. We'll provide a project quote and work with you to ensure the signage remains consistent across the property.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Does Modern House Numbers have a Trade program?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Our Trade Program supports architects, designers, builders, developers, contractors, and property professionals with a dedicated Trade Representative, personalized project assistance, custom quotes, and complimentary digital proofs. You'll also have access to our Trade Portal, where you can view order history, track shipments, access invoices and installation resources, and simplify repeat ordering.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can I request a quote for a multifamily or large-scale signage project?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Send us your project scope, quantities, and any available plans or specifications, and your dedicated Trade Representative will prepare a custom project quote. If you're still working through the details, we're happy to help with product selection, sizing, finishes, and other specifications to find the right solution for your project.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can I reorder matching pieces for replacements or future phases?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. We maintain consistent product collections and can reference your previous orders, making it easy to match numbers, letters, finishes, and other signage as tenants change, replacements are needed, or new phases are added.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Do you provide proofs before production?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. We provide complimentary dimensioned digital proofs so you can review sizing, layout, spacing, and other design details before your signage goes into production.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What types of multifamily properties do you work with?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Modern House Numbers provides architectural signage for apartment communities, condominiums, townhomes, mixed-use developments, student housing, senior living communities, and other multifamily properties.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can I order signage in phases?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. For phased developments, our consistent product offerings make it possible to maintain the same font, finish, sizing, and overall design language as your project expands. Our team can help coordinate signage requirements across multiple buildings or phases.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can you work from architectural plans or project specifications?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Our team works with architects, designers, developers, and contractors to help determine appropriate signage types, sizes, quantities, and placement based on your project requirements. Contact our Trade Representative to discuss your plans and specifications.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What is the lead time for multifamily and custom signage projects?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Production time varies by order size. Orders of 1–30 items typically take approximately 10 business days, while projects with more than 30 items typically take 2–3 weeks after final proof approval. For larger or custom projects, we recommend connecting with your Trade Representative early so we can coordinate with your project schedule or phase production to help meet your deadlines.</p></div></div></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="faq2">
+          <div class="accordion" data-accordion>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">How much does multifamily signage cost?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Project costs vary based on the type and quantity of signage, product size, finish, customization, and overall project scope. Individual numbers and letters start at $24.50, while plaques start at $68.50. For multifamily communities and larger signage projects, our Trade Representative can provide a custom estimate based on your plans, specifications, and project needs.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What factors affect the cost of a multifamily signage project?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Pricing depends on several factors, including the number and type of signs, character and plaque sizes, finish selections, and custom design requirements. A coordinated signage system may include unit numbers, building identification, monument signs, wayfinding, decals, amenity signage, and other branded elements. Our Trade Representative can help define the project scope and provide a detailed estimate.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can I get a quote before placing my order?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Share your project scope, quantities, and any available plans or specifications, and your Trade Representative will prepare a custom estimate before you order. If you're still determining what you need, we can also help with product selection, sizing, finishes, and other project details.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">How quickly can I get signage for a project on a deadline?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Production time varies by order size, with orders of 1–30 items typically taking approximately 10 business days and larger projects 2–3 weeks after final proof approval. For tighter deadlines, select Palm Springs numbers, letters, and symbols are available through QuickShip and ship the next business day. Our Trade Representative can also help coordinate or phase larger orders around your project schedule.</p></div></div></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="faq3">
+          <div class="accordion" data-accordion>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can you create a coordinated signage system for an entire property?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. We can help you coordinate unit numbers, building identification, logos, plaques, wayfinding, amenity signage, and other elements using consistent fonts, finishes, and design details. Our design team works with you to create a cohesive look that carries from the property entrance and building exteriors to individual units and shared spaces.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What fonts and finishes are available?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>We offer seven architect-designed fonts: Palm Springs, SoCal, Austin, SoHo, Backbay, South Beach, and Santa Barbara. Choose from five finishes including brushed aluminum, matte black, white, matte brass, and dark bronze. If your project requires a specific typeface or branding standard, we can also create custom font styles to complement your property's architecture and brand identity.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can you make a wayfinding plaque?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. We create custom wayfinding plaques for directional signage, building identification, parking, amenities, and other property needs. Choose your size, shape, font, finish, symbols, and directional details to coordinate with your unit and building signage for a consistent look throughout the property.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What sizes can I order?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Our standard numbers and letters are available in sizes from 4" to 15", allowing you to coordinate smaller unit identification with larger building addresses in the same font and finish. Custom sizes are also available, and our design team can help you select the right scale based on placement, viewing distance, and your project needs.</p></div></div></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="faq4">
+          <div class="accordion" data-accordion>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What are the signs made of?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Our dimensional numbers, letters, and plaques are precision-cut from solid 3/8" recycled aluminum for lasting durability in both interior and exterior applications. Unlike printed or surface-applied signage, the solid aluminum construction creates substantial, dimensional identification designed to complement architectural environments.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Are Modern House Numbers designed for outdoor use?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Our aluminum signage is designed for interior and exterior applications. Brushed aluminum receives a clear, UV-resistant protective finish, while our matte black, matte brass, dark bronze, and white finishes use durable, low-VOC powder coating that resists chipping, scratching, and general wear. Powder-coated finishes are recommended for coastal and industrial environments.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Which finish is best for coastal or high-exposure environments?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>For coastal and industrial environments, we recommend one of our powder-coated finishes: matte black, matte brass, dark bronze, or white. Powder coating provides added protection against environmental exposure, chipping, scratching, and general wear compared with conventional painted finishes.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Are the products sustainable?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Sustainability is considered throughout our materials and manufacturing process. We use recycled aluminum, maximize each aluminum sheet to reduce waste, and recycle aluminum scraps from production. Our waterjet cutting process is low-heat and chemical-free, while our powder-coated finishes are low-VOC with zero off-gassing.</p></div></div></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="faq5">
+          <div class="accordion" data-accordion>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">How do you simplify installation across multiple units, buildings, or project phases?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Every number, letter, and plaque includes a personalized drilling template, concealed mounting hardware, and step-by-step instructions to help your crew maintain consistent spacing and alignment. For projects of five or more units, we organize individual sets with their corresponding templates and hardware, keeping everything needed for installation together in one package. We can also coordinate phased shipments and label packages by project name, PO number, building, or other job-specific details to simplify receiving and installation.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What mounting options are available?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Our numbers, letters, and plaques can be installed floating or flush using the same concealed mounting system. For a dimensional floating appearance, use the included ½" aluminum spacers. For a clean, flush appearance, simply omit the spacers and install the product directly against the surface.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">What installation hardware is included?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Each number, letter, and plaque includes concealed mounting hardware with 2" steel studs and ½" aluminum spacers, plus a personalized drilling template and step-by-step installation instructions. Exterior-grade epoxy and installation tools are not included.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can Modern House Numbers be installed on different surfaces?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Our products can be installed on a variety of common architectural surfaces. Installation methods and tools vary by substrate, and masonry, concrete, stone, and other hard surfaces may require specialty drill bits or a hammer drill. We recommend reviewing our installation instructions and confirming the appropriate method for your surface before installation.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Do you install the signage?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>We design, manufacture, and ship your signage ready for installation, while installation is completed by your contractor, installer, or maintenance team. Each product includes a personalized drilling template, concealed mounting hardware, and step-by-step instructions to help your crew achieve accurate, consistent results.</p></div></div></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="faq6">
+          <div class="accordion" data-accordion>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Will Modern House Numbers signage meet local address and building code requirements?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Address and building identification requirements vary by municipality, property type, and application. Our design team can help with product selection, sizing, placement, and visibility based on your project needs; however, your architect, contractor, or property team should confirm all applicable requirements with the local authority having jurisdiction before ordering.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">How do I choose the right size for visibility and legibility?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>The right size depends on viewing distance, placement, font, finish, lighting, and contrast with the installation surface. We offer dimensional numbers and letters from 4" to 15", along with sizing and viewing-distance guides to help you choose the right scale for your application. For maximum visibility, select a finish with strong contrast and consider both daytime and nighttime sightlines. Always confirm local requirements for minimum character height, placement, and contrast before ordering.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Are your mailbox numbers suitable for apartment communities and cluster mailboxes?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>Yes. Our exterior-grade vinyl decals provide a clean, durable way to identify mailboxes, cluster boxes, parcel areas, glass, metal doors, and other smooth surfaces. Choose from coordinating fonts, sizes, and colors, with each set arriving pre-spaced on a single sheet for easy installation. Because USPS and local requirements vary, confirm applicable size, contrast, and placement requirements before ordering.</p></div></div></div>
+            <div class="acc-item"><button class="acc-header" aria-expanded="false">Can Modern House Numbers support projects with ADA signage requirements?<span class="acc-icon">+</span></button><div class="acc-body"><div><p>We specialize in architectural identification and wayfinding signage but do not currently offer ADA-compliant tactile or Braille signage. For projects requiring ADA signage, your project team can source those elements separately while using Modern House Numbers for unit and building identification, logos, wayfinding, and other architectural signage.</p></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SECTION 13 · CROSS-LINKS ============ -->
+<section class="section">
+  <div class="container center">
+    <h2>Explore the Full Collection</h2>
+    <p class="lead" style="margin-inline:auto">Build a complete signage system with products designed to coordinate across every part of your property.</p>
+    <p style="display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:1.2rem">
+      <a class="btn btn--ghost" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers &amp; Letters</a>
+      <a class="btn btn--ghost" href="https://www.modernhousenumbers.com/products/plaque">Plaques</a>
+      <a class="btn btn--ghost" href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Mailbox Decals</a>
+      <a class="btn btn--ghost" href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a>
+    </p>
+  </div>
+</section>
+
+
+<!-- ============ JSON-LD SCHEMA ============ -->
+<!-- aggregateRating, legalName, street address and sameAs intentionally omitted until MHN supplies real values. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.modernhousenumbers.com/pages/multifamily-signage#webpage",
+  "url": "https://www.modernhousenumbers.com/pages/multifamily-signage",
+  "name": "Multifamily Signage & Building Identification | Modern House Numbers",
+  "description": "Multifamily signage for apartments, condos & mixed-use properties — unit & building identification, monument & logo signs, wayfinding and amenity signage in solid recycled aluminum. Architect-led, made in Tucson, AZ.",
+  "inLanguage": "en-US",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://modern-house-numbers.vercel.app/assets/hero-beau-development-seattle.jpg",
+    "caption": "Matched building numbers across a multi-unit development by Beau Development, Seattle"
+  },
+  "about": {
+    "@type": "Organization",
+    "name": "Modern House Numbers",
+    "url": "https://www.modernhousenumbers.com/",
+    "foundingDate": "2008",
+    "founder": [
+      { "@type": "Person", "name": "Brandy McLain" },
+      { "@type": "Person", "name": "Rick McLain" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tucson",
+      "addressRegion": "AZ",
+      "addressCountry": "US"
+    }
+  },
+  "mainEntity": {
+    "@type": "Product",
+    "name": "Multifamily Signage & Building Identification",
+    "description": "Custom branded signage systems for apartments, condominiums, and mixed-use properties: unit and building identification, monument and logo signage, wayfinding and directional signage, and amenity and room identification, precision-cut from solid recycled aluminum and coordinated across the whole property.",
+    "brand": { "@type": "Brand", "name": "Modern House Numbers" },
+    "material": "Recycled aluminum",
+    "category": "Architectural building signage",
+    "audience": { "@type": "Audience", "audienceType": "Builders, architects, designers, property managers, developers" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "24.50",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "areaServed": "US",
+      "seller": { "@type": "Organization", "name": "Modern House Numbers" }
+    }
+  },
+  "hasPart": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do I order signage for an entire multifamily property?", "acceptedAnswer": { "@type": "Answer", "text": "Send us your project details, including the types and quantities of signage you need, preferred font and finish, sizes, and any available plans or specifications. Our team can help coordinate unit numbers, building identification, wayfinding, plaques, decals, and other signage into one cohesive system. We'll provide a project quote and work with you to ensure the signage remains consistent across the property." } },
+      { "@type": "Question", "name": "Does Modern House Numbers have a Trade program?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Trade Program supports architects, designers, builders, developers, contractors, and property professionals with a dedicated Trade Representative, personalized project assistance, custom quotes, and complimentary digital proofs. You'll also have access to our Trade Portal, where you can view order history, track shipments, access invoices and installation resources, and simplify repeat ordering." } },
+      { "@type": "Question", "name": "Do you provide proofs before production?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide complimentary dimensioned digital proofs so you can review sizing, layout, spacing, and other design details before your signage goes into production." } },
+      { "@type": "Question", "name": "What types of multifamily properties do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "Modern House Numbers provides architectural signage for apartment communities, condominiums, townhomes, mixed-use developments, student housing, senior living communities, and other multifamily properties." } },
+      { "@type": "Question", "name": "What is the lead time for multifamily and custom signage projects?", "acceptedAnswer": { "@type": "Answer", "text": "Production time varies by order size. Orders of 1–30 items typically take approximately 10 business days, while projects with more than 30 items typically take 2–3 weeks after final proof approval. For larger or custom projects, we recommend connecting with your Trade Representative early so we can coordinate with your project schedule or phase production to help meet your deadlines." } },
+      { "@type": "Question", "name": "How much does multifamily signage cost?", "acceptedAnswer": { "@type": "Answer", "text": "Project costs vary based on the type and quantity of signage, product size, finish, customization, and overall project scope. Individual numbers and letters start at $24.50, while plaques start at $68.50. For multifamily communities and larger signage projects, our Trade Representative can provide a custom estimate based on your plans, specifications, and project needs." } },
+      { "@type": "Question", "name": "What factors affect the cost of a multifamily signage project?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on several factors, including the number and type of signs, character and plaque sizes, finish selections, and custom design requirements. A coordinated signage system may include unit numbers, building identification, monument signs, wayfinding, decals, amenity signage, and other branded elements. Our Trade Representative can help define the project scope and provide a detailed estimate." } },
+      { "@type": "Question", "name": "Can you create a coordinated signage system for an entire property?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can help you coordinate unit numbers, building identification, logos, plaques, wayfinding, amenity signage, and other elements using consistent fonts, finishes, and design details. Our design team works with you to create a cohesive look that carries from the property entrance and building exteriors to individual units and shared spaces." } },
+      { "@type": "Question", "name": "What fonts and finishes are available?", "acceptedAnswer": { "@type": "Answer", "text": "We offer seven architect-designed fonts: Palm Springs, SoCal, Austin, SoHo, Backbay, South Beach, and Santa Barbara. Choose from five finishes including brushed aluminum, matte black, white, matte brass, and dark bronze. If your project requires a specific typeface or branding standard, we can also create custom font styles to complement your property's architecture and brand identity." } },
+      { "@type": "Question", "name": "What sizes can I order?", "acceptedAnswer": { "@type": "Answer", "text": "Our standard numbers and letters are available in sizes from 4 inches to 15 inches, allowing you to coordinate smaller unit identification with larger building addresses in the same font and finish. Custom sizes are also available, and our design team can help you select the right scale based on placement, viewing distance, and your project needs." } },
+      { "@type": "Question", "name": "What are the signs made of?", "acceptedAnswer": { "@type": "Answer", "text": "Our dimensional numbers, letters, and plaques are precision-cut from solid 3/8 inch recycled aluminum for lasting durability in both interior and exterior applications. Unlike printed or surface-applied signage, the solid aluminum construction creates substantial, dimensional identification designed to complement architectural environments." } },
+      { "@type": "Question", "name": "Are Modern House Numbers designed for outdoor use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our aluminum signage is designed for interior and exterior applications. Brushed aluminum receives a clear, UV-resistant protective finish, while our matte black, matte brass, dark bronze, and white finishes use durable, low-VOC powder coating that resists chipping, scratching, and general wear. Powder-coated finishes are recommended for coastal and industrial environments." } },
+      { "@type": "Question", "name": "How do you simplify installation across multiple units, buildings, or project phases?", "acceptedAnswer": { "@type": "Answer", "text": "Every number, letter, and plaque includes a personalized drilling template, concealed mounting hardware, and step-by-step instructions to help your crew maintain consistent spacing and alignment. For projects of five or more units, we organize individual sets with their corresponding templates and hardware, keeping everything needed for installation together in one package. We can also coordinate phased shipments and label packages by project name, PO number, building, or other job-specific details." } },
+      { "@type": "Question", "name": "What mounting options are available?", "acceptedAnswer": { "@type": "Answer", "text": "Our numbers, letters, and plaques can be installed floating or flush using the same concealed mounting system. For a dimensional floating appearance, use the included half-inch aluminum spacers. For a clean, flush appearance, simply omit the spacers and install the product directly against the surface." } },
+      { "@type": "Question", "name": "Do you install the signage?", "acceptedAnswer": { "@type": "Answer", "text": "We design, manufacture, and ship your signage ready for installation, while installation is completed by your contractor, installer, or maintenance team. Each product includes a personalized drilling template, concealed mounting hardware, and step-by-step instructions to help your crew achieve accurate, consistent results." } },
+      { "@type": "Question", "name": "Will Modern House Numbers signage meet local address and building code requirements?", "acceptedAnswer": { "@type": "Answer", "text": "Address and building identification requirements vary by municipality, property type, and application. Our design team can help with product selection, sizing, placement, and visibility based on your project needs; however, your architect, contractor, or property team should confirm all applicable requirements with the local authority having jurisdiction before ordering." } },
+      { "@type": "Question", "name": "Can Modern House Numbers support projects with ADA signage requirements?", "acceptedAnswer": { "@type": "Answer", "text": "We specialize in architectural identification and wayfinding signage but do not currently offer ADA-compliant tactile or Braille signage. For projects requiring ADA signage, your project team can source those elements separately while using Modern House Numbers for unit and building identification, logos, wayfinding, and other architectural signage." } }
+    ]
+  }
+}
+</script>
+
+<script>
+/* ---- Tab controller: scoped to each [data-tabs] group ---- */
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+  var group = btn.closest('[data-tabs]');
+  var nav = group.querySelector(':scope > .tab-nav');
+  var content = group.querySelector(':scope > .tab-content');
+  if (!nav || !content) return;
+  nav.querySelectorAll(':scope > .tab-btn').forEach(function (b) { b.classList.remove('is-active'); });
+  content.querySelectorAll(':scope > .tab-panel').forEach(function (p) { p.classList.remove('is-active'); });
+  btn.classList.add('is-active');
+  var panel = content.querySelector(':scope > [data-panel="' + btn.dataset.tab + '"]');
+  if (panel) panel.classList.add('is-active');
+});
+
+/* ---- Accordion controller ---- */
+document.addEventListener('click', function (e) {
+  var head = e.target.closest('.acc-header');
+  if (!head) return;
+  var item = head.closest('.acc-item');
+  var open = item.classList.toggle('is-open');
+  head.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+/* ---- "Other (fill in the blank)" reveals on the quote form ---- */
+document.querySelectorAll('[data-other-toggle]').forEach(function (el) {
+  var target = document.getElementById(el.dataset.otherToggle);
+  if (!target) return;
+  var sync = function () {
+    var on = el.tagName === 'SELECT' ? el.value === 'Other' : el.checked;
+    target.hidden = !on;
+    if (!on) { var inp = target.querySelector('input'); if (inp) inp.value = ''; }
+  };
+  el.addEventListener('change', sync);
+  sync();
+});
+
+/* ---- Required checkbox group (Product type*): at least one box ---- */
+document.querySelectorAll('[data-required-group]').forEach(function (group) {
+  var boxes = group.querySelectorAll('input[type=checkbox]');
+  var sync = function () {
+    var none = !Array.prototype.some.call(boxes, function (b) { return b.checked; });
+    boxes.forEach(function (b, i) { b.required = none && i === 0; });
+  };
+  boxes.forEach(function (b) { b.addEventListener('change', sync); });
+  sync();
+});
+
+/* ---- Review slider: scroll-snap track + arrows + dots + keyboard ---- */
+document.querySelectorAll('[data-slider]').forEach(function (s) {
+  var track = s.querySelector('.slider-track');
+  var slides = track.querySelectorAll('.slide');
+  var dots = s.querySelector('.slider-dots');
+  var idx = 0;
+  slides.forEach(function (_, i) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.setAttribute('role', 'tab'); d.setAttribute('aria-label', 'Review ' + (i + 1));
+    d.addEventListener('click', function () { go(i); });
+    dots.appendChild(d);
+  });
+  function paint() {
+    dots.querySelectorAll('button').forEach(function (d, i) { d.classList.toggle('is-active', i === idx); d.setAttribute('aria-selected', i === idx); });
+  }
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.scrollTo({ left: slides[idx].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    paint();
+  }
+  s.querySelectorAll('.slider-btn').forEach(function (b) { b.addEventListener('click', function () { go(idx + Number(b.dataset.dir)); }); });
+  track.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') go(idx + 1); if (e.key === 'ArrowLeft') go(idx - 1); });
+  var t; track.addEventListener('scroll', function () {
+    clearTimeout(t); t = setTimeout(function () { idx = Math.round(track.scrollLeft / track.clientWidth); paint(); }, 80);
+  });
+  paint();
+});
+
+/* ---- Suggestion mode: Google-Docs-style highlights + comment drawer ---- */
+(function () {
+  var body = document.body, drawer = document.querySelector('[data-sg-drawer]');
+  if (!drawer) return;
+  var mode = 'suggest';
+  try { mode = localStorage.getItem('mhn-sg-mode') || 'suggest'; } catch (e) {}
+  function setMode(m) {
+    mode = m; body.classList.toggle('sg-final', m === 'final'); body.classList.toggle('sg-suggest', m !== 'final');
+    document.querySelectorAll('.sg-mode').forEach(function (b) { b.classList.toggle('is-active', b.dataset.mode === m); });
+    try { localStorage.setItem('mhn-sg-mode', m); } catch (e) {}
+  }
+  setMode(mode);
+  var bar = document.querySelector('[data-sg-bar]');
+  function sizeBar() { document.documentElement.style.setProperty('--sg-bar-h', bar.offsetHeight + 'px'); }
+  sizeBar(); window.addEventListener('resize', sizeBar);
+  document.querySelectorAll('.sg-mode').forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.mode); }); });
+  function openDrawer() { drawer.classList.add('is-open'); }
+  function closeDrawer() { drawer.classList.remove('is-open'); }
+  document.querySelector('[data-sg-open]').addEventListener('click', openDrawer);
+  document.querySelector('[data-sg-close]').addEventListener('click', closeDrawer);
+  function activate(id) {
+    document.querySelectorAll('.sg').forEach(function (s) { s.classList.toggle('is-active', s.dataset.sg === id); });
+    document.querySelectorAll('.sg-card').forEach(function (c) { c.classList.toggle('is-active', c.dataset.card === id); });
+  }
+  document.querySelectorAll('.sg').forEach(function (s) {
+    var go = function (e) { if (mode === 'final') return; activate(s.dataset.sg); openDrawer();
+      var card = document.getElementById('sg-card-' + s.dataset.sg); if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+    s.addEventListener('click', go);
+    s.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') go(e); });
+  });
+  document.querySelectorAll('.sg-jump').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var id = b.dataset.jump; activate(id); setMode('suggest');
+      var target = document.querySelector('.sg[data-sg="' + id + '"]'); if (!target) return;
+      var panel = target.closest('.tab-panel');
+      if (panel && !panel.classList.contains('is-active')) { var btn = panel.closest('[data-tabs]').querySelector('.tab-btn[data-tab="' + panel.dataset.panel + '"]'); if (btn) btn.click(); }
+      var more = target.closest('.readmore-body'); if (more) { var cb = more.parentNode.querySelector('.readmore-toggle'); if (cb) cb.checked = true; }
+      if (window.innerWidth < 900) closeDrawer();
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDrawer(); });
+})();
+
+/* ---- current year ---- */
+var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
