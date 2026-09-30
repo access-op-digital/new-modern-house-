@@ -39,7 +39,7 @@ Volumes are DataForSEO, Google Ads, United States, September 2026.
 | Custom Address Plaques | brief's *Architectural Address Plaques* | 10 → **4,400** (*custom address signs* 1,000) |
 | QuickShip House Numbers and Letters, Shipped Next Business Day | *QuickShip Numbers + Letters* | states the lead time the tab exists to answer |
 | Restroom Signs in Solid Recycled Aluminum | *Architectural Restroom Signs* | no data → **12,100** |
-| House Numbers and Signage by Property Type | brief's 76-char enumerating heading | stops listing the five rows directly beneath it |
+| ~~House Numbers and Signage by Property Type~~ | withdrawn | The client replaced it with *Trade Signage for Projects of Every Scale* on 2026-09-24, noting the five rows below are product descriptions, not property types. Their wording stands. |
 | House Numbers and Building Numbers for Residential Projects | *1. Unit + Building Identification* | no data → **720** |
 | Apartment Unit Numbers and Multifamily Building Signage | *2. Multifamily Signage* | 10 → **480** |
 | Wayfinding / Monument / Room Number rows | *3.–5.* prefixed labels | 4,400 · 1,600 · 170 |
