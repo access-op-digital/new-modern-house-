@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Trade Page Punch List</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a drawing-set punch list — fixed ID rail, requirement vs. as-built, status chip at the end. */
+:root{
+  --paper:#f2f3f4; --card:#ffffff; --sunk:#e8eaec;
+  --ink:#16191c; --ink-2:#4e565d; --ink-3:#7d868d;
+  --rule:#d2d7db; --rule-soft:#e3e7ea;
+  --accent:#d4570b;
+  --accent-soft:#fceee3;
+  --done:#1d6b45; --done-bg:#e3f0e9;
+  --open:#a62620; --open-bg:#fae7e5;
+  --part:#8a5a00; --part-bg:#fbefd9;
+  --na:#6c757c; --na-bg:#e9ecee;
+  --f-disp:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#111417; --card:#171b1f; --sunk:#1e2329;
+    --ink:#e7ebee; --ink-2:#a7b1b8; --ink-3:#79838a;
+    --rule:#2b3239; --rule-soft:#222831;
+    --accent:#f2854a; --accent-soft:#33200f;
+    --done:#6fc79b; --done-bg:#14291f;
+    --open:#ef8d85; --open-bg:#301c1a;
+    --part:#dfb45f; --part-bg:#2d2313;
+    --na:#8b949b; --na-bg:#1f2429;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111417; --card:#171b1f; --sunk:#1e2329;
+  --ink:#e7ebee; --ink-2:#a7b1b8; --ink-3:#79838a;
+  --rule:#2b3239; --rule-soft:#222831;
+  --accent:#f2854a; --accent-soft:#33200f;
+  --done:#6fc79b; --done-bg:#14291f;
+  --open:#ef8d85; --open-bg:#301c1a;
+  --part:#dfb45f; --part-bg:#2d2313;
+  --na:#8b949b; --na-bg:#1f2429;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;padding-block:40px 80px}
+
+/* masthead */
+.mast{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:26px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-weight:600}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;text-wrap:balance}
+.sub{color:var(--ink-2);margin:0;max-width:66ch}
+.sub a{color:var(--accent)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:16px;font-family:var(--f-mono);font-size:12px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* tally */
+.tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;margin-bottom:28px}
+.tile{background:var(--card);border:1px solid var(--rule);padding:14px 16px;min-width:0}
+.tile .n{font-family:var(--f-disp);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;display:block}
+.tile .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:6px;display:block}
+.tile.t-open .n{color:var(--open)} .tile.t-part .n{color:var(--part)}
+.tile.t-done .n{color:var(--done)} .tile.t-na .n{color:var(--na)}
+
+/* filter */
+.filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:26px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.filter .lab{font-family:var(--f-mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-right:4px}
+.fbtn{font:inherit;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;padding:5px 11px;border:1px solid var(--rule);background:var(--card);color:var(--ink-2);cursor:pointer;border-radius:0}
+.fbtn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.fbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* section blocks */
+.sec{margin-top:34px;border-top:2px solid var(--ink)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:12px 0 14px}
+.sec-no{font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.sec-name{font-family:var(--f-disp);font-size:19px;font-weight:700;letter-spacing:-.015em;margin:0}
+.sec-tail{margin-left:auto;font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+
+/* rows */
+.row{display:grid;grid-template-columns:76px 1fr 128px;gap:0 18px;border-top:1px solid var(--rule-soft);background:var(--card);padding:14px 16px 15px;align-items:start}
+.row:first-of-type{border-top:1px solid var(--rule)}
+.id{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);padding-top:3px;font-variant-numeric:tabular-nums}
+.body{min-width:0}
+.req{font-weight:500;margin:0 0 5px;overflow-wrap:anywhere}
+.was{font-size:13.5px;color:var(--ink-2);margin:0;overflow-wrap:anywhere}
+.was b{color:var(--ink);font-weight:600}
+.was .arrow{color:var(--ink-3);font-family:var(--f-mono);padding:0 3px}
+q{quotes:"\201C" "\201D";font-style:normal}
+.note{font-size:13px;color:var(--ink-2);margin:7px 0 0;padding:8px 11px;background:var(--sunk);border-left:3px solid var(--rule)}
+.note.warn{background:var(--part-bg);border-left-color:var(--part)}
+.chip{justify-self:start;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;padding:3px 8px;white-space:nowrap;margin-top:2px}
+.s-open{background:var(--open-bg);color:var(--open)}
+.s-part{background:var(--part-bg);color:var(--part)}
+.s-done{background:var(--done-bg);color:var(--done)}
+.s-na{background:var(--na-bg);color:var(--na)}
+.row.hide{display:none}
+
+/* decision callout */
+.decide{background:var(--accent-soft);border:1px solid var(--accent);padding:16px 18px;margin-top:14px}
+.decide h3{font-family:var(--f-disp);font-size:14px;letter-spacing:.02em;margin:0 0 7px;color:var(--accent)}
+.decide p{margin:0 0 8px;font-size:14px;color:var(--ink-2)}
+.decide p:last-child{margin:0}
+.decide b{color:var(--ink)}
+
+.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-3)}
+.foot b{color:var(--ink-2)}
+
+@media(max-width:700px){
+  .row{grid-template-columns:60px 1fr;gap:0 12px}
+  .chip{grid-column:2;margin-top:9px}
+  .sec-tail{margin-left:0;width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<style>
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Modern House Numbers &middot; Trade Landing Page</p>
+  <h1>Trade Page Punch List</h1>
+  <p class="sub">Every line of <b>Trade Landing Page Revisions, DRAFT 2026.09.24</b> checked against the live replica. Tracked changes accepted, all seven comments resolved to their anchors, and each item verified against the deployed HTML rather than from memory.</p>
+  <div class="meta">
+    <span>Page <b><a href="https://new-modern-house.vercel.app/trade">new-modern-house.vercel.app/trade</a></b></span>
+    <span>Build <b>a6a5b8e</b></span>
+    <span>Checked <b>30 Sep 2026</b></span>
+  </div>
+</header>
+
+<div class="tally">
+  <div class="tile t-open"><span class="n">14</span><span class="k">Not done</span></div>
+  <div class="tile t-part"><span class="n">9</span><span class="k">Partial</span></div>
+  <div class="tile t-done"><span class="n">33</span><span class="k">Done</span></div>
+  <div class="tile t-na"><span class="n">5</span><span class="k">No action</span></div>
+</div>
+
+<div class="filter">
+  <span class="lab">Show</span>
+  <button class="fbtn" data-f="all" aria-pressed="true">All</button>
+  <button class="fbtn" data-f="open" aria-pressed="false">Not done</button>
+  <button class="fbtn" data-f="part" aria-pressed="false">Partial</button>
+  <button class="fbtn" data-f="done" aria-pressed="false">Done</button>
+  <button class="fbtn" data-f="na" aria-pressed="false">No action</button>
+</div>
+
+<!-- PREAMBLE -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">00</span><h2 class="sec-name">Preamble</h2><span class="sec-tail">Doc lines 1&ndash;26</span></div>
+  <div class="row" data-s="na">
+    <span class="id">L3&ndash;14</span>
+    <div class="body">
+      <p class="req">Page Goal, The Experience, ChatGBT Summary</p>
+      <p class="was">Strategy notes addressed to the writer. Not page copy.</p>
+    </div>
+    <span class="chip s-na">No action</span>
+  </div>
+  <div class="row" data-s="na">
+    <span class="id">L15&ndash;26</span>
+    <div class="body">
+      <p class="req">Page Diagram, ten numbered beats</p>
+      <p class="was">The narrative outline the eight built sections deliver against.</p>
+      <p class="note">Worth a sanity check with the client: the diagram names ten beats but the Page Edits specify eight sections. Beats 07 <q>A Considered Collection</q> and 08 <q>One Unit or One Hundred</q> both land inside Section 6, and beat 05 <q>A Person Who Knows Your Project</q> inside Section 5. Nothing is missing, but the mapping is not one to one.</p>
+    </div>
+    <span class="chip s-na">No action</span>
+  </div>
+</section>
+
+<!-- SECTION 1 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-name">Header and Hero</h2><span class="sec-tail">Doc lines 29&ndash;40</span></div>
+
+  <div class="row" data-s="done">
+    <span class="id">L31</span>
+    <div class="body"><p class="req">H1: House Numbers and Signage for the Trade</p>
+    <p class="was">Live matches character for character. Renders uppercase by CSS.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L33a</span>
+    <div class="body"><p class="req">Signup form text revised to <q>Unlock exclusive Trade perks and benefits</q></p>
+    <p class="was">Renders <b>UNLOCK EXCLUSIVE TRADE PERKS AND BENEFITS</b>. Source is stored title-case but <span style="font-family:var(--f-mono);font-size:12.5px">text-transform: uppercase</span> makes the difference invisible. Confirmed by computed style.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L33b</span>
+    <div class="body"><p class="req">Button <q>Join our Trade Program</q></p>
+    <p class="was">Renders <b>JOIN OUR TRADE PROGRAM</b>.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L33c</span>
+    <div class="body"><p class="req">Ian: divide 1 name field into 2 (first, last)</p>
+    <p class="was">Two side-by-side inputs, <b>First Name</b> and <b>Last Name</b>, with correct autocomplete tokens.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="part">
+    <span class="id">L35</span>
+    <div class="body"><p class="req">Made for Your Project.</p>
+    <p class="was">Live reads <b>Made for your project.</b> <span class="arrow">&mdash;</span> lowercase. That heading has no uppercase transform, so the difference is visible. The brief title-cases it in two independent places, so it is not a typo in the source.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L36</span>
+    <div class="body"><p class="req">Hero paragraph, <q>Architect-led signage, made to order in Tucson&hellip;</q></p>
+    <p class="was">Exact match, including the inserted comma after <q>Trade Representative</q>.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L37&ndash;39</span>
+    <div class="body"><p class="req">Signup label, 4 entry fields, Join our Trade Program button</p>
+    <p class="was">Exactly four inputs: first name, last name, company, email.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="na">
+    <span class="id">L32/34/40</span>
+    <div class="body"><p class="req">Image slots</p>
+    <p class="was">Before and after screenshots pasted into the doc. Not page assets.</p></div>
+    <span class="chip s-na">No action</span>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-name">Who We Serve</h2><span class="sec-tail">New section &middot; lines 42&ndash;46</span></div>
+  <div class="row" data-s="done">
+    <span class="id">L43</span>
+    <div class="body"><p class="req">Designed for the Trade</p>
+    <p class="was">The client removed the full stop this round. Verified byte by byte: neither the brief nor the live heading carries a period.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+  <div class="row" data-s="done">
+    <span class="id">L44</span>
+    <div class="body"><p class="req">We partner with design and building professionals&hellip;</p>
+    <p class="was">Exact match.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+  <div class="row" data-s="done">
+    <span class="id">L45</span>
+    <div class="body"><p class="req">Four audience labels, pipe separated</p>
+    <p class="was">All four present in order, uppercased and pipe separated by CSS.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+  <div class="row" data-s="na">
+    <span class="id">L42</span>
+    <div class="body"><p class="req">Rendered as a <q>small banner</q></p>
+    <p class="was">Built as a compact centred strip with reduced padding and no background band. Whether that reads as a banner is a design call with no testable spec.</p></div>
+    <span class="chip s-na">Judgement</span>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-name">Trade Benefits</h2><span class="sec-tail">New section &middot; lines 48&ndash;66</span></div>
+
+  <div class="row" data-s="done">
+    <span class="id">L49</span>
+    <div class="body"><p class="req">Why Trade Professionals Choose Modern House Numbers</p>
+    <p class="was">Exact. Uses the full brand name, not the doc label's <q>MHN</q>.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L50</span>
+    <div class="body"><p class="req">&hellip;the products, resources, and support <b>your team needs</b> to keep projects moving forward.</p>
+    <p class="was">Applied this round. Was <q>support teams need</q>.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L53&ndash;59</span>
+    <div class="body"><p class="req">Four card titles</p>
+    <p class="was">Reliable Project Support &middot; Specify with Confidence &middot; Scalable Solutions &middot; Long-Term Consistency. All exact.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L60&ndash;63</span>
+    <div class="body"><p class="req">Four card body paragraphs</p>
+    <p class="was">All four exact.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L64</span>
+    <div class="body"><p class="req">ADD CTA: Request Quote</p>
+    <p class="was">Present below the card rail, wired to Terry's address with a prefilled subject.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L52 &middot; C1</span>
+    <div class="body"><p class="req">Image for <b>Reliable Project Support</b> <span class="arrow">&rarr;</span> 180927_Modern-House-Numbers-evite_08.jpg</p>
+    <p class="was">Downloaded, resized 1500&times;1000 to 1050&times;700, committed to the repo, live.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L54 &middot; C2</span>
+    <div class="body"><p class="req">Image for <b>Specify with Confidence</b> <span class="arrow">&rarr;</span> MHN18.jpg</p>
+    <p class="was">Still on a stock CDN photo, <b>pro_header_gal_4.jpg</b>.</p>
+    <p class="note warn">That file is already hero carousel slide 4, same image and same alt text, so the page currently shows one photograph twice. Fixing this item removes the duplication.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L56 &middot; C3</span>
+    <div class="body"><p class="req">Image for <b>Scalable Solutions</b> <span class="arrow">&rarr;</span> 2017_5_palmsprings_aluminum-1.jpg</p>
+    <p class="was">Still on stock <b>pro_gal_lg_qty_1.jpg</b>. Source is 6016&times;4016 at 9.9&nbsp;MB, landscape, so it will crop to a middle slice in the 3:4 card.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L58 &middot; C4</span>
+    <div class="body"><p class="req">Image for <b>Long-Term Consistency</b> <span class="arrow">&rarr;</span> 2017_white.jpg</p>
+    <p class="was">Still on stock <b>pro_gal_exterior_1.jpg</b>. Source is 4016&times;6016, portrait, so it will crop cleanly.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+
+  <div class="row" data-s="na">
+    <span class="id">L51</span>
+    <div class="body"><p class="req">Replicate DWR Benefit block design</p>
+    <p class="was">Built as a four-up image over title over copy rail. Design Within Reach's own page is not supplied, so visual fidelity cannot be checked from here.</p></div>
+    <span class="chip s-na">Judgement</span>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-name">Product Configurator</h2><span class="sec-tail">Doc lines 68&ndash;88</span></div>
+
+  <div class="row" data-s="done">
+    <span class="id">L69</span>
+    <div class="body"><p class="req">Order Signage for Projects of Any Size</p>
+    <p class="was">Applied this round. The client cut <q>Custom</q> and <q>in Trade Quantities</q> from inside our earlier insertion.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L70</span>
+    <div class="body"><p class="req">Configure and order project signage in one place&hellip;</p>
+    <p class="was">The client's shorter rewrite is live. No stale long version survives anywhere in the file.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L72&hellip;84</span>
+    <div class="body"><p class="req">Four tab button labels</p>
+    <p class="was">Order Numbers + Letters &middot; Order Plaques &middot; Order QuickShip &middot; Order Restroom Signs. All exact, uppercased by CSS.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L74&hellip;87</span>
+    <div class="body"><p class="req">Eight tab body paragraphs</p>
+    <p class="was">All eight exact, including the inch marks in <q>4", 6", and 8"</q>.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L73</span>
+    <div class="body"><p class="req">Architectural Numbers + Letters</p>
+    <p class="was">Live reads <b>Modern House Numbers and Letters</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L77</span>
+    <div class="body"><p class="req">Architectural Address Plaques</p>
+    <p class="was">Live reads <b>Custom Address Plaques</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L81</span>
+    <div class="body"><p class="req">QuickShip Numbers + Letters</p>
+    <p class="was">Live reads <b>QuickShip House Numbers and Letters, Shipped Next Business Day</b>. The client's exact wording sits inside the struck-through half, so the page actively proposes removing it.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L85</span>
+    <div class="body"><p class="req">Architectural Restroom Signs</p>
+    <p class="was">Live reads <b>Restroom Signs in Solid Recycled Aluminum</b>. Same pattern: the client's wording is struck.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-name">Support and Resources</h2><span class="sec-tail">Doc lines 90&ndash;110</span></div>
+
+  <div class="row" data-s="part">
+    <span class="id">L91</span>
+    <div class="body"><p class="req">Change the two titles <q>Need Assistance?</q> and <q>Resources</q> to <b>one</b> centred title</p>
+    <p class="was">The centred title was added and <q>Need Assistance?</q> was struck through. But <b>Resources</b> was never touched: no redline, no marker, and it still renders. Three headings display where the brief asked for one.</p>
+    <p class="note warn">The one-row layout consolidation itself is done. This is the heading alone.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L91</span>
+    <div class="body"><p class="req">Title wording: Trade Support and Signage Specification Resources</p>
+    <p class="was">Exact, and centred.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L93&ndash;94</span>
+    <div class="body"><p class="req">Terry photo, and <q>Dedicated Trade Support</q> as the left heading</p>
+    <p class="was">Both present. <q>Dedicated Trade Support</q> is set in black in the source document while the internal labels around it are grey, and comment 0 defines grey as internal reference only, so it is genuine page copy.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L95</span>
+    <div class="body"><p class="req">&hellip;installation guidance, and <b>volume</b> order support.</p>
+    <p class="was">Applied this round. <q>bulk order support</q> appears nowhere on the page.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L96&ndash;97</span>
+    <div class="body"><p class="req">Contact details and Request Quote CTA</p>
+    <p class="was">Terry Billingsley, 480-236-8186, terry@modernhousenumbers.com. Display text and tel/mailto targets agree. CTA on the left column as specified.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L99&ndash;110</span>
+    <div class="body"><p class="req">Keep six resource cards, relabel some</p>
+    <p class="was">Three relabelled: Installation <span class="arrow">&rarr;</span> Installation Guides, Join + Save <span class="arrow">&rarr;</span> Join Trade Program, Inspiration Guide <span class="arrow">&rarr;</span> Project Inspiration. Three correctly left alone: Sizing + Visibility, Technical Specifications, Trade Portal.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-name">Trade Solutions</h2><span class="sec-tail">Doc lines 113&ndash;135</span></div>
+
+  <div class="row" data-s="done">
+    <span class="id">L115 &middot; C5</span>
+    <div class="body"><p class="req">Trade Signage for Projects of Every Scale</p>
+    <p class="was">Applied. The client struck our <q>by Property Type</q> and left comment 5: <b>these are product not property type descriptions</b>.</p>
+    <p class="note">The comment rejects the heading's taxonomy, not the five descriptions, and the client applied the fix itself in the same pass. All five rows do read as product descriptions: in every one the subject is an artefact and the property type only ever appears after <q>for</q>. Their observation was correct and the corrected heading is live. Nothing further owed.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L117&hellip;133</span>
+    <div class="body"><p class="req">Five row lead lines</p>
+    <p class="was">All five exact.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L118&hellip;134</span>
+    <div class="body"><p class="req">Five row paragraphs</p>
+    <p class="was">All five exact.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L116</span>
+    <div class="body"><p class="req">1. Unit + Building Identification</p>
+    <p class="was">Live reads <b>House Numbers and Building Numbers for Residential Projects</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L120</span>
+    <div class="body"><p class="req">2. Multifamily Signage</p>
+    <p class="was">Live reads <b>Apartment Unit Numbers and Multifamily Building Signage</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L124</span>
+    <div class="body"><p class="req">3. Wayfinding &amp; Directional Signage</p>
+    <p class="was">Live reads <b>Wayfinding Signs for Communities, Campuses and Commercial Properties</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L128</span>
+    <div class="body"><p class="req">4. Monument &amp; Branded Signage</p>
+    <p class="was">Live reads <b>Monument Signs and Custom Property Identification</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+  <div class="row" data-s="open">
+    <span class="id">L132</span>
+    <div class="body"><p class="req">5. Interior &amp; Hospitality Signage</p>
+    <p class="was">Live reads <b>Room Number Signs and Interior Signage for Hotels and Resorts</b>.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L116&ndash;132</span>
+    <div class="body"><p class="req">The numbering 1. through 5.</p>
+    <p class="was">Does not render at all. The numbers live inside the struck-through half, which is hidden on these five rows, so the section presents as five unnumbered items and the brief's ordinal sequence is gone.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+
+  <div class="row" data-s="part">
+    <span class="id">L119&hellip;135</span>
+    <div class="body"><p class="req">Five CTAs, each <span class="arrow">&rarr;</span> trade product page</p>
+    <p class="was">Link text is exact on all five. Every one points at <b>modernhousenumbers.com/pages/trade</b>, which is the page this replica reproduces, so all five are self-links.</p>
+    <p class="note warn">Needs the real destination URLs, or confirmation from the client that those product pages do not exist yet.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">07</span><h2 class="sec-name">Featured Trade Projects</h2><span class="sec-tail">Doc lines 137&ndash;159</span></div>
+
+  <div class="row" data-s="done">
+    <span class="id">L138</span>
+    <div class="body"><p class="req">Trade Projects Featuring Modern House Numbers Signage</p>
+    <p class="was">Applied this round, replacing our earlier proposal.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L139 &middot; C6</span>
+    <div class="body"><p class="req">Explore how architects, designers, builders, and developers&hellip;</p>
+    <p class="was">Exact. Comment 6 marks this line <q>optional</q>, so keeping it complies.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L141&ndash;149</span>
+    <div class="body"><p class="req">Projects 1 and 2: Rivendale Homes, Austin &middot; Granger Family Homes and Imagine Homes, Kirkland</p>
+    <p class="was">Names, locations, quotes and both attributions exact.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L155&ndash;158</span>
+    <div class="body"><p class="req">Project 3: Blackwood Homes, Seattle, quoted by Roxanne, Designer</p>
+    <p class="was">Applied this round. The client swapped out Garden Studio Design, which still carried a <b>QUOTE NEEDED</b> placeholder, for a complete project. No trace of Garden Studio, Costa Mesa or Chris Fenmore remains on the page. That blocker is closed.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="open">
+    <span class="id">L140&hellip;159</span>
+    <div class="body"><p class="req">Project photography, 15 image slots</p>
+    <p class="was"><b>One real image across all fifteen.</b> Rivendale 0 of 4, Granger 1 of 4, Blackwood 0 of 4, and all three headshots are placeholders. The single real photo is a reused legacy testimonial shot, not new project photography.</p>
+    <p class="note warn">The brief carries image markers at every one of these positions but supplies no files. This is the largest outstanding gap and it needs a shoot or an asset handover, not a code change.</p></div>
+    <span class="chip s-open">Not done</span>
+  </div>
+
+  <div class="row" data-s="part">
+    <span class="id">L137</span>
+    <div class="body"><p class="req">Section 7: <b>(replace testimonials)</b></p>
+    <p class="was">The three briefed projects were added above, but the six pre-existing testimonials were kept below under a <q>More from the trade</q> carousel. None of those six companies appears anywhere in the brief.</p>
+    <p class="note">This was a deliberate build decision, not an oversight, so it is a call to make rather than a defect to fix: keep them as extra proof, or honour <q>replace</q> and cut them.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+</section>
+
+<!-- SECTION 8 -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">08</span><h2 class="sec-name">Final CTA</h2><span class="sec-tail">New section &middot; lines 160&ndash;164</span></div>
+
+  <div class="row" data-s="done">
+    <span class="id">L161</span>
+    <div class="body"><p class="req">Ready to Order?</p>
+    <p class="was">Applied this round, replacing our longer proposal.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+
+  <div class="row" data-s="part">
+    <span class="id">L162</span>
+    <div class="body"><p class="req">&hellip;complimentary dimensioned proofs, custom estimates, <b>and complimentary proofs.</b></p>
+    <p class="was">The page ends at <q>custom estimates</q> and drops the final clause.</p>
+    <p class="note warn">The brief genuinely repeats itself here, naming proofs twice in one sentence, and that is the client's own text rather than a merge artefact. The cut reads better, but it was made without a marker and the whole block is wrapped as one insertion, so a reviewer comparing page against brief cannot see it. Either restore the repetition or tell the client it was removed.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+
+  <div class="row" data-s="done">
+    <span class="id">L163&ndash;164</span>
+    <div class="body"><p class="req">Request Quote to terry@ &middot; Unlock exclusive Trade perks and benefits, Join our Trade Program button</p>
+    <p class="was">Both present and exact. The Join link targets the hero form, which resolves.</p></div>
+    <span class="chip s-done">Done</span>
+  </div>
+</section>
+
+<!-- TECHNICAL -->
+<section class="sec">
+  <div class="sec-head"><span class="sec-no">&mdash;</span><h2 class="sec-name">Build defects</h2><span class="sec-tail">Not from the brief</span></div>
+
+  <div class="row" data-s="part">
+    <span class="id">T1</span>
+    <div class="body"><p class="req">Change-tracking ids collide</p>
+    <p class="was">Section 6 rows 3, 4 and 5 all carry <span style="font-family:var(--f-mono);font-size:12.5px">data-card="25"</span>. Three distinct changes share one id.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+  <div class="row" data-s="part">
+    <span class="id">T2</span>
+    <div class="body"><p class="req">Rejected wording survives in the source</p>
+    <p class="was">A comment in the HTML still reads <q>SECTION 6: TRADE SIGNAGE BY PROPERTY TYPE</q>, the exact framing comment 5 rejected. It does not render, but it will mislead the next editor.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+  <div class="row" data-s="part">
+    <span class="id">T3</span>
+    <div class="body"><p class="req">Heading hierarchy</p>
+    <p class="was">The five Section 6 rows are set as second-level headings, making them siblings of the section title rather than children. They should be one level down.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+  <div class="row" data-s="part">
+    <span class="id">T4</span>
+    <div class="body"><p class="req">Insertion semantics leak to assistive tech</p>
+    <p class="was">Sections 2 and 3 sit inside real insertion elements, which announce as <q>inserted text</q> to screen readers. Invisible on screen, but it needs stripping before any of this reaches production.</p></div>
+    <span class="chip s-part">Partial</span>
+  </div>
+</section>
+
+<div class="decide">
+  <h3>Three things only the client can settle</h3>
+  <p><b>The nine headings.</b> Four product tabs and five solution rows carry our search-demand wording instead of the brief's. Nothing in the document authorises rewriting them, and the marker class we used has no styling attached, so a client reviewing the redline gets no visual cue that these nine differ from what they approved. On two of them the client's own wording is the half shown struck through.</p>
+  <p><b>Whether <q>replace testimonials</q> means replace.</b> Six legacy testimonials currently sit below the three briefed projects.</p>
+  <p><b>ADA on restroom signs.</b> Unanswered since the first round. The term draws 1,600 searches a month, but the copy describes stencil-cut aluminium only, and the claim needs tactile characters and Grade 2 Braille behind it.</p>
+</div>
+
+<p class="foot">Checked against build <b>a6a5b8e</b> on 30 September 2026. Items marked <b>No action</b> are internal orientation notes or design judgements with no testable specification, not skipped work. The two grey comments from 3 September, <q>gray text = page orientation for internal reference</q> and <q>optional</q>, are notes to the writer rather than requests.</p>
+
+</div>
+
+<script>
+(function(){
+  var btns = [].slice.call(document.querySelectorAll('.fbtn'));
+  var rows = [].slice.call(document.querySelectorAll('.row'));
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.dataset.f;
+      btns.forEach(function(o){ o.setAttribute('aria-pressed', String(o === b)); });
+      rows.forEach(function(r){
+        r.classList.toggle('hide', f !== 'all' && r.dataset.s !== f);
+      });
+      document.querySelectorAll('.sec').forEach(function(s){
+        var any = s.querySelector('.row:not(.hide)');
+        s.hidden = !any;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
