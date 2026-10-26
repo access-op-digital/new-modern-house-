@@ -1,5 +1,8 @@
-# Preview deployment of a page that already exists at
-# https://www.modernhousenumbers.com/pages/trade
-# Kept out of search so it never competes with the live page.
+# Preview deployment of pages that already exist on https://www.modernhousenumbers.com
+# Every page is noindex (meta tag and X-Robots-Tag header) with a canonical to its live URL,
+# so none of it competes with the live site.
+# /blogs/ is crawlable so search and AI bots can fetch and render the blog review copy, and so
+# they can read its noindex. Everything else stays blocked.
 User-agent: *
+Allow: /blogs/
 Disallow: /

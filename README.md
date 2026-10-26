@@ -65,6 +65,12 @@ search three ways:
 The page's `<link rel="canonical">` still points at the real URL. Remove all four
 only if this ever becomes the canonical home of the page.
 
+**Exception, `/blogs/` (2026-10-27):** robots.txt allows `/blogs/` so search and AI bots can
+fetch and render the Kua blog review copy and check that its calculator works for them. It is
+still kept out of the index by the meta tag and the header, and its canonical points at the live
+post. Blocking a URL in robots.txt would stop Google from reading the noindex at all, so allowing
+the crawl does not make the page indexable.
+
 ## What is and isn't live
 
 The source page's configurator and trade signup post to Shopify/Klaviyo. This is

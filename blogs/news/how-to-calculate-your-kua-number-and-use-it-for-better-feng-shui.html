@@ -208,6 +208,7 @@ img{max-width:100%;display:block}
 #mhn-kua-mini .mk-btn:hover{background:#000;border-color:#000}
 #mhn-kua-mini .mk-btn:focus-visible,#mhn-kua-mini select:focus-visible,#mhn-kua-mini .mk-seg input:focus-visible+label{outline:2px solid var(--k-accent)!important;outline-offset:2px}
 #mhn-kua-mini .mk-error{margin:0;color:#b42318;font-size:15px;font-weight:600}
+#mhn-kua-mini .mk-hint{margin:6px 0 0;font-size:13px;line-height:1.4;color:var(--k-mute)}
 #mhn-kua-mini .mk-result{margin-top:16px;padding-top:16px;border-top:1px solid var(--k-line);scroll-margin:16px}
 #mhn-kua-mini .mk-out{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start}
 #mhn-kua-mini .mk-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:3px;width:100%;max-width:200px;aspect-ratio:1/1;margin:0 auto}
@@ -249,14 +250,15 @@ img{max-width:100%;display:block}
 </style>
 <h3 class="mk-title">Kua Number Calculator</h3>
 <p class="mk-lede">Enter your birth date and gender. The calculator runs the steps below for you, including the early-February cutoff.</p>
-<form class="mk-form" hidden novalidate>
-  <fieldset>
+<form class="mk-form" novalidate>
+  <fieldset aria-describedby="mk-dob-hint">
     <legend>Date of birth</legend>
     <div class="mk-dob">
-      <label class="mk-field"><span class="mk-sr">Month</span><select name="month"><option value="">Month</option></select></label>
-      <label class="mk-field"><span class="mk-sr">Day</span><select name="day"><option value="">Day</option></select></label>
-      <label class="mk-field"><span class="mk-sr">Year</span><select name="year"><option value="">Year</option></select></label>
+      <label class="mk-field"><span class="mk-sr">Month</span><select name="month" aria-label="Birth month"><option value="">Month</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></label>
+      <label class="mk-field"><span class="mk-sr">Day</span><select name="day" aria-label="Birth day"><option value="">Day</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select></label>
+      <label class="mk-field"><span class="mk-sr">Year</span><select name="year" aria-label="Birth year"><option value="">Year</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option></select></label>
     </div>
+    <p class="mk-hint" id="mk-dob-hint">The month only changes the result for January and early-February birthdays, which count toward the year before.</p>
   </fieldset>
   <div class="mk-row2">
     <fieldset>
@@ -266,16 +268,17 @@ img{max-width:100%;display:block}
         <input type="radio" name="sex" id="mk-female" value="f"><label for="mk-female">Female</label>
       </div>
     </fieldset>
-    <button type="submit" class="mk-btn">Find my Kua number</button>
+    <button type="button" class="mk-btn">Find my Kua number</button>
   </div>
   <p class="mk-error" role="alert" hidden></p>
 </form>
+<noscript><p class="mk-hint">Turn on JavaScript to use the calculator, or work your number out by hand with the formulas below.</p></noscript>
 <p class="mk-sr" aria-live="polite" data-mk-live></p>
 <div class="mk-result" hidden></div>
 <details class="mk-how">
   <summary>How this is calculated</summary>
   <ul>
-    <li>Your birth date sets the feng shui year, which starts at Li Chun (February 3, 4 or 5). January and early-February birthdays count toward the year before.</li>
+    <li>Your birth date sets the feng shui year, which starts at Li Chun (February 3, 4 or 5), the rule most Eight Mansions practitioners use. January and early-February birthdays count toward the year before. If the Chinese New Year method some schools use gives a different number, the result says so.</li>
     <li>The last two digits of that year are added down to one digit, then the men's or women's rule turns it into a Kua number from 1 to 9. A 5 becomes 2 for men and 8 for women.</li>
     <li>Each number maps to its East or West group and its four best and four worst Eight Mansions directions. Li Chun dates come from the Hong Kong Observatory, 1920 to 2030.</li>
   </ul>
@@ -392,14 +395,15 @@ img{max-width:100%;display:block}
       g += '<div class="mk-cell' + (st.good ? ' is-good' : '') + '"><span class="mk-cdir">' + dir + '</span><span class="mk-cstar">' + st.name + '</span></div>';
     });
     g += '</div><p class="mk-legend"><span class="mk-sw mk-sw--good"></span>Best<span class="mk-sw"></span>Avoid</p>';
-    var math = 'Feng shui year ' + res.solarYear + (res.shifted ? ' (born before ' + res.lcDate + ')' : '') + '. ' + res.steps.join('. ') + '.';
+    var math = (res.shifted ? 'Feng shui year ' + res.solarYear + ', because you were born before ' + res.lcDate
+      : 'Feng shui year ' + res.solarYear + ', which began on ' + res.lcDate) + '. ' + res.steps.join('. ') + '.';
     var t = '<p class="mk-h">Your Kua number is<span class="mk-num">' + res.kua + '</span></p>' +
       '<p class="mk-chips"><span class="mk-chip mk-chip--dark">' + res.group + ' group</span><span class="mk-chip">' + res.element + ' element</span></p>' +
       '<p class="mk-line"><span class="mk-k">Best</span>' + best.join(', ') + '</p>' +
       '<p class="mk-line"><span class="mk-k">Avoid</span>' + avoid.join(', ') + '</p>' +
       '<p class="mk-math">' + math + '</p>';
     if (res.boundary) {
-      t += '<p class="mk-note">Born on the cusp: the feng shui year began on ' + res.boundary.date + ' (China time). Depending on your birth time, your number could be ' +
+      t += '<p class="mk-note">Born on the cusp: the feng shui year began on ' + res.boundary.date + ' in China, which can still be the day before in the Americas. Depending on your birth time and place, your number could be ' +
         res.boundary.kua + '.</p>';
     }
     if (res.lunar) {
@@ -415,8 +419,11 @@ img{max-width:100%;display:block}
   var selM = form.elements.month, selD = form.elements.day, selY = form.elements.year;
   var shown = false;
 
-  MONTHS.forEach(function (name, i) { selM.add(new Option(name, i + 1)); });
-  for (var y = new Date().getFullYear(); y >= FIRST; y--) selY.add(new Option(y, y));
+  // The options ship in the HTML so crawlers and no-JS readers see a complete form.
+  // Only fill gaps: months if they were stripped, and years newer than the build.
+  if (selM.options.length < 2) MONTHS.forEach(function (name, i) { selM.add(new Option(name, i + 1)); });
+  var newest = selY.options.length > 1 ? +selY.options[1].value : FIRST - 1;
+  for (var y = newest + 1; y <= new Date().getFullYear(); y++) selY.add(new Option(y, y), 1);
   function fillDays() {
     var keep = selD.value, m = +selM.value || 1, yy = +selY.value || 2000;
     var n = new Date(yy, m, 0).getDate();
@@ -425,7 +432,6 @@ img{max-width:100%;display:block}
     if (keep && +keep <= n) selD.value = keep;
   }
   fillDays();
-  form.hidden = false;
 
   function readForm() {
     var sex = form.querySelector('input[name="sex"]:checked');
@@ -456,8 +462,10 @@ img{max-width:100%;display:block}
 
   selM.addEventListener('change', fillDays);
   selY.addEventListener('change', fillDays);
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  // A plain button, not a submit: without JavaScript nothing is sent, so no birth date reaches a URL.
+  root.querySelector('.mk-btn').addEventListener('click', calculate);
+  form.addEventListener('submit', function (e) { e.preventDefault(); calculate(); });
+  function calculate() {
     var gap = missing(readForm());
     if (gap) {
       errorEl.textContent = 'Please choose your month, day and year of birth, and your gender.';
@@ -467,9 +475,12 @@ img{max-width:100%;display:block}
     }
     errorEl.hidden = true;
     show(true);
-  });
+  }
   form.addEventListener('change', function () {
-    if (shown && !missing(readForm())) { errorEl.hidden = true; show(false); }
+    if (!shown) return;
+    if (missing(readForm())) { result.hidden = true; live.textContent = ''; return; }
+    errorEl.hidden = true;
+    show(false);
   });
 
   window.MHNKua = {compute: compute, kuaFor: kuaFor, version: '1.0-compact'};
