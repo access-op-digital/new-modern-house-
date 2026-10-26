@@ -36,9 +36,6 @@ body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(-
 a{color:var(--ink);text-decoration:none}
 img{max-width:100%;display:block}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-/* The wide logo (1156 x 112) is 392 px at 38 px tall: let it shrink on phones. */
-.nav .logo{min-width:0}
-@media(max-width:480px){.nav .logo img{height:auto;max-height:38px}}
 
 /* ---- header ---- */
 .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
@@ -131,6 +128,46 @@ img{max-width:100%;display:block}
   .post .md\:text-left{text-align:left}
 }
 
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
 /* ---- a11y ---- */
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
@@ -153,6 +190,10 @@ img{max-width:100%;display:block}
       <a href="/trade">Trade</a>
       <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
     </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
   </div>
 </header>
 
@@ -230,7 +271,8 @@ img{max-width:100%;display:block}
 #mhn-kua-mini .mk-math{font-size:13px;color:var(--k-mute)}
 #mhn-kua-mini .mk-note{padding:8px 10px;border-radius:2px;background:var(--k-sky);font-size:14px}
 #mhn-kua-mini .mk-how{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--k-line)}
-#mhn-kua-mini .mk-how summary{display:list-item;cursor:pointer;font-family:var(--k-label);font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.4;text-transform:uppercase;color:var(--k-ink)}
+#mhn-kua-mini .mk-how summary{display:list-item;padding:13px 0;margin:-12px 0 -4px;cursor:pointer;font-family:var(--k-label);font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.4;text-transform:uppercase;color:var(--k-ink)}
+#mhn-kua-mini .mk-eq{white-space:nowrap}
 #mhn-kua-mini .mk-how summary:focus-visible{outline:2px solid var(--k-accent)!important;outline-offset:2px}
 #mhn-kua-mini .mk-how ul{margin:8px 0 0;padding:0 0 0 18px;list-style:disc;font-size:14px;line-height:1.5}
 #mhn-kua-mini .mk-how li{margin:0 0 4px;padding:0}
@@ -399,7 +441,7 @@ img{max-width:100%;display:block}
       '<p class="mk-chips"><span class="mk-chip mk-chip--dark">' + res.group + ' group</span><span class="mk-chip">' + res.element + ' element</span></p>' +
       '<p class="mk-line"><span class="mk-k">Best</span>' + best.join(', ') + '</p>' +
       '<p class="mk-line"><span class="mk-k">Avoid</span>' + avoid.join(', ') + '</p>' +
-      '<p class="mk-math">' + math + '</p>';
+      '<p class="mk-math">' + math.replace(/(\d+ [+−] \d+ = \d+)/g, '<span class="mk-eq">$1</span>') + '</p>';
     if (res.boundary) {
       t += '<p class="mk-note">Born on the cusp: the feng shui year began on ' + res.boundary.date + ' in China, which can still be the day before in the Americas. Depending on your birth time and place, your number could be ' +
         res.boundary.kua + '.</p>';
@@ -488,10 +530,10 @@ img{max-width:100%;display:block}
 <p>Here are the Kua number formulas the calculator runs:</p>
 <ul>
 <li><strong>Feng Shui Year = Birth Year, or Birth Year − 1 if Born Before Li Chun (February 3, 4 or 5)</strong><br><strong>Example:</strong> A February 1, 1990 birthday uses 1989, because the 1990 feng shui year began on February 4, 1990.</li>
-<li><strong>Year Digit = Last Two Digits of the Feng Shui Year, Added Until One Digit Remains</strong><br><strong>Example:</strong> 1969 gives 6 + 9 = 15, then 1 + 5 = 6.</li>
-<li><strong>Male Kua = 10 − Year Digit (9 − Year Digit for 2000 or Later)</strong><br><strong>Example:</strong> 1969 gives 10 − 6 = 4. For 2009, 9 − 9 = 0, which counts as 9.</li>
-<li><strong>Female Kua = 5 + Year Digit (6 + Year Digit for 2000 or Later), Reduced to One Digit</strong><br><strong>Example:</strong> 1969 gives 5 + 6 = 11, then 1 + 1 = 2.</li>
-<li><strong>Kua 5 Rule = Kua 2 for Men, Kua 8 for Women</strong><br><strong>Example:</strong> A man born in 1986 gets 8 + 6 = 14, then 1 + 4 = 5, and 10 − 5 = 5, so his Kua number is 2.</li>
+<li><strong>Year Digit = Last Two Digits of the Feng Shui Year, Added Until One Digit Remains</strong><br><strong>Example:</strong> 1969 gives <span style="white-space:nowrap">6 + 9 = 15</span>, then <span style="white-space:nowrap">1 + 5 = 6</span>.</li>
+<li><strong>Male Kua = 10 − Year Digit (9 − Year Digit for 2000 or Later)</strong><br><strong>Example:</strong> 1969 gives <span style="white-space:nowrap">10 − 6 = 4</span>. For 2009, <span style="white-space:nowrap">9 − 9 = 0</span>, which counts as 9.</li>
+<li><strong>Female Kua = 5 + Year Digit (6 + Year Digit for 2000 or Later), Reduced to One Digit</strong><br><strong>Example:</strong> 1969 gives <span style="white-space:nowrap">5 + 6 = 11</span>, then <span style="white-space:nowrap">1 + 1 = 2</span>.</li>
+<li><strong>Kua 5 Rule = Kua 2 for Men, Kua 8 for Women</strong><br><strong>Example:</strong> A man born in 1986 gets <span style="white-space:nowrap">8 + 6 = 14</span>, then <span style="white-space:nowrap">1 + 4 = 5</span>, and <span style="white-space:nowrap">10 − 5 = 5</span>, so his Kua number is 2.</li>
 </ul>
 
 <h3><strong>How does your Kua number relate to personal energy and luck in feng shui?</strong></h3>
@@ -522,23 +564,23 @@ img{max-width:100%;display:block}
 <p><span style="font-weight: 400;">The information needed to calculate your Kua number is your birth year and your gender, plus the exact birth date if you were born in January or early February. Males and females use different formulas on the same birth year, and each person has a Kua number between 1 and 9. One nuance matters here: the feng shui year follows the Chinese solar calendar and starts at Li Chun, the start of spring, which falls on February 3, 4 or 5 depending on the year. Anyone born in January, or in February before that date, belongs to the previous year, so confirm the year before starting the math. Gathering these data points first prevents miscalculation later.</span></p>
 <h3><strong>How do you calculate a Kua number for males step by step?</strong></h3>
 <p><span style="font-weight: 400;">Calculating a Kua number for males follows a fixed subtraction formula applied to the birth year. The steps are:</span></p>
-<ol>
+<ol style="list-style:decimal;margin:0 0 1em 1.5em;padding:0;">
 <li style="font-weight: 400;"><span style="font-weight: 400;">Add the last two digits of the birth year together.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Reduce the sum to a single digit by adding its digits again if needed.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Subtract that single digit from 10 to get the Kua number.</span></li>
 </ol>
-<p><span style="font-weight: 400;">For example, a male born in March 1969 adds 6 + 9 = 15, then reduces 1 + 5 = 6, then subtracts 10 - 6 = 4, giving a Kua number of 4. Males born in 2000 or later subtract the single digit from 9 instead of 10, and a result of 0 counts as 9.</span></p>
+<p><span style="font-weight: 400;">For example, a male born in March 1969 adds <span style="white-space:nowrap">6 + 9 = 15</span>, then reduces <span style="white-space:nowrap">1 + 5 = 6</span>, then subtracts <span style="white-space:nowrap">10 - 6 = 4</span>, giving a Kua number of 4. Males born in 2000 or later subtract the single digit from 9 instead of 10, and a result of 0 counts as 9.</span></p>
 <h3><strong>How do you calculate a Kua number for females step by step?</strong></h3>
 <p><span style="font-weight: 400;">Calculating a Kua number for females follows a fixed addition formula applied to the birth year. The steps are:</span></p>
-<ol>
+<ol style="list-style:decimal;margin:0 0 1em 1.5em;padding:0;">
 <li style="font-weight: 400;"><span style="font-weight: 400;">Add the last two digits of the birth year together.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Reduce the sum to a single digit by adding its digits again if needed.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Add 5 to that single digit, then reduce again if the result is two digits.</span></li>
 </ol>
-<p><span style="font-weight: 400;">For example, a female born in March 1969 adds 6 + 9 = 15, reduces 1 + 5 = 6, adds 6 + 5 = 11, then reduces 1 + 1 = 2, giving a Kua number of 2. Females born in 2000 or later add 6 instead of 5. Note that a calculated result of 5 is never final; males adjust to 2, and females adjust to 8, since the Kua system excludes 5 entirely.</span></p>
+<p><span style="font-weight: 400;">For example, a female born in March 1969 adds <span style="white-space:nowrap">6 + 9 = 15</span>, reduces <span style="white-space:nowrap">1 + 5 = 6</span>, adds <span style="white-space:nowrap">6 + 5 = 11</span>, then reduces <span style="white-space:nowrap">1 + 1 = 2</span>, giving a Kua number of 2. Females born in 2000 or later add 6 instead of 5. Note that a calculated result of 5 is never final; males adjust to 2, and females adjust to 8, since the Kua system excludes 5 entirely.</span></p>
 <h3><strong>How do you correctly adjust your birth year if you were born in January or February?</strong></h3>
 <p><span style="font-weight: 400;">You correctly adjust your birth year by checking the solar calendar instead of defaulting to the calendar year printed on your birth certificate. The feng shui year begins at Li Chun, the start of spring, which falls on February 3, 4 or 5 depending on the year, so anyone born in January, or in February before that date, belongs to the previous year for Kua purposes. A calendar of the Chinese solar terms, or the calculator above, confirms the correct year before you run any formula. Some schools count from Chinese New Year instead, which can change the result for birthdays between late January and mid-February.</span></p>
-<p><span style="font-weight: 400;">Once the correct solar year is confirmed, the calculation proceeds the same way: add the last two digits together and reduce to a single digit. For instance, someone born in 1974 adds 7 + 4 = 11, then reduces 1 + 1 = 2, before applying the male or female adjustment. Skipping this check is one of the most common sources of an incorrect Kua number, since a birthday in the first days of February can shift the entire result.</span></p>
+<p><span style="font-weight: 400;">Once the correct solar year is confirmed, the calculation proceeds the same way: add the last two digits together and reduce to a single digit. For instance, someone born in 1974 adds <span style="white-space:nowrap">7 + 4 = 11</span>, then reduces <span style="white-space:nowrap">1 + 1 = 2</span>, before applying the male or female adjustment. Skipping this check is one of the most common sources of an incorrect Kua number, since a birthday in the first days of February can shift the entire result.</span></p>
 <h3><strong>How can you double-check your Kua number to avoid common calculation mistakes?</strong></h3>
 <p><span style="font-weight: 400;">You can double-check your Kua number by rerunning the formula, verifying your gender-specific step, and confirming your solar year placement. Three checkpoints catch nearly every error:</span></p>
 <ul>
@@ -630,7 +672,7 @@ img{max-width:100%;display:block}
 <p><span style="font-weight: 400;">It's worth noting that meaningful exterior feng shui improvements rarely require large renovations; small, well-placed updates, such as a clear address marker or a properly lit path, often make the most practical difference.</span></p>
 <h2><strong>How Does Your Kua Number Influence Wealth, Health, Love, and Career Areas?</strong></h2>
 <p><span style="font-weight: 400;">Your Kua number assigns a specific auspicious direction to each major life area: wealth, health, love, and career. The four directions covered below are:</span></p>
-<ol>
+<ol style="list-style:decimal;margin:0 0 1em 1.5em;padding:0;">
 <li style="font-weight: 400;"><span style="font-weight: 400;">Sheng Qi for wealth and financial opportunities</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Tien Yi for health and well-being</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Nien Yen for relationships and love</span></li>
@@ -700,7 +742,7 @@ img{max-width:100%;display:block}
 <h3><strong>What are the key takeaways about how to calculate your Kua number and use it for better feng shui?</strong></h3>
 <p><span style="font-weight: 400;">The key takeaways are that Kua numbers are calculated from birth year and gender, sorted into East and West groups, and applied to orient entrances, beds, and workspaces toward auspicious directions. Feng shui carries real weight in home-buying decisions. According to the 2015 Better Homes and Gardens Real Estate and AREAA survey cited above, feng shui factors meaningfully into how Chinese-American buyers evaluate and purchase homes.</span></p>
 <p><span style="font-weight: 400;">Beyond the numbers, three practical conclusions matter most:</span></p>
-<ol>
+<ol style="list-style:decimal;margin:0 0 1em 1.5em;padding:0;">
 <li style="font-weight: 400;"><span style="font-weight: 400;">Kua calculations give a starting orientation, not a rigid rulebook.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Entry design, lighting, and clutter control reinforce whatever direction strategy you choose.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Numerology should inform, not override, sound architectural judgment.</span></li>
