@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<!--
+  KUA NUMBER CALCULATOR, on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/how-to-calculate-your-kua-number-and-use-it-for-better-feng-shui
+  with the compact Kua number calculator in the first fold, under the H1 and above the featured photo.
+  Served at /kua-number-calculator (cleanUrls in vercel.json).
+
+  Article copy, author box and related posts are copied from the live post on 2026-10-26.
+  Header and footer are the trade replica's (index.html), so the deployment stays consistent.
+  The calculator block is generated: edit it in the mhn-kua-calculator project, then re-run
+  build/compose_blog_page.py. Do not hand-edit it here.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>How to Calculate Your Kua Number and Use It for Better Feng Shui</title>
+<meta name="description" content="Learn how to calculate your Kua number by birth year and gender, find your lucky feng shui directions, and use them for your bed, desk, entrance, and home.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/how-to-calculate-your-kua-number-and-use-it-for-better-feng-shui">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,600,700%7CLibre+Baskerville">
+
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+/* The wide logo (1156 x 112) is 392 px at 38 px tall: let it shrink on phones. */
+.nav .logo{min-width:0}
+@media(max-width:480px){.nav .logo img{height:auto;max-height:38px}}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+/* ---- a11y ---- */
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap">
+  <div class="post-meta">
+    <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+    <div class="post-date">08.17.26</div>
+    <div class="post-rule"></div>
+  </div>
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <h1 class="post-h1" itemprop="name">How to Calculate Your Kua Number and Use It for Better Feng Shui</h1>
+
+<!-- Kua Number Calculator, compact v1.0 (2026-10-26) for modernhousenumbers.com.
+     Paste this whole block where the calculator should appear, or render it from a theme snippet.
+     If the post contains <div id="mhn-kua-slot"></div>, the calculator moves itself into that spot.
+     Solar-year start dates (Li Chun) and Chinese New Year dates: Hong Kong Observatory, 1920 to 2030. -->
+<div id="mhn-kua-mini" class="mk">
+<style>
+@font-face{font-family:'mhnk-muli';font-style:normal;font-weight:400 700;font-display:swap;src:url(https://fonts.gstatic.com/s/muli/v34/7Auwp_0qiz-afTLGLQ.woff2) format('woff2')}
+@font-face{font-family:'mhnk-barlow';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/barlow/v13/7cHqv4kjgoGqM7E3t-4s51os.woff2) format('woff2')}
+@font-face{font-family:'mhnk-baskerville';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/librebaskerville/v24/kmKUZrc3Hgbbcjq75U4uslyuy4kn0olVQ-LglH6T17uj8Q4iDgNP.woff2) format('woff2')}
+#mhn-kua-mini{--k-ink:#393838;--k-mute:#707070;--k-line:#d6d6d6;--k-off:#e8e8e8;--k-tint:#fafafa;--k-accent:#f36a10;--k-sky:#cdf3f6;--k-sans:Muli,mhnk-muli,Helvetica,Arial,sans-serif;--k-label:Barlow,mhnk-barlow,Muli,Helvetica,Arial,sans-serif;--k-serif:'Libre Baskerville',mhnk-baskerville,Georgia,serif;
+  display:block;box-sizing:border-box;margin:24px 0 28px;padding:20px;border:1px solid var(--k-line);border-radius:2px;background:var(--k-tint);color:var(--k-ink);font-family:var(--k-sans);font-size:16px;line-height:1.5;text-align:left}
+#mhn-kua-mini *,#mhn-kua-mini *::before,#mhn-kua-mini *::after{box-sizing:border-box}
+#mhn-kua-mini [hidden]{display:none!important}
+#mhn-kua-mini p{margin:0 0 8px;line-height:1.5}
+#mhn-kua-mini .mk-title{margin:0 0 4px;font-family:var(--k-sans);font-size:20px;font-weight:600;line-height:1.3;letter-spacing:normal;text-transform:none;color:var(--k-ink)}
+#mhn-kua-mini .mk-lede{margin-bottom:14px;font-size:15px}
+#mhn-kua-mini .mk-sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#mhn-kua-mini .mk-form{display:grid;gap:12px}
+#mhn-kua-mini fieldset{min-width:0;margin:0;padding:0;border:0}
+#mhn-kua-mini legend,#mhn-kua-mini .mk-k{display:block;margin:0 0 6px;padding:0;font-family:var(--k-label);font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.3;text-transform:uppercase;color:var(--k-ink)}
+#mhn-kua-mini .mk-dob{display:grid;grid-template-columns:1.4fr .8fr 1fr;gap:8px}
+#mhn-kua-mini .mk-field{display:block;margin:0}
+#mhn-kua-mini select{display:block;width:100%;height:44px;margin:0;padding:0 32px 0 12px;border:1px solid var(--k-mute);border-radius:2px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23393838' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center/12px 8px;-webkit-appearance:none;-moz-appearance:none;appearance:none;font-family:var(--k-sans);font-size:16px;line-height:42px;color:var(--k-ink);cursor:pointer}
+#mhn-kua-mini .mk-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end}
+#mhn-kua-mini .mk-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#mhn-kua-mini .mk-seg input{position:absolute;width:1px;height:1px;margin:0;opacity:0}
+#mhn-kua-mini .mk-seg label{display:flex;align-items:center;justify-content:center;height:44px;margin:0;border:1px solid var(--k-mute);border-radius:2px;background:#fff;font-weight:600;cursor:pointer;user-select:none}
+#mhn-kua-mini .mk-seg input:checked+label{background:var(--k-ink);border-color:var(--k-ink);color:#fff}
+#mhn-kua-mini .mk-btn{display:block;width:100%;height:44px;margin:0;padding:0 14px;border:1px solid var(--k-ink);border-radius:2px;background:var(--k-ink);color:#fff;font-family:var(--k-label);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+#mhn-kua-mini .mk-btn:hover{background:#000;border-color:#000}
+#mhn-kua-mini .mk-btn:focus-visible,#mhn-kua-mini select:focus-visible,#mhn-kua-mini .mk-seg input:focus-visible+label{outline:2px solid var(--k-accent)!important;outline-offset:2px}
+#mhn-kua-mini .mk-error{margin:0;color:#b42318;font-size:15px;font-weight:600}
+#mhn-kua-mini .mk-result{margin-top:16px;padding-top:16px;border-top:1px solid var(--k-line);scroll-margin:16px}
+#mhn-kua-mini .mk-out{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:start}
+#mhn-kua-mini .mk-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:3px;width:100%;max-width:200px;aspect-ratio:1/1;margin:0 auto}
+#mhn-kua-mini .mk-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60px;border-radius:2px;background:var(--k-off);color:var(--k-ink);text-align:center;line-height:1.15}
+#mhn-kua-mini .mk-cell.is-good{background:var(--k-ink);color:#fff}
+#mhn-kua-mini .mk-cdir{font-size:15px;font-weight:700}
+#mhn-kua-mini .mk-cstar{margin-top:2px;font-size:11px;font-weight:600}
+#mhn-kua-mini .mk-center{background:#fff;border:2px solid var(--k-accent)}
+#mhn-kua-mini .mk-ckua{font-family:var(--k-label);font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--k-mute)}
+#mhn-kua-mini .mk-cnum{font-family:var(--k-serif);font-size:28px;line-height:1.1}
+#mhn-kua-mini .mk-legend{display:flex;align-items:center;justify-content:center;gap:5px;margin:6px 0 0;font-size:12px}
+#mhn-kua-mini .mk-sw{display:inline-block;width:11px;height:11px;margin-left:8px;border:1px solid #c9c9c9;background:var(--k-off)}
+#mhn-kua-mini .mk-sw--good{margin-left:0;background:var(--k-ink);border-color:var(--k-ink)}
+#mhn-kua-mini .mk-h{margin:0 0 4px;font-size:18px;font-weight:600;line-height:1.2}
+#mhn-kua-mini .mk-num{margin-left:6px;font-family:var(--k-serif);font-size:38px;font-weight:400;line-height:1;vertical-align:-5px}
+#mhn-kua-mini .mk-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+#mhn-kua-mini .mk-chip{padding:2px 10px;border:1px solid var(--k-line);border-radius:999px;background:#fff;font-size:13px;font-weight:600;line-height:1.5}
+#mhn-kua-mini .mk-chip--dark{background:var(--k-ink);border-color:var(--k-ink);color:#fff}
+#mhn-kua-mini .mk-line{font-size:15px}
+#mhn-kua-mini .mk-line .mk-k{display:inline;margin:0 6px 0 0;font-size:12px}
+#mhn-kua-mini .mk-math{font-size:13px;color:var(--k-mute)}
+#mhn-kua-mini .mk-note{padding:8px 10px;border-radius:2px;background:var(--k-sky);font-size:14px}
+#mhn-kua-mini .mk-privacy{margin:12px 0 0;font-size:12px;color:var(--k-mute)}
+@media (max-width:560px){
+  #mhn-kua-mini{padding:16px}
+  #mhn-kua-mini .mk-row2,#mhn-kua-mini .mk-out{grid-template-columns:1fr}
+  #mhn-kua-mini .mk-out{gap:14px}
+  #mhn-kua-mini .mk-grid{max-width:200px}
+}
+@media (max-width:360px){
+  #mhn-kua-mini .mk-dob{grid-template-columns:1fr 1fr}
+  #mhn-kua-mini .mk-dob .mk-field:first-child{grid-column:1/-1}
+}
+</style>
+<h2 class="mk-title">Kua Number Calculator</h2>
+<p class="mk-lede">Enter your birth date and gender. The calculator runs the steps below for you, including the early-February cutoff.</p>
+<form class="mk-form" hidden novalidate>
+  <fieldset>
+    <legend>Date of birth</legend>
+    <div class="mk-dob">
+      <label class="mk-field"><span class="mk-sr">Month</span><select name="month"><option value="">Month</option></select></label>
+      <label class="mk-field"><span class="mk-sr">Day</span><select name="day"><option value="">Day</option></select></label>
+      <label class="mk-field"><span class="mk-sr">Year</span><select name="year"><option value="">Year</option></select></label>
+    </div>
+  </fieldset>
+  <div class="mk-row2">
+    <fieldset>
+      <legend>Gender</legend>
+      <div class="mk-seg">
+        <input type="radio" name="sex" id="mk-male" value="m"><label for="mk-male">Male</label>
+        <input type="radio" name="sex" id="mk-female" value="f"><label for="mk-female">Female</label>
+      </div>
+    </fieldset>
+    <button type="submit" class="mk-btn">Find my Kua number</button>
+  </div>
+  <p class="mk-error" role="alert" hidden></p>
+</form>
+<p class="mk-sr" aria-live="polite" data-mk-live></p>
+<div class="mk-result" hidden></div>
+<p class="mk-privacy">Your birth date stays on your device. It is never sent or saved.</p>
+<script>
+(function () {
+  'use strict';
+  var root = document.getElementById('mhn-kua-mini');
+  if (!root || root.getAttribute('data-mhnk-ready')) return;
+  root.setAttribute('data-mhnk-ready', '1');
+  var slot = document.getElementById('mhn-kua-slot');
+  if (slot && !slot.contains(root)) slot.appendChild(root);
+
+  var FIRST = 1920;
+  var LC = '544554455445544554455445544454445444544454445444544454445444544444444444444444444444444444444444434443444344434';
+  var CNY = [51,39,28,47,36,24,44,33,23,41,30,48,37,26,45,35,24,42,31,50,39,27,46,36,25,44,33,22,41,29,48,37,27,45,34,24,43,31,49,39,28,46,36,25,44,33,21,40,30,48,37,27,46,34,23,42,31,49,38,28,47,36,25,44,33,51,40,29,48,37,27,46,35,23,41,31,50,38,28,47,36,24,43,32,22,40,29,49,38,26,45,34,23,41,31,50,39,28,47,36,25,43,32,22,41,29,48,37,26,44,34];
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var DIRS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  var DIR_NAME = {N: 'North', NE: 'Northeast', E: 'East', SE: 'Southeast', S: 'South', SW: 'Southwest', W: 'West', NW: 'Northwest'};
+  var STARS = [
+    {name: 'Sheng Qi', label: 'Prosperity', good: true, desc: 'Wealth and success. Your strongest direction for work and money.'},
+    {name: 'Tien Yi', label: 'Health', good: true, desc: 'Wellbeing and recovery. Your direction for rest and health.'},
+    {name: 'Nien Yen', label: 'Relationships', good: true, desc: 'Love and harmony. Your direction for relationships and family.'},
+    {name: 'Fu Wei', label: 'Personal growth', good: true, desc: 'Steady progress and clear thinking. Your direction for study and growth.'},
+    {name: 'Huo Hai', label: 'Mishaps', good: false, desc: 'Setbacks and minor bad luck.'},
+    {name: 'Wu Gui', label: 'Five Ghosts', good: false, desc: 'Conflict, gossip and deceit.'},
+    {name: 'Liu Sha', label: 'Six Killings', good: false, desc: 'Strained relationships and disputes.'},
+    {name: 'Jue Ming', label: 'Total Loss', good: false, desc: 'The most serious of the four. Keep your bed and desk away from it.'}
+  ];
+  var KUA = {1:{group:'East',element:'Water',trigram:'Kan',dirs:["SE", "E", "S", "N", "W", "NE", "NW", "SW"]},2:{group:'West',element:'Earth',trigram:'Kun',dirs:["NE", "W", "NW", "SW", "E", "SE", "S", "N"]},3:{group:'East',element:'Wood',trigram:'Zhen',dirs:["S", "N", "SE", "E", "SW", "NW", "NE", "W"]},4:{group:'East',element:'Wood',trigram:'Xun',dirs:["N", "S", "E", "SE", "NW", "SW", "W", "NE"]},6:{group:'West',element:'Metal',trigram:'Qian',dirs:["W", "NE", "SW", "NW", "SE", "E", "N", "S"]},7:{group:'West',element:'Metal',trigram:'Dui',dirs:["NW", "SW", "NE", "W", "N", "S", "SE", "E"]},8:{group:'West',element:'Earth',trigram:'Gen',dirs:["SW", "NW", "W", "NE", "S", "N", "E", "SE"]},9:{group:'East',element:'Fire',trigram:'Li',dirs:["E", "SE", "N", "S", "NE", "W", "SW", "NW"]}};
+
+  function reduce(n) {
+    while (n > 9) {
+      var s = 0;
+      String(n).split('').forEach(function (c) { s += +c; });
+      n = s;
+    }
+    return n;
+  }
+  function liChunDay(y) { var i = y - FIRST; return i >= 0 && i < LC.length ? +LC.charAt(i) : 4; }
+  function cnyDoy(y) { var i = y - FIRST; return i >= 0 && i < CNY.length ? CNY[i] : null; }
+  function fmt(y, m, d) { return MONTHS[m - 1] + ' ' + d + ', ' + y; }
+
+  // The method the post teaches: add the last two digits, reduce, then apply the men's or women's rule.
+  // It holds for feng shui years 1900 to 2099, which covers every year the form offers.
+  function kuaFor(year, male) {
+    var yy = year % 100, a = Math.floor(yy / 10), b = yy % 10, sum = a + b, d = reduce(sum);
+    var steps = [a + ' + ' + b + ' = ' + sum + (sum > 9 ? ', then ' + Math.floor(sum / 10) + ' + ' + (sum % 10) + ' = ' + d : '')];
+    var modern = year >= 2000, base, raw, line;
+    if (male) {
+      base = modern ? 9 : 10; raw = base - d;
+      line = 'Men, feng shui year ' + (modern ? '2000 or later' : 'before 2000') + ': ' + base + ' − ' + d + ' = ' + raw;
+    } else {
+      base = modern ? 6 : 5; raw = base + d;
+      line = 'Women, feng shui year ' + (modern ? '2000 or later' : 'before 2000') + ': ' + base + ' + ' + d + ' = ' + raw;
+    }
+    if (raw === 0) {
+      raw = 9; line += ', and 0 counts as 9';
+    } else if (raw > 9) {
+      var r = reduce(raw);
+      line += ', then ' + Math.floor(raw / 10) + ' + ' + (raw % 10) + ' = ' + r; raw = r;
+    }
+    steps.push(line);
+    var kua = raw;
+    if (raw === 5) {
+      kua = male ? 2 : 8;
+      steps.push('5 is not used as a Kua number, so ' + (male ? 'men take 2' : 'women take 8'));
+    }
+    return {kua: kua, steps: steps};
+  }
+
+  function compute(y, m, d, male) {
+    var lc = liChunDay(y);
+    var before = m === 1 || (m === 2 && d < lc);
+    var solarYear = before ? y - 1 : y;
+    var main = kuaFor(solarYear, male);
+    var k = KUA[main.kua];
+    var res = {kua: main.kua, male: male, solarYear: solarYear, group: k.group, element: k.element, trigram: k.trigram, dirs: k.dirs,
+      yearLine: 'Feng shui year: ' + solarYear + (before ? ' (your birthday comes before ' + fmt(y, 2, lc) + ', when the ' + y + ' year began)' : ''),
+      steps: main.steps, shifted: before, lcDate: fmt(y, 2, lc)};
+    if (m === 2 && (d === lc || d === lc - 1)) {
+      res.boundary = {kua: kuaFor(d === lc ? y - 1 : y, male).kua, date: fmt(y, 2, lc)};
+    }
+    var c = cnyDoy(y);
+    if (c !== null) {
+      var bd = m === 1 ? d : (m === 2 ? 31 + d : 999);
+      var lunarYear = bd < c ? y - 1 : y;
+      if (lunarYear !== solarYear) {
+        res.lunar = {kua: kuaFor(lunarYear, male).kua, date: c <= 31 ? fmt(y, 1, c) : fmt(y, 2, c - 31)};
+      }
+    }
+    return res;
+  }
+
+
+  var SHORT = ['wealth', 'health', 'relationships', 'growth', 'mishaps', 'conflict', 'disputes', 'total loss'];
+  var GRID = ['NW', 'N', 'NE', 'W', '', 'E', 'SW', 'S', 'SE'];
+
+  function render(res) {
+    var best = [], avoid = [], good = [], bad = [];
+    res.dirs.forEach(function (dir, i) {
+      var text = DIR_NAME[dir] + ' (' + SHORT[i] + ')';
+      if (STARS[i].good) { best.push(text); good.push(DIR_NAME[dir]); } else { avoid.push(text); bad.push(DIR_NAME[dir]); }
+    });
+    var g = '<div class="mk-grid" role="img" aria-label="Direction grid for Kua ' + res.kua + ', north at the top. Best: ' + good.join(', ') +
+      '. Avoid: ' + bad.join(', ') + '.">';
+    GRID.forEach(function (dir) {
+      if (!dir) {
+        g += '<div class="mk-cell mk-center"><span class="mk-ckua">KUA</span><span class="mk-cnum">' + res.kua + '</span></div>';
+        return;
+      }
+      var st = STARS[res.dirs.indexOf(dir)];
+      g += '<div class="mk-cell' + (st.good ? ' is-good' : '') + '"><span class="mk-cdir">' + dir + '</span><span class="mk-cstar">' + st.name + '</span></div>';
+    });
+    g += '</div><p class="mk-legend"><span class="mk-sw mk-sw--good"></span>Best<span class="mk-sw"></span>Avoid</p>';
+    var math = 'Feng shui year ' + res.solarYear + (res.shifted ? ' (born before ' + res.lcDate + ')' : '') + '. ' + res.steps.join('. ') + '.';
+    var t = '<p class="mk-h">Your Kua number is<span class="mk-num">' + res.kua + '</span></p>' +
+      '<p class="mk-chips"><span class="mk-chip mk-chip--dark">' + res.group + ' group</span><span class="mk-chip">' + res.element + ' element</span></p>' +
+      '<p class="mk-line"><span class="mk-k">Best</span>' + best.join(', ') + '</p>' +
+      '<p class="mk-line"><span class="mk-k">Avoid</span>' + avoid.join(', ') + '</p>' +
+      '<p class="mk-math">' + math + '</p>';
+    if (res.boundary) {
+      t += '<p class="mk-note">Born on the cusp: the feng shui year began on ' + res.boundary.date + ' (China time). Depending on your birth time, your number could be ' +
+        res.boundary.kua + '.</p>';
+    }
+    if (res.lunar) {
+      t += '<p class="mk-note">Counting from Chinese New Year (' + res.lunar.date + ') instead gives Kua ' + res.lunar.kua + '. This calculator uses the solar year.</p>';
+    }
+    return '<div class="mk-out"><div>' + g + '</div><div>' + t + '</div></div>';
+  }
+
+  var form = root.querySelector('.mk-form');
+  var result = root.querySelector('.mk-result');
+  var errorEl = root.querySelector('.mk-error');
+  var live = root.querySelector('[data-mk-live]');
+  var selM = form.elements.month, selD = form.elements.day, selY = form.elements.year;
+  var shown = false;
+
+  MONTHS.forEach(function (name, i) { selM.add(new Option(name, i + 1)); });
+  for (var y = new Date().getFullYear(); y >= FIRST; y--) selY.add(new Option(y, y));
+  function fillDays() {
+    var keep = selD.value, m = +selM.value || 1, yy = +selY.value || 2000;
+    var n = new Date(yy, m, 0).getDate();
+    while (selD.options.length > 1) selD.remove(1);
+    for (var d = 1; d <= n; d++) selD.add(new Option(d, d));
+    if (keep && +keep <= n) selD.value = keep;
+  }
+  fillDays();
+  form.hidden = false;
+
+  function readForm() {
+    var sex = form.querySelector('input[name="sex"]:checked');
+    return {m: +selM.value, d: +selD.value, y: +selY.value, male: sex ? sex.value === 'm' : null};
+  }
+  function missing(v) {
+    if (!v.m) return selM;
+    if (!v.d) return selD;
+    if (!v.y) return selY;
+    if (v.male === null) return form.querySelector('#mk-male');
+    return null;
+  }
+  function show(scroll) {
+    var v = readForm();
+    var res = compute(v.y, v.m, v.d, v.male);
+    result.innerHTML = render(res);
+    result.hidden = false;
+    shown = true;
+    live.textContent = 'Your Kua number is ' + res.kua + ', ' + res.group + ' group.';
+    if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+      window.dataLayer.push({event: 'kua_calculated', kua_number: res.kua, kua_group: res.group});
+    }
+    if (scroll) {
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      result.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest'});
+    }
+  }
+
+  selM.addEventListener('change', fillDays);
+  selY.addEventListener('change', fillDays);
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var gap = missing(readForm());
+    if (gap) {
+      errorEl.textContent = 'Please choose your month, day and year of birth, and your gender.';
+      errorEl.hidden = false;
+      gap.focus();
+      return;
+    }
+    errorEl.hidden = true;
+    show(true);
+  });
+  form.addEventListener('change', function () {
+    if (shown && !missing(readForm())) { errorEl.hidden = true; show(false); }
+  });
+
+  window.MHNKua = {compute: compute, kuaFor: kuaFor, version: '1.0-compact'};
+})();
+</script>
+</div>
+
+    <div class="shopifycontent blog" itemprop="articleBody">
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/modern-white-black-home-house-number-27.jpg?v=1786989321" alt="Modern hillside home with large white house numbers mounted near the garage entrance at dusk" style="margin-bottom: 16px; float: none;"></div>
+<p><span style="font-weight: 400;">A Kua number is a personal energy value between 1 and 9 that Eight Mansions feng shui assigns to each person based on birth year and gender, determining which compass directions support their luck, health, and relationships. Also known as the Ming Gua or life gua, this number splits everyone into an East Group or West Group and pairs each person with four auspicious and four inauspicious directions.</span></p>
+<p><span style="font-weight: 400;">This guide covers what a Kua number means and how it connects to the five elements and bagua trigrams, the exact calculation formulas for men, women, and children, the auspicious and inauspicious directions tied to each number, and how to apply those directions indoors, outdoors, and in rentals. It also addresses common myths, wealth and career applications, and how Kua principles pair with modern minimal design and entryway signage.</span></p>
+<p><span style="font-weight: 400;">Understanding your Kua number starts with its role in personal energy: each number maps to a trigram, an element, and a set of directions that either strengthen or drain your chi. East Group numbers (1, 3, 4, 9) and West Group numbers (2, 6, 7, 8) favor opposite sets of compass points, and this classification traces back to the ancient bagua system of eight trigrams.</span></p>
+<p><span style="font-weight: 400;">Calculating your own number requires only your birth year and gender, run through a simple digit-reduction formula, with a lunar calendar check for anyone born in January or February. Men subtract from 10, women add 5, and any result of 5 gets reassigned since the system excludes that number entirely.</span></p>
+<p><span style="font-weight: 400;">Once calculated, your Kua number reveals four lucky directions, Sheng Qi, Tien Yi, Nien Yen, and Fu Wei, tied respectively to wealth, health, relationships, and personal growth, alongside four unlucky directions to avoid for sleeping, sitting, or working.</span></p>
+<p><span style="font-weight: 400;">Applying these directions extends from your entrance, bed, and desk indoors to pathways, landscaping, and curb appeal outdoors, with adaptable strategies for renters and shared housing who cannot make structural changes.</span></p>
+<p><span style="font-weight: 400;">Finally, we separate common myths from practical guidance, showing how Kua principles integrate with modern minimal design and thoughtful exterior details, including handcrafted house numbers that reinforce a clear, well-defined entry.</span></p>
+<h2><span style="font-weight: 400;">What Is a Kua Number in Feng Shui and Why Does It Matter?</span></h2>
+<p><span style="font-weight: 400;">A Kua number is a personal energy value between 1 and 9 that Eight Mansions feng shui assigns to each individual based on birth year and gender. It determines which compass directions support your luck, health, and relationships. The sections below cover how this number shapes personal energy and how it splits into East and West groups tied to the five elements.</span></p>
+<h3><strong>How does your Kua number relate to personal energy and luck in feng shui?</strong></h3>
+<p><span style="font-weight: 400;">A Kua number relates to personal energy and luck by mapping an individual's birth data to a specific trigram, element, and set of compass directions that either support or drain their chi. This personal number is more formally known as the Ming Gua (命卦), or life gua, and is sometimes called the life star. According to 8Mansions.com, a person's gua number can be found through a simple equation or a reference table, and it differs from the energy map calculated for a house during a feng shui audit, since a residence carries its own energy separate from a person's aura.</span></p>
+<p><span style="font-weight: 400;">Each Kua number carries four favorable and four unfavorable directions. The unfavorable ones are not neutral: the Wu Gui (Five Ghosts) direction carries Fire energy linked to gossip and backstabbing, while the Huo Hai (Mishap) direction carries Earth chi tied to hardship and obstacles. Consistently facing your best directions, rather than your worst, is the practical foundation the entire system is built on.</span></p>
+<h3><strong>What are the key differences between East Group and West Group Kua numbers?</strong></h3>
+<p><span style="font-weight: 400;">The key differences between East Group and West Group Kua numbers are the specific directions each group should favor. Kua numbers are split into two categories: East Group and West Group. People with Kua numbers 1, 3, 4, and 9 belong to the East Group and benefit from facing:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">North</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">South</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">East</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Southeast</span></li>
+</ul>
+<p><span style="font-weight: 400;">People with Kua numbers 2, 6, 7, and 8 belong to the West Group and benefit from facing:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">West</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Northwest</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Southwest</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Northeast</span></li>
+</ul>
+<p><span style="font-weight: 400;">This grouping traces back to the bagua, a set of eight trigrams built from broken and unbroken lines representing yin and yang, giving eight, possible combinations. Couples with clashing groups face a real practical conflict, since East and West directions oppose each other. A common solution is prioritizing the primary breadwinner's directions in shared living areas while reserving the partner's favorable directions for personal spaces like a bedroom or home office.</span></p>
+<h3><strong>How do Kua numbers connect to the five elements and directions in feng shui?</strong></h3>
+<p><span style="font-weight: 400;">Kua numbers connect to the five elements through the trigram each number is assigned, since every trigram in the bagua corresponds to one of the five elements: Wood, Fire, Earth, Metal, or Water. This Wuxing system describes how elements interact and appears across Chinese philosophy, including astrology, medicine, and the I Ching, not just feng shui. Each trigram also carries astronomical, geographic, and anatomical correspondences within traditional Chinese metaphysics, which is why a single Kua number influences far more than direction alone.</span></p>
+<p><span style="font-weight: 400;">In practice, this means a homeowner's element governs which directions strengthen their energy and which forms or shapes complement their space. Understanding this elemental layer is what separates a superficial direction lookup from a genuinely personalized feng shui approach, and it sets up the calculation steps covered next.</span></p>
+<h2><span style="font-weight: 400;">How Do You Accurately Calculate Your Personal Kua Number?</span></h2>
+<p><span style="font-weight: 400;">Calculating a Kua number requires only your birth year and gender, applied through a simple digit-reduction formula. The steps below cover the information needed, separate male and female formulas, calendar adjustments, and common verification checks.</span></p>
+<h3><strong>What information do you need (birth year, gender) to calculate your Kua number?</strong></h3>
+<p><span style="font-weight: 400;">The information needed to calculate your Kua number is your birth year and your gender. The Kua number is calculated based on a person's birth date and gender, since males and females use different formulas on the same birth year. Each person has a Kua number between 1 and 9 based on their year of birth. One nuance matters here: the Chinese Solar calendar runs from February 4th to February 3rd of the following year, so anyone born in early January or February must confirm which solar year they actually fall into before starting the math. Gathering these two data points first prevents miscalculation later.</span></p>
+<h3><strong>How do you calculate a Kua number for males step by step?</strong></h3>
+<p><span style="font-weight: 400;">Calculating a Kua number for males follows a fixed subtraction formula applied to the birth year. The steps are:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Add the last two digits of the birth year together.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Reduce the sum to a single digit by adding its digits again if needed.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Subtract that single digit from 10 to get the Kua number.</span></li>
+</ol>
+<p><span style="font-weight: 400;">For example, a male born in March 1969 adds 6 + 9 = 15, then reduces 1 + 5 = 6, then subtracts 10 - 6 = 4, giving a Kua number of 4. Males born after 2000 subtract the single digit from 9 instead of 10.</span></p>
+<h3><strong>How do you calculate a Kua number for females step by step?</strong></h3>
+<p><span style="font-weight: 400;">Calculating a Kua number for females follows a fixed addition formula applied to the birth year. The steps are:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Add the last two digits of the birth year together.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Reduce the sum to a single digit by adding its digits again if needed.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Add 5 to that single digit, then reduce again if the result is two digits.</span></li>
+</ol>
+<p><span style="font-weight: 400;">For example, a female born in March 1969 adds 6 + 9 = 15, reduces 1 + 5 = 6, adds 6 + 5 = 11, then reduces 1 + 1 = 2, giving a Kua number of 2. Females born after 2000 add 6 instead of 5. Note that a calculated result of 5 is never final; males adjust to 2, and females adjust to 8, since the Kua system excludes 5 entirely.</span></p>
+<h3><strong>How do you correctly adjust your birth year if you were born in January or February?</strong></h3>
+<p><span style="font-weight: 400;">You correctly adjust your birth year by checking the lunar calendar instead of defaulting to the calendar year printed on your birth certificate. The lunar year usually starts around late January and early February, so anyone born in that window may actually belong to the previous lunar year for Kua purposes. Consulting a lunar conversion chart, or the Chinese calendar directly, is the safest way to confirm the correct year before running any formula.</span></p>
+<p><span style="font-weight: 400;">Once the correct lunar year is confirmed, the calculation proceeds the same way: add the last two digits together and reduce to a single digit. For instance, someone born in 1974 adds 7 + 4 = 11, then reduces 1 + 1 = 2, before applying the male or female adjustment. Skipping this lunar check is one of the most common sources of an incorrect Kua number, since a birthday just a few days into February can shift the entire result.</span></p>
+<h3><strong>How can you double-check your Kua number to avoid common calculation mistakes?</strong></h3>
+<p><span style="font-weight: 400;">You can double-check your Kua number by rerunning the formula, verifying your gender-specific step, and confirming your lunar year placement. Three checkpoints catch nearly every error:</span></p>
+<ul>
+<li style="font-weight: 400;">
+<strong>Digit reduction:</strong><span style="font-weight: 400;"> Confirm the last two digits of the birth year were added and reduced to a true single digit before applying the male subtraction or female addition step.</span>
+</li>
+<li style="font-weight: 400;">
+<strong>Gender formula:</strong><span style="font-weight: 400;"> Verify males subtracted from 10 (or 9 if born after 2000) and females added 5 (or 6 if born after 2000), since swapping these formulas is a frequent mistake.</span>
+</li>
+<li style="font-weight: 400;">
+<strong>The number 5 exception:</strong><span style="font-weight: 400;"> Remember that a raw result of 5 is never the final Kua number; it converts to 2 for males and 8 for females.</span>
+</li>
+</ul>
+<p><span style="font-weight: 400;">In practice, the lunar-year boundary trips up more people than the arithmetic itself. Anyone born in late January or early February should treat that lunar check as the first verification step, not an afterthought. With your Kua number confirmed, the next step is understanding what it reveals about your compatible directions.</span></p>
+<h2><strong>How Do Kua Numbers Differ for Men, Women, and Children?</strong></h2>
+<p><span style="font-weight: 400;">Kua numbers differ for men, women, and children primarily through the calculation formula and gender-specific starting values, not through the meaning of the number itself. The following sections cover child calculations, gender-based differences, and couple compatibility.</span></p>
+<h3><strong>How should you calculate a child's Kua number and at what age does it matter most?</strong></h3>
+<p><span style="font-weight: 400;">A child's Kua number is calculated the same way as an adult's, using birth year and gender, with no separate children's formula. Parents add the last two digits of the birth year until reaching a single digit, then apply the male or female adjustment (subtracting from 10 for boys, adding 5 for girls, using the post-2000 variations where relevant). The Kua number applies from birth, since it is fixed by birth year rather than by developmental stage.</span></p>
+<p><span style="font-weight: 400;">In practice, most families find the Kua number becomes useful once a child has their own bedroom, since bed placement and study desk orientation rely on knowing that child's auspicious directions. Applying Kua-based direction guidance to a nursery or shared room offers limited value until the child occupies a defined personal space.</span></p>
+<h3><strong>How do gender differences affect your Kua number and auspicious directions?</strong></h3>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/vertical-modern-house-numbers-wood-garage-wall_cdfacefe-4027-4811-bc71-23d8d54d137e.jpg?v=1786989320" alt="Woman standing beside modern metal address numbers 4402 on a horizontal fence" style="margin-bottom: 16px; float: none;"></div>
+<p><span style="font-weight: 400;">Gender affects your Kua number by determining which formula variable is applied to the birth year, which in turn produces a different number and a different set of auspicious directions for men and women born in the same year. A male and female born in the identical year will typically receive different Kua numbers, because the male formula subtracts from a base number while the female formula adds to one.</span></p>
+<p><span style="font-weight: 400;">Each Kua number, regardless of gender, carries the same four auspicious directions: Sheng Qi for prosperity, Tien Yi for health, Nien Yen for relationships, and Fu Wei for personal growth. Sheng Qi in particular is the direction people in business should tap into to advance wealth acquisition. The directions themselves are not gendered; only the path to arriving at the correct Kua number depends on gender.</span></p>
+<h3><strong>How should couples with different Kua numbers harmonize their feng shui?</strong></h3>
+<p><span style="font-weight: 400;">Couples with different Kua numbers should harmonize their feng shui by prioritizing shared spaces around one partner's directions while reserving personal areas, such as a home office, for the other partner's favorable directions. This conflict is common, since partners rarely share the same East or West group classification.</span></p>
+<p><span style="font-weight: 400;">A practical approach separates spaces by function:</span></p>
+<ul>
+<li style="font-weight: 400;">
+<strong>Main living areas</strong><span style="font-weight: 400;">, such as the living room or kitchen, are typically oriented toward the primary breadwinner's auspicious directions.</span>
+</li>
+<li style="font-weight: 400;">
+<strong>Bedrooms</strong><span style="font-weight: 400;"> can incorporate both partners' Nien Yen relationship direction where layout allows, supporting connection despite differing Kua groups.</span>
+</li>
+<li style="font-weight: 400;">
+<strong>Personal spaces</strong><span style="font-weight: 400;">, such as a home office or reading nook, use the individual's own directions rather than a shared compromise.</span>
+</li>
+</ul>
+<p><span style="font-weight: 400;">It's worth noting that Eight Mansions practitioners themselves disagree on how rigidly to apply this formula; some Hong Kong and Taiwan-based consultants view parts of the Western interpretation as oversimplified. Because of this, treating direction conflicts as one factor among many, rather than a deal-breaker, tends to produce more livable results for couples. A person's personal gua also differs from the gua determined by a full audit of the home itself, so an experienced consultant weighs both when resolving a couple's clashing numbers.</span></p>
+<h2><strong>What Are the Auspicious and Inauspicious Directions for Each Kua Number?</strong></h2>
+<p><span style="font-weight: 400;">Each Kua number carries four auspicious directions and four inauspicious directions, drawn from the Eight Mansions formula. The following sections outline the lucky categories, the unlucky categories, and a fast way to find your personal set once your Kua number is known.</span></p>
+<h3><strong>What are the four lucky directions associated with each Kua number?</strong></h3>
+<p><span style="font-weight: 400;">The four lucky directions associated with each Kua number are Sheng Chi, Tien Yi, Nien Yen, and Fu Wei, though the exact compass point depends on the person's Kua number and trigram. Each Kua number's element shapes these directions. Gua 4 carries yin wood, distinct from Gua 3's yang wood, since yang wood suits tall trees while yin wood suits smaller plants like flowers and houseplants. This elemental identity determines which points support prosperity, health, relationships, and growth. Cultural weight around luck extends beyond direction: </span><a href="https://economics.ubc.ca/wp-content/uploads/sites/38/2013/05/pdf_paper_nicole-fortin-supersitition-housing-market.pdf"><strong>a Vancouver School of Economics analysis</strong></a><span style="font-weight: 400;"> of nearly 117,000 house sales found homes with addresses ending in four sold at a 2.2% discount, since four sounds like the word for death in Chinese.</span></p>
+<h3><strong>What are the four unlucky directions associated with each Kua number?</strong></h3>
+<p><span style="font-weight: 400;">The four unlucky directions associated with each Kua number are Ho Hai, Wu Kwei, Lui Sha, and Chueh Ming, and each one is tied to a distinct kind of negative energy. These four categories break down as follows:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Ho Hai: linked to hardship, setbacks, and general bad luck.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Wu Kwei (Five Ghosts): linked to conflict, gossip, and deceit.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Lui Sha (Six Killings): linked to strained relationships and disputes.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Chueh Ming (Total Loss): the most severe category, linked to major setbacks in career and wealth.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Every Kua number carries all four inauspicious directions, positioned opposite its four lucky directions on the compass. Avoiding these directions for sleeping, sitting, or working is a core practice in Eight Mansions Feng Shui.</span></p>
+<h3><strong>How can you quickly look up or remember your best and worst directions?</strong></h3>
+<p><span style="font-weight: 400;">You can quickly look up your best and worst directions by using a Kua number reference chart pairing each of the nine numbers with its eight compass points. A few habits make this easier to remember:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Keep a saved or printed chart with your Kua number's directions.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Use a compass app to check room orientation in real time.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Remember your East or West group first, then narrow to your exact directions.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Skipping a written reference is the main reason homeowners abandon Kua-based Feng Shui within weeks. Once directions are memorized, applying them room by room becomes straightforward.</span></p>
+<h2><strong>How Can You Use Your Kua Number to Improve Your Home's Feng Shui?</strong></h2>
+<p><span style="font-weight: 400;">You can use your Kua number to improve your home's feng shui by orienting daily activities toward your four auspicious directions. This applies to eating, watching TV, working, meeting, and studying, while sleeping with your head pointed toward one of these directions. The sections below cover entrance alignment, bed placement, desk orientation, and renter-friendly applications.</span></p>
+<h3><strong>How do you align your main entrance with your Kua number for better energy?</strong></h3>
+<p><span style="font-weight: 400;">Aligning your main entrance means orienting your front door, or the direction you face when standing at it, toward one of your four auspicious directions rather than an inauspicious one. Among the four favorable directions, Tien Yi, the health direction, is specifically recommended for improving physical wellbeing, making it a strong choice for households prioritizing health outcomes.</span></p>
+<p><span style="font-weight: 400;">Couples often complicate entrance alignment because partners frequently have different auspicious directions. A Kua Number Compatibility Calculator can determine how compatible two people's directions are and flag where conflicts might arise. When entrances cannot fully satisfy both partners, prioritizing the primary breadwinner's direction for the main entrance while reserving personal spaces for the other partner's favorable direction offers a practical compromise. This layered approach reflects how experienced practitioners actually balance competing Kua profiles in real homes.</span></p>
+<h3><strong>How should you position your bed based on your personal Kua directions?</strong></h3>
+<p><span style="font-weight: 400;">You should position your bed so your head points toward one of your four personal auspicious directions while sleeping. This directional alignment is considered one of the two placements feng shui practitioners weigh most heavily, alongside desk positioning, because bedrooms represent where people spend extended, restorative time.</span></p>
+<p><span style="font-weight: 400;">Your Ming Gua, or Personal Trigram, is based on your year of birth and reveals your best personal directions, giving you the specific compass points to test against your bed's headboard orientation. If the ideal direction is not possible due to room layout, the closest achievable auspicious direction is preferable to defaulting to an inauspicious one. Consistent nightly alignment, rather than occasional adjustment, is what practitioners point to as the difference-maker in noticeable results over time.</span></p>
+<h3><strong>How can you orient your desk and workspace to support focus and success?</strong></h3>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/vertical-house-numbers-white-home-landscaping_e50cbe8d-a432-4bb9-8af0-37547368f060.jpg?v=1786989319" alt="Woman working at a desk in a home office with bookshelves and podcast microphone" style="margin-bottom: 16px; float: none;"></div>
+<p><span style="font-weight: 400;">You can orient your desk by facing one of your Kua number's auspicious directions while seated at your workspace, whether at home or in an office. Facing a favorable direction while working, meeting, or studying is treated with the same priority as mealtime and TV-viewing orientation. If a wall, window, or fixed layout prevents facing an auspicious direction directly, angling the desk as close as possible to that direction, or repositioning the chair rather than the entire desk, can achieve a similar effect without requiring major renovation.</span></p>
+<h3><strong>How can renters or people in shared housing still apply Kua number principles?</strong></h3>
+<p><span style="font-weight: 400;">Renters and people in shared housing can still apply Kua number principles by adjusting furniture placement, bed orientation, and desk direction within existing layouts rather than making structural changes. Since renters typically cannot repaint, alter walls, or renovate, working with movable elements, beds, desks, chairs, and small furnishings, remains the most accessible way to align with personal auspicious directions.</span></p>
+<p><span style="font-weight: 400;">Shared housing adds another layer of complexity when roommates or family members belong to different Kua groups. In these situations, prioritizing auspicious alignment in private, personal spaces such as one's own bedroom or desk area, while treating shared common areas more neutrally, allows each person to benefit individually without requiring agreement on a single directional scheme. Small, thoughtful entryway details, such as well-placed house numbers or plaques that clearly define the entrance, support this same principle of working within what already exists rather than against it.</span></p>
+<h2><strong>How Can Your Kua Number Guide the Feng Shui of Your Home's Exterior?</strong></h2>
+<p><span style="font-weight: 400;">Your Kua number extends beyond the interior of your home, shaping how you approach pathways, landscaping, and curb appeal. The exterior acts as the first filter for chi entering your property, so aligning it with your auspicious directions reinforces the energy you invite indoors. The following sections cover walkway placement, outdoor lighting, and overall exterior energy flow.</span></p>
+<h3><strong>How do you position pathways, walkways, and steps based on auspicious directions?</strong></h3>
+<p><span style="font-weight: 400;">Pathways, walkways, and steps should guide chi toward your home's entrance from one of your four auspicious directions rather than from an inauspicious one. A curved or gently winding path slows and distributes energy more evenly than a straight, direct line, which can send chi rushing too quickly into the home. Steps leading to the entrance benefit from even numbers and solid, uncracked surfaces, since damaged walkways are believed to disrupt the smooth flow of energy toward the front door. If your existing layout channels movement from a Jueh Ming, or Total Loss, direction, consider redirecting foot traffic with plantings or a curved extension rather than rebuilding the entire path.</span></p>
+<h3><strong>How can landscaping and outdoor lighting support your Kua number?</strong></h3>
+<p><span style="font-weight: 400;">Landscaping and outdoor lighting support your Kua number by reinforcing your auspicious directions with healthy plant life and consistent illumination, while avoiding harsh or blocked features along inauspicious ones. Well-placed lighting activates chi after dark, particularly along the direction associated with your Sheng Qi, or Prosperity, orientation, and overgrown or dying plants along any auspicious direction should be trimmed or replaced. Landscaping choices, such as rounded shrubs, layered greenery, or a mix of flowering and structural plants, work best when they feel balanced rather than cluttered. Outdoor lighting fixtures placed near the entrance also help define the space clearly, echoing the same clutter-free, well-lit principles recommended for renters defining an entryway.</span></p>
+<h3><strong>How should you think about your curb appeal in relation to feng shui energy flow?</strong></h3>
+<p><span style="font-weight: 400;">Curb appeal in relation to feng shui energy flow should be treated as a reflection of how smoothly chi can travel from the street to your front door. A cluttered, poorly lit, or visually chaotic exterior interrupts that flow regardless of how carefully the interior has been arranged. According to Architectural Digest's coverage of feng shui in real estate, buyers increasingly weigh feng shui-informed exterior presentation when evaluating a property, underscoring that curb appeal and energy flow are now recognized together in the housing market, not treated as separate concerns.</span></p>
+<p><span style="font-weight: 400;">Feng shui experts caution against over-focusing on furniture or trinkets, noting that the practice concerns intentional space design rather than decoration alone. Modern House Numbers hand-crafts custom address numbers and plaques designed to complement this approach: since exterior signage sits directly along the entrance's energy path, a clean, well-proportioned number display avoids clutter while reinforcing a polished, harmonious approach to the front door.</span></p>
+<p><span style="font-weight: 400;">It's worth noting that meaningful exterior feng shui improvements rarely require large renovations; small, well-placed updates, such as a clear address marker or a properly lit path, often make the most practical difference.</span></p>
+<h2><strong>How Does Your Kua Number Influence Wealth, Health, Love, and Career Areas?</strong></h2>
+<p><span style="font-weight: 400;">Your Kua number assigns a specific auspicious direction to each major life area: wealth, health, love, and career. The four directions covered below are:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Sheng Qi for wealth and financial opportunities</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Tien Yi for health and well-being</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Nien Yen for relationships and love</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Fu Wei for career growth and personal development</span></li>
+</ol>
+<h3><strong>Which Kua directions support wealth and financial opportunities?</strong></h3>
+<p><span style="font-weight: 400;">The Kua direction that supports wealth and financial opportunities is Sheng Qi, the Prosperity direction unique to each Kua number. According to Dr. Michael Oon's Eight Mansions Feng Shui Formula, Sheng Qi governs prosperity, good fortune, and success, making it the direction business owners should tap into to advance wealth acquisition. Facing this direction while working, meeting clients, or managing finances is the most direct way to activate its energy. Orienting a desk so you face Sheng Qi, rather than sitting with your back to it, reinforces the effect over time. Home-based business owners benefit most from prioritizing this direction in their office layout.</span></p>
+<h3><strong>Which Kua directions best support health and well-being?</strong></h3>
+<p><span style="font-weight: 400;">The Kua direction that best supports health and well-being is Tien Yi, the direction Feng Shui designates for improving physical health. Tien Yi is one of the four auspicious directions calculated from a person's Kua number, alongside Sheng Qi, Nien Yen, and Fu Wei. Facing Tien Yi during rest, meals, and quiet activities is thought to support recovery and reduce fatigue. For most homeowners, aligning a favorite reading chair or dining seat toward this direction offers a simple, low-cost way to apply the principle without redesigning a room. Because health directions are considered especially important for anyone managing chronic stress or recovering from illness, this direction often takes priority over decorative concerns in a bedroom or living area.</span></p>
+<h3><strong>How can you use Kua directions to support relationships and love?</strong></h3>
+<p><span style="font-weight: 400;">You can use Kua directions to support relationships and love by facing Nien Yen, the relationship direction tied to your personal Kua number. Nien Yen is designated in Feng Shui as the direction for those seeking a new relationship or strengthening an existing one. Couples can apply this by orienting a shared sofa, dining table, or bed toward Nien Yen, since spending time facing this direction together is believed to nurture connection and reduce tension. Because Nien Yen changes with each person's Kua number, a couple's ideal direction is a personal calculation rather than a fixed compass point. Prioritizing this direction in the bedroom often yields the most noticeable results, since couples spend the most uninterrupted time there.</span></p>
+<h3><strong>How can you optimize your home office layout with Kua directions for career growth?</strong></h3>
+<p><span style="font-weight: 400;">You can optimize your home office layout with Kua directions for career growth by positioning your desk to face Fu Wei, the personal growth direction assigned to your Kua number. Fu Wei governs personal development and steady advancement, making it well-suited to a desk or office chair. Facing this direction while working supports focus and long-term career progress. Pairing this orientation with a decluttered desk reinforces the effect, since a cluttered surface is treated as a barrier to clear thinking. This makes Fu Wei placement one of the most practical, low-cost adjustments for remote workers. These same directional principles carry over into apartments and rented spaces.</span></p>
+<h2><strong>How Can You Apply Kua Number Feng Shui in Apartments, Condos, and Rentals?</strong></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/contemporary-home-vertical-house-numbers-facade_92d46d70-17b3-47dc-80d8-598157e2eea9.png?v=1786989321" alt="Multi-unit modern townhomes with vertical address numbers and illuminated windows at dusk" style="margin-bottom: 16px; float: none;"></div>
+<p><span style="font-weight: 400;">Kua number feng shui works in apartments, condos, and rentals by adjusting furniture and small decor items rather than the structure itself. Renters can still align sleeping, working, and entry areas to their personal Kua directions through the methods below.</span></p>
+<h3><strong>How do you find the facing direction and center point in a small space?</strong></h3>
+<p><span style="font-weight: 400;">Finding the facing direction and center point in a small space starts with clearly defining the entry, even when walls or hallways blur one room into the next. Small living spaces often lack clear separation between zones such as sleeping, working, and dining areas, and this ambiguity disrupts how chi moves through the home. Marking the entry with a rug, a piece of furniture, or a visual cue creates a defined boundary that helps energy flow properly, even in a studio or one-room rental.</span></p>
+<p><span style="font-weight: 400;">Some renters also turn to bagua mirrors, small octagonal mirrors believed to deflect negative energy away from the entrance. These are optional. If a bagua mirror does not resonate with you, skip it; if it does, it can be a simple, non-permanent addition worth trying.</span></p>
+<h3><strong>How can you use furniture placement to compensate for a less ideal entrance?</strong></h3>
+<p><span style="font-weight: 400;">Furniture placement compensates for a less ideal entrance by redirecting attention and energy away from awkward sightlines. According to Dr. Michael Oon, individuals should try to face their auspicious Kua directions while eating, working, or studying, which means orienting a desk, dining chair, or reading nook toward one of their four good directions even when the entrance itself cannot be moved.</span></p>
+<p><span style="font-weight: 400;">In a rental, this often means angling a couch, positioning a chair diagonally from the door, or using a bookshelf to soften a direct line between the entrance and a window. These adjustments do not require permission from a landlord, yet they still shift how occupants experience and interact with the space's energy flow.</span></p>
+<h3><strong>What temporary or renter-friendly feng shui changes work with Kua numbers?</strong></h3>
+<p><span style="font-weight: 400;">Temporary and renter-friendly feng shui changes that work with Kua numbers include mirrors, decluttering, lighting, and portable partitions rather than any structural work. Renters typically face restrictions such as no painting, no wall modifications, and limited decor freedom, yet there are many ways to work within those limits, such as strategic mirror placement, consistent lighting, movable screens, and keeping the space clutter-free.</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Place a mirror opposite the front door if it faces a blank wall, adding a sense of depth and openness.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Use a folding screen or tall plant to soften an entrance that opens directly onto a bathroom or bedroom.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Keep pathways and entryways clear of clutter so chi can circulate toward your auspicious directions.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Add warm, layered lighting to compensate for a lack of natural light in shared or small units.</span></li>
+</ul>
+<p><span style="font-weight: 400;">One feng shui practitioner shared a personal example: her Greek home's front door opens through a hallway directly facing the toilet, an unchangeable layout. Her solution was simple: keep the bathroom door closed and continue applying feng shui principles elsewhere in the home. As she put it, "In all of my years of working on this journey and working with Feng Shui I have never told anyone to move house. We can rebalance and harmonize every home and every house type no matter what's going on."</span></p>
+<p><span style="font-weight: 400;">This is the core lesson for renters: no floor plan is a lost cause. Even at Modern House Numbers, we see this same philosophy reflected in how homeowners approach their entry; small, intentional details at the threshold, such as a well-placed address plaque, can reinforce a sense of order and welcome that supports the energy of the whole home.</span></p>
+<h2><strong>What Are Common Myths and Mistakes About Kua Numbers and Feng Shui?</strong></h2>
+<p><span style="font-weight: 400;">The most common myths and mistakes about Kua numbers involve calculation errors, oversimplified direction advice, and treating a single number as the whole feng shui picture. The sections below cover calculation slip-ups, direction misinterpretations, and situations calling for broader guidance.</span></p>
+<h3><strong>What are the most frequent calculation errors people make with Kua numbers?</strong></h3>
+<p><span style="font-weight: 400;">The most frequent calculation errors with Kua numbers involve forgetting gender-specific formulas, misreading birth years, and mishandling the number 5. Many people apply the male formula (subtracting from 10) to a female birth year, or vice versa, producing an entirely wrong result. Others forget that anyone born in late January or early February needs to check the lunar calendar year rather than the standard calendar year before running the calculation. A particularly common mistake involves the number 5 itself. Since the Kua system runs only from 1 to 9 excluding 5, a calculated result of 5 must be reassigned to 2 for males or 8 for females. Skipping this final adjustment leaves a person with a Kua number that does not actually exist in the system, which throws off every direction recommendation that follows.</span></p>
+<h3><strong>How do people often misinterpret or over-simplify Kua directions?</strong></h3>
+<p><span style="font-weight: 400;">People often misinterpret Kua directions by assuming one favorable direction applies to every room and every activity in the same way. In reality, each Kua number carries four distinct auspicious directions, such as Sheng Qi for prosperity, Tien Yi for health, Nien Yen for relationships, and Fu Wei for personal growth, each suited to a different purpose. Treating these as interchangeable, or picking whichever one is easiest to apply to a floor plan, oversimplifies the formula. A related error involves confusing personal Kua directions with a home's own energy map. As Dr. Michael Oon of Eight Mansions Feng Shui notes, a person's personal gua from birth-year calculations differs from the trigram assigned during a feng shui audit of the residence itself, since a house holds its own energy configuration separate from the occupant's personal aura. Beginners often skip this distinction and assume the birth-year number governs the entire home equally, which misses how the two systems actually interact.</span></p>
+<h3><strong>When should you not rely only on your Kua number for feng shui decisions?</strong></h3>
+<p><span style="font-weight: 400;">You should not rely only on your Kua number when a decision involves a home's structural layout, market perception, or a household with multiple residents. Kua numbers describe personal energy, not the layout constraints of an actual house, so structural decisions still need a broader feng shui assessment. Even skeptics of the formula acknowledge that other factors carry real weight in property markets: a 2015 BHGRE &amp; AREAA survey found that 79% of respondents would pay more for feng shui-compliant homes and 86% believed feng shui would shape future buying decisions, according to Architectural Digest's coverage of the 2010 New York Times report on Manhattan buyers. Numbers alone rarely capture that full market and design context.</span></p>
+<p><span style="font-weight: 400;">In practice, over-indexing on a single formula is one of the more common mistakes among beginners. A well-rounded feng shui approach treats the Kua number as one input among several, not a standalone rulebook.</span></p>
+<h2><strong>How Can You Combine Kua Number Feng Shui With Modern, Minimal Design?</strong></h2>
+<p><span style="font-weight: 400;">Kua number feng shui pairs with modern, minimal design by translating compass directions and elements into architecture rather than decor. Feng shui itself has always been architectural at its root: as early as 4000 BC at Banpo, doors aligned with the asterism Yingshi after the winter solstice to capture solar gain, and by 3000 BC in Hanshan, jade artifacts carried cosmography resembling today's feng shui devices. The sections below cover clutter-free application, material choices, and balancing intuition with tradition.</span></p>
+<h3><strong>How can you use your Kua number without cluttering your home with objects?</strong></h3>
+<p><span style="font-weight: 400;">You can use your Kua number without cluttering your home by orienting existing furniture, doors, and sightlines to your auspicious directions instead of adding decorative objects. Kua-based feng shui is fundamentally directional, not object-based; it works through where you place a bed, desk, or seating, not through how many items fill a room.</span></p>
+<p><span style="font-weight: 400;">Minimalist homeowners benefit here, since the practice requires zero extra decor. One caution: if your Kua calculation results in 5, your working number is actually 2 for males or 8 for females, since the system runs 1 through 9 without a 5. Getting this number wrong shifts every direction that follows, including which compass zone becomes your Six Sha (Liu Shar) direction, a Water-element zone linked to relationship strain, legal disputes, and physical harm. A clean, minimal room still needs the correct number before orientation means anything.</span></p>
+<h3><strong>How do color, material, and form choices support both feng shui and modern aesthetics?</strong></h3>
+<p><span style="font-weight: 400;">Color, material, and form choices support both feng shui and modern aesthetics by expressing the five elements through architectural finishes rather than ornamentation. Minimal design already favors clean materials like aluminum, stone, wood, and glass, each of which maps naturally onto Wood, Metal, Earth, and Water energies without adding visual clutter.</span></p>
+<p><span style="font-weight: 400;">This elemental approach traces back to the Eight Mansions (Ba Zhai) formula, first published in English by Lillian Too in the 1990s and based on an 18th-century Qing Dynasty text from the Chien Lin period, hand-copied from a Southern Chinese feng shui practitioner's original volume. That formula ties personal Kua numbers to elemental preferences, meaning a homeowner's material palette, matte black metal, warm wood tones, or cool stone, can be selected to reinforce their personal element rather than clash with it.</span></p>
+<p><span style="font-weight: 400;">In practice, this makes feng shui compatible with restraint: a single well-placed material choice often carries more elemental weight than several decorative accents combined.</span></p>
+<h3><strong>How can design-conscious homeowners balance intuitive design with traditional feng shui rules?</strong></h3>
+<p><span style="font-weight: 400;">Design-conscious homeowners balance intuitive design with traditional feng shui rules by treating the rules as structural guidelines, similar to how architects historically used codified manuals. During the Zhou era, the </span><em><span style="font-weight: 400;">Kaogong ji</span></em><span style="font-weight: 400;"> ("Manual of Crafts") codified feng shui rules for capital cities, while the </span><em><span style="font-weight: 400;">Lu ban jing</span></em><span style="font-weight: 400;"> did the same for individual builders, showing that feng shui and formal design standards have always coexisted.</span></p>
+<p><span style="font-weight: 400;">Tools evolved alongside these rules: Liuren astrolabes, dated between 278 and 209 BC, are the earliest known feng shui devices recovered from tombs, and the magnetic compass has been used in the practice since its invention. This history suggests feng shui was never meant to override design, it was meant to work through it, using available tools and standards of its era. Applying that same logic today means letting a home's clean lines and open layout carry the Kua directions, rather than forcing traditional symbols into a minimal space.</span></p>
+<p><span style="font-weight: 400;">A well-placed, architect-designed house number at the entry can anchor this balance, marking auspicious energy at the threshold without disrupting a minimal facade.</span></p>
+<h2><span style="font-weight: 400;">How Should You Approach Kua Number Feng Shui When Updating House Numbers and Exterior Signage?</span></h2>
+<p><span style="font-weight: 400;">Updating house numbers and exterior signage calls for balancing Kua-based direction principles with practical entryway design. This means evaluating your entrance's facing direction, choosing legible and well-placed numerals, and avoiding over-reliance on numerology alone. The following sections cover handcrafted plaques for entry feng shui and key takeaways for applying Kua numbers effectively.</span></p>
+<h3><strong>How can handcrafted modern house numbers and plaques support good feng shui at your entry?</strong></h3>
+<p><span style="font-weight: 400;">Handcrafted modern house numbers and plaques support good feng shui by defining the entryway clearly, keeping it clutter-free, and ensuring the numbers are well-lit and easy to read. A defined, intentional entrance is a core feng shui principle: it signals to visitors (and to the flow of chi) exactly where the threshold begins. Feng shui guidance for entryways includes several practical elements that apply directly to exterior signage decisions, such as:</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Defining the entryway clearly with a distinct plaque or number placement</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Keeping the space around the entry clutter-free</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Using mirrors strategically near the door if it faces an obstruction</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Ensuring proper lighting so the address is visible day and night</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Adding screens or partitions before the main door when needed for privacy</span></li>
+</ul>
+<p><span style="font-weight: 400;">In practical terms, a solid aluminum plaque with concealed hardware achieves this cleanly, since it avoids visual clutter and maintains the crisp lines feng shui favors. This is a smart pairing: modern, minimal design supports the "clutter-free, well-lit" feng shui checklist almost by default, since simplified forms reduce visual noise at the threshold. Homeowners updating signage can treat the entry as a single design moment rather than an afterthought.</span></p>
+<h3><strong>What are the key takeaways about how to calculate your Kua number and use it for better feng shui?</strong></h3>
+<p><span style="font-weight: 400;">The key takeaways are that Kua numbers are calculated from birth year and gender, sorted into East and West groups, and applied to orient entrances, beds, and workspaces toward auspicious directions. Feng shui carries real weight in home-buying decisions. According to a national survey by Better Homes and Gardens Real Estate and the Asian Real Estate Association of America (AREAA), feng shui factors meaningfully into how Chinese-American buyers evaluate and purchase homes.</span></p>
+<p><span style="font-weight: 400;">Beyond the numbers, three practical conclusions matter most:</span></p>
+<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Kua calculations give a starting orientation, not a rigid rulebook.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Entry design, lighting, and clutter control reinforce whatever direction strategy you choose.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Numerology should inform, not override, sound architectural judgment.</span></li>
+</ol>
+<p><span style="font-weight: 400;">For homeowners applying this to house numbers specifically, pairing a correctly oriented entrance with a clean, handcrafted number display gives both symbolic and design benefits.</span></p>
+    </div>
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_rick.png"
+                        
+                         alt="Picture of the Author"
+                         class="mx-auto lazyload object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">rick mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Rick is a licensed architect at Repp McLain Design & Construction. He holds a Bachelor of Architecture from the University of Arizona and an MS from the Department of Architecture at the Massachusetts Institute of Technology (MIT). When he’s not designing and fabricating he enjoys spending time with Brandy, Jack, Avery & Taylor and restoring his grandfather’s Ford pickup truck. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Rick on the <a itemprop="url"  href="https://reppmclain.com/read-me" title="Rick's Bio" target="_blank">Repp McLain Website</a>, on <a href="https://www.linkedin.com/in/rickmclain" title="Rick's LinkedIn Profile" target="_blank">LinkedIn</a>, at the <a href="https://www.aia.org/resources/138081-leadership" title="AIA Profile Page" target="_blank">AIA Website</a>, or on <a href="https://www.facebook.com/reppmclain" title="The Repp McLain Facebook Page" target="_blank">Facebook</a>.
+                    </p>
+                
+                </div>
+            </div>
+<div class="my-4 text-center">
+    <div class="text-sm font-semibold uppercase">You may also be interested in:</div>
+
+    <div class="flex flex-wrap justify-center">
+
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/rush-signs-vs-standard-production"><img src="https://www.modernhousenumbers.com/cdn/shop/articles/rush-vs-standard-house-number-production-modern-home.jpg?crop=center&height=600&v=1792674643&width=600"
+                                     class="lazyload object-contain animated pb-4"  data-scroll="in"
+                                     alt="When Do You Need Rush Signs vs. Standard Production? A Decision Guide"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">10.22.26</div>
+        
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+            
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/rush-signs-vs-standard-production">When Do You Need Rush Signs vs. Standard Production? A Decision Guide</a></h3>
+    <div class="text-sm">
+
+        
+
+        
+            <p>Rush production is an expedited manufacturing service that compresses a factory's normal fabrication schedule, while standard production follows the regular made-to-order queue at no added cost. The choice between them hinges on deadlines, design complexity, permitting, and budget, and getting it wrong either wastes money on unnecessary fees or leaves a property without signage on a critical date. This guide...</p>
+        
+
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/rush-signs-vs-standard-production"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+
+                
+            
+        
+    
+        
+            
+            
+
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/modern-wayfinding-signage-trends"><img src="https://www.modernhousenumbers.com/cdn/shop/articles/minimalist-wayfinding-signage-typography-design.jpg?crop=center&height=600&v=1792525841&width=600"
+                                     class="lazyload object-contain animated pb-4"  data-scroll="in"
+                                     alt="Modern Wayfinding Signage Trends &amp; Ideas for 2026"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">10.18.26</div>
+        
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+            
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+
+                
+            
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/modern-wayfinding-signage-trends">Modern Wayfinding Signage Trends & Ideas for 2026</a></h3>
+    <div class="text-sm">
+
+        
+
+        
+            <p>Modern wayfinding signage is the system of signs, maps, and visual cues, built from strategic typography, color, and materials, that guides people through physical spaces while reinforcing brand identity. In 2026, this discipline sits at the intersection of design psychology, accessibility law, and rapidly advancing display technology, with the signage market growing steadily as digital and interactive solutions expand. This...</p>
+        
+
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/modern-wayfinding-signage-trends"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+
+                
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+        
+            
+            
+        
+    
+
+
+    </div>
+
+</div>
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+  </article>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/collaborate">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenum/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/pro/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
