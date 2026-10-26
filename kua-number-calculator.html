@@ -2,7 +2,8 @@
 <!--
   KUA NUMBER CALCULATOR, on a copy of the Modern House Numbers blog post
   Static replica of https://www.modernhousenumbers.com/blogs/news/how-to-calculate-your-kua-number-and-use-it-for-better-feng-shui
-  with the compact Kua number calculator in the first fold, under the H1 and above the featured photo.
+  with the compact Kua number calculator and its formulas after the opening paragraph of the first H2,
+  "What Is a Kua Number in Feng Shui and Why Does It Matter?".
   Served at /kua-number-calculator (cleanUrls in vercel.json).
 
   Article copy, author box and related posts are copied from the live post on 2026-10-26.
@@ -164,7 +165,17 @@ img{max-width:100%;display:block}
   </div>
   <article itemscope itemtype="https://schema.org/BlogPosting">
     <h1 class="post-h1" itemprop="name">How to Calculate Your Kua Number and Use It for Better Feng Shui</h1>
-
+    <div class="shopifycontent blog" itemprop="articleBody">
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/modern-white-black-home-house-number-27.jpg?v=1786989321" alt="Modern hillside home with large white house numbers mounted near the garage entrance at dusk" style="margin-bottom: 16px; float: none;"></div>
+<p><span style="font-weight: 400;">A Kua number is a personal energy value between 1 and 9 that Eight Mansions feng shui assigns to each person based on birth year and gender, determining which compass directions support their luck, health, and relationships. Also known as the Ming Gua or life gua, this number splits everyone into an East Group or West Group and pairs each person with four auspicious and four inauspicious directions.</span></p>
+<p><span style="font-weight: 400;">This guide covers what a Kua number means and how it connects to the five elements and bagua trigrams, the exact calculation formulas for men, women, and children, the auspicious and inauspicious directions tied to each number, and how to apply those directions indoors, outdoors, and in rentals. It also addresses common myths, wealth and career applications, and how Kua principles pair with modern minimal design and entryway signage.</span></p>
+<p><span style="font-weight: 400;">Understanding your Kua number starts with its role in personal energy: each number maps to a trigram, an element, and a set of directions that either strengthen or drain your chi. East Group numbers (1, 3, 4, 9) and West Group numbers (2, 6, 7, 8) favor opposite sets of compass points, and this classification traces back to the ancient bagua system of eight trigrams.</span></p>
+<p><span style="font-weight: 400;">Calculating your own number requires only your birth year and gender, run through a simple digit-reduction formula, with a lunar calendar check for anyone born in January or February. Men subtract from 10, women add 5, and any result of 5 gets reassigned since the system excludes that number entirely.</span></p>
+<p><span style="font-weight: 400;">Once calculated, your Kua number reveals four lucky directions, Sheng Qi, Tien Yi, Nien Yen, and Fu Wei, tied respectively to wealth, health, relationships, and personal growth, alongside four unlucky directions to avoid for sleeping, sitting, or working.</span></p>
+<p><span style="font-weight: 400;">Applying these directions extends from your entrance, bed, and desk indoors to pathways, landscaping, and curb appeal outdoors, with adaptable strategies for renters and shared housing who cannot make structural changes.</span></p>
+<p><span style="font-weight: 400;">Finally, we separate common myths from practical guidance, showing how Kua principles integrate with modern minimal design and thoughtful exterior details, including handcrafted house numbers that reinforce a clear, well-defined entry.</span></p>
+<h2><span style="font-weight: 400;">What Is a Kua Number in Feng Shui and Why Does It Matter?</span></h2>
+<p><span style="font-weight: 400;">A Kua number is a personal energy value between 1 and 9 that Eight Mansions feng shui assigns to each individual based on birth year and gender. It determines which compass directions support your luck, health, and relationships. The sections below cover how this number shapes personal energy and how it splits into East and West groups tied to the five elements.</span></p>
 <!-- Kua Number Calculator, compact v1.0 (2026-10-26) for modernhousenumbers.com.
      Paste this whole block where the calculator should appear, or render it from a theme snippet.
      If the post contains <div id="mhn-kua-slot"></div>, the calculator moves itself into that spot.
@@ -219,6 +230,11 @@ img{max-width:100%;display:block}
 #mhn-kua-mini .mk-line .mk-k{display:inline;margin:0 6px 0 0;font-size:12px}
 #mhn-kua-mini .mk-math{font-size:13px;color:var(--k-mute)}
 #mhn-kua-mini .mk-note{padding:8px 10px;border-radius:2px;background:var(--k-sky);font-size:14px}
+#mhn-kua-mini .mk-how{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--k-line)}
+#mhn-kua-mini .mk-how summary{display:list-item;cursor:pointer;font-family:var(--k-label);font-size:12px;font-weight:700;letter-spacing:.08em;line-height:1.4;text-transform:uppercase;color:var(--k-ink)}
+#mhn-kua-mini .mk-how summary:focus-visible{outline:2px solid var(--k-accent)!important;outline-offset:2px}
+#mhn-kua-mini .mk-how ul{margin:8px 0 0;padding:0 0 0 18px;list-style:disc;font-size:14px;line-height:1.5}
+#mhn-kua-mini .mk-how li{margin:0 0 4px;padding:0}
 #mhn-kua-mini .mk-privacy{margin:12px 0 0;font-size:12px;color:var(--k-mute)}
 @media (max-width:560px){
   #mhn-kua-mini{padding:16px}
@@ -231,7 +247,7 @@ img{max-width:100%;display:block}
   #mhn-kua-mini .mk-dob .mk-field:first-child{grid-column:1/-1}
 }
 </style>
-<h2 class="mk-title">Kua Number Calculator</h2>
+<h3 class="mk-title">Kua Number Calculator</h3>
 <p class="mk-lede">Enter your birth date and gender. The calculator runs the steps below for you, including the early-February cutoff.</p>
 <form class="mk-form" hidden novalidate>
   <fieldset>
@@ -256,7 +272,15 @@ img{max-width:100%;display:block}
 </form>
 <p class="mk-sr" aria-live="polite" data-mk-live></p>
 <div class="mk-result" hidden></div>
-<p class="mk-privacy">Your birth date stays on your device. It is never sent or saved.</p>
+<details class="mk-how">
+  <summary>How this is calculated</summary>
+  <ul>
+    <li>Your birth date sets the feng shui year, which starts at Li Chun (February 3, 4 or 5). January and early-February birthdays count toward the year before.</li>
+    <li>The last two digits of that year are added down to one digit, then the men's or women's rule turns it into a Kua number from 1 to 9. A 5 becomes 2 for men and 8 for women.</li>
+    <li>Each number maps to its East or West group and its four best and four worst Eight Mansions directions. Li Chun dates come from the Hong Kong Observatory, 1920 to 2030.</li>
+  </ul>
+</details>
+<p class="mk-privacy">Based on the Eight Mansions (Ba Zhai) formula. Your birth date stays on your device and is never sent or saved.</p>
 <script>
 (function () {
   'use strict';
@@ -452,18 +476,15 @@ img{max-width:100%;display:block}
 })();
 </script>
 </div>
+<p>Here are the Kua number formulas the calculator runs:</p>
+<ul>
+<li><strong>Feng Shui Year = Birth Year, or Birth Year − 1 if Born Before Li Chun (February 3, 4 or 5)</strong><br><strong>Example:</strong> A February 1, 1990 birthday uses 1989, because the 1990 feng shui year began on February 4, 1990.</li>
+<li><strong>Year Digit = Last Two Digits of the Feng Shui Year, Added Until One Digit Remains</strong><br><strong>Example:</strong> 1969 gives 6 + 9 = 15, then 1 + 5 = 6.</li>
+<li><strong>Male Kua = 10 − Year Digit (9 − Year Digit for 2000 or Later)</strong><br><strong>Example:</strong> 1969 gives 10 − 6 = 4. For 2009, 9 − 9 = 0, which counts as 9.</li>
+<li><strong>Female Kua = 5 + Year Digit (6 + Year Digit for 2000 or Later), Reduced to One Digit</strong><br><strong>Example:</strong> 1969 gives 5 + 6 = 11, then 1 + 1 = 2.</li>
+<li><strong>Kua 5 Rule = Kua 2 for Men, Kua 8 for Women</strong><br><strong>Example:</strong> A man born in 1986 gets 8 + 6 = 14, then 1 + 4 = 5, and 10 − 5 = 5, so his Kua number is 2.</li>
+</ul>
 
-    <div class="shopifycontent blog" itemprop="articleBody">
-<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/modern-white-black-home-house-number-27.jpg?v=1786989321" alt="Modern hillside home with large white house numbers mounted near the garage entrance at dusk" style="margin-bottom: 16px; float: none;"></div>
-<p><span style="font-weight: 400;">A Kua number is a personal energy value between 1 and 9 that Eight Mansions feng shui assigns to each person based on birth year and gender, determining which compass directions support their luck, health, and relationships. Also known as the Ming Gua or life gua, this number splits everyone into an East Group or West Group and pairs each person with four auspicious and four inauspicious directions.</span></p>
-<p><span style="font-weight: 400;">This guide covers what a Kua number means and how it connects to the five elements and bagua trigrams, the exact calculation formulas for men, women, and children, the auspicious and inauspicious directions tied to each number, and how to apply those directions indoors, outdoors, and in rentals. It also addresses common myths, wealth and career applications, and how Kua principles pair with modern minimal design and entryway signage.</span></p>
-<p><span style="font-weight: 400;">Understanding your Kua number starts with its role in personal energy: each number maps to a trigram, an element, and a set of directions that either strengthen or drain your chi. East Group numbers (1, 3, 4, 9) and West Group numbers (2, 6, 7, 8) favor opposite sets of compass points, and this classification traces back to the ancient bagua system of eight trigrams.</span></p>
-<p><span style="font-weight: 400;">Calculating your own number requires only your birth year and gender, run through a simple digit-reduction formula, with a lunar calendar check for anyone born in January or February. Men subtract from 10, women add 5, and any result of 5 gets reassigned since the system excludes that number entirely.</span></p>
-<p><span style="font-weight: 400;">Once calculated, your Kua number reveals four lucky directions, Sheng Qi, Tien Yi, Nien Yen, and Fu Wei, tied respectively to wealth, health, relationships, and personal growth, alongside four unlucky directions to avoid for sleeping, sitting, or working.</span></p>
-<p><span style="font-weight: 400;">Applying these directions extends from your entrance, bed, and desk indoors to pathways, landscaping, and curb appeal outdoors, with adaptable strategies for renters and shared housing who cannot make structural changes.</span></p>
-<p><span style="font-weight: 400;">Finally, we separate common myths from practical guidance, showing how Kua principles integrate with modern minimal design and thoughtful exterior details, including handcrafted house numbers that reinforce a clear, well-defined entry.</span></p>
-<h2><span style="font-weight: 400;">What Is a Kua Number in Feng Shui and Why Does It Matter?</span></h2>
-<p><span style="font-weight: 400;">A Kua number is a personal energy value between 1 and 9 that Eight Mansions feng shui assigns to each individual based on birth year and gender. It determines which compass directions support your luck, health, and relationships. The sections below cover how this number shapes personal energy and how it splits into East and West groups tied to the five elements.</span></p>
 <h3><strong>How does your Kua number relate to personal energy and luck in feng shui?</strong></h3>
 <p><span style="font-weight: 400;">A Kua number relates to personal energy and luck by mapping an individual's birth data to a specific trigram, element, and set of compass directions that either support or drain their chi. This personal number is more formally known as the Ming Gua (命卦), or life gua, and is sometimes called the life star. According to 8Mansions.com, a person's gua number can be found through a simple equation or a reference table, and it differs from the energy map calculated for a house during a feng shui audit, since a residence carries its own energy separate from a person's aura.</span></p>
 <p><span style="font-weight: 400;">Each Kua number carries four favorable and four unfavorable directions. The unfavorable ones are not neutral: the Wu Gui (Five Ghosts) direction carries Fire energy linked to gossip and backstabbing, while the Huo Hai (Mishap) direction carries Earth chi tied to hardship and obstacles. Consistently facing your best directions, rather than your worst, is the practical foundation the entire system is built on.</span></p>
