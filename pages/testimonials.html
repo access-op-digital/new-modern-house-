@@ -49,7 +49,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Mulish:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;600;700&family=Mulish:wght@300;400;600;700&display=swap">
 
 <style>
 /* ============ MHN brand tokens, lifted from index.html ============ */
@@ -69,31 +69,31 @@
   --body:       "Mulish", Helvetica, Arial, sans-serif;
 }
 
-/* reference-page scale and shapes, MHN colours */
+/* Layout follows the reference page; look and feel follows the live
+   modernhousenumbers.com: thin Barlow headings, Muli body, square corners,
+   #f0f0f0 and #393838 bands, orange pill buttons, uppercase tracked labels. */
 :root{
   --star:#f36a10;
-  --tint:#f7f6f4;
-  --card-line:#e4e2df;
-  --muted-on-dark:#d9d7d4;
-  --accent-on-dark:#f7a368;
-  --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:5rem;
-  --content-width:1240px;
-  --text-md:1.0625rem;
-  --text-2xl:clamp(1.75rem,1.3rem + 1.8vw,2.5rem);
-  --text-3xl:clamp(2.25rem,1.5rem + 3vw,3.375rem);
-  --radius-sm:12px;
+  --band:#f0f0f0;
+  --charcoal:#393838;
+  --hair:#dcdbdb;
+  --on-dark:#f0f0f0;
+  --on-dark-soft:#bdbcbc;
+  --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4.5rem;
+  --content-width:1180px;
+  --track:.12em;
 }
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--body);font-size:16px;line-height:1.6;color:var(--ink);
-  background:var(--tint);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--body);font-size:16px;font-weight:400;line-height:1.5;color:var(--ink);
+  background:#fff;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--ink)}
 .site-header a,.site-footer a,.crumbs a{text-decoration:none}
 .crumbs a:hover{text-decoration:underline}
 p{margin:0}
-h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text-wrap:balance}
+h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.2;font-weight:300;text-wrap:balance}
 .visually-hidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
   clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-9999px}
@@ -111,77 +111,87 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text
 @media(max-width:900px){.nav-links{display:none}}
 .site-header .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-.container{width:min(100% - 2 * var(--space-5),var(--content-width));margin-inline:auto}
-@media(max-width:560px){.container{width:calc(100% - 2 * var(--space-4))}}
+.container{width:min(100% - 48px,var(--content-width));margin-inline:auto}
+@media(max-width:560px){.container{width:calc(100% - 36px)}}
 .section{padding-block:var(--space-8)}
-.section--white{background:#fff}
-.lead{font-size:var(--text-md);color:var(--ink-soft)}
-.h2{font-size:var(--text-2xl);font-weight:600;letter-spacing:-.01em}
+.section--white{background:var(--band)}
+.lead{font-size:1rem;font-weight:300;color:var(--ink)}
+.h2{font-size:clamp(1.6rem,1.2rem + 1.4vw,1.875rem);font-weight:300}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:48px;
-  padding:0 var(--space-5);border-radius:var(--radius-sm);border:0;font:inherit;font-weight:700;
-  text-decoration:none;cursor:pointer}
+/* buttons: the live site's orange pill (Add to Cart) and outlined square (Shop Now) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:44px;
+  padding:8px 32px;border:1px solid transparent;border-radius:9999px;font:inherit;font-size:.9375rem;
+  font-weight:400;letter-spacing:var(--track);text-transform:uppercase;text-decoration:none;cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s}
 .btn--primary{background:var(--orange);color:#fff}
 .btn--primary:hover{background:var(--orange-dk);color:#fff}
-.btn--lg{min-height:56px;font-size:var(--text-md)}
+.btn--lg{min-height:48px}
 .btn:focus-visible,a:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-.link-arrow{padding-block:var(--space-2);font-weight:700;color:var(--orange-dk);text-decoration:none}
-.link-arrow:hover{text-decoration:underline}
+.link-arrow{padding-block:var(--space-2);font-size:.875rem;font-weight:700;letter-spacing:var(--track);
+  text-transform:uppercase;color:var(--ink);text-decoration:none}
+.link-arrow:hover{color:var(--orange-dk)}
 .stars{display:inline-flex;gap:2px}
 
 /* hero */
 .page-hero{padding-block:var(--space-5) var(--space-7)}
-.crumbs ol{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none;font-size:.8125rem;color:var(--ink-soft)}
+.crumbs ol{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none;font-size:.75rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
 .crumbs li+li::before{content:"\203A";margin-right:6px;color:var(--ink-soft)}
 .crumbs a{color:var(--ink-soft)}
-.page-hero h1{font-size:var(--text-3xl);font-weight:600;letter-spacing:-.02em;margin:var(--space-4) 0 var(--space-3)}
-@media(max-width:560px){.page-hero{padding-bottom:var(--space-6)}.page-hero h1{font-size:2rem}}
-.score-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3) var(--space-4);margin-top:var(--space-5)}
-.score{display:inline-flex;align-items:center;gap:var(--space-3);background:#fff;border:1px solid var(--card-line);
-  border-radius:999px;padding:10px 20px;color:var(--ink)}
-.score strong{font-size:1.25rem}
+.page-hero h1{font-size:clamp(2rem,1.4rem + 2.4vw,2.75rem);font-weight:200;margin:var(--space-5) 0 var(--space-3)}
+.page-hero .lead{max-width:62ch}
+@media(max-width:560px){.page-hero{padding-bottom:var(--space-6)}
+  .score-row .btn,.commercial-head__actions .btn{width:100%;padding:8px 16px;font-size:.875rem;letter-spacing:.08em}
+  .score{width:100%}}
+.score-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3) var(--space-5);margin-top:var(--space-5)}
+.score{display:inline-flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) var(--space-3);padding:10px 18px;
+  border:1px solid var(--hair);color:var(--ink);font-size:.9375rem}
+.score strong{font-family:var(--head);font-size:1.375rem;font-weight:600;line-height:1}
 
-/* review wall */
+/* review wall: white tiles on the live site's grey band */
 .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-4);margin:0;padding:0;list-style:none}
 @media(max-width:360px){.wall{grid-template-columns:1fr}}
-.review{display:flex;flex-direction:column;gap:var(--space-3);height:100%;margin:0;padding:var(--space-5);
-  background:#fff;border:1px solid var(--card-line);border-radius:20px}
+.review{display:flex;flex-direction:column;gap:var(--space-3);height:100%;margin:0;padding:var(--space-5);background:#fff}
 .review__top{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3)}
-.review__source{color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;font-weight:700}
-.review blockquote{display:flex;flex-direction:column;gap:var(--space-2);flex-grow:1;margin:0;color:#333;
-  font-size:.9375rem;overflow-wrap:anywhere}
-.review figcaption{color:var(--ink);font-weight:700}
-.more-reviews{margin-top:var(--space-5);text-align:center;font-weight:700}
+.review__source{font-family:var(--head);color:var(--ink);text-transform:uppercase;letter-spacing:.08em;
+  font-size:.75rem;font-weight:700}
+.review blockquote{display:flex;flex-direction:column;gap:var(--space-2);flex-grow:1;margin:0;color:var(--ink);
+  font-size:.9375rem;font-weight:400;line-height:1.6;overflow-wrap:anywhere}
+.review figcaption{padding-top:var(--space-3);border-top:1px solid var(--band);font-size:.8125rem;font-weight:700;
+  letter-spacing:.04em}
+.more-reviews{margin-top:var(--space-6);text-align:center}
 
-/* trade testimonials */
+/* trade testimonials: charcoal tiles, as the live site's dark bands */
 .commercial-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;
   gap:var(--space-5) var(--space-7);margin-bottom:var(--space-6)}
 .commercial-head>div:first-child{flex:1 1 560px}
 .commercial-head .lead{margin-top:var(--space-3)}
-.commercial-head__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);color:var(--ink-soft)}
-.commercial-head__actions a:not(.btn){font-weight:700}
+.commercial-head__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);color:var(--ink-soft);font-size:.9375rem}
+.commercial-head__actions a:not(.btn){font-weight:700;color:var(--ink)}
 .quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin:0;padding:0;list-style:none}
 @media(max-width:900px){.quotes{grid-template-columns:1fr}}
 .quote{display:flex;flex-direction:column;gap:var(--space-4);height:100%;margin:0;padding:var(--space-6);
-  background:var(--ink);color:#fff;border-radius:20px}
+  background:var(--charcoal);color:#fff}
 .quote svg{color:var(--orange)}
-.quote blockquote{flex-grow:1;margin:0;color:var(--muted-on-dark)}
-.quote figcaption{display:flex;flex-direction:column}
-.quote figcaption span{color:var(--accent-on-dark);font-size:.875rem}
+.quote blockquote{flex-grow:1;margin:0;color:var(--on-dark);font-weight:300;line-height:1.6}
+.quote figcaption{display:flex;flex-direction:column;gap:2px;padding-top:var(--space-4);border-top:1px solid rgba(255,255,255,.14)}
+.quote figcaption strong{font-family:var(--head);font-weight:700;font-size:.9375rem;letter-spacing:.06em;text-transform:uppercase}
+.quote figcaption span{color:var(--on-dark-soft);font-size:.8125rem}
 
-/* closing band */
-.cta{background:var(--orange)}
+/* closing band: the live site's grey band */
+.cta{background:var(--band);border-top:1px solid #e6e5e5}
 .cta__inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-5);padding-block:var(--space-7)}
-.cta h2{color:#fff;font-size:var(--text-2xl);font-weight:600}
+.cta h2{font-size:clamp(1.6rem,1.2rem + 1.4vw,1.875rem);font-weight:300}
 .cta__buttons{display:flex;flex-wrap:wrap;gap:var(--space-3)}
-.cta__primary{background:var(--ink);color:#fff}
-.cta__primary:hover{background:#000;color:#fff}
-.cta__secondary{border:2px solid #fff;color:#fff}
-.cta__secondary:hover{background:rgba(255,255,255,.14);color:#fff}
-.cta__creds{flex-basis:100%;padding-top:var(--space-4);border-top:1px solid rgba(255,255,255,.3)}
-.creds{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0;padding:0;list-style:none;color:rgba(255,255,255,.95);font-size:14px}
+.cta__primary{background:var(--orange);color:#fff}
+.cta__primary:hover{background:var(--orange-dk);color:#fff}
+.cta__secondary{border:1px solid var(--ink);border-radius:0;color:var(--ink);font-weight:600}
+.cta__secondary:hover{background:var(--ink);color:#fff}
+.cta__creds{flex-basis:100%;padding-top:var(--space-4);border-top:1px solid var(--hair)}
+.creds{display:flex;flex-wrap:wrap;gap:8px 28px;margin:0;padding:0;list-style:none;color:var(--ink);font-size:.8125rem;
+  letter-spacing:.04em}
 .creds li{display:flex;align-items:center;gap:8px}
-.creds svg{flex:none}
+.creds svg{flex:none;color:var(--orange)}
 @media(max-width:560px){.cta__buttons,.cta__buttons .btn{width:100%}}
 
 .site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
@@ -207,6 +217,7 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text
   border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
 .foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
 .site-footer .container{max-width:var(--maxw);width:auto;margin:0 auto;padding:0 24px}
+.site-footer{background:var(--charcoal)}
 
 /* ============ phone and tablet ============ */
 .nav-toggle{display:none}
@@ -234,8 +245,8 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text
   /* the full wall is 213 cards; phones and tablets load it in steps */
   .js-steps .wall>li.is-later{display:none}
   .wall-more{display:flex;justify-content:center;margin-top:var(--space-5)}
-  .wall-more .btn{background:#fff;border:1px solid var(--card-line);color:var(--ink)}
-  .wall-more .btn:hover{border-color:var(--ink)}
+  .wall-more .btn{background:#fff;border:1px solid var(--ink);border-radius:0;color:var(--ink);font-weight:600}
+  .wall-more .btn:hover{background:var(--ink);color:#fff}
   .wall-more[hidden]{display:none}
 }
 @media(min-width:1024px){.wall-more{display:none}}
