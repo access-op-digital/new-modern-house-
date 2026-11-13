@@ -208,7 +208,7 @@ TEMPLATE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Modern House Numbers Reviews | Hear Directly from Our Customers</title>
-<meta name="description" content="Read Modern House Numbers reviews from our customers on Google, rated @@RATING@@ out of 5 from @@VOTES@@ reviews, plus testimonials from architects, designers and builders.">
+<meta name="description" content="Read Modern House Numbers reviews from our customers on Google, plus testimonials from architects, designers and builders who use our house numbers and plaques.">
 <link rel="canonical" href="https://www.modernhousenumbers.com/pages/testimonials">
 <meta name="robots" content="noindex,nofollow">
 <!-- Preview deployment: noindex. The canonical is the proposed live URL,
