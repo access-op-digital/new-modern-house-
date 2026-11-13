@@ -401,15 +401,14 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.2;font-
   .quotes{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:620px){.quotes{grid-template-columns:1fr}}
-@media(max-width:1023px){
-  /* the full wall is 213 cards; phones and tablets load it in steps */
-  .js-steps .wall>li.is-later{display:none}
-  .wall-more{display:flex;justify-content:center;margin-top:var(--space-5)}
-  .wall-more .btn{background:#fff;border:1px solid var(--ink);border-radius:0;color:var(--ink);font-weight:600}
-  .wall-more .btn:hover{background:var(--ink);color:#fff}
-  .wall-more[hidden]{display:none}
-}
-@media(min-width:1024px){.wall-more{display:none}}
+/* the full wall is 213 cards; every width loads it in steps so the closing
+   band stays a short scroll away (18 = six rows of three on desktop) */
+.js-steps .wall>li.is-later{display:none}
+.wall-more{display:flex;justify-content:center;margin-top:var(--space-6)}
+.wall-more .btn{background:#fff;border:1px solid var(--ink);border-radius:0;color:var(--ink);font-weight:600}
+.wall-more .btn:hover{background:var(--ink);color:#fff}
+.wall-more[hidden]{display:none}
+.wall-more+.more-reviews{margin-top:var(--space-4)}
 /* comfortable tap targets */
 .link-arrow{display:inline-flex;align-items:center;min-height:44px}
 .commercial-head__actions span a{display:inline-flex;align-items:center;min-height:44px}
@@ -459,7 +458,7 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.2;font-
       <ul class="wall">
 @@REVIEWS@@
       </ul>
-      <div class="wall-more" hidden><button type="button" class="btn" id="wall-more-btn">Show more reviews</button></div>
+      <div class="wall-more" hidden><button type="button" class="btn" id="wall-more-btn">Read more reviews</button></div>
       <p class="more-reviews"><a class="link-arrow" href="@@MAPS@@" target="_blank" rel="noopener">See all @@VOTES@@ reviews on Google &rarr;<span class="visually-hidden">(opens in a new tab)</span></a></p>
     </div>
   </section>
@@ -516,8 +515,8 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.2;font-
       if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');t.setAttribute('aria-expanded','false');t.focus();}
     });
   }
-  /* review wall in steps under 1024px; the whole wall shows on desktop */
-  var STEP=12, items=[].slice.call(document.querySelectorAll('.wall>li')),
+  /* review wall in steps: 18 at a time (rows of 3 or 2), 12 on phones */
+  var STEP=window.matchMedia('(max-width:639px)').matches?12:18, items=[].slice.call(document.querySelectorAll('.wall>li')),
       box=document.querySelector('.wall-more'), btn=document.getElementById('wall-more-btn'), shown=STEP;
   if(!items.length||!box) return;
   document.documentElement.classList.add('js-steps');
