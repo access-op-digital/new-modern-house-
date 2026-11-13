@@ -33,6 +33,14 @@ DATA = ROOT / "build" / "data"
 OUT = ROOT / "pages" / "testimonials.html"
 MAPS = "https://www.google.com/maps?cid=5810350739318967915"
 
+# Page title, meta/social description and share image. Kept free of review
+# counts and ratings on purpose: those change, the tags should not.
+TITLE = "Modern House Numbers Reviews | Hear Directly from Our Customers"
+DESC = ("Read Modern House Numbers reviews from our customers on Google, plus testimonials "
+        "from architects, designers and builders who use our house numbers and plaques.")
+OG_IMAGE = "https://cms.modernhousenumbers.com/assets/pro_header_gal_3.jpg"
+OG_ALT = "Modern house numbers 2314 and the name Eugenia Hall in white on a dark brick wall"
+
 # Trade testimonials: (name, role) split by hand from the live trade page's
 # attribution lines, in the live carousel's order.
 TRADE_WHO = [
@@ -177,6 +185,8 @@ def main():
         "@@REVIEWS@@": "\n".join(review_card(r) for r in shown),
         "@@QUOTES@@": "\n".join(quote_card(t, w) for t, w in zip(trade, TRADE_WHO)),
         "@@CREDS@@": creds, "@@MAPS@@": MAPS,
+        "@@TITLE@@": esc(TITLE), "@@DESC@@": esc(DESC),
+        "@@OG_IMAGE@@": OG_IMAGE, "@@OG_ALT@@": esc(OG_ALT),
     }.items():
         page = page.replace(key, val)
     leftover = re.findall(r"@@[A-Z_]+@@", page)
@@ -214,9 +224,30 @@ TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Modern House Numbers Reviews | Hear Directly from Our Customers</title>
-<meta name="description" content="Read Modern House Numbers reviews from our customers on Google, plus testimonials from architects, designers and builders who use our house numbers and plaques.">
+<title>@@TITLE@@</title>
+<meta name="description" content="@@DESC@@">
 <link rel="canonical" href="https://www.modernhousenumbers.com/pages/testimonials">
+
+<!-- Social share tags. og:url is the proposed live URL, like the canonical.
+     The image is MHN's own photo on their public image server, so link
+     previews can load it even though this preview deployment is protected. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Modern House Numbers">
+<meta property="og:title" content="@@TITLE@@">
+<meta property="og:description" content="@@DESC@@">
+<meta property="og:url" content="https://www.modernhousenumbers.com/pages/testimonials">
+<meta property="og:image" content="@@OG_IMAGE@@">
+<meta property="og:image:secure_url" content="@@OG_IMAGE@@">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="955">
+<meta property="og:image:height" content="636">
+<meta property="og:image:alt" content="@@OG_ALT@@">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="@@TITLE@@">
+<meta name="twitter:description" content="@@DESC@@">
+<meta name="twitter:image" content="@@OG_IMAGE@@">
+<meta name="twitter:image:alt" content="@@OG_ALT@@">
 <meta name="robots" content="noindex,nofollow">
 <!-- Preview deployment: noindex. The canonical is the proposed live URL,
      which does not exist yet. -->
