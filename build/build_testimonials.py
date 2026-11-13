@@ -147,6 +147,13 @@ def main():
     footer_css = lift(index, ".site-footer{", ".foot-legal a:hover{color:var(--orange)}")
     header = lift(index, '<header class="site-header">', "</header>")
     header = header.replace('<a href="/trade" aria-current="page">Trade</a>', '<a href="/trade">Trade</a>')
+    # Phone/tablet menu: the replica header hides its links under 900px.
+    header = header.replace(
+        '<nav class="nav-links" aria-label="Primary">',
+        '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">'
+        '<span class="nav-toggle__bars" aria-hidden="true"></span><span class="visually-hidden">Menu</span></button>\n'
+        '    <nav class="nav-links" id="primary-nav" aria-label="Primary">')
+    assert 'id="primary-nav"' in header
     footer = lift(index, '<footer class="site-footer">', "</footer>")
 
     res, items, shown, no_text = load_gbp()
@@ -329,6 +336,51 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text
 
 @@FOOTER_CSS@@
 .site-footer .container{max-width:var(--maxw);width:auto;margin:0 auto;padding:0 24px}
+
+/* ============ phone and tablet ============ */
+.nav-toggle{display:none}
+@media(max-width:900px){
+  .site-header .nav{position:relative}
+  .nav-toggle{display:inline-grid;place-items:center;flex:none;width:44px;min-width:44px;height:44px;margin-right:-8px;padding:0;
+    background:none;border:0;cursor:pointer;color:var(--ink)}
+  .nav-toggle__bars,.nav-toggle__bars::before,.nav-toggle__bars::after{display:block;width:22px;height:2px;
+    background:currentColor;position:relative;transition:transform .2s,opacity .2s}
+  .nav-toggle__bars::before,.nav-toggle__bars::after{content:"";position:absolute;left:0}
+  .nav-toggle__bars::before{top:-7px}.nav-toggle__bars::after{top:7px}
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bars{background:transparent}
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bars::before{transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bars::after{transform:translateY(-7px) rotate(-45deg)}
+  .nav-links.is-open{display:flex;flex-direction:column;align-items:stretch;gap:0;position:absolute;
+    top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--line-soft);
+    box-shadow:0 12px 24px rgba(0,0,0,.08);padding:4px 24px 12px}
+  .nav-links.is-open a{display:flex;align-items:center;min-height:48px;border-top:1px solid var(--line-soft)}
+  .nav-links.is-open a:first-child{border-top:0}
+  /* trade quotes: two across on tablets, one on phones */
+  .quotes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:620px){.quotes{grid-template-columns:1fr}}
+@media(max-width:1023px){
+  /* the full wall is 213 cards; phones and tablets load it in steps */
+  .js-steps .wall>li.is-later{display:none}
+  .wall-more{display:flex;justify-content:center;margin-top:var(--space-5)}
+  .wall-more .btn{background:#fff;border:1px solid var(--card-line);color:var(--ink)}
+  .wall-more .btn:hover{border-color:var(--ink)}
+  .wall-more[hidden]{display:none}
+}
+@media(min-width:1024px){.wall-more{display:none}}
+/* comfortable tap targets */
+.link-arrow{display:inline-flex;align-items:center;min-height:44px}
+.commercial-head__actions span a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:1023px){
+  .foot-social{gap:2px;margin-left:-11px}
+  .foot-social a{display:inline-grid;place-items:center;width:44px;height:44px}
+  .foot-signup input{min-height:44px}
+  .foot-signup button{min-height:44px}
+  .foot-col ul{gap:0}
+  .foot-col ul a{display:inline-flex;align-items:center;min-height:36px}
+  .foot-legal a{display:inline-flex;align-items:center;min-height:32px}
+  .crumbs a,.crumbs span{display:inline-flex;align-items:center;min-height:32px}
+}
 </style>
 </head>
 <body>
@@ -365,6 +417,7 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text
       <ul class="wall">
 @@REVIEWS@@
       </ul>
+      <div class="wall-more" hidden><button type="button" class="btn" id="wall-more-btn">Show more reviews</button></div>
       <p class="more-reviews"><a class="link-arrow" href="@@MAPS@@" target="_blank" rel="noopener">See all @@VOTES@@ reviews on Google &rarr;<span class="visually-hidden">(opens in a new tab)</span></a></p>
     </div>
   </section>
@@ -408,6 +461,35 @@ h1,h2,h3{font-family:var(--head);color:var(--ink);margin:0;line-height:1.15;text
 
 @@FOOTER@@
 
+<script>
+(function(){
+  /* phone/tablet menu */
+  var t=document.querySelector('.nav-toggle'), n=document.getElementById('primary-nav');
+  if(t&&n){
+    t.addEventListener('click',function(){
+      var open=t.getAttribute('aria-expanded')!=='true';
+      t.setAttribute('aria-expanded',open?'true':'false'); n.classList.toggle('is-open',open);
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');t.setAttribute('aria-expanded','false');t.focus();}
+    });
+  }
+  /* review wall in steps under 1024px; the whole wall shows on desktop */
+  var STEP=12, items=[].slice.call(document.querySelectorAll('.wall>li')),
+      box=document.querySelector('.wall-more'), btn=document.getElementById('wall-more-btn'), shown=STEP;
+  if(!items.length||!box) return;
+  document.documentElement.classList.add('js-steps');
+  function render(){
+    items.forEach(function(li,i){li.classList.toggle('is-later',i>=shown);});
+    box.hidden=shown>=items.length;
+  }
+  btn.addEventListener('click',function(){
+    var first=items[shown]; shown+=STEP; render();
+    if(first){var a=first.querySelector('figure'); if(a){a.setAttribute('tabindex','-1'); a.focus({preventScroll:true});}}
+  });
+  render();
+})();
+</script>
 </body>
 </html>
 """
