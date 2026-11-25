@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<!--
+  CLIENT FORM on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/how-to-pick-the-right-size-for-house-numbers
+  Article copy, author box and related posts: live post, copied 2026-11-25.
+  The form block is generated in the mhn-font-picker project (build/embed_size.html); change it there and re-run build/run.sh.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Pick the Right Size for House Numbers</title>
+<meta name="description" content="Learn how to choose the perfect size for your house numbers. Understand the science behind viewing distances, local regulations, and design tips to ensure visibility and curb appeal.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/how-to-pick-the-right-size-for-house-numbers">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,500,600,700%7CLibre+Baskerville">
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
+
+/* ---- article + sticky font picker: the picker stays beside the article and stops where the article ends ---- */
+.post-wrap.has-side{max-width:1156px}
+.post-cols{display:grid;grid-template-columns:minmax(0,1fr)}
+.post-cols .mhnfp{margin:0 0 28px}
+.post-cols .shopifycontent{margin-bottom:0}
+.post .post-h1{margin:16px 0}
+.post-tail{max-width:672px;margin-top:48px}
+.post .shopifycontent h2 img{margin-top:12px}
+@media(min-width:1000px){
+  .post-cols{grid-template-columns:minmax(0,672px) 356px;column-gap:32px}
+  .post-cols .post-head{grid-column:1;grid-row:1}
+  .post-cols .shopifycontent{grid-column:1;grid-row:2}
+  .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
+}
+@media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap has-side">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="post-cols">
+    <div class="post-head">
+      <div class="post-meta">
+        <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+        <div class="post-date">10.10.25</div>
+        <div class="post-rule"></div>
+      </div>
+      <h1 class="post-h1" itemprop="name">How to Pick the Right Size for House Numbers</h1>
+    </div>
+<!-- MHN house number size picker, generated by make_size.py from the client's sample; do not hand-edit. -->
+<aside class="mhnfp" id="mhn-size-picker" aria-labelledby="mhnsz-title">
+<style>
+.mhnfp,.mhnfp *{box-sizing:border-box}
+.mhnfp{font-family:Muli,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.35;color:#393838;text-align:left}
+.mhnfp .fp-box{background:#fff;border:1px solid #dcdcdc}
+.mhnfp .fp-head{background:#eff0f3;padding:10px 10px 9px;text-align:center}
+.mhnfp .fp-title{margin:0;padding:0;font:400 17px/1.3 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp .fp-title b{font-weight:400}
+.mhnfp .fp-stripe{display:block;height:6px;background:linear-gradient(90deg,#d3a52f 0 12.5%,#eebfdb 0 25%,#76b7d6 0 37.5%,#d3a52f 0 50%,#eebfdb 0 62.5%,#d3a52f 0 75%,#eebfdb 0 87.5%,#76b7d6 0)}
+.mhnfp .fp-body{padding:10px 14px 13px}
+.mhnfp fieldset{margin:0;padding:0;border:0;min-width:0}
+.mhnfp legend{padding:0;margin:0 0 5px;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;color:#393838}
+.mhnfp .fp-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mhnfp .fp-grid,.mhnfp .fp-mode{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mhnfp .fp-mode{margin-bottom:9px}
+.mhnfp .fp-list{display:grid;gap:4px}
+.mhnfp .fp-opt{position:relative;display:block;margin:0;cursor:pointer}
+.mhnfp .fp-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.mhnfp .fp-opt span{display:flex;align-items:center;gap:6px;min-height:27px;padding:3px 6px;background:#f0f0f0;font-size:11.5px;line-height:1.2;letter-spacing:.03em;text-transform:uppercase}
+.mhnfp .fp-opt i{flex:none;width:12px;height:12px;border:1px solid #393838;border-radius:50%}
+.mhnfp .fp-opt input:checked+span i{background:#393838}
+.mhnfp .fp-opt:hover span{background:#e4e4e4}
+.mhnfp .fp-mode .fp-opt span{height:100%;min-height:36px;background:#fff;border:1px solid #dcdcdc}
+.mhnfp .fp-mode .fp-opt input:checked+span{border-color:#393838}
+.mhnfp .fp-list .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:1px 7px;padding:6px 8px}
+.mhnfp .fp-list b{font-weight:400}
+.mhnfp .fp-list small{grid-column:2;font-size:12px;letter-spacing:0;text-transform:none;font-style:italic}
+.mhnfp .fp-opt input:focus-visible+span,.mhnfp button:focus-visible,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
+.mhnfp [hidden]{display:none!important}
+.mhnfp .fp-alt{display:flex;gap:4px;margin-top:9px}
+.mhnfp .fp-alt button{flex:1 1 auto;min-height:28px;padding:3px 5px;border:1px solid #393838;border-radius:0;background:#fff;color:#393838;font:400 12.5px/1.2 Muli,Helvetica,Arial,sans-serif;cursor:pointer}
+.mhnfp .fp-alt button[aria-pressed=true]{background:#393838;color:#fff}
+.mhnfp .fp-card{display:grid;grid-template-columns:132px 1fr;gap:12px;margin-top:9px;min-height:132px}
+.mhnfp .fp-photo{position:relative;width:132px;height:132px;background:#f0f0f0}
+.mhnfp .fp-photo img{display:block;width:132px;height:132px;margin:0;object-fit:cover}
+.mhnfp .fp-photo button{position:absolute;bottom:0;width:26px;height:26px;padding:0;border:0;border-radius:0;background:rgba(255,255,255,.88);color:#393838;font:400 20px/24px Muli,Helvetica,Arial,sans-serif;cursor:pointer}
+.mhnfp .fp-prev{left:0}.mhnfp .fp-nextp{right:0}
+.mhnfp .fp-name{margin:0;padding:0;font:700 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.08em}
+.mhnfp .fp-name em{font:italic 400 12px/1 Muli,Helvetica,Arial,sans-serif;letter-spacing:0;color:#b3470a;white-space:nowrap}
+.mhnfp .fp-tag{margin:1px 0 4px;padding:0;font-size:12px;line-height:1.25;letter-spacing:.05em}
+.mhnfp .fp-why{margin:0;padding:0;font-size:12px;line-height:1.32}
+.mhnfp a.fp-cta{display:block;margin-top:10px;padding:10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mhnfp a.fp-cta:hover{background:#f36a10;color:#000}
+.mhnfp-bar{display:none}
+@media(min-width:1000px){.mhnfp{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}}
+@media(max-width:999px){
+  .mhnfp{scroll-margin-top:86px}
+  .mhnfp .fp-opt span,.mhnfp .fp-mode .fp-opt span,.mhnfp .fp-alt button{min-height:44px}
+  .mhnfp a.fp-cta{padding:15px 10px}
+  .mhnfp .fp-photo button{width:44px;height:44px;line-height:40px;background:rgba(255,255,255,.8)}
+  .mhnfp-bar.is-on{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #dcdcdc}
+  .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+}
+@media(max-width:359px){.mhnfp .fp-card{grid-template-columns:1fr}.mhnfp .fp-body{padding-left:10px;padding-right:10px}.mhnfp .fp-opt span{font-size:11px;letter-spacing:0}}
+.mhnfp .sz-title{margin:0 0 10px;padding:0;font:400 20px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp .sz-dist{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:10px}
+.mhnfp .sz-dist .fp-opt span{justify-content:center;min-height:30px;padding:3px 2px;letter-spacing:0;font-size:13px}
+.mhnfp .sz-dist .fp-opt input:checked+span{background:#393838;color:#fff}
+.mhnfp .sz-cols{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:12px;align-items:start}
+.mhnfp .sz-rows{display:grid;gap:4px}
+.mhnfp .sz-rows .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:2px 7px;min-height:28px;padding:5px 7px;align-items:center;font-size:12px}
+.mhnfp .sz-rows b{font-weight:400}
+.mhnfp .sz-rows em{font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;color:#b3470a;white-space:nowrap}
+.mhnfp .sz-rows small{grid-column:1 / -1;display:none;font-size:12px;line-height:1.35;letter-spacing:0;text-transform:none}
+.mhnfp .sz-rows input:checked+span small{display:block}
+.mhnfp .sz-cap{position:absolute;right:6px;top:5px;padding:1px 5px;background:rgba(255,255,255,.88);font-size:12px}
+@media(max-width:999px){.mhnfp .sz-rows .fp-opt span,.mhnfp .sz-dist .fp-opt span{min-height:44px}}
+@media(max-width:359px){.mhnfp .sz-cols{grid-template-columns:1fr}}
+</style>
+<form class="fp-box" autocomplete="off">
+  <div class="fp-body">
+  <p class="sz-title" id="mhnsz-title">Subtle or Bold?<br>Size Matters.</p>
+  <fieldset>
+    <legend>Based on viewing distance (feet, or less):</legend>
+    <div class="sz-dist">
+      <label class="fp-opt"><input type="radio" name="sz-dist" value="0" checked><span>50’</span></label>
+      <label class="fp-opt"><input type="radio" name="sz-dist" value="1"><span>100’</span></label>
+      <label class="fp-opt"><input type="radio" name="sz-dist" value="2"><span>150’</span></label>
+      <label class="fp-opt"><input type="radio" name="sz-dist" value="3"><span>200’</span></label>
+      <label class="fp-opt"><input type="radio" name="sz-dist" value="4"><span>300’</span></label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Select your height:</legend>
+    <div class="sz-cols">
+      <div class="sz-rows">
+        <label class="fp-opt"><input type="radio" name="sz-size" value="0" checked><span><i></i><b>4 inch</b><small>Small, subtle, understated. Legible from 50’, or less. Ideal for interiors, close viewing, or properties close to the roadway.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="sz-size" value="1"><span><i></i><b>6 inch <em>our most popular</em></b><small>Suitable for most addressing applications. Popular on walls, fences, over garages, and curbside monuments. Legible in all fonts from 100’, or less.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="sz-size" value="2"><span><i></i><b>8 inch</b><small>Statement making. Legible from 150’, or less. Popular for use on garden walls, monument signs, over garages, or properties set back from the roadway.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="sz-size" value="3"><span><i></i><b>12 inch</b><small>Big and bold. Legible from 200’, or less. Large without being too large, ideal for making a typographic statement, or for commercial addressing including monument signs</small></span></label>
+        <label class="fp-opt"><input type="radio" name="sz-size" value="4"><span><i></i><b>15 inch</b><small>Our largest. Legible from 300’, or less. A favorite among commercial property owners and the bravest and boldest of designers, homeowners and developers.</small></span></label>
+      </div>
+      <div class="fp-photo"><img src="https://cms.modernhousenumbers.com/assets/guide_nl_size_4_1.jpg" width="132" height="132" alt="4 inch house numbers"><span class="sz-cap">4 inch</span><button type="button" class="fp-prev" aria-label="Previous photo">&lsaquo;</button><button type="button" class="fp-nextp" aria-label="Next photo">&rsaquo;</button></div>
+    </div>
+  </fieldset>
+  <a class="fp-cta" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop 4 inch numbers</a>
+  </div>
+</form>
+<script>
+(function(){
+  var root=document.getElementById('mhn-size-picker');if(!root)return;
+  var D=[{"s":4,"i":["https://cms.modernhousenumbers.com/assets/guide_nl_size_4_1.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_4_3.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_4_5.jpg"]},{"s":6,"i":["https://cms.modernhousenumbers.com/assets/guide_nl_size_6_1.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_6_3.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_6_5.jpg"]},{"s":8,"i":["https://cms.modernhousenumbers.com/assets/guide_nl_size_8_1.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_8_6.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_8_5.jpg"]},{"s":12,"i":["https://cms.modernhousenumbers.com/assets/guide_nl_size_12_1.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_12_3.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_12_4.jpg"]},{"s":15,"i":["https://cms.modernhousenumbers.com/assets/guide_nl_size_15_1.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_15_2.jpg","https://cms.modernhousenumbers.com/assets/guide_nl_size_15_4.jpg"]}];
+  var $=function(s){return root.querySelector(s)};
+  var img=$('.fp-photo img'),cap=$('.sz-cap'),cta=$('.fp-cta'),cur=0,pic=0;
+  function photo(){
+    var u=D[cur].i[pic];if(img.getAttribute('src')===u)return;
+    img.style.visibility='hidden';img.alt=D[cur].s+' inch house numbers';img.src=u;
+  }
+  img.addEventListener('load',function(){img.style.visibility='visible'});
+  function show(n){
+    cur=n;pic=0;photo();
+    root.querySelector('[name=sz-dist][value="'+n+'"]').checked=true;
+    root.querySelector('[name=sz-size][value="'+n+'"]').checked=true;
+    cap.textContent=D[n].s+' inch';cta.textContent='Shop '+D[n].s+' inch numbers';
+  }
+  function step(n){var t=D[cur].i.length;pic=(pic+n+t)%t;photo()}
+  $('.fp-prev').addEventListener('click',function(){step(-1)});
+  $('.fp-nextp').addEventListener('click',function(){step(1)});
+  root.addEventListener('change',function(e){if(/^sz-/.test(e.target.name))show(+e.target.value)});
+  root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
+  show(+root.querySelector('[name=sz-size]:checked').value);
+  function initBar(){
+    var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
+    if(!bar||!art)return;
+    var tick=function(){
+      var r=root.getBoundingClientRect(),a=art.getBoundingClientRect();
+      bar.classList.toggle('is-on',r.bottom<74&&a.bottom>window.innerHeight*.6)};
+    window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick);tick();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBar);else initBar();
+})();
+</script>
+</aside>
+    <div class="shopifycontent blog" itemprop="articleBody">
+<div style="text-align: left;">
+<meta charset="utf-8">
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/modern-house-numbers-gray-wall-contemporary-home.jpg?v=1783576820" alt="Modern house numbers mounted on a gray wall outside a contemporary home" style="float: none;"></div>
+<p dir="ltr"><span>Picking the right size for house numbers means matching letter height to your setback distance, local code requirements, contrast conditions, and your home's architectural scale so your address is readable from the street under any conditions.</span></p>
+<p dir="ltr"><span>This guide covers the key visibility factors that determine the correct size, how local regulations and HOA rules shape your options, common sizing mistakes and how to avoid them, standard size ranges and when each applies, how modern design trends are influencing number sizing choices, and how to measure and visualize sizes before you order.</span></p>
+<p dir="ltr"><span>Viewing distance is the starting point for any sizing decision. A widely used legibility benchmark establishes that one inch of letter height provides roughly 10 feet of readability, and factors like font weight, background contrast, and lighting all either extend or reduce that effective range.</span></p>
+<p dir="ltr"><span>Local regulations set the floor for every sizing choice, and they vary more than most homeowners expect. Requirements range from 3 inches in some jurisdictions to 5 or 6 inches in others, with HOAs often adding their own restrictions on top of municipal minimums.</span></p>
+<p dir="ltr"><span>Visibility and legibility go beyond raw size. Font stroke width, color contrast between numbers and their mounting surface, and whether numbers are illuminated at night each determine whether a correctly sized number actually performs in the field.</span></p>
+<p dir="ltr"><span>Standard size ranges align to specific use cases, from 4 to 6 inches for close-to-road entryways to 8 to 10 inches for homes with long driveways, with oversized and custom formats suited to bold architectural statements or rural addresses on fast-moving roads.</span></p>
+<p dir="ltr"><span>Design trends are shifting homeowners toward larger, cleaner numbers that function as deliberate architectural details rather than afterthoughts, with curb appeal and emergency legibility moving in the same direction.</span></p>
+<h2 dir="ltr"><span>What Factors Should You Consider When Choosing House Number Size?</span></h2>
+<p dir="ltr"><span>The factors to consider when choosing house number size include viewing distance, font style and weight, background contrast, and lighting conditions. Each variable directly affects how quickly and clearly your address can be read from the street. As Fire Chief John Chandler III of the Holden Fire Department stated, "When an emergency occurs, whether it is the need for fire, police, or an ambulance, seconds count. Precious time is wasted if your house number is not easily seen from the street."</span></p>
+<h3 dir="ltr"><span>How Does Viewing Distance Affect the Ideal House Number Size?</span></h3>
+<p dir="ltr"><span>Viewing distance affects ideal house number size by determining the minimum letter height needed for reliable legibility. A widely used sign legibility rule establishes that one inch of letter height provides approximately 10 feet of readability, meaning 3-inch numbers work well at 30 feet, but larger setbacks demand taller numerals.</span></p>
+<p dir="ltr"><span>The Los Angeles Fire Department applies a precise formula: number height must equal 2 inches plus one-tenth of the setback distance in feet. A home 30 feet from the street requires 5-inch numbers under this standard.</span></p>
+<p dir="ltr"><span>Municipal minimums vary significantly across jurisdictions:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Chicago</span><span> requires at least 3 inches for residences and 6 inches for businesses (Municipal Code 10-4-090).</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>New York City</span><span> mandates a minimum of 5 inches in height (NYC Rules § 3-01).</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>HOAs</span><span> may impose additional size, placement, or style restrictions beyond local codes.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>According to the Breckenridge Police Department, approximately 50 percent of residential calls it receives require a process of elimination due to missing or inadequate house numbers, a preventable problem that begins with choosing the correct size.</span></p>
+<h3 dir="ltr"><span>Why Does Font Style and Weight Matter for Readability?</span></h3>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/bold-vertical-house-numbers-modern-home.jpg?v=1783576820" alt="Bold vertical house numbers on a modern orange and white home exterior" style="float: none;"></div>
+<p dir="ltr"><span>Font style and weight matter for readability because stroke width, letterform clarity, and character spacing directly control how easily numerals are resolved at a distance. Sans-serif fonts are frequently required for signage due to their functional simplicity, and research indicates they perform equally well or better than serif fonts for larger display text.</span></p>
+<p dir="ltr"><span>The optimal stroke width for legible characters is approximately one-seventh of the character height. Wider strokes increase visibility; strokes that are too thin or too heavy both reduce contrast and recognition speed.</span></p>
+<p dir="ltr"><span>Key typographic factors for house number legibility include:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Stroke width:</span><span> Aim for roughly one-seventh of total character height for optimal definition.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Font style:</span><span> Sans-serif designs offer clean, unambiguous letterforms suited to exterior signage.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Letter spacing:</span><span> Adequate spacing reduces visual crowding and improves recognition, particularly under low-light or high-speed viewing conditions.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Choosing a heavier-weight numeral is one of the most underrated decisions homeowners make. At speed, thin strokes become nearly invisible before the eye can resolve individual digits.</span></p>
+<h3 dir="ltr"><span>How Do Background Colors and Contrasts Influence House Number Visibility?</span></h3>
+<p dir="ltr"><span>Background color and contrast influence house number visibility by determining how sharply numerals stand out from their mounting surface, especially under variable lighting. NFPA 1 Section 10.11.1.1 requires address numbers to contrast with their background, specifying a minimum height of 4 inches and a minimum stroke width of 0.5 inches.</span></p>
+<p dir="ltr"><span>Research published in the MDPI Sensors Journal found that on a white background, foreground character visibility decreases in this order: purple, blue, cyan, green, red, orange, and yellow, meaning dark-on-light combinations generally outperform light-on-light pairings.</span></p>
+<p dir="ltr"><span>Size recommendations by proximity reinforce the contrast relationship:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>4 to 6 inches tall:</span><span> Best for homes close to the road where contrast carries most of the legibility load.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>8 to 10 inches tall:</span><span> Recommended for homes with long driveways, where both size and contrast must compensate for greater distance.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Contrast is not a substitute for adequate size, both must work together for reliable street-side identification.</span></p>
+<h3 dir="ltr"><span>What Role Does Lighting and Placement Play in Size Selection?</span></h3>
+<p dir="ltr"><span>Lighting and placement play a critical role in size selection because numbers that are perfectly legible by day can become unreadable after dark without proper illumination or positioning. A number that is adequately sized for daytime viewing may need to be larger, or supplemented with lighting, to maintain the same recognition distance at night.</span></p>
+<p dir="ltr"><span>Key considerations for lighting and placement include:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Illumination source:</span><span> House numbers should be made from reflective materials or positioned within reach of an external light source, such as a porch light or solar lamp.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Mounting height:</span><span> Numbers placed too high or too low relative to the sightline of a driver reduce effective readability, regardless of size.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Obstruction clearance:</span><span> Landscaping, columns, or porch overhangs that shadow numbers can reduce their effective visibility distance, requiring a larger size to compensate.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Placement is where many homeowners lose the benefit of an otherwise well-chosen size, even a correctly sized number loses half its value if it is mounted behind a shrub or in shadow.</span></p>
+<h2 dir="ltr"><span>How Do Local Regulations and HOA Guidelines Impact House Number Size?</span></h2>
+<p dir="ltr"><span>Local regulations and HOA guidelines impact house number size by setting minimum height, contrast, and placement requirements that vary by jurisdiction. The sections below cover common size mandates across different areas and how to confirm compliance before purchasing.</span></p>
+<h3 dir="ltr"><span>What Common Size Requirements Exist in Different Areas?</span></h3>
+<p dir="ltr"><span>Common size requirements in different areas range from 3 inches to 6 inches or more, depending on the jurisdiction and property type. Key examples include:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Chicago:</span><span> Residential buildings require numbers at least 3 inches tall; stores and businesses require at least 6 inches (Chicago Municipal Code 10-4-090).</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>New York City:</span><span> All house numbers must be at least 5 inches in height under NYC Rules § 3-01.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Houston, Texas:</span><span> Address numbers must be at least 4 inches high, in a contrasting color, and permanently affixed to the structure.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>NFPA 1 (national fire code baseline):</span><span> Numbers must be at least 4 inches tall with a minimum stroke width of 0.5 inches and must contrast with their background.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>HOAs:</span><span> Associations commonly layer additional rules on top of municipal codes, restricting style, finish, or placement beyond the legal minimums.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Minimum requirements set a floor, not a ceiling. In practice, exceeding the local minimum almost always improves real-world visibility and emergency response.</span></p>
+<h3 dir="ltr"><span>How Can You Verify Size Compliance Before Ordering?</span></h3>
+<p dir="ltr"><span>You can verify size compliance before ordering by checking three sources: your municipal code, your HOA governing documents, and your local fire department guidelines. The steps below cover the full process:</span></p>
+<ol>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Search your city or county code</span><span> using terms like "[city name] house number ordinance" or "[city name] address number requirements" to find the official minimum size.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Review your HOA CC&amp;Rs or architectural guidelines</span><span>, which may restrict color, font, finish, or require approval before installation.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Contact your local fire marshal or building department</span><span> if code language is unclear, as they enforce compliance and can confirm exact requirements.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Measure your setback distance</span><span> from the street curb to your door, then apply your local formula to confirm the minimum size needed.</span></p>
+</li>
+</ol>
+<p dir="ltr"><span>With compliance confirmed, selecting a size that meets or exceeds requirements ensures your numbers satisfy both code and real-world visibility needs.</span></p>
+<h2 dir="ltr"><span>How Can You Ensure Your House Numbers Are Easily Visible and Legible?</span></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/visible-house-numbers-light-building-exterior.jpg?v=1783576821" alt="Black house numbers mounted high on a light-colored apartment building exterior" style="float: none;"></div>
+<p dir="ltr"><span>You can ensure your house numbers are easily visible and legible by avoiding common sizing mistakes, accounting for your home's architectural context, and applying the right standards for your property type. The sections below cover sizing errors, architectural considerations, and commercial versus residential guidelines.</span></p>
+<h3 dir="ltr"><span>What Are Typical Mistakes People Make With Number Sizing?</span></h3>
+<p dir="ltr"><span>Typical mistakes people make with number sizing include choosing numbers that are too small for the viewing distance, selecting low-contrast color combinations, and placing numbers where landscaping or shadows obscure them. Fire Chief John Chandler III of the Holden Fire Department warns: "Precious time is wasted if your house number is not easily seen from the street." Numbers mounted flush against a matching wall color, tucked beside a door frame, or scaled for close-up viewing rather than street-level sightlines are the most frequent errors. Sizing down to save on cost or for a "subtle" aesthetic is a trade-off that genuinely compromises emergency response effectiveness and should be avoided.</span></p>
+<h3 dir="ltr"><span>How Does Surrounding Architecture Affect Size Choices?</span></h3>
+<p dir="ltr"><span>Surrounding architecture affects size choices by determining the visual scale that numbers must compete with to remain legible. A home with a large, ornate facade requires bolder, larger numbers to avoid appearing insignificant; a modest cottage-style exterior reads well with proportionally smaller numbers that do not overwhelm the entrance. Wall texture matters too: rough stone or brick reduces contrast perception, making a larger stroke width and higher-contrast finish essential. The mounting surface's color, depth, and material all shift how a number's size registers visually from the street. Matching number scale to architectural mass is one of the most overlooked factors in achieving both legibility and cohesive curb appeal.</span></p>
+<h3 dir="ltr"><span>Should Commercial and Residential Properties Use Different Size Guidelines?</span></h3>
+<p dir="ltr"><span>Commercial and residential properties should use different size guidelines because of differences in setback distances, traffic speeds, and code requirements. Chicago Municipal Code 10-4-090 illustrates this directly: residences require numbers no less than 3 inches, while stores and businesses must display numbers no less than 6 inches. Commercial properties typically sit farther from the street, face faster-moving vehicle traffic, and must be identifiable by delivery drivers, customers, and emergency responders simultaneously. Residential properties generally allow for smaller numbers when the setback is short, but the same visibility principles apply. Applying residential sizing to a commercial building is a common compliance error that also creates real safety risk.</span></p>
+<h2 dir="ltr"><span>What Are the Standard House Number Sizes and When Should You Use Each?</span></h2>
+<p dir="ltr"><span>Standard house number sizes range from 3 inches to 12 inches or more, each suited to different viewing distances and installation contexts. The sections below cover recommended sizes for curbside viewing, entryway display, and oversized or custom applications.</span></p>
+<h3 dir="ltr"><span>What Sizes Are Recommended for Curbside or Distant Viewing?</span></h3>
+<p dir="ltr"><span>The sizes recommended for curbside or distant viewing are 8 to 10 inches tall. At this height, numbers remain legible from a moving vehicle, particularly on properties with long driveways or deep setbacks. NFPA 1 Section 10.11.1.1 specifies a minimum height of 4 inches with a minimum stroke width of 0.5 inches, but properties set farther from the street require significantly taller numbers to meet that same readability threshold. A reliable benchmark: one inch of letter height provides roughly 10 feet of readability, so a home 80 feet from the curb needs at least 8-inch numbers to be seen clearly.</span></p>
+<h3 dir="ltr"><span>What Sizes Work Best for Entryway or Close-Up Display?</span></h3>
+<p dir="ltr"><span>The sizes that work best for entryway or close-up display are 4 to 6 inches tall. At this range, numbers are easily read by visitors approaching on foot, delivery drivers checking a front door, or guests confirming an address at a gate or porch. For homes positioned close to the road, 4-to-6-inch numbers satisfy both practical visibility and most local code minimums without overwhelming the façade. This size range also integrates most naturally with door hardware, address plaques, and entryway trim at a proportional scale.</span></p>
+<h3 dir="ltr"><span>Are Oversized or Custom Sizes a Good Choice for Certain Projects?</span></h3>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/oversized-house-numbers-wood-concrete-wall.jpg?v=1783576821" alt="Oversized house numbers mounted on a wood and concrete address wall" style="float: none;"></div>
+<p dir="ltr"><span>Oversized or custom sizes are a good choice for projects where standard dimensions fall short visually or functionally. Properties with expansive exterior walls, rural addresses on fast roads, or homes with bold architectural statements benefit from numbers 10 inches or larger. Custom sizing also suits design-driven installations where numbers function as a visual focal point rather than a purely utilitarian marker. Beyond aesthetics, oversized numbers reduce the risk of misidentification during emergencies, since adequate size directly affects how quickly first responders locate an address from the street.</span></p>
+<h2 dir="ltr"><span>How Can Design Trends Influence Your House Number Size Selection?</span></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/modern-vertical-house-numbers-driveway-pillar.jpg?v=1783576820" alt="Modern vertical house numbers installed on a brick driveway pillar" style="float: none;"></div>
+<p dir="ltr"><span>Design trends influence house number size selection by pushing homeowners toward bolder, more architecturally intentional choices that balance visibility with curb appeal. The following sections cover the most popular modern sizing trends and how larger or unconventional formats can elevate a home's exterior.</span></p>
+<h3 dir="ltr"><span>What Are the Most Popular House Number Size Trends in Modern Design?</span></h3>
+<p dir="ltr"><span>The most popular house number size trends in modern design favor larger, cleaner numbers that function as architectural statements rather than afterthoughts. Minimalist aesthetics have driven demand for oversized sans-serif numerals, typically ranging from 5 to 8 inches, mounted with concealed hardware for a floating, precision-crafted appearance. Matte metal finishes in brushed aluminum, matte black, and dark bronze are widely favored, complementing contemporary and mid-century modern exteriors alike. Reflective or illuminated numbers are also gaining traction, since visibility after dark adds both safety and visual impact. In practice, the shift toward larger sizes reflects a broader design philosophy: house numbers should work hard aesthetically, not just functionally.</span></p>
+<h3 dir="ltr"><span>How Do Larger or Unconventional Sizes Enhance Curb Appeal?</span></h3>
+<p dir="ltr"><span>Larger or unconventional house number sizes enhance curb appeal by making a home's exterior more visually distinctive and immediately identifiable. Size draws the eye, giving an otherwise neutral facade a clear focal point. According to the National Association of REALTORS, 97% of NAR members believe curb appeal is important in attracting a buyer, with 92% recommending sellers improve curb appeal before listing. Oversized or custom numbers signal intentional design, which buyers and visitors register instantly. For homeowners not planning to sell, the emotional payoff is equally real: a well-chosen number becomes a detail that consistently impresses.</span></p>
+<h2 dir="ltr"><span>How Do You Accurately Measure the Space for Your House Numbers?</span></h2>
+<p dir="ltr"><span>Accurately measuring the space for your house numbers requires combining simple hand tools with a visualization step before committing to hardware. The sections below cover the right tools and methods, then how to preview sizes in place.</span></p>
+<h3 dir="ltr"><span>What Tools or Methods Ensure a Proper Fit?</span></h3>
+<p dir="ltr"><span>The tools that ensure a proper fit are a tape measure, painter's tape, and a level. Start by measuring the full width of your mounting surface, such as a garage wall, pillar, or door surround, to confirm how many digits fit without crowding. Next, measure the height of the available space to establish your maximum number height. A level ensures your layout stays straight across uneven surfaces. Allow at least one digit-width of padding on each side so numbers don't appear crammed against edges. Once you have both dimensions, cross-reference them against the number size you're considering to confirm the fit before ordering.</span></p>
+<h3 dir="ltr"><span>How Can You Visualize Different Sizes Before Installation?</span></h3>
+<p dir="ltr"><span>You can visualize different sizes before installation by cutting paper or cardboard templates to your target dimensions and taping them to the mounting surface. Step back to the street or driveway and assess legibility at your actual viewing distance. Photograph the mockup in both daylight and low-light conditions, since shadows and contrast shift significantly after dark. This low-cost method reveals whether a 4-inch number disappears against busy siding or whether a 6-inch number overwhelms a narrow entry column, long before any hardware is drilled in place. Trying two or three paper sizes side by side takes less than ten minutes and eliminates the guesswork that leads to sizing regrets.</span></p>
+<h2 dir="ltr"><span>How Can Modern House Numbers' Offerings Help You Choose and Order the Right Size?</span></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/custom-house-number-street-name-sign-white-wall.jpg?v=1783576820" alt="Custom house number and street name sign mounted on a white exterior wall" style="float: none;"></div>
+<p dir="ltr"><span>Modern House Numbers' offerings help through architect-designed expertise, made-to-order customization, and practical installation support. The sections below cover how their handcrafted service guides size selection and summarize the key decisions explored throughout this article.</span></p>
+<h3 dir="ltr"><span>How Does Modern House Numbers' Architect-Designed, Handcrafted Service Assist With Size Selection?</span></h3>
+<p dir="ltr"><span>Modern House Numbers' architect-designed, handcrafted service assists with size selection by combining professional design expertise with fully customizable, made-to-order production. Founded in 2008 by architects Brandy and Rick McLain in Tucson, Arizona, every product is precision-crafted from recycled aluminum to match your specific home, setback distance, and mounting location.</span></p>
+<p dir="ltr"><span>The service supports sizing decisions through several practical features:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Multiple font options</span><span> (including Palm Springs, SoCal, Austin, and SoHo) with varying stroke widths and proportions suited to different viewing distances</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Free personalized drilling templates</span><span> included with every purchase for accurate spacing and placement</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Made-to-order customization</span><span> allowing you to specify the exact digit height your setback and local code require</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Complimentary design support</span><span> to help verify sizing before ordering</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>For night visibility, house numbers should use reflective materials or be illuminated by an external light source such as a porch light. Modern House Numbers designs its products with this in mind, ensuring legibility day and night.</span></p>
+<h3 dir="ltr"><span>What Are the Key Takeaways About How to Pick the Right Size for House Numbers We Covered?</span></h3>
+<p dir="ltr"><span>The key takeaways about how to pick the right size for house numbers center on four practical decisions: viewing distance, local code compliance, contrast and lighting, and proportional fit to your home's facade.</span></p>
+<p dir="ltr"><span>The most actionable conclusions from this article are:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Match size to setback:</span><span> Use the 1-inch-per-10-feet legibility rule as your baseline, then verify against your local municipal code minimum (commonly 4 to 6 inches for residential properties close to the road, and 8 to 10 inches for homes with longer driveways).</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Check local requirements first:</span><span> Codes vary significantly by jurisdiction, so confirm the minimum before ordering.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Prioritize contrast:</span><span> Size alone does not guarantee visibility; your numbers must contrast clearly against their mounting surface.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Account for lighting:</span><span> Numbers that are unlit or non-reflective lose visibility at night regardless of size.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Choose a proportional scale:</span><span> Oversized numbers on a small facade can appear awkward; undersized numbers on a wide entryway get lost.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Getting the size right is not just a design preference; it directly affects emergency response, daily wayfinding, and long-term curb appeal. Choosing well-proportioned, properly sized house numbers is one of the highest-value small investments a homeowner can make.</span><b id="docs-internal-guid-150e6656-7fff-9f45-3003-7df3b54ab672"></b></p>
+</div>
+<style>
+    /* Table styling */
+    table {
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    caption {
+      caption-side: top;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    thead th {
+      background: #f2f2f2;
+      font-weight: 700;
+    }
+    /* Optional: nicer look on small screens */
+    @media (max-width: 520px) {
+      table { font-size: 14px; }
+      th, td { padding: 8px; }
+    }
+  </style>
+<p><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://modernhousenumbers.com/blog/choosing-the-right-size-for-house-numbers"
+  },
+  "headline": "How to Choose the Right Size for Your House Numbers",
+  "description": "Choosing the right size for your house numbers ensures both visibility and curb appeal. Learn about viewing distance, local regulations, and design factors to find the perfect fit for your home.",
+  "image": "https://modernhousenumbers.com/images/house-numbers-size.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "Modern House Numbers"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Modern House Numbers",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://modernhousenumbers.com/logo.png"
+    }
+  },
+  "datePublished": "2025-10-12",
+  "dateModified": "2025-10-12",
+  "keywords": "house numbers, size guide, curb appeal, visibility, local regulations, house address"
+}
+</script> <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What size should house numbers be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most experts recommend house numbers to be at least 4 inches tall. If your house is set back from the street, you may need 5 or 6 inches for better visibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I figure out the right viewing distance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Measure the distance from the middle of the street to where the numbers will be mounted (e.g., front door or mailbox). Use the rule of thumb: 1 inch of height for every 10 feet of distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can smaller numbers work if the house is right near the curb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, smaller numbers (2-3 inches) can work for houses near the curb, but 4 inches is a safer bet for legibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of font is easiest to read?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bold, clean sans-serif fonts like Helvetica or Arial are easiest to read from a distance, while decorative fonts can be harder to decipher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does lighting make a difference?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, lighting improves visibility at night. Reflective house numbers or external lighting, such as spotlights or solar-powered fixtures, make numbers stand out after dark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my house sits way back from the road?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For homes set back from the road, larger house numbers (6-8 inches) or a second set of numbers near the street (e.g., on a mailbox or post) ensures visibility."
+      }
+    }
+  ]
+}
+</script></p>
+    </div>
+    </div>
+    <div class="post-tail">
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img loading="lazy" decoding="async" src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_rick.png"
+                         alt="Picture of the Author"
+                         class="mx-auto object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">rick mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Rick is a licensed architect at Repp McLain Design & Construction. He holds a Bachelor of Architecture from the University of Arizona and an MS from the Department of Architecture at the Massachusetts Institute of Technology (MIT). When he’s not designing and fabricating he enjoys spending time with Brandy, Jack, Avery & Taylor and restoring his grandfather’s Ford pickup truck. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Rick on the <a itemprop="url"  href="https://reppmclain.com/people/" title="Repp McLain team page" target="_blank">Repp McLain Website</a>, on <a href="https://www.linkedin.com/in/rickmclain" title="Rick's LinkedIn Profile" target="_blank">LinkedIn</a>, or on <a href="https://www.facebook.com/reppmclain" title="The Repp McLain Facebook Page" target="_blank">Facebook</a>.
+                    </p>
+                </div>
+            </div>
+
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+    </div>
+  </article>
+</div>
+</main>
+<div class="mhnfp-bar"><a href="#mhn-size-picker">Select your height</a></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://cms.modernhousenumbers.com/partner/">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/building-supplies/modern-house-numbers-pfvwus-pf~1988483036" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
