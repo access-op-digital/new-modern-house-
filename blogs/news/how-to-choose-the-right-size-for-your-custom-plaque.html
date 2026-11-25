@@ -175,6 +175,8 @@ img{max-width:100%;display:block}
   .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
 }
 @media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+.post-cols.is-top{display:block}
+.post-cols.is-top .mhnfp{position:static;max-height:none;overflow:visible;margin:0 0 28px}
 
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
@@ -205,9 +207,9 @@ img{max-width:100%;display:block}
 </header>
 
 <main id="main" class="post">
-<div class="post-wrap has-side">
+<div class="post-wrap">
   <article itemscope itemtype="https://schema.org/BlogPosting">
-    <div class="post-cols">
+    <div class="post-cols is-top">
     <div class="post-head">
       <div class="post-meta">
         <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
@@ -271,24 +273,35 @@ img{max-width:100%;display:block}
   .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
 }
 @media(max-width:359px){.mhnfp .fp-card{grid-template-columns:1fr}.mhnfp .fp-body{padding-left:10px;padding-right:10px}.mhnfp .fp-opt span{font-size:11px;letter-spacing:0}}
-.mhnfp .pl-title{margin:0 0 10px;padding:0;font:400 20px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
-.mhnfp .pl-cols{display:grid;grid-template-columns:minmax(0,1fr) 136px;gap:12px;align-items:start}
+.mhnfp .fp-body{display:grid;grid-template-columns:minmax(0,1fr) 136px;grid-template-areas:"t t" "r p" "c c";column-gap:12px}
+.mhnfp .pl-title{grid-area:t;margin:0 0 10px;padding:0;font:400 20px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp fieldset{grid-area:r}
+.mhnfp a.fp-cta{grid-area:c}
 .mhnfp .pl-rows{display:grid;gap:4px}
 .mhnfp .pl-rows .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:2px 7px;min-height:30px;padding:5px 7px;align-items:center;font-size:12px}
 .mhnfp .pl-rows b{font-weight:400}
 .mhnfp .pl-rows em{display:block;font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;color:#b3470a}
 .mhnfp .pl-rows small{grid-column:1 / -1;display:none;font-size:12.5px;line-height:1.4;letter-spacing:0;text-transform:none}
 .mhnfp .pl-rows input:checked+span small{display:block}
-.mhnfp .pl-cols img{display:block;width:136px;height:136px;margin:0;object-fit:cover;background:#f0f0f0}
+.mhnfp .fp-body>img{grid-area:p;align-self:start;display:block;width:136px;height:136px;margin:22px 0 0;object-fit:cover;background:#f0f0f0}
+@media(min-width:640px){
+  .mhnfp .fp-body{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p";grid-template-rows:auto auto auto 1fr;column-gap:28px;padding:20px 22px 22px}
+  .mhnfp .pl-title{font-size:26px;margin-bottom:12px}
+  .mhnfp legend{font-size:15px;margin-bottom:7px}
+  .mhnfp .pl-rows .fp-opt span{font-size:13.5px;padding:6px 9px;gap:3px 8px;letter-spacing:.06em}
+  .mhnfp .pl-rows em{display:inline;font-size:13.5px;margin-left:4px}
+  .mhnfp .pl-rows small{grid-column:2;font-size:13.5px}
+  .mhnfp .fp-body>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp a.fp-cta{justify-self:start;padding:10px 26px;margin-top:14px}
+}
 @media(max-width:999px){.mhnfp .pl-rows .fp-opt span{min-height:44px}}
-@media(max-width:359px){.mhnfp .pl-cols{grid-template-columns:1fr}}
+@media(max-width:359px){.mhnfp .fp-body{grid-template-columns:1fr;grid-template-areas:"t" "r" "p" "c"}.mhnfp .fp-body>img{margin-top:10px}}
 </style>
 <form class="fp-box" autocomplete="off">
   <div class="fp-body">
   <p class="pl-title" id="mhnpl-title">Modern shapes.<br>Memorable style.</p>
   <fieldset>
     <legend>Select your size and shape:</legend>
-    <div class="pl-cols">
       <div class="pl-rows">
         <label class="fp-opt"><input type="radio" name="pl-size" value="0"><span><i></i><b>5" Circle</b><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height. Up to 2 characters.</small></span></label>
         <label class="fp-opt"><input type="radio" name="pl-size" value="1"><span><i></i><b>7" Circle</b><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height. Up to 4 characters.</small></span></label>
@@ -298,16 +311,15 @@ img{max-width:100%;display:block}
         <label class="fp-opt"><input type="radio" name="pl-size" value="5" checked><span><i></i><b>5"x16" Rectangle <em>our most popular</em></b><small>Medium. Legible at 50’ or less, varies by font and finish. 2”- 4” average text height. Up to 8 characters.</small></span></label>
         <label class="fp-opt"><input type="radio" name="pl-size" value="6"><span><i></i><b>8" Square</b><small>Medium. On trend. Legible at 50’ or less, varies by font and finish. 2”-4” average text height. Up to 6 characters.</small></span></label>
       </div>
-      <img src="https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg" width="136" height="136" alt="5&quot;x16&quot; Rectangle plaque">
-    </div>
   </fieldset>
+  <img src="https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg" width="270" height="270" alt="5&quot;x16&quot; Rectangle plaque">
   <a class="fp-cta" href="https://www.modernhousenumbers.com/products/plaque">Shop plaques</a>
   </div>
 </form>
 <script>
 (function(){
   var root=document.getElementById('mhn-plaque-picker');if(!root)return;
-  var D=[{"n":"5\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_1.jpg"},{"n":"7\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_1.jpg"},{"n":"10\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_2.jpg"},{"n":"3\"x8\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_2.jpg"},{"n":"4\"x11\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_4.jpg"},{"n":"5\"x16\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg"},{"n":"8\" Square","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_5.jpg"}],img=root.querySelector('.pl-cols img');
+  var D=[{"n":"5\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_1.jpg"},{"n":"7\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_1.jpg"},{"n":"10\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_2.jpg"},{"n":"3\"x8\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_2.jpg"},{"n":"4\"x11\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_4.jpg"},{"n":"5\"x16\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg"},{"n":"8\" Square","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_5.jpg"}],img=root.querySelector('.fp-body>img');
   function show(d){
     if(img.getAttribute('src')===d.i)return;
     img.style.visibility='hidden';img.alt=d.n+' plaque';img.src=d.i;
