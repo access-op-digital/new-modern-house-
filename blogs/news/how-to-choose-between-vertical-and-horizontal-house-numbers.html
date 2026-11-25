@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<!--
+  CLIENT FORM on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/how-to-choose-between-vertical-and-horizontal-house-numbers
+  Article copy, author box and related posts: live post, copied 2026-11-25.
+  The form block is generated in the mhn-font-picker project (build/embed_orient.html); change it there and re-run build/run.sh.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Choose Between Vertical and Horizontal House Numbers</title>
+<meta name="description" content="Learn how to choose between vertical and horizontal house numbers based on style, visibility, space, and curb appeal for your home.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/how-to-choose-between-vertical-and-horizontal-house-numbers">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,500,600,700%7CLibre+Baskerville">
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
+
+/* ---- article + sticky font picker: the picker stays beside the article and stops where the article ends ---- */
+.post-wrap.has-side{max-width:1156px}
+.post-cols{display:grid;grid-template-columns:minmax(0,1fr)}
+.post-cols .mhnfp{margin:0 0 28px}
+.post-cols .shopifycontent{margin-bottom:0}
+.post .post-h1{margin:16px 0}
+.post-tail{max-width:672px;margin-top:48px}
+.post .shopifycontent h2 img{margin-top:12px}
+@media(min-width:1000px){
+  .post-cols{grid-template-columns:minmax(0,672px) 356px;column-gap:32px}
+  .post-cols .post-head{grid-column:1;grid-row:1}
+  .post-cols .shopifycontent{grid-column:1;grid-row:2}
+  .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
+}
+@media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+.post-cols.is-top{display:block}
+.post-cols.is-top .mhnfp{margin:0 0 28px}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="post-cols is-top">
+    <div class="post-head">
+      <div class="post-meta">
+        <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+        <div class="post-date">12.09.25</div>
+        <div class="post-rule"></div>
+      </div>
+      <h1 class="post-h1" itemprop="name">How to Choose Between Vertical and Horizontal House Numbers</h1>
+    </div>
+<!-- MHN client form "orient", generated by forms.py from the client's samples; do not hand-edit. -->
+<aside class="mhnfp is-top is-orient" id="mhn-orient-form" aria-labelledby="mhnfp-title">
+<style>
+.mhnfp,.mhnfp *{box-sizing:border-box}
+.mhnfp{container-type:inline-size;font-family:Muli,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.4;color:#393838;text-align:left}
+.mhnfp .fp-box{display:grid;grid-template-columns:minmax(0,1fr) 120px;grid-template-areas:"t p" "r r" "c c";column-gap:12px;background:#fff;border:1px solid #dcdcdc;padding:13px 14px 14px}
+.mhnfp .fp-title{grid-area:t;align-self:center;margin:0 0 8px;padding:0;font:400 19px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp fieldset{grid-area:r;margin:0;padding:0;border:0;min-width:0}
+.mhnfp legend{padding:0;margin:0 0 6px;font:400 14px/1.25 Muli,Helvetica,Arial,sans-serif;color:#393838}
+.mhnfp .fp-rows{display:grid;gap:4px}
+.mhnfp .fp-opt{position:relative;display:block;margin:0;cursor:pointer}
+.mhnfp .fp-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.mhnfp .fp-opt>span{display:grid;grid-template-columns:12px minmax(0,1fr);gap:1px 7px;align-items:center;min-height:28px;padding:4px 7px;background:#f0f0f0}
+.mhnfp .fp-opt:hover>span{background:#e4e4e4}
+.mhnfp i{width:12px;height:12px;border:1px solid #393838;border-radius:50%}
+.mhnfp input:checked+span i{background:#393838}
+.mhnfp input:focus-visible+span,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
+.mhnfp b{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:7px;font-weight:400;font-size:12px;line-height:1.25;letter-spacing:.04em;text-transform:uppercase}
+.mhnfp em{font-style:italic;font-size:12px;line-height:1.25;letter-spacing:0;text-transform:none;color:#b3470a}
+.mhnfp small{display:none;grid-column:1 / -1;margin-top:2px;font-size:12.5px;line-height:1.4}
+.mhnfp input:checked+span small{display:block}
+.mhnfp .fp-box>img{grid-area:p;align-self:start;display:block;width:120px;height:120px;margin:0 0 8px;object-fit:cover;background:#f0f0f0}
+.mhnfp .fp-box>img.is-drawing{object-position:50% 61%;background:#fff}
+.mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "r" "p" "c"}
+.mhnfp.is-sets .fp-box>img{width:270px;max-width:100%;height:172px;margin:6px auto 0}
+.mhnfp a.fp-cta{grid-area:c;display:block;margin-top:10px;padding:10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mhnfp a.fp-cta:hover{background:#f36a10;color:#000}
+@container (min-width:560px){
+  .mhnfp .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p";grid-template-rows:auto auto auto 1fr;column-gap:28px;align-items:start;padding:20px 22px 22px}
+  .mhnfp .fp-title{align-self:start;font-size:26px;margin-bottom:12px}
+  .mhnfp legend{font-size:15px;margin-bottom:7px}
+  .mhnfp .fp-opt>span{padding:6px 9px;gap:3px 9px;min-height:30px}
+  .mhnfp b{font-size:13.5px;letter-spacing:.06em}
+  .mhnfp em{font-size:13.5px}
+  .mhnfp small{grid-column:2;font-size:13.5px}
+  .mhnfp .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p"}
+  .mhnfp.is-sets .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp a.fp-cta{justify-self:start;padding:11px 26px;margin-top:14px}
+}
+@container (max-width:310px){.mhnfp .fp-box{grid-template-columns:1fr;grid-template-areas:"t" "r" "p" "c"}.mhnfp .fp-box>img{margin:10px 0 0}}
+.mhnfp-bar{display:none}
+@media(min-width:1000px){.mhnfp.is-side{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}}
+@media(max-width:999px){
+  .mhnfp{scroll-margin-top:86px}
+  .mhnfp .fp-opt>span{min-height:44px}
+  .mhnfp a.fp-cta{padding-top:15px;padding-bottom:15px}
+  .mhnfp-bar.is-on{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #dcdcdc}
+  .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+}
+</style>
+<form class="fp-box" autocomplete="off">
+  <p class="fp-title" id="mhnfp-title">Horizontal or Vertical?<br>Let us arrange it.</p>
+  <fieldset>
+    <legend>Select your orientation:</legend>
+    <div class="fp-rows">
+      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="0" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_h_2.jpg" data-alt="Horizontal Installation installation" checked><span><i></i><b>Horizontal Installation <em>our most popular</em></b><small>Receive a horizontal drilling template with your numbers and letters, carefully spaced by our team, for a worry-free install.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="1" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_v_7.jpg" data-alt="Vertical Installation installation"><span><i></i><b>Vertical Installation <em>narrow areas</em></b><small>Receive a vertical drilling template with your numbers and letters, carefully spaced by our team, for a worry-free install. Vertical orientation is ideal for narrow areas or if you're tight on space.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="2" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_b_1.jpg" data-alt="Both installation"><span><i></i><b>Both <em>optional add on - additional cost</em></b><small>Can't decide? Upgrade and get both horizontal and vertical templates.</small></span></label>
+    </div>
+  </fieldset>
+  <img src="https://cms.modernhousenumbers.com/assets/guide_nl_orient_h_2.jpg" width="270" height="270" alt="Horizontal Installation installation">
+  <a class="fp-cta" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop house numbers</a>
+</form>
+<script>
+(function(){
+  var root=document.querySelector('.mhnfp');if(!root)return;
+  var img=root.querySelector('.fp-box>img'),cta=root.querySelector('.fp-cta');
+  function show(e){
+    var d=e.dataset;
+    if(img.getAttribute('src')!==d.img){img.style.visibility='hidden';img.src=d.img}
+    img.alt=d.alt;img.className=/[.]png$/.test(d.img)?'is-drawing':'';
+    if(d.href){cta.href=d.href;cta.textContent=d.cta}
+  }
+  img.addEventListener('load',function(){img.style.visibility='visible'});
+  root.addEventListener('change',function(e){if(e.target.type==='radio')show(e.target)});
+  root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
+  show(root.querySelector('input:checked'));
+  function initBar(){
+    var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
+    if(!bar||!art)return;
+    var tick=function(){
+      var r=root.getBoundingClientRect(),a=art.getBoundingClientRect();
+      bar.classList.toggle('is-on',r.bottom<74&&a.bottom>window.innerHeight*.6)};
+    window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick);tick();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBar);else initBar();
+})();
+</script>
+</aside>
+    <div class="shopifycontent blog" itemprop="articleBody">
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/horizontal_vertical_modern_numbers_both_templates.png?v=1772822895" alt="Modern house number installation templates and hardware for address numbers “280” with mounting screws and guides." style="float: none;"></div>
+<p>Homeowners often feel stuck deciding between vertical or horizontal house numbers. The wrong format can clash with your design or reduce visibility. To find a professional solution for any space, learning <a href="https://www.modernhousenumbers.com/blogs/news/how-to-choose-the-perfect-restroom-sign-for-your-space"><strong>how to choose restroom signs</strong></a> can offer valuable insights into how standardized orientation and sizing improve legibility in diverse environments. The right orientation depends on your architecture and mounting space. To ensure your choices withstand the elements while remaining sharp, consider <a href="https://www.modernhousenumbers.com/blogs/news/why-metal-restroom-signs-are-the-most-durable-choice">why metal restroom signs are durable</a>, as the same high-grade materials used for commercial wayfinding are essential for ensuring your home's exterior numbers are seen fast during emergencies</p>
+<p>Let’s explain the differences between vertical and horizontal layouts, how to choose the right one for your property, and what to avoid.</p>
+<h2><strong>What’s the Functional Difference Between Vertical and Horizontal House Numbers?</strong></h2>
+<p>Horizontal numbers are read left to right. Whereas, Vertical numbers are read top to bottom.</p>
+<p>Horizontal orientation is more common. It offers faster readability for drivers and emergency responders. Vertical numbers, however, fit narrow columns, posts, or door frames where horizontal space is limited.</p>
+<p>Both formats are functional. The right one depends on placement, viewing angle, and structural layout.</p>
+<h2><strong>When Does Vertical Orientation Work Best?</strong></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/2018_13635_palmsprings_aluminum_vertical_top.jpg?v=1772822936" alt="Vertical modern house numbers “13635” mounted on a black brick wall beside a contemporary front door." style="float: none;"></div>
+<p>Vertical orientation is required in the following cases:</p>
+<h3><strong>1. Narrow Mounting Areas</strong></h3>
+<p>Vertical numbers fit best when you install them on:</p>
+<ul>
+<li>Door frames</li>
+<li>Porch posts</li>
+<li>Narrow siding panels</li>
+<li>Pillars or beams</li>
+</ul>
+<p>For entryways with limited wall space, vertical orientation uses the vertical dimension efficiently.</p>
+<h3><strong>2. Tall or Modern Architecture</strong></h3>
+<p>Vertical numbers complement:</p>
+<ul>
+<li>Mid-century modern facades</li>
+<li>Homes with tall entry columns</li>
+<li>Multi-story narrow designs</li>
+</ul>
+<p>They enhance architectural lines and create visual height. Vertical layouts look balanced when aligned with narrow, vertical planes.</p>
+<h3><strong>3. Side-View Street Positioning</strong></h3>
+<p>Homes that face the street at an angle or corner often benefit from vertical mounting. Numbers can follow structural elements visible from the side, such as posts or fences near the street.</p>
+<h2><strong>When Should You Use Horizontal Orientation?</strong></h2>
+<div style="text-align: left;">
+<img src="https://cdn.shopify.com/s/files/1/0326/2541/files/18.b_edited.png?v=1772823049" alt="Modern address sign “No 20140” mounted above a large barn-style garage door on a dark gray building." style="float: none;"><meta charset="utf-8">
+</div>
+<p>Horizontal orientation is useful for:</p>
+<h3><strong>1. Wide Facades or Garage Mounting</strong></h3>
+<p>Horizontal numbers work well when mounted on:</p>
+<ul>
+<li>Garage walls</li>
+<li>Wide front facades</li>
+<li>Above or beside large doors</li>
+<li>Brick or stucco surfaces</li>
+</ul>
+<p>This layout spreads evenly and aligns with eye movement patterns of drivers.</p>
+<h3><strong>2. High-Traffic or Straight-On Views</strong></h3>
+<p>Horizontal numbers are easier to read at a glance for drivers or emergency vehicles. They reduce scan time because of the natural left-to-right reading pattern.</p>
+<p>Use horizontal layout when:</p>
+<ul>
+<li>The numbers face the road directly</li>
+<li>The house sits close to the street</li>
+<li>Visibility from a distance is a top concern</li>
+</ul>
+<h3><strong>3. Traditional or Colonial Style Homes</strong></h3>
+<p>Horizontal numbers match the symmetry and proportion of classic homes. They preserve visual harmony when installed above doors or garage headers.</p>
+<h2><strong>How Does Visibility Change with Orientation?</strong></h2>
+<p>Orientation affects how fast and from how far your house numbers can be read.</p>
+<table>
+<tbody>
+<tr>
+<td>
+<p><strong>Factor</strong></p>
+</td>
+<td>
+<p><strong>Horizontal Layout</strong></p>
+</td>
+<td>
+<p><strong>Vertical Layout</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Visibility at speed</p>
+</td>
+<td>
+<p>Easier to scan while driving</p>
+</td>
+<td>
+<p>Slower scan rate</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Angle readability</p>
+</td>
+<td>
+<p>Better from direct view</p>
+</td>
+<td>
+<p>Better for side angles</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Street distance</p>
+</td>
+<td>
+<p>Strong visibility head-on</p>
+</td>
+<td>
+<p>Good if mounted at an angle</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Emergency performance</p>
+</td>
+<td>
+<p>Preferred by responders</p>
+</td>
+<td>
+<p>Acceptable if well-placed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Both orientations must follow legibility best practices:</p>
+<ul>
+<li>Contrast with the background</li>
+<li>Use sans-serif fonts</li>
+<li>Ensure numbers are at least 4 to 6 inches tall</li>
+<li>Avoid decorative fonts</li>
+</ul>
+<p>Orientation alone doesn’t guarantee visibility, <strong>placement and contrast matter more</strong>.</p>
+<h2><strong>What Are the Key Design Considerations?</strong></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/pro_gal_exterior_26.jpg?v=1772823099" alt="Vertical modern house numbers “8061” mounted on the exterior wall of a contemporary home near the front entrance." style="float: none;"></div>
+<p>Given below are the key design considerations for:</p>
+<h3><strong>1. Architectural Style</strong></h3>
+<p>Choose an orientation that reinforces your home’s architectural identity:</p>
+<ul>
+<li>Modern homes: vertical layout looks sleek and minimalist</li>
+<li>Craftsman or Colonial homes: horizontal layout maintains balance</li>
+<li>Industrial or mixed materials: both formats work, depending on feature walls</li>
+</ul>
+<h3><strong>2. Material and Font Compatibility</strong></h3>
+<p>Vertical formats limit certain fonts, especially cursive or stylized lettering. Clean, bold fonts like Futura, Helvetica, or Arial Black work best in both orientations.</p>
+<p>Avoid fonts with uneven spacing in vertical layouts. They reduce readability and visual flow.</p>
+<h3><strong>3. Lighting Integration</strong></h3>
+<p>Ensure your lighting setup matches your layout:</p>
+<ul>
+<li>Vertical numbers benefit from spot or directional lighting</li>
+<li>Horizontal numbers align well with overhead porch lights or LED strips</li>
+</ul>
+<p>Poor lighting neutralizes any advantage in orientation.</p>
+<h2><strong>How Does Local Code Affect Orientation?</strong></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/hero_mhn_77177_86428b22-4581-4f8a-9571-36ec88b7ee93.jpg?v=1772823175" alt="Modern house numbers “77177” mounted on a white exterior wall in front of a desert-style modern home with cacti and agave landscaping." style="float: none;"></div>
+<p>Cities and municipalities require <a href="https://www.modernhousenumbers.com/products/house-numbers-letters" title="house numbers">house numbers</a> to be:</p>
+<ul>
+<li>Visible from the street</li>
+<li>Contrasting with the background</li>
+<li>Of a minimum height (usually 4 inches or more)</li>
+</ul>
+<p>Some fire codes <strong>recommend horizontal orientation</strong> because of readability from moving vehicles.</p>
+<p>Before choosing orientation, check:</p>
+<ul>
+<li>Local fire safety ordinances</li>
+<li>HOA guidelines</li>
+<li>Historic preservation restrictions (for older homes)</li>
+</ul>
+<p>In emergency access zones, compliance may override design preferences.</p>
+<h2><strong>What Are Common Mistakes When Choosing Orientation?</strong></h2>
+<p>Homeowners often choose style over function, which can backfire in emergencies. To avoid common layout errors like cramped spacing or poor lighting, viewing the <a href="https://www.modernhousenumbers.com/blogs/news/best-modern-restroom-plaques-for-homes-and-businesses"><strong>best modern restroom plaques</strong></a> can provide excellent examples of how to balance vertical and horizontal elements for maximum clarity. Choosing the right format is essential for property valuation and safety. <br><br>Furthermore, the <a href="https://www.modernhousenumbers.com/blogs/news/top-5-benefits-of-using-custom-restroom-plaques"><strong>benefits of custom restroom plaques</strong></a> extend to residential use, as they offer the precision and mounting versatility needed to avoid the 'cramped' look of standard numbers. Always test visibility from the street with cardboard mockups before committing to a final mounting position.</p>
+<h2><strong>Can You Combine Vertical and Horizontal Formats?</strong></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/professionals_gallery_exterior_1_40_edited.jpg?v=1772823213" alt="Modern address sign “No 7” mounted on a gray brick wall beside a contemporary front door with wood accents." style="float: none;"></div>
+<p>Yes, you can mix orientations when needed. For example:</p>
+<ul>
+<li>Use horizontal numbers on the garage</li>
+<li>Add vertical numbers to the door frame for close-up visibility</li>
+<li>Install curb numbers as horizontal backups</li>
+</ul>
+<p>This hybrid approach helps:</p>
+<ul>
+<li>Large lots</li>
+<li>Duplexes or units with multiple access points</li>
+<li>Properties with different entry angles</li>
+</ul>
+<p>Ensure consistency in font, color, and material to maintain cohesion.</p>
+<h2><strong>Which Orientation Boosts Curb Appeal More?</strong></h2>
+<p>Curb appeal depends on proportion and design flow.</p>
+<h3><strong>Vertical numbers enhance:</strong></h3>
+<ul>
+<li>Tall columns</li>
+<li>Minimalist design</li>
+<li>Narrow entryways</li>
+</ul>
+<h3><strong>Horizontal numbers boost:</strong></h3>
+<ul>
+<li>Broad entrances</li>
+<li>Balanced facades</li>
+<li>Traditional or craftsman looks</li>
+</ul>
+<p>Designers often favor vertical numbers on modern homes and horizontal numbers for symmetry. Either choice can elevate your exterior if placed well and made from quality materials.</p>
+<h2><strong>How Do You Know Which One is Right for Your Home?</strong></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/02_needhelp_orientation_vertical_10_edited.jpg?v=1772823247" alt="Modern house numbers “720” mounted on vertical siding near a black metal gate at a contemporary home entrance." style="float: none;"></div>
+<p>Use this checklist:</p>
+<ul>
+<li>Do you have limited horizontal space? Go vertical</li>
+<li>Does your home face the road directly? Use horizontal</li>
+<li>Is visibility from multiple angles important? Use both</li>
+<li>Is your architecture tall and modern? Vertical fits better</li>
+<li>Do emergency services require a certain layout? Follow local codes</li>
+</ul>
+<p>Still unsure? Take photos of your home’s entry and mock up both formats using paper cutouts or apps. Compare them from the street and from a distance.</p>
+<h2>Frequently Asked Questions</h2>
+<p><strong>What is the main difference between vertical and horizontal house numbers?</strong><strong><br></strong> Horizontal numbers read left to right, making them easier to scan from a distance. Vertical numbers read top to bottom and are better suited for narrow spaces like posts or columns.</p>
+<p><strong>Which orientation is better for visibility from the street?</strong><strong><br></strong> Horizontal orientation offers faster readability for drivers and emergency responders, especially when the numbers face the road directly.</p>
+<p><strong>Can I use vertical numbers on a wide wall?</strong><strong><br></strong> It's not ideal. Vertical numbers may look unbalanced or be harder to read on large surfaces. Horizontal numbers work better on wide facades or above garages.</p>
+<p><strong>Are there building codes that limit which orientation I can use?</strong><strong><br></strong> Some local codes and fire safety guidelines favor horizontal layouts for readability. Always check city regulations or HOA rules before choosing an orientation.</p>
+<p><strong>Can I use both vertical and horizontal numbers on the same property?</strong><strong><br></strong> Yes. Many homeowners use horizontal numbers on garages and vertical numbers on posts or doorframes for added visibility and flexibility.</p>
+<h2>Choose the Format That Combines Form and Function</h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/professionals_gallery_exterior_1_20_edited.jpg?v=1772823282" alt="Modern house numbers “837A” and “837B” mounted on a contemporary multi-unit building exterior near the entrance stairs." style="float: none;"></div>
+<p>Your house numbers should do more than look good, they should be seen, fast, and from a distance. Choosing vertical or horizontal orientation depends on architecture, visibility, mounting space, and safety requirements. Need durable, modern, and easy-to-read house numbers? <strong><a href="https://www.modernhousenumbers.com/">Modern House Numbers</a> </strong>offers high-contrast, precision-cut numbers in both vertical and horizontal formats, which are built to match your home’s style and meet safety standards.</p>
+    </div>
+    </div>
+    <div class="post-tail">
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img loading="lazy" decoding="async" src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_rick.png"
+                         alt="Picture of the Author"
+                         class="mx-auto object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">rick mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Rick is a licensed architect at Repp McLain Design & Construction. He holds a Bachelor of Architecture from the University of Arizona and an MS from the Department of Architecture at the Massachusetts Institute of Technology (MIT). When he’s not designing and fabricating he enjoys spending time with Brandy, Jack, Avery & Taylor and restoring his grandfather’s Ford pickup truck. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Rick on the <a itemprop="url"  href="https://reppmclain.com/people/" title="Repp McLain team page" target="_blank">Repp McLain Website</a>, on <a href="https://www.linkedin.com/in/rickmclain" title="Rick's LinkedIn Profile" target="_blank">LinkedIn</a>, or on <a href="https://www.facebook.com/reppmclain" title="The Repp McLain Facebook Page" target="_blank">Facebook</a>.
+                    </p>
+                </div>
+            </div>
+<div class="my-4 text-center">
+    <div class="text-sm font-semibold uppercase">You may also be interested in:</div>
+    <div class="flex flex-wrap justify-center">
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-concrete-monument-sign-metal-lettering.jpg?crop=center&height=600&v=1794415363&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.11.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs">Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?</a></h3>
+    <div class="text-sm">
+            <p>A monument sign is a freestanding, ground-level structure, typically built from brick, stone, or concrete, that marks a property's entrance and establishes its identity for drivers and pedestrians alike. Choosing the right material shapes how long that sign lasts, how much it costs to install and maintain, and how well it represents the property behind it. This guide covers what...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-wayfinding-directional-signage-examples.jpg?crop=center&height=600&v=1793814478&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="15 Wayfinding Signage Examples to Inspire Your Building&#39;s System"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.04.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples">15 Wayfinding Signage Examples to Inspire Your Building's System</a></h3>
+    <div class="text-sm">
+            <p>Wayfinding signage is the system of identification, directional, informational, and regulatory signs that helps people orient themselves and move confidently through a building. Fifteen real-world examples, from airports and hospitals to campuses and cultural buildings, show what separates an intuitive system from a confusing one. This guide covers the foundations of wayfinding and strategic planning, information organization and lobby entrances,...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+    </div>
+</div>
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+    </div>
+  </article>
+</div>
+</main>
+<div class="mhnfp-bar"><a href="#mhn-orient-form">Select your orientation</a></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://cms.modernhousenumbers.com/partner/">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/building-supplies/modern-house-numbers-pfvwus-pf~1988483036" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

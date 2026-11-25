@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--
+  CLIENT FORM on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/your-guide-to-choosing-the-right-house-numbers
+  Article copy, author box and related posts: live post, copied 2026-11-25.
+  The form block is generated in the mhn-font-picker project (build/embed_vs.html); change it there and re-run build/run.sh.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Guide to Choosing the Right House Numbers</title>
+<meta name="description" content="First impressions last, so house numbers must be selected wisely. Read on and discover the guide for choosing the correct house numbers.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/your-guide-to-choosing-the-right-house-numbers">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,500,600,700%7CLibre+Baskerville">
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
+
+/* ---- article + sticky font picker: the picker stays beside the article and stops where the article ends ---- */
+.post-wrap.has-side{max-width:1156px}
+.post-cols{display:grid;grid-template-columns:minmax(0,1fr)}
+.post-cols .mhnfp{margin:0 0 28px}
+.post-cols .shopifycontent{margin-bottom:0}
+.post .post-h1{margin:16px 0}
+.post-tail{max-width:672px;margin-top:48px}
+.post .shopifycontent h2 img{margin-top:12px}
+@media(min-width:1000px){
+  .post-cols{grid-template-columns:minmax(0,672px) 356px;column-gap:32px}
+  .post-cols .post-head{grid-column:1;grid-row:1}
+  .post-cols .shopifycontent{grid-column:1;grid-row:2}
+  .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
+}
+@media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap has-side">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="post-cols">
+    <div class="post-head">
+      <div class="post-meta">
+        <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+        <div class="post-date">04.13.23</div>
+        <div class="post-rule"></div>
+      </div>
+      <h1 class="post-h1" itemprop="name">Your Guide to Choosing the Right House Numbers</h1>
+    </div>
+<!-- MHN client form "vs", generated by forms.py from the client's samples; do not hand-edit. -->
+<aside class="mhnfp is-side is-vs" id="mhn-vs-form" aria-labelledby="mhnfp-title">
+<style>
+.mhnfp,.mhnfp *{box-sizing:border-box}
+.mhnfp{container-type:inline-size;font-family:Muli,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.4;color:#393838;text-align:left}
+.mhnfp .fp-box{display:grid;grid-template-columns:minmax(0,1fr) 120px;grid-template-areas:"t p" "r r" "c c";column-gap:12px;background:#fff;border:1px solid #dcdcdc;padding:13px 14px 14px}
+.mhnfp .fp-title{grid-area:t;align-self:center;margin:0 0 8px;padding:0;font:400 19px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp fieldset{grid-area:r;margin:0;padding:0;border:0;min-width:0}
+.mhnfp legend{padding:0;margin:0 0 6px;font:400 14px/1.25 Muli,Helvetica,Arial,sans-serif;color:#393838}
+.mhnfp .fp-rows{display:grid;gap:4px}
+.mhnfp .fp-opt{position:relative;display:block;margin:0;cursor:pointer}
+.mhnfp .fp-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.mhnfp .fp-opt>span{display:grid;grid-template-columns:12px minmax(0,1fr);gap:1px 7px;align-items:center;min-height:28px;padding:4px 7px;background:#f0f0f0}
+.mhnfp .fp-opt:hover>span{background:#e4e4e4}
+.mhnfp i{width:12px;height:12px;border:1px solid #393838;border-radius:50%}
+.mhnfp input:checked+span i{background:#393838}
+.mhnfp input:focus-visible+span,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
+.mhnfp b{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:7px;font-weight:400;font-size:12px;line-height:1.25;letter-spacing:.04em;text-transform:uppercase}
+.mhnfp em{font-style:italic;font-size:12px;line-height:1.25;letter-spacing:0;text-transform:none;color:#b3470a}
+.mhnfp small{display:none;grid-column:1 / -1;margin-top:2px;font-size:12.5px;line-height:1.4}
+.mhnfp input:checked+span small{display:block}
+.mhnfp .fp-box>img{grid-area:p;align-self:start;display:block;width:120px;height:120px;margin:0 0 8px;object-fit:cover;background:#f0f0f0}
+.mhnfp .fp-box>img.is-drawing{object-position:50% 61%;background:#fff}
+.mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "r" "p" "c"}
+.mhnfp.is-sets .fp-box>img{width:270px;max-width:100%;height:172px;margin:6px auto 0}
+.mhnfp a.fp-cta{grid-area:c;display:block;margin-top:10px;padding:10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mhnfp a.fp-cta:hover{background:#f36a10;color:#000}
+@container (min-width:560px){
+  .mhnfp .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p";grid-template-rows:auto auto auto 1fr;column-gap:28px;align-items:start;padding:20px 22px 22px}
+  .mhnfp .fp-title{align-self:start;font-size:26px;margin-bottom:12px}
+  .mhnfp legend{font-size:15px;margin-bottom:7px}
+  .mhnfp .fp-opt>span{padding:6px 9px;gap:3px 9px;min-height:30px}
+  .mhnfp b{font-size:13.5px;letter-spacing:.06em}
+  .mhnfp em{font-size:13.5px}
+  .mhnfp small{grid-column:2;font-size:13.5px}
+  .mhnfp .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p"}
+  .mhnfp.is-sets .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp a.fp-cta{justify-self:start;padding:11px 26px;margin-top:14px}
+}
+@container (max-width:310px){.mhnfp .fp-box{grid-template-columns:1fr;grid-template-areas:"t" "r" "p" "c"}.mhnfp .fp-box>img{margin:10px 0 0}}
+.mhnfp-bar{display:none}
+@media(min-width:1000px){.mhnfp.is-side{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}}
+@media(max-width:999px){
+  .mhnfp{scroll-margin-top:86px}
+  .mhnfp .fp-opt>span{min-height:44px}
+  .mhnfp a.fp-cta{padding-top:15px;padding-bottom:15px}
+  .mhnfp-bar.is-on{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #dcdcdc}
+  .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+}
+</style>
+<form class="fp-box" autocomplete="off">
+  <p class="fp-title" id="mhnfp-title">House Numbers<br>vs Plaques</p>
+  <fieldset>
+    <legend>Select your product:</legend>
+    <div class="fp-rows">
+      <label class="fp-opt"><input type="radio" name="mhnfp-vs" value="0" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_size_6_2.jpg" data-alt="House Numbers" data-href="https://www.modernhousenumbers.com/products/house-numbers-letters" data-cta="Shop house numbers" checked><span><i></i><b>House Numbers <em>7 fonts, 5 finishes, 5 sizes</em></b><small>Architect-designed signage crafted from solid, recycled aluminum. Every order arrives with concealed mounting hardware for a floating effect.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-vs" value="1" data-img="https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg" data-alt="Plaques" data-href="https://www.modernhousenumbers.com/products/plaque" data-cta="Shop plaques"><span><i></i><b>Plaques <em>best viewed at close range</em></b><small>Precision stencil-cut characters from solid recycled aluminum. Choose from circle, square, or rectangular plaques in varying sizes, three modern fonts and five finishes. If you’re tight on space, consider a personalized plaque.</small></span></label>
+    </div>
+  </fieldset>
+  <img src="https://cms.modernhousenumbers.com/assets/guide_nl_size_6_2.jpg" width="270" height="270" alt="House Numbers">
+  <a class="fp-cta" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop house numbers</a>
+</form>
+<script>
+(function(){
+  var root=document.querySelector('.mhnfp');if(!root)return;
+  var img=root.querySelector('.fp-box>img'),cta=root.querySelector('.fp-cta');
+  function show(e){
+    var d=e.dataset;
+    if(img.getAttribute('src')!==d.img){img.style.visibility='hidden';img.src=d.img}
+    img.alt=d.alt;img.className=/[.]png$/.test(d.img)?'is-drawing':'';
+    if(d.href){cta.href=d.href;cta.textContent=d.cta}
+  }
+  img.addEventListener('load',function(){img.style.visibility='visible'});
+  root.addEventListener('change',function(e){if(e.target.type==='radio')show(e.target)});
+  root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
+  show(root.querySelector('input:checked'));
+  function initBar(){
+    var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
+    if(!bar||!art)return;
+    var tick=function(){
+      var r=root.getBoundingClientRect(),a=art.getBoundingClientRect();
+      bar.classList.toggle('is-on',r.bottom<74&&a.bottom>window.innerHeight*.6)};
+    window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick);tick();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBar);else initBar();
+})();
+</script>
+</aside>
+    <div class="shopifycontent blog" itemprop="articleBody">
+<div style="text-align: center;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/modern-black-house-numbers-orange-front-door.jpg?v=1784373624" alt="Modern black house numbers mounted beside a bright orange front door on a white home exterior" style="float: none;"></div>
+<p dir="ltr"><span>Choosing the right house numbers means selecting an addressing solution that meets local code requirements, suits your home's architecture, and holds up against the elements for years without fading or deteriorating.</span></p>
+<p dir="ltr"><span>This guide covers the core selection factors every homeowner should evaluate, the design styles and finishes available, proper installation practices, how house numbers influence curb appeal and property value, sustainable manufacturing considerations, and what sets handcrafted made-to-order products apart.</span></p>
+<p dir="ltr"><span>Visibility and local compliance form the foundation of any good house number decision. Size, placement, material, and regulatory requirements all interact to determine whether your numbers work effectively for emergency responders, delivery drivers, and prospective buyers.</span></p>
+<p dir="ltr"><span>Design style and finish options are broader than most homeowners expect. From oversized bold statements in matte bronze to sleek sans-serif profiles with floating stand-off mounts, the right choice reinforces your home's architectural identity rather than contradicting it.</span></p>
+<p dir="ltr"><span>Installation quality determines how long your numbers last and how well they perform. Proper tools, surface-appropriate fasteners, and correct placement by home type prevent the most common errors that lead to loose mounts, poor visibility, or wall damage.</span></p>
+<p dir="ltr"><span>Curb appeal and property value are directly affected by the quality of your house numbers. Research links strong exterior presentation to measurable increases in sale price, and design-forward numbers contribute to that perception from the moment a buyer or visitor reaches the curb.</span></p>
+<p dir="ltr"><span>Sustainable manufacturing and made-to-order production round out the decision. Products built from recycled aluminum and manufactured only when ordered reduce waste, support green building goals, and deliver a level of customization that mass-produced alternatives cannot offer.</span></p>
+<h2 dir="ltr"><span>What Factors Should You Consider When Selecting House Numbers?</span></h2>
+<p dir="ltr"><span>The factors you should consider when selecting house numbers include visibility, size and placement, material durability, and local regulations. Each of these elements directly affects both safety and aesthetic outcome.</span></p>
+<h3 dir="ltr"><span>How Does House Number Visibility Impact Curb Appeal and Safety?</span></h3>
+<p dir="ltr"><span>House number visibility impacts curb appeal and safety by ensuring emergency responders, delivery drivers, and guests locate your property without delay. According to Med Care EMS EMT Alicia Cruz, approximately 75 to 80 percent of homes in Hidalgo County lack a clearly posted address, causing emergency crews to lose critical response time.</span></p>
+<p dir="ltr"><span>Beyond safety, visible numbers contribute meaningfully to curb appeal. For 2026, design trends show numbers shifting toward oversized bold statements, 8 to 12 inches or larger, particularly for homes set back from the street, so the numbers double as architectural features. A study reported by REALTOR Magazine found that homes with appealing exteriors sell for an average of 7% more than comparable homes with a rundown appearance. Visibility, in this sense, is both a functional requirement and a design asset worth investing in.</span></p>
+<h3 dir="ltr"><span>What Size and Placement Guidelines Should You Follow for House Numbers?</span></h3>
+<p dir="ltr"><span>The size and placement guidelines you should follow for house numbers depend on your home's distance from the street and local code minimums. As a practical baseline, numbers should be large enough to read from the curb without stepping onto the property.</span></p>
+<p dir="ltr"><span>Key guidelines to follow:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Minimum height:</span><span> At least 3 to 5 inches tall for standard residential setbacks; larger homes set further back warrant 6 inches or more.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Placement height:</span><span> Mount numbers between 4 and 6 feet above grade for optimal sightlines from the street.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Location:</span><span> Position near the main entry, garage, or front-facing fence post, wherever the street view is unobstructed.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Contrast:</span><span> Choose a finish that contrasts with your exterior wall color to maximize legibility day and night.</span></p>
+</li>
+</ul>
+<h3 dir="ltr"><span>What Materials Are Best Suited for House Numbers in Different Climates?</span></h3>
+<p dir="ltr"><span>The materials best suited for house numbers vary by climate, with aluminum and powder-coated steel performing consistently across the widest range of conditions. Aluminum carries UV-resistant finishes that prevent fading under intense sunlight, and its light-reflective properties extend longevity in outdoor signage applications, according to Signage 4 Business Group. High-quality powder-coated steel resists rust, fading, and chipping year-round, even in harsh weather, making it a reliable choice for humid or freeze-thaw climates.</span></p>
+<p dir="ltr"><span>The best material choices by climate type are:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Hot and sunny climates:</span><span> UV-coated aluminum resists solar degradation and heat expansion.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Coastal and humid climates:</span><span> Marine-grade aluminum or sealed powder-coated steel resists salt air corrosion.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Cold and freeze-thaw climates:</span><span> Powder-coated metals flex better than rigid plastics through temperature cycling.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Mild and temperate climates:</span><span> Nearly all quality materials perform well; material selection can prioritize aesthetics.</span></p>
+</li>
+</ul>
+<h3 dir="ltr"><span>How Do Local Regulations and HOA Rules Affect Your House Number Choices?</span></h3>
+<p dir="ltr"><span>Local regulations and HOA rules affect your house number choices by mandating minimum sizes, approved materials, placement locations, and sometimes finish colors. Non-compliance can result in fines or required replacements, so checking requirements before purchasing is essential.</span></p>
+<p dir="ltr"><span>Key regulatory factors to verify:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Minimum number height:</span><span> New York City rules require house numbers to be at least 5 inches tall, positioned within two feet of the door knob side or centered above the door. Chicago Municipal Code Section 10-4-090 sets a minimum figure height of 3 inches.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Illumination requirements:</span><span> Some jurisdictions require numbers to be plainly legible from the sidewalk at all times, including at night.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>HOA finish restrictions:</span><span> Many associations limit approved colors, materials, or mounting styles to maintain neighborhood consistency.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Placement rules:</span><span> Some codes specify exact mounting heights or distances from doorways.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Checking with your local building department and HOA before selecting a style protects your investment and avoids costly corrections later.</span></p>
+<h2 dir="ltr"><span>Which Design Styles and Finishes Are Available for House Numbers?</span></h2>
+<p dir="ltr"><span>Design styles and finishes for house numbers range from modern minimalist to earthy natural tones, with options in powder-coated metals, aged finishes, and weather-resistant materials. The following sections cover architectural matching, popular finish colors, and customization possibilities.</span></p>
+<h3 dir="ltr"><span>How Can You Match House Numbers to Your Home's Architecture and Aesthetic?</span></h3>
+<p dir="ltr"><span>Matching house numbers to your home's architecture and aesthetic means selecting a font style, material, and mounting method that reflects your home's design language. Sleek sans-serif fonts and floating stand-off mounts suit contemporary and mid-century modern exteriors by creating depth and shadow on textured surfaces. Traditional homes pair naturally with heavier serif profiles or framed plaque formats. The underlying principle is visual continuity: your numbers should feel like they belong to the facade, not simply attached to it.</span></p>
+<h3 dir="ltr"><span>What Are the Most Popular Colors and Finishes for Modern House Numbers?</span></h3>
+<p dir="ltr"><span>The most popular colors and finishes for modern house numbers include matte black, brushed aluminum, dark bronze, and matte brass. Emerging 2026 preferences, noted by Architectural Designs, favor earthy natural tones that complement biophilic home designs. High-quality powder-coated steel and UV-stable finishes resist rust, fading, and chipping year-round, making them reliable across all climates. Matte finishes remain the dominant choice for design-conscious homeowners because they reduce glare and age more gracefully than high-gloss alternatives.</span></p>
+<h3 dir="ltr"><span>Can You Customize House Numbers to Fit Unique Design Preferences?</span></h3>
+<p dir="ltr"><span>Yes, you can customize house numbers to fit unique design preferences, including font selection, finish color, size, and mounting style. Made-to-order production allows each set to be tailored to specific architectural conditions rather than forcing a standard product onto a distinctive facade. Modern House Numbers offers multiple font families, such as Palm Springs, SoCal, and SoHo, alongside finishes spanning warm metallics to classic matte black, all handcrafted from recycled aluminum in Tucson, Arizona.</span></p>
+<p dir="ltr">\</p>
+<div style="text-align: center;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/custom-silver-house-numbers-modern-garage.jpg?v=1784373624" alt="Large silver house numbers above a modern garage with wood accent siding" style="float: none;"></div>
+<h2 dir="ltr"><span>How Do You Properly Install House Numbers for Maximum Effectiveness?</span></h2>
+<p dir="ltr"><span>Proper installation determines whether house numbers serve their full purpose: clear visibility, secure mounting, and lasting durability. The sections below cover recommended tools and templates, optimal placement by home type, and critical mistakes to avoid.</span></p>
+<h3 dir="ltr"><span>What Tools and Installation Templates Are Recommended for House Numbers?</span></h3>
+<p dir="ltr"><span>The recommended tools for house number installation include a hammer drill with a 3/16" specialty bit for hard surfaces like concrete, stone, or masonry, a stud finder for wood-sided homes, and a level for precise alignment. A personalized drilling template, included with every Modern House Numbers purchase, eliminates guesswork by marking exact anchor points before any hardware touches your wall. This combination of the right bit and a pre-marked template produces clean, professional results without unnecessary holes or adjustments.</span></p>
+<h3 dir="ltr"><span>Where Is the Optimal Placement for House Numbers on Various Home Types?</span></h3>
+<p dir="ltr"><span>The optimal placement for house numbers varies by home type, but the universal priority is unobstructed visibility from the street. Common placement options include:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Single-family homes with a clear front facade:</span><span> Mount numbers beside or above the main entry door, at eye level.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Homes set back from the street:</span><span> Install numbers at the mailbox, fence post, or driveway entrance where they can be read at a distance.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Homes with deep porches or heavy landscaping:</span><span> Place numbers on a post near the curb or on a lit surface to prevent obstruction.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Multi-unit buildings:</span><span> Each unit should display its own number near the individual entry point.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Positioning numbers on a well-lit surface ensures legibility after dark, which matters most during emergencies.</span></p>
+<div style="text-align: center;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/house-number-concrete-wood-front-fence.jpg?v=1784373624" alt="Black house number 705 mounted on a concrete and wood front fence near the sidewalk" style="float: none;"></div>
+<h3 dir="ltr"><span>What Are Common Mistakes to Avoid When Installing House Numbers?</span></h3>
+<p dir="ltr"><span>Common mistakes when installing house numbers include mounting them too low, skipping a level, and failing to account for wall structure before drilling. On older homes specifically, studs are typically 20 inches on center, so measuring from the exterior wall alone is unreliable. According to professional installation guidance, a stud finder is recommended to confirm placement before drilling to avoid missed anchors or wall damage. Other frequent errors include choosing a location blocked by landscaping, installing without adequate lighting, and using fasteners unsuitable for the surface material. Taking a few extra minutes to plan placement and confirm wall structure prevents costly repairs and guarantees a secure, lasting mount.</span></p>
+<h2 dir="ltr"><span>How Can House Numbers Enhance Your Home's Value and Curb Appeal?</span></h2>
+<p dir="ltr"><span>House numbers enhance your home's value and curb appeal by serving as a visible design statement that shapes buyer perception and property appeal. The sections below cover how design-forward numbers make homes stand out and how quality numbers shape a property's first impression.</span></p>
+<h3 dir="ltr"><span>Why Do Design-Forward House Numbers Make Homes Stand Out?</span></h3>
+<p dir="ltr"><span>Design-forward house numbers make homes stand out by transforming a functional address marker into an intentional architectural detail. When numbers are chosen to complement a home's style, finish, and scale, they signal that the entire exterior has been curated with care. Real estate agent Torrence Ford, owner of RE/MAX Premier in Georgia, notes that "move-up buyers" hold far higher standards for exterior presentation than first-time buyers, making every visible detail count. Numbers with clean lines, quality finishes, and proper scale communicate that a property has been thoughtfully maintained. In competitive real estate markets, this kind of visual cohesion is often what separates a memorable listing from one that is quickly forgotten.</span></p>
+<h3 dir="ltr"><span>How Can Quality House Numbers Affect a Property's First Impression?</span></h3>
+<p dir="ltr"><span>Quality house numbers affect a property's first impression by establishing the tone for a home's entire exterior before a visitor reaches the front door. According to research from The Journal of Real Estate Finance and Economics, high-quality curb appeal can raise a property's value by up to seven percent. Numbers that are well-proportioned, cleanly finished, and properly illuminated signal maintenance and pride of ownership at a glance. Poor-quality or worn numbers, by contrast, introduce doubt before a buyer even steps inside. Investing in well-crafted numbers is one of the most cost-effective curb appeal upgrades available, delivering outsized visual impact relative to cost.</span></p>
+<div style="text-align: center;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/custom-metal-address-sign-wood-landscape-wall.jpg?v=1784373624" alt="Custom metal address sign with street name mounted on a wood landscape wall" style="float: none;"></div>
+<h2 dir="ltr"><span>How Does Sustainable Manufacturing Influence House Number Selection?</span></h2>
+<p dir="ltr"><span>Sustainable manufacturing influences house number selection by shaping material choices, production methods, and long-term value. The sections below cover the environmental benefits of recycled materials and how eco-friendly practices affect product longevity.</span></p>
+<h3 dir="ltr"><span>What Are the Environmental Benefits of Using Recycled Materials for House Numbers?</span></h3>
+<p dir="ltr"><span>The environmental benefits of using recycled materials for house numbers include reduced resource extraction, lower carbon output, and direct support for green building certification goals. According to LinkedIn's analysis of green building certifications in signage, signage using recycled or certified materials, such as FSC-certified paper or recycled acrylic, directly supports LEED and BREEAM criteria. Modern House Numbers builds every product from solid, recycled 3/8-inch aluminum, meaning each purchase actively contributes to these environmental standards rather than working against them. For homeowners pursuing green certification or simply reducing their footprint, material sourcing is not a secondary detail; it is a primary selection criterion.</span></p>
+<h3 dir="ltr"><span>How Do Eco-Friendly Practices Impact Product Longevity and Value?</span></h3>
+<p dir="ltr"><span>Eco-friendly practices impact product longevity and value by combining made-to-order production with durable, sustainably sourced materials that resist premature replacement. Made-to-order manufacturing minimizes waste by eliminating surplus inventory and aligns production directly with real customer demand. Products built from recycled aluminum are inherently weather-resistant and designed to last for years, countering throwaway culture. A house number that never needs replacing delivers compounding value over time, making sustainability and durability two sides of the same investment.</span></p>
+<h2 dir="ltr"><span>Why Do Design-Conscious Homeowners and Professionals Choose Handcrafted, Made-to-Order House Numbers?</span></h2>
+<p dir="ltr"><span>Design-conscious homeowners and professionals choose handcrafted, made-to-order house numbers because they combine architectural precision, personalization, and lasting quality that mass-produced alternatives cannot match. The sections below cover the support services architect-designed companies provide and the specific benefits for both homeowners and trade professionals.</span></p>
+<h3 dir="ltr"><span>What Support Services Do Architect-Designed House Number Companies Provide?</span></h3>
+<p dir="ltr"><span>The support services architect-designed house number companies provide include personalized drilling templates, step-by-step installation instructions, concealed hardware, and responsive customer assistance. Modern House Numbers includes all of these with every purchase, ensuring a professional result without requiring specialist tools or expertise. Every product is also made to order, meaning each piece is tailored to the customer's specifications rather than pulled from generic stock. This level of service is particularly valuable to trade professionals managing multiple projects, where installation accuracy and consistency directly affect the finished quality of a build.</span></p>
+<h3 dir="ltr"><span>How Do Made-to-Order House Numbers Benefit Homeowners and Trade Professionals?</span></h3>
+<p dir="ltr"><span>Made-to-order house numbers benefit homeowners and trade professionals by delivering fully customized, architect-designed products that align precisely with a project's aesthetic and structural requirements. According to a 2024 PwC Voice of Consumer Survey, consumers are willing to spend an average of 9.7% more on sustainably produced or sourced goods, reflecting a broader shift toward quality and intention over price alone. Modern House Numbers manufactures every piece from recycled aluminum in Tucson, Arizona, minimizing waste while offering font choices, finish options, and sizing flexibility. For trade professionals such as architects, builders, and interior designers, the dedicated trade program provides bulk ordering, special pricing, and a streamlined portal that simplifies sourcing for client projects.</span></p>
+<h2 dir="ltr"><span>How Can Modern House Numbers Help You Successfully Choose and Install House Numbers?</span></h2>
+<p dir="ltr"><span>Modern House Numbers helps homeowners and design professionals choose and install house numbers through architect-designed products, personalized drilling templates, and step-by-step installation instructions. The following sections cover what Modern House Numbers offers and the key takeaways for getting your addressing project right.</span></p>
+<h3 dir="ltr"><span>What Products and Services Does Modern House Numbers Offer for Home Addressing Projects?</span></h3>
+<p dir="ltr"><span>Modern House Numbers offers a full range of architect-designed, handcrafted addressing products for home and professional projects. Every product ships from Tucson, Arizona, made to order from recycled aluminum. The core product lineup includes:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Numbers + Letters:</span><span> Custom house numbers and letters starting at $24.50, available in multiple font styles including Palm Springs, SoCal, Austin, and SoHo.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Plaques:</span><span> Custom address plaques starting at $64.50, finished to complement any architectural style.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>QuickShip:</span><span> Ready-to-ship options starting at $28.50 for faster delivery needs.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Decals and Curb Stencils:</span><span> Mailbox decals and curb stencils for alternative installation scenarios.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Custom Products:</span><span> Fully bespoke solutions including restroom signs and welcome signs.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Trade Program:</span><span> Bulk ordering for architects, builders, and contractors starting at $24.50.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Every purchase includes a free personalized drilling template, concealed hardware, and step-by-step installation instructions for a worry-free result.</span></p>
+<div style="text-align: center;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/vertical-house-numbers-modern-stone-entryway.jpg?v=1784373624" alt="Vertical house numbers mounted on a stone column beside a modern illuminated entryway" style="float: none;"></div>
+<h3 dir="ltr"><span>What Are the Key Takeaways When Choosing the Right House Numbers for Your Home?</span></h3>
+<p dir="ltr"><span>The key takeaways when choosing the right house numbers center on visibility, compliance, material durability, and design alignment. Pharr EMS Assistant Chief Ben Martinez confirmed that "clearly marked addresses not only help first responders find the right home faster, but also allow family members to remain with loved ones instead of running outside to flag down help during an emergency." Beyond safety, local codes set firm minimums: Manhattan requires digits at least 5 inches tall, while Chicago's municipal code Section 10-4-090 mandates a minimum 3-inch figure height. Aluminum numbers with UV-resistant finishes resist fading under intense sunlight. For hard surfaces, a hammer drill with a 3/16" specialty bit ensures secure mounting. Illumination is increasingly required so numbers remain legible from the sidewalk at all times. Prioritizing visibility, code compliance, and durable materials protects both safety and curb appeal in a single decision.</span></p>
+    </div>
+    </div>
+    <div class="post-tail">
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img loading="lazy" decoding="async" src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_brandy.png"
+                         alt="Picture of the Author"
+                         class="mx-auto object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">brandy mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Brandy is an urban planner and site designer with experience at private & non-profit organizations and has been responsible for land development and regional visioning projects. She holds a Bachelor of Architecture and Master in Urban Planning from the University of Arizona. Brandy is passionate about community involvement, anything handmade and holds fond memories of learning to sew at age five. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Brandy on <a itemprop="url"  href="https://www.linkedin.com/in/brandymclain" title="Brandy's Linked In Profile" target="_blank">LinkedIn</a>, at <a href="https://shoutoutsocal.com/meet-rick-brandy-mclain-architect-designer-craftsman/" title="An interview with Brandy at the ShoutOut SoCal website" target="_blank">ShoutOut SoCal</a>, or at the <a href="https://sdvoyager.com/interview/exploring-life-business-with-brandy-rick-mclain-of-modern-house-numbers-modernhousenumbers-com/" title="An interview with Brandy at the San Diego Voyager website" target="_blank">San Diego Voyager</a>.
+                    </p>
+                </div>
+            </div>
+<div class="my-4 text-center">
+    <div class="text-sm font-semibold uppercase">You may also be interested in:</div>
+    <div class="flex flex-wrap justify-center">
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-concrete-monument-sign-metal-lettering.jpg?crop=center&height=600&v=1794415363&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.11.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs">Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?</a></h3>
+    <div class="text-sm">
+            <p>A monument sign is a freestanding, ground-level structure, typically built from brick, stone, or concrete, that marks a property's entrance and establishes its identity for drivers and pedestrians alike. Choosing the right material shapes how long that sign lasts, how much it costs to install and maintain, and how well it represents the property behind it. This guide covers what...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-wayfinding-directional-signage-examples.jpg?crop=center&height=600&v=1793814478&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="15 Wayfinding Signage Examples to Inspire Your Building&#39;s System"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.04.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples">15 Wayfinding Signage Examples to Inspire Your Building's System</a></h3>
+    <div class="text-sm">
+            <p>Wayfinding signage is the system of identification, directional, informational, and regulatory signs that helps people orient themselves and move confidently through a building. Fifteen real-world examples, from airports and hospitals to campuses and cultural buildings, show what separates an intuitive system from a confusing one. This guide covers the foundations of wayfinding and strategic planning, information organization and lobby entrances,...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+    </div>
+</div>
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+    </div>
+  </article>
+</div>
+</main>
+<div class="mhnfp-bar"><a href="#mhn-vs-form">House numbers or plaque</a></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://cms.modernhousenumbers.com/partner/">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/building-supplies/modern-house-numbers-pfvwus-pf~1988483036" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

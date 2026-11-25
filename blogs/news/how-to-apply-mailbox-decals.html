@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!--
+  CLIENT FORM on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/how-to-apply-mailbox-decals
+  Article copy, author box and related posts: live post, copied 2026-11-25.
+  The form block is generated in the mhn-font-picker project (build/embed_sets.html); change it there and re-run build/run.sh.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How To Select and Apply Mailbox Numbers</title>
+<meta name="description" content="Here are our four quick tips for selecting and applying your decals. Our peel-and-stick decals can add pizzazz to any smooth surface!">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/how-to-apply-mailbox-decals">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,500,600,700%7CLibre+Baskerville">
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
+
+/* ---- article + sticky font picker: the picker stays beside the article and stops where the article ends ---- */
+.post-wrap.has-side{max-width:1156px}
+.post-cols{display:grid;grid-template-columns:minmax(0,1fr)}
+.post-cols .mhnfp{margin:0 0 28px}
+.post-cols .shopifycontent{margin-bottom:0}
+.post .post-h1{margin:16px 0}
+.post-tail{max-width:672px;margin-top:48px}
+.post .shopifycontent h2 img{margin-top:12px}
+@media(min-width:1000px){
+  .post-cols{grid-template-columns:minmax(0,672px) 356px;column-gap:32px}
+  .post-cols .post-head{grid-column:1;grid-row:1}
+  .post-cols .shopifycontent{grid-column:1;grid-row:2}
+  .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
+}
+@media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap has-side">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="post-cols">
+    <div class="post-head">
+      <div class="post-meta">
+        <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+        <div class="post-date">11.08.23</div>
+        <div class="post-rule"></div>
+      </div>
+      <h1 class="post-h1" itemprop="name">How To Select and Apply Mailbox Numbers</h1>
+    </div>
+<!-- MHN client form "sets", generated by forms.py from the client's samples; do not hand-edit. -->
+<aside class="mhnfp is-side is-sets" id="mhn-sets-form" aria-labelledby="mhnfp-title">
+<style>
+.mhnfp,.mhnfp *{box-sizing:border-box}
+.mhnfp{container-type:inline-size;font-family:Muli,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.4;color:#393838;text-align:left}
+.mhnfp .fp-box{display:grid;grid-template-columns:minmax(0,1fr) 120px;grid-template-areas:"t p" "r r" "c c";column-gap:12px;background:#fff;border:1px solid #dcdcdc;padding:13px 14px 14px}
+.mhnfp .fp-title{grid-area:t;align-self:center;margin:0 0 8px;padding:0;font:400 19px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp fieldset{grid-area:r;margin:0;padding:0;border:0;min-width:0}
+.mhnfp legend{padding:0;margin:0 0 6px;font:400 14px/1.25 Muli,Helvetica,Arial,sans-serif;color:#393838}
+.mhnfp .fp-rows{display:grid;gap:4px}
+.mhnfp .fp-opt{position:relative;display:block;margin:0;cursor:pointer}
+.mhnfp .fp-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.mhnfp .fp-opt>span{display:grid;grid-template-columns:12px minmax(0,1fr);gap:1px 7px;align-items:center;min-height:28px;padding:4px 7px;background:#f0f0f0}
+.mhnfp .fp-opt:hover>span{background:#e4e4e4}
+.mhnfp i{width:12px;height:12px;border:1px solid #393838;border-radius:50%}
+.mhnfp input:checked+span i{background:#393838}
+.mhnfp input:focus-visible+span,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
+.mhnfp b{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:7px;font-weight:400;font-size:12px;line-height:1.25;letter-spacing:.04em;text-transform:uppercase}
+.mhnfp em{font-style:italic;font-size:12px;line-height:1.25;letter-spacing:0;text-transform:none;color:#b3470a}
+.mhnfp small{display:none;grid-column:1 / -1;margin-top:2px;font-size:12.5px;line-height:1.4}
+.mhnfp input:checked+span small{display:block}
+.mhnfp .fp-box>img{grid-area:p;align-self:start;display:block;width:120px;height:120px;margin:0 0 8px;object-fit:cover;background:#f0f0f0}
+.mhnfp .fp-box>img.is-drawing{object-position:50% 61%;background:#fff}
+.mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "r" "p" "c"}
+.mhnfp.is-sets .fp-box>img{width:270px;max-width:100%;height:172px;margin:6px auto 0}
+.mhnfp a.fp-cta{grid-area:c;display:block;margin-top:10px;padding:10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mhnfp a.fp-cta:hover{background:#f36a10;color:#000}
+@container (min-width:560px){
+  .mhnfp .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p";grid-template-rows:auto auto auto 1fr;column-gap:28px;align-items:start;padding:20px 22px 22px}
+  .mhnfp .fp-title{align-self:start;font-size:26px;margin-bottom:12px}
+  .mhnfp legend{font-size:15px;margin-bottom:7px}
+  .mhnfp .fp-opt>span{padding:6px 9px;gap:3px 9px;min-height:30px}
+  .mhnfp b{font-size:13.5px;letter-spacing:.06em}
+  .mhnfp em{font-size:13.5px}
+  .mhnfp small{grid-column:2;font-size:13.5px}
+  .mhnfp .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p"}
+  .mhnfp.is-sets .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp a.fp-cta{justify-self:start;padding:11px 26px;margin-top:14px}
+}
+@container (max-width:310px){.mhnfp .fp-box{grid-template-columns:1fr;grid-template-areas:"t" "r" "p" "c"}.mhnfp .fp-box>img{margin:10px 0 0}}
+.mhnfp-bar{display:none}
+@media(min-width:1000px){.mhnfp.is-side{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}}
+@media(max-width:999px){
+  .mhnfp{scroll-margin-top:86px}
+  .mhnfp .fp-opt>span{min-height:44px}
+  .mhnfp a.fp-cta{padding-top:15px;padding-bottom:15px}
+  .mhnfp-bar.is-on{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #dcdcdc}
+  .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+}
+</style>
+<form class="fp-box" autocomplete="off">
+  <p class="fp-title" id="mhnfp-title">One, two, or more sets?<br>Assess all the possibilities.</p>
+  <fieldset>
+    <legend>Choose the right number of sets for your project:</legend>
+    <div class="fp-rows">
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="0" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="1 set mailbox decals"><span><i></i><b>1 set <em>wall-mounted mailboxes</em></b><small>Ideal for wall-mounted mailboxes. One set for the front or flap. MHN PRO TIP: If you choose one set for the front flap, consider adding another set in a larger size for the side/s.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="1" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="2 sets mailbox decals" checked><span><i></i><b>2 sets <em>our most popular, free-standing</em></b><small>Ideal for free-standing mailboxes. One number set for each side in the same text size. Each of the two sets will arrive in the same size. MHN PRO TIP: If you choose two sets for the sides, consider adding another set in a smaller size for the front flap.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="2" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="3 sets mailbox decals"><span><i></i><b>3 sets <em>mailbox plus door or window</em></b><small>Best for multiple mailboxes, or a coordinated address set. For example, two for your mailbox and a matching third set for a glass entry door or window. Each of the three sets will arrive in the same size.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="3" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="4 sets mailbox decals"><span><i></i><b>4 sets <em>multiple mailboxes, mailbox and door</em></b><small>Best for multiple mailboxes, or coordinate your mailbox and door. Each of the four sets will arrive in the same size.</small></span></label>
+    </div>
+  </fieldset>
+  <img src="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" width="270" height="270" alt="2 sets mailbox decals">
+  <a class="fp-cta" href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Shop mailbox decals</a>
+</form>
+<script>
+(function(){
+  var root=document.querySelector('.mhnfp');if(!root)return;
+  var img=root.querySelector('.fp-box>img'),cta=root.querySelector('.fp-cta');
+  function show(e){
+    var d=e.dataset;
+    if(img.getAttribute('src')!==d.img){img.style.visibility='hidden';img.src=d.img}
+    img.alt=d.alt;img.className=/[.]png$/.test(d.img)?'is-drawing':'';
+    if(d.href){cta.href=d.href;cta.textContent=d.cta}
+  }
+  img.addEventListener('load',function(){img.style.visibility='visible'});
+  root.addEventListener('change',function(e){if(e.target.type==='radio')show(e.target)});
+  root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
+  show(root.querySelector('input:checked'));
+  function initBar(){
+    var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
+    if(!bar||!art)return;
+    var tick=function(){
+      var r=root.getBoundingClientRect(),a=art.getBoundingClientRect();
+      bar.classList.toggle('is-on',r.bottom<74&&a.bottom>window.innerHeight*.6)};
+    window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick);tick();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBar);else initBar();
+})();
+</script>
+</aside>
+    <div class="shopifycontent blog" itemprop="articleBody">
+<p dir="ltr"><span>Mailbox numbers are the functional and decorative identifiers mounted on or near your mailbox that ensure accurate mail delivery while contributing to your home's curb appeal. Selecting the right ones requires balancing material durability, proper sizing, local regulations, installation technique, and design preference.</span></p>
+<p dir="ltr"><span>This guide covers choosing the right mailbox numbers, applying them to different mailbox types, placing them for compliance and visibility, maintaining them over time, and using modern designs to elevate your home's exterior.</span></p>
+<p dir="ltr"><span>Choosing mailbox numbers starts with picking a material that resists your local climate. Aluminum and stainless steel hold up across seasons without rusting, while vinyl and acrylic options with reflective film offer strong adhesive bonding for quick installation. Size and font matter equally; a general signage rule suggests 1 inch of letter height for every 10 feet of viewing distance, and numbers 6 inches or larger pair best with bold fonts for street-level readability. Local USPS rules, municipal codes, and HOA guidelines may also dictate minimum sizes, colors, and placement positions.</span></p>
+<p dir="ltr"><span>Proper application varies by mailbox material. Metal, wood, and plastic surfaces each call for different prep steps, adhesives, and fasteners to achieve a secure, professional result. Placement should follow USPS standards for carrier access while positioning numbers where they catch the eye from the curb.</span></p>
+<p dir="ltr"><span>Routine cleaning and timely replacement keep numbers legible through years of sun, rain, and temperature swings. When it comes to style, modern minimalist designs and bold material choices can transform a standard mailbox into a design accent that complements your home's architecture.</span></p>
+<h2 dir="ltr"><span>What Factors Should You Consider When Choosing Mailbox Numbers?</span></h2>
+<p dir="ltr"><span>The factors you should consider when choosing mailbox numbers include material durability, number size and font legibility, and local regulatory requirements. Each factor affects visibility, longevity, and compliance.</span></p>
+<h3 dir="ltr"><span>Which Materials Are Best for Durable and Weather-Resistant Mailbox Numbers?</span></h3>
+<p dir="ltr"><span>The best materials for durable and weather-resistant mailbox numbers are aluminum, stainless steel, vinyl, and acrylic. Aluminum resists rust entirely, making it one of the most reliable choices for outdoor exposure across seasons. Stainless steel, particularly grades 304 and 316, retains both structural integrity and appearance under prolonged weathering.</span></p>
+<p dir="ltr"><span>For adhesive-style numbers, reflective options made from vinyl, acrylic, or reflective film feature strong adhesive backing designed to bond to various mailbox surfaces. These work well when stud-mounted numbers are not feasible. Solid, recycled aluminum remains the strongest long-term investment for homeowners who want numbers that truly last without periodic replacement.</span></p>
+<h3 dir="ltr"><span>What Size and Font Ensure Mailbox Numbers Are Readable from the Street?</span></h3>
+<p dir="ltr"><span>The size and font that ensure mailbox numbers are readable from the street depend on viewing distance and number height. According to Ryno Printing's signage visibility guide, 1-inch tall letters (approximately 72 points) suit close-range reading, but curbside mailboxes require significantly larger numbers for street-level visibility.</span></p>
+<p dir="ltr"><span>Key sizing and font guidelines include:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Numbers 6 inches or taller pair well with bold fonts to maintain legibility from a distance.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>A widely used signage rule recommends 1 inch of letter height for every 10 feet of viewing distance.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>USPS requires curbside mailboxes at 41 to 45 inches from the road surface, placing numbers at a height where bold, oversized characters perform best.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>HOAs may enforce specific size, color, and style requirements that override personal preferences.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Sans-serif fonts like those in Modern House Numbers' collection tend to read more clearly at a distance than ornamental or script styles.</span></p>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/concrete-mailbox-post-readable-house-numbers.jpg?v=1777074384" alt="Concrete mailbox post with modern black mailbox and raised house numbers for clear street visibility" style="float: none;"></div>
+<h3 dir="ltr"><span>Do Local Regulations Affect Mailbox Number Selection?</span></h3>
+<p dir="ltr"><span>Yes, local regulations affect mailbox number selection significantly. USPS, municipal codes, and HOA rules each impose requirements on number size, color, placement, and contrast that homeowners must follow.</span></p>
+<p dir="ltr"><span>USPS requires city delivery mailbox numbers to be at least 1 inch high, inscribed in a contrasting color, and visible from the carrier's regular approach. Municipal codes often go further. Beyond federal postal standards, non-compliance with local ordinances can trigger delivery disruptions. USPS workers frequently cite safety concerns and regulatory violations as primary reasons for service interruptions.</span></p>
+<p dir="ltr"><span>Before purchasing mailbox numbers, check three sources: USPS guidelines, your city or county building code, and any applicable HOA covenants. Understanding these requirements upfront ensures your mailbox numbers meet every standard before installation begins.</span></p>
+<h2 dir="ltr"><span>How Do You Properly Apply Mailbox Numbers to Different Types of Mailboxes?</span></h2>
+<p dir="ltr"><span>You properly apply mailbox numbers to different types of mailboxes by matching your installation method to the mailbox material. The following subsections cover metal mailbox installation steps, techniques for wooden and plastic surfaces, and essential tools for a professional result.</span></p>
+<h3 dir="ltr"><span>What Are the Steps for Installing Mailbox Numbers on Metal Mailboxes?</span></h3>
+<p dir="ltr"><span>The steps for installing mailbox numbers on metal mailboxes are:</span></p>
+<ol>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Clean the metal surface with isopropyl alcohol to remove dirt, oil, and oxidation.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Measure and mark number placement using a level and painter's tape as a guide line.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>For peel-and-stick numbers, press firmly onto the cleaned surface and hold for 30 seconds per digit.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>For screw-mounted numbers, use a drill with a metal-appropriate bit to create pilot holes at marked positions, then secure with provided hardware.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Verify that numbers appear on the carrier-facing side in a contrasting color, per USPS receptacle requirements.</span></p>
+</li>
+</ol>
+<p dir="ltr"><span>According to Do It Best, installing a mailbox is an easy DIY project that typically does not require specialized tools beyond basic home improvement equipment. Cast aluminum mailboxes deserve particular attention; because aluminum does not rust, adhesive-backed numbers bond reliably without corrosion concerns undermining the hold over time.</span></p>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/installing-mailbox-numbers-metal-mailbox.png?v=1777074386" alt="White modern mailbox with black number 79 and red flag showing clean number placement on metal surface" style="float: none;"></div>
+<h3 dir="ltr"><span>How Do You Attach Numbers to Wooden, Plastic, or Other Mailbox Types?</span></h3>
+<p dir="ltr"><span>You attach numbers to wooden, plastic, or other mailbox types by selecting a fastening method suited to each material's properties.</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Wood:</span><span> Pre-drill pilot holes slightly smaller than your screws to prevent splitting, then drive mounting hardware flush with the surface. Seal exposed wood around the holes with exterior wood filler or clear sealant to block moisture.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Plastic:</span><span> Use adhesive-backed numbers or stainless steel screws designed for plastic. Avoid over-tightening, which can crack the material.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Brick or stone columns:</span><span> Apply construction-grade adhesive or use masonry anchors with a hammer drill for screw-mounted numbers.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Lightly sanding any surface before adhesive application improves bond strength, regardless of material type.</span></p>
+<h3 dir="ltr"><span>What Tools and Supplies Are Needed for a Professional-Looking Application?</span></h3>
+<p dir="ltr"><span>The tools and supplies needed for a professional-looking application include:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Isopropyl alcohol and a lint-free cloth for surface preparation</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Measuring tape, pencil, and a small level for precise alignment</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Painter's tape to create a straight guide line</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>A power drill with 11/64" drill bit for standard surfaces (or 3/16" bit with hammer drill for masonry, concrete, and stone)</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Exterior-grade screws, anchors, or construction adhesive matched to the surface</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>A drilling template, such as the personalized templates included with Modern House Numbers orders</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Concealed mounting hardware creates a cleaner, more architectural appearance than exposed fasteners. Investing a few extra minutes in careful measurement eliminates the most common installation mistake: crooked or unevenly spaced digits. With the right preparation, mailbox number installation becomes a straightforward upgrade to any home's exterior.</span></p>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/professional-mailbox-number-installation-tools..jpg?v=1777074387" alt="Black modern mailbox with large number 3 installed near gate showing precise professional mounting and alignment" style="float: none;"></div>
+<h2 dir="ltr"><span>Where Should You Place Mailbox Numbers for Maximum Curb Appeal and Compliance?</span></h2>
+<p dir="ltr"><span>You should place mailbox numbers on the side of the mailbox visible to the carrier's approach, following USPS height and setback rules while complementing your home's style. The sections below cover federal postal guidelines and strategies for balancing aesthetics with functionality.</span></p>
+<h3 dir="ltr"><span>What Are the USPS Guidelines for Mailbox Number Placement?</span></h3>
+<p dir="ltr"><span>The USPS guidelines for mailbox number placement require numbers to be inscribed in a contrasting color, at least 1 inch high, on the side of the mailbox visible to the carrier's regular approach. Curbside mailboxes must sit 41 to 45 inches from the road surface to the mailbox floor, positioned 6 to 8 inches back from the curb to the mailbox door. These specifications ensure carriers can identify and access your box efficiently from a vehicle. USPS workers have noted on public forums that non-compliance with these regulations is a primary reason for delivery disruptions, so treating placement as a functional priority protects reliable mail service.</span></p>
+<h3 dir="ltr"><span>How Can You Position Numbers for Both Aesthetic Appeal and Functionality?</span></h3>
+<p dir="ltr"><span>You can position numbers for both aesthetic appeal and functionality by centering them at eye level on the mailbox side facing oncoming traffic, which satisfies carrier visibility while creating a balanced, intentional look. Key positioning principles include:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Aligning numbers horizontally with the mailbox's midline for visual symmetry.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Choosing a contrasting color against the mailbox finish to meet USPS readability rules and create a clean design accent.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Leaving consistent spacing between digits, typically equal to half the number's width.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Checking sightlines from the street to confirm readability before final installation.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>According to a survey cited by American Home Shield, 68% of buyers consider poor curb appeal a dealbreaker, making even small details like number placement a meaningful contributor to first impressions. Well-positioned mailbox numbers serve double duty: they guide your mail carrier and signal that a homeowner pays attention to architectural detail, which is one of the simplest ways to elevate a property's streetside presence.</span></p>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/mailbox-number-positioning-curb-appeal-functionality.jpg?v=1777074389" alt="Front gate with large house number 166 and built-in mailbox positioned for visibility and curb appeal" style="float: none;"></div>
+<h2 dir="ltr"><span>How Do You Maintain and Care for Mailbox Numbers Over Time?</span></h2>
+<p dir="ltr"><span>You maintain and care for mailbox numbers over time through regular cleaning, periodic inspection, and timely replacement when wear becomes visible. The following subsections cover cleaning methods that prevent fading and guidelines for knowing when replacement is necessary.</span></p>
+<h3 dir="ltr"><span>What Cleaning Techniques Prevent Fading and Damage?</span></h3>
+<p dir="ltr"><span>Cleaning techniques that prevent fading and damage include gentle washing, protective coating, and material-appropriate care routines. For aluminum or stainless steel numbers, wipe surfaces monthly with a soft cloth, mild soap, and warm water to remove dirt, pollen, and mineral deposits. Avoid abrasive cleaners or steel wool, which scratch protective finishes and accelerate oxidation.</span></p>
+<p dir="ltr"><span>For painted or powder-coated numbers, use a non-ammonia cleaner to preserve the color bond. Vinyl and reflective numbers benefit from gentle wiping with a damp microfiber cloth; harsh solvents break down adhesive backing over time. Seasonal deep cleaning, particularly after winter salt exposure, is one of the simplest ways to extend the life of any mailbox number.</span></p>
+<h3 dir="ltr"><span>When Should You Replace or Update Mailbox Numbers?</span></h3>
+<p dir="ltr"><span>You should replace or update mailbox numbers when fading, peeling, cracking, or physical damage reduces legibility from the street. A 2024 MDPI Materials Journal study found that aluminum and stainless steel retained structural and aesthetic properties after 12 months of accelerated aging, while galvanized steel showed pronounced corrosion. This means material choice directly affects replacement timelines.</span></p>
+<p dir="ltr"><span>Key signs that indicate replacement is needed:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Numbers are no longer readable from 10 feet away per inch of height.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Adhesive-backed digits are lifting at the edges or corners.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Surface finish shows chalking, rust spots, or color inconsistency.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Local regulations or HOA rules have changed since original installation.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Upgrading to architect-designed aluminum numbers, like those handcrafted by Modern House Numbers from recycled materials, can significantly extend the interval between replacements. Well-maintained mailbox numbers protect both mail delivery reliability and curb appeal.</span></p>
+<h2 dir="ltr"><span>How Do Custom or Modern Mailbox Numbers Enhance Curb Appeal?</span></h2>
+<p dir="ltr"><span>Custom or modern mailbox numbers enhance curb appeal by adding architectural detail that elevates a home's exterior appearance and perceived value. The sections below cover trending design styles and how to personalize numbers to match your home.</span></p>
+<h3 dir="ltr"><span>What Design Trends Are Popular for Modern Mailbox Numbers?</span></h3>
+<p dir="ltr"><span>The design trends popular for modern mailbox numbers in 2025 center on three key elements:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Minimalist profiles</span><span> with clean lines and simple sans-serif fonts that complement contemporary architecture.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Bold materials</span><span> like brushed aluminum, matte black metal, and dark bronze finishes that create visual contrast against mailbox surfaces.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Trending color pairings</span><span> that coordinate number finishes with the home's exterior palette for a cohesive look.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>According to Post &amp; Porch, modern house number trends for 2025 include minimalist designs, bold materials, and trending colors that enhance the architectural style of the home. These choices move well beyond generic stick-on digits, turning the mailbox into a deliberate design statement rather than an afterthought.</span></p>
+<h3 dir="ltr"><span>How Do You Personalize Mailbox Numbers to Reflect Your Home's Style?</span></h3>
+<p dir="ltr"><span>You personalize mailbox numbers to reflect your home's style by matching the number's font, finish, and material to your property's architectural character. A mid-century modern home pairs naturally with retro-inspired fonts and brushed metal finishes, while a craftsman bungalow suits darker bronze tones and heavier typefaces.</span></p>
+<p dir="ltr"><span>Consider these personalization factors:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Font style:</span><span> Choose a typeface that echoes your home's era and design language.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Finish and color:</span><span> Coordinate with existing hardware such as door handles, light fixtures, or house numbers on the facade.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Material weight:</span><span> Thicker, solid materials like recycled aluminum convey permanence and quality.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>For most homeowners, the simplest upgrade with the highest visual return is ensuring mailbox numbers share a consistent design language with the rest of the home's exterior details. With style and design covered, Modern House Numbers offers resources to simplify your selection.</span></p>
+<h2 dir="ltr"><span>How Can Modern House Numbers Support Your Mailbox Number Selection and Installation?</span></h2>
+<p dir="ltr"><span>Modern House Numbers supports mailbox number selection and installation by offering architect-designed, handcrafted address products with personalized drilling templates and step-by-step guidance. The sections below cover custom options, installation resources, and key takeaways.</span></p>
+<h3 dir="ltr"><span>Does Modern House Numbers Offer Custom Mailbox Numbers and Installation Guidance?</span></h3>
+<p dir="ltr"><span>Yes, Modern House Numbers offers custom mailbox numbers and installation guidance through made-to-order products crafted from solid, recycled aluminum in Tucson, Arizona. Every purchase includes a personalized drilling template and step-by-step installation instructions for worry-free application. Modern House Numbers also provides mailbox decals and curb stencils for homeowners needing alternative addressing solutions.</span></p>
+<p dir="ltr"><span>Selecting the right product means accounting for local codes. According to American Legal Publishing, New York City requires house numbers to be at least 5 inches tall, composed of materials such as metal, glass, plastic, wood, or paint. Chicago's municipal code imposes fines between $200 and $500 for noncompliant house numbers. Modern House Numbers offers multiple sizing options to help homeowners meet these requirements while maintaining a cohesive, modern aesthetic.</span></p>
+<h3 dir="ltr"><span>What Are the Key Takeaways for Selecting and Applying Mailbox Numbers?</span></h3>
+<p dir="ltr"><span>The key takeaways for selecting and applying mailbox numbers center on material choice, proper sizing, regulatory compliance, and consistent style:</span></p>
+<ul>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Choose weather-resistant materials, such as aluminum, stainless steel, or reflective vinyl, to ensure long-term durability.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Size numbers for readability at street distance, using at least 1 inch of letter height per 10 feet of viewing distance.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Check USPS requirements, municipal codes, and HOA rules before purchasing to avoid fines or delivery disruptions.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Match your mailbox numbers to your home's architectural style for a unified, polished look.</span></p>
+</li>
+<li dir="ltr">
+<p dir="ltr" role="presentation"><span>Use proper surface preparation, correct adhesives or mounting hardware, and a level line during installation. When using concealed mounting hardware, ensure steel studs are fully concealed from the elements for proper and lasting installation.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Updated mailbox numbers are a small investment with measurable return. According to Great Day Improvements (citing NAR), homes with high curb appeal, including updated house numbers and mailboxes, tend to sell for an average of 7% more than comparable properties. For homeowners ready to elevate their address, Modern House Numbers provides architect-designed solutions, from custom numbers to decals, all handcrafted to order with everything needed for a clean, professional installation.</span></p>
+    </div>
+    </div>
+    <div class="post-tail">
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img loading="lazy" decoding="async" src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_brandy.png"
+                         alt="Picture of the Author"
+                         class="mx-auto object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">brandy mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Brandy is an urban planner and site designer with experience at private & non-profit organizations and has been responsible for land development and regional visioning projects. She holds a Bachelor of Architecture and Master in Urban Planning from the University of Arizona. Brandy is passionate about community involvement, anything handmade and holds fond memories of learning to sew at age five. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Brandy on <a itemprop="url"  href="https://www.linkedin.com/in/brandymclain" title="Brandy's Linked In Profile" target="_blank">LinkedIn</a>, at <a href="https://shoutoutsocal.com/meet-rick-brandy-mclain-architect-designer-craftsman/" title="An interview with Brandy at the ShoutOut SoCal website" target="_blank">ShoutOut SoCal</a>, or at the <a href="https://sdvoyager.com/interview/exploring-life-business-with-brandy-rick-mclain-of-modern-house-numbers-modernhousenumbers-com/" title="An interview with Brandy at the San Diego Voyager website" target="_blank">San Diego Voyager</a>.
+                    </p>
+                </div>
+            </div>
+<div class="my-4 text-center">
+    <div class="text-sm font-semibold uppercase">You may also be interested in:</div>
+    <div class="flex flex-wrap justify-center">
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-concrete-monument-sign-metal-lettering.jpg?crop=center&height=600&v=1794415363&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.11.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs">Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?</a></h3>
+    <div class="text-sm">
+            <p>A monument sign is a freestanding, ground-level structure, typically built from brick, stone, or concrete, that marks a property's entrance and establishes its identity for drivers and pedestrians alike. Choosing the right material shapes how long that sign lasts, how much it costs to install and maintain, and how well it represents the property behind it. This guide covers what...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-wayfinding-directional-signage-examples.jpg?crop=center&height=600&v=1793814478&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="15 Wayfinding Signage Examples to Inspire Your Building&#39;s System"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.04.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples">15 Wayfinding Signage Examples to Inspire Your Building's System</a></h3>
+    <div class="text-sm">
+            <p>Wayfinding signage is the system of identification, directional, informational, and regulatory signs that helps people orient themselves and move confidently through a building. Fifteen real-world examples, from airports and hospitals to campuses and cultural buildings, show what separates an intuitive system from a confusing one. This guide covers the foundations of wayfinding and strategic planning, information organization and lobby entrances,...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+    </div>
+</div>
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+    </div>
+  </article>
+</div>
+</main>
+<div class="mhnfp-bar"><a href="#mhn-sets-form">Choose your number of sets</a></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://cms.modernhousenumbers.com/partner/">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/building-supplies/modern-house-numbers-pfvwus-pf~1988483036" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
