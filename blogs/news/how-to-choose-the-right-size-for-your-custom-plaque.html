@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<!--
+  CLIENT FORM on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/how-to-choose-the-right-size-for-your-custom-plaque
+  Article copy, author box and related posts: live post, copied 2026-11-25.
+  The form block is generated in the mhn-font-picker project (build/embed_plaque.html); change it there and re-run build/run.sh.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Choose the Right Size for Your Custom Plaque</title>
+<meta name="description" content="How to choose the perfect size for your custom plaque based on placement, text, and design to make it stand out and fit just right.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/how-to-choose-the-right-size-for-your-custom-plaque">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,500,600,700%7CLibre+Baskerville">
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
+
+/* ---- article + sticky font picker: the picker stays beside the article and stops where the article ends ---- */
+.post-wrap.has-side{max-width:1156px}
+.post-cols{display:grid;grid-template-columns:minmax(0,1fr)}
+.post-cols .mhnfp{margin:0 0 28px}
+.post-cols .shopifycontent{margin-bottom:0}
+.post .post-h1{margin:16px 0}
+.post-tail{max-width:672px;margin-top:48px}
+.post .shopifycontent h2 img{margin-top:12px}
+@media(min-width:1000px){
+  .post-cols{grid-template-columns:minmax(0,672px) 356px;column-gap:32px}
+  .post-cols .post-head{grid-column:1;grid-row:1}
+  .post-cols .shopifycontent{grid-column:1;grid-row:2}
+  .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
+}
+@media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap has-side">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="post-cols">
+    <div class="post-head">
+      <div class="post-meta">
+        <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+        <div class="post-date">05.30.25</div>
+        <div class="post-rule"></div>
+      </div>
+      <h1 class="post-h1" itemprop="name">How to Choose the Right Size for Your Custom Plaque</h1>
+    </div>
+<!-- MHN plaque size picker, generated by make_plaque.py from the client's sample; do not hand-edit. -->
+<aside class="mhnfp" id="mhn-plaque-picker" aria-labelledby="mhnpl-title">
+<style>
+.mhnfp,.mhnfp *{box-sizing:border-box}
+.mhnfp{font-family:Muli,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.35;color:#393838;text-align:left}
+.mhnfp .fp-box{background:#fff;border:1px solid #dcdcdc}
+.mhnfp .fp-head{background:#eff0f3;padding:10px 10px 9px;text-align:center}
+.mhnfp .fp-title{margin:0;padding:0;font:400 17px/1.3 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp .fp-title b{font-weight:400}
+.mhnfp .fp-stripe{display:block;height:6px;background:linear-gradient(90deg,#d3a52f 0 12.5%,#eebfdb 0 25%,#76b7d6 0 37.5%,#d3a52f 0 50%,#eebfdb 0 62.5%,#d3a52f 0 75%,#eebfdb 0 87.5%,#76b7d6 0)}
+.mhnfp .fp-body{padding:10px 14px 13px}
+.mhnfp fieldset{margin:0;padding:0;border:0;min-width:0}
+.mhnfp legend{padding:0;margin:0 0 5px;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;color:#393838}
+.mhnfp .fp-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mhnfp .fp-grid,.mhnfp .fp-mode{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mhnfp .fp-mode{margin-bottom:9px}
+.mhnfp .fp-list{display:grid;gap:4px}
+.mhnfp .fp-opt{position:relative;display:block;margin:0;cursor:pointer}
+.mhnfp .fp-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.mhnfp .fp-opt span{display:flex;align-items:center;gap:6px;min-height:27px;padding:3px 6px;background:#f0f0f0;font-size:11.5px;line-height:1.2;letter-spacing:.03em;text-transform:uppercase}
+.mhnfp .fp-opt i{flex:none;width:12px;height:12px;border:1px solid #393838;border-radius:50%}
+.mhnfp .fp-opt input:checked+span i{background:#393838}
+.mhnfp .fp-opt:hover span{background:#e4e4e4}
+.mhnfp .fp-mode .fp-opt span{height:100%;min-height:36px;background:#fff;border:1px solid #dcdcdc}
+.mhnfp .fp-mode .fp-opt input:checked+span{border-color:#393838}
+.mhnfp .fp-list .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:1px 7px;padding:6px 8px}
+.mhnfp .fp-list b{font-weight:400}
+.mhnfp .fp-list small{grid-column:2;font-size:12px;letter-spacing:0;text-transform:none;font-style:italic}
+.mhnfp .fp-opt input:focus-visible+span,.mhnfp button:focus-visible,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
+.mhnfp [hidden]{display:none!important}
+.mhnfp .fp-alt{display:flex;gap:4px;margin-top:9px}
+.mhnfp .fp-alt button{flex:1 1 auto;min-height:28px;padding:3px 5px;border:1px solid #393838;border-radius:0;background:#fff;color:#393838;font:400 12.5px/1.2 Muli,Helvetica,Arial,sans-serif;cursor:pointer}
+.mhnfp .fp-alt button[aria-pressed=true]{background:#393838;color:#fff}
+.mhnfp .fp-card{display:grid;grid-template-columns:132px 1fr;gap:12px;margin-top:9px;min-height:132px}
+.mhnfp .fp-photo{position:relative;width:132px;height:132px;background:#f0f0f0}
+.mhnfp .fp-photo img{display:block;width:132px;height:132px;margin:0;object-fit:cover}
+.mhnfp .fp-photo button{position:absolute;bottom:0;width:26px;height:26px;padding:0;border:0;border-radius:0;background:rgba(255,255,255,.88);color:#393838;font:400 20px/24px Muli,Helvetica,Arial,sans-serif;cursor:pointer}
+.mhnfp .fp-prev{left:0}.mhnfp .fp-nextp{right:0}
+.mhnfp .fp-name{margin:0;padding:0;font:700 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.08em}
+.mhnfp .fp-name em{font:italic 400 12px/1 Muli,Helvetica,Arial,sans-serif;letter-spacing:0;color:#b3470a;white-space:nowrap}
+.mhnfp .fp-tag{margin:1px 0 4px;padding:0;font-size:12px;line-height:1.25;letter-spacing:.05em}
+.mhnfp .fp-why{margin:0;padding:0;font-size:12px;line-height:1.32}
+.mhnfp a.fp-cta{display:block;margin-top:10px;padding:10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.mhnfp a.fp-cta:hover{background:#f36a10;color:#000}
+.mhnfp-bar{display:none}
+@media(min-width:1000px){.mhnfp{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}}
+@media(max-width:999px){
+  .mhnfp{scroll-margin-top:86px}
+  .mhnfp .fp-opt span,.mhnfp .fp-mode .fp-opt span,.mhnfp .fp-alt button{min-height:44px}
+  .mhnfp a.fp-cta{padding:15px 10px}
+  .mhnfp .fp-photo button{width:44px;height:44px;line-height:40px;background:rgba(255,255,255,.8)}
+  .mhnfp-bar.is-on{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #dcdcdc}
+  .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+}
+@media(max-width:359px){.mhnfp .fp-card{grid-template-columns:1fr}.mhnfp .fp-body{padding-left:10px;padding-right:10px}.mhnfp .fp-opt span{font-size:11px;letter-spacing:0}}
+.mhnfp .pl-title{margin:0 0 8px;padding:0;font:400 17px/1.3 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp .pl-in{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:9px}
+.mhnfp .pl-in label{display:block;font-size:12px;line-height:1.3}
+.mhnfp .pl-in input{display:block;width:100%;height:30px;margin:2px 0 0;padding:2px 8px;border:1px solid #8a8a8a;border-radius:0;background:#fff;color:#393838;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif}
+.mhnfp .pl-in input:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
+.mhnfp .pl-cols{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:10px;align-items:start}
+.mhnfp .pl-rows{display:grid;gap:3px}
+.mhnfp .pl-rows .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:1px 7px;min-height:27px;padding:4px 7px;align-items:center;font-size:12px}
+.mhnfp .pl-rows b{font-weight:400}
+.mhnfp .pl-rows em{font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;color:#b3470a}
+.mhnfp .pl-rows small{grid-column:1 / -1;display:none;font-size:12px;line-height:1.35;letter-spacing:0;text-transform:none}
+.mhnfp .pl-rows input:checked+span small{display:block}
+.mhnfp .pl-rows u{grid-column:2;font-size:12px;letter-spacing:0;text-transform:none;text-decoration:none;color:#5a5a5a}
+.mhnfp .pl-rows u:empty{display:none}
+.mhnfp .pl-rows .fp-opt.is-off{cursor:default}
+.mhnfp .pl-rows .is-off input{cursor:default}
+.mhnfp .pl-rows .is-off span,.mhnfp .pl-rows .is-off:hover span{background:#fafafa;color:#767676}
+.mhnfp .pl-rows .is-off i{border-color:#a5a5a5}
+.mhnfp .pl-rows .is-off em{display:none}
+.mhnfp .pl-cols .fp-photo,.mhnfp .pl-cols .fp-photo img{width:120px;height:120px}
+.mhnfp .pl-cap{margin:4px 0 0;padding:0;font-size:12px;text-align:right}
+.mhnfp .pl-none{margin:10px 0 0;padding:0;font-size:13px}
+.mhnfp .pl-none a{color:#393838;text-decoration:underline}
+@media(max-width:999px){.mhnfp .pl-rows .fp-opt span{min-height:44px}.mhnfp .pl-in input{height:44px;font-size:16px}}
+@media(max-width:359px){.mhnfp .pl-cols{grid-template-columns:1fr}.mhnfp .pl-cap{text-align:left}}
+</style>
+<form class="fp-box" autocomplete="off">
+  <div class="fp-body">
+  <p class="pl-title" id="mhnpl-title">Modern shapes. Memorable style.</p>
+  <fieldset>
+    <legend>Space available to install (inches):</legend>
+    <div class="pl-in">
+      <label>Width<input type="number" name="pl-w" min="1" max="200" step="any" inputmode="decimal"></label>
+      <label>Height<input type="number" name="pl-h" min="1" max="200" step="any" inputmode="decimal"></label>
+      <label>Characters<input type="number" name="pl-n" min="1" max="8" step="1" inputmode="numeric"></label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Select your size and shape:</legend>
+    <div class="pl-cols">
+      <div class="pl-rows">
+        <label class="fp-opt"><input type="radio" name="pl-size" value="0"><span><i></i><b>5" Circle</b><u></u><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="1"><span><i></i><b>7" Circle</b><u></u><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="2"><span><i></i><b>10" Circle</b><u></u><small>Medium. Modern and stylish. Legible at 50’ or less, varies by font and finish. 2”-4” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="3"><span><i></i><b>3"x8" Rectangle</b><u></u><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="4"><span><i></i><b>4"x11" Rectangle</b><u></u><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="5" checked><span><i></i><b>5"x16" Rectangle <em>our most popular</em></b><u></u><small>Medium. Legible at 50’ or less, varies by font and finish. 2”- 4” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="6"><span><i></i><b>8" Square</b><u></u><small>Medium. On trend. Legible at 50’ or less, varies by font and finish. 2”-4” average text height.</small></span></label>
+      </div>
+      <div><div class="fp-photo"><img src="https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_1.jpg" width="120" height="120" alt="5&quot;x16&quot; Rectangle plaque"><button type="button" class="fp-prev" aria-label="Previous photo">&lsaquo;</button><button type="button" class="fp-nextp" aria-label="Next photo">&rsaquo;</button></div><p class="pl-cap">5"x16" Rectangle</p></div>
+    </div>
+  </fieldset>
+  <div aria-live="polite"><p class="pl-none" hidden>No standard plaque fits. <a href="https://www.modernhousenumbers.com/pages/custom">Custom shapes and sizes</a> are available upon request.</p></div>
+  <a class="fp-cta" href="https://www.modernhousenumbers.com/products/plaque">Shop plaques</a>
+  </div>
+</form>
+<script>
+(function(){
+  var root=document.getElementById('mhn-plaque-picker');if(!root)return;
+  var D=[{"n":"5\" Circle","w":5,"h":5,"m":2,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_4.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_3.jpg"]},{"n":"7\" Circle","w":7,"h":7,"m":4,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_4.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_5.jpg"]},{"n":"10\" Circle","w":10,"h":10,"m":7,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_2.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_3.jpg"]},{"n":"3\"x8\" Rectangle","w":8,"h":3,"m":4,"v":3,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_2.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_4.jpg"]},{"n":"4\"x11\" Rectangle","w":11,"h":4,"m":6,"v":4,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_4.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_6.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_1.jpg"]},{"n":"5\"x16\" Rectangle","w":16,"h":5,"m":8,"v":6,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_4.jpg"]},{"n":"8\" Square","w":8,"h":8,"m":6,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_5.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_7.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_4.jpg"]}],DEF=5;
+  var $=function(s){return root.querySelector(s)};
+  var img=$('.fp-photo img'),cap=$('.pl-cap'),cta=$('.fp-cta'),none=$('.pl-none'),cur=-1,pic=0;
+  var rows=Array.prototype.slice.call(root.querySelectorAll('[name=pl-size]'));
+  function num(n){var v=parseFloat($('[name='+n+']').value);return v>0?v:0}
+  function state(p,w,h,n){
+    var room=function(a,b){return (!w||w>=a)&&(!h||h>=b)};
+    var flat=room(p.w,p.h),up=p.v>0&&room(p.h,p.w);
+    if(flat&&(!n||n<=p.m))return ['h',''];
+    if(up&&(!n||n<=p.v))return ['v','fits vertically'];
+    if(n>p.m)return ['','max '+p.m+' characters'];
+    if(!flat&&up)return ['','vertical: max '+p.v+' characters'];
+    return ['','needs '+p.w+' x '+p.h+' in'];
+  }
+  function photo(){
+    var u=D[cur].i[pic];if(img.getAttribute('src')===u)return;
+    img.style.visibility='hidden';img.alt=D[cur].n+' plaque';img.src=u;
+  }
+  img.addEventListener('load',function(){img.style.visibility='visible'});
+  function show(k){
+    if(k!==cur){cur=k;pic=0}
+    photo();cap.textContent=D[k].n;cta.textContent='Shop '+D[k].n+' plaques';
+  }
+  function update(){
+    var w=num('pl-w'),h=num('pl-h'),n=num('pl-n'),ok=[];
+    rows.forEach(function(r,k){
+      var s=state(D[k],w,h,n);r.disabled=!s[0];
+      r.parentNode.classList.toggle('is-off',!s[0]);
+      r.parentNode.querySelector('u').textContent=s[1];
+      if(s[0])ok.push(k);
+    });
+    none.hidden=ok.length>0;cta.hidden=!ok.length;
+    if(!ok.length){rows.forEach(function(r){r.checked=false});return}
+    var c=rows.findIndex(function(r){return r.checked&&!r.disabled});
+    if(c<0){c=ok.indexOf(DEF)>=0?DEF:ok[0];rows[c].checked=true}
+    show(c);
+  }
+  function step(n){if(cur<0)return;var t=D[cur].i.length;pic=(pic+n+t)%t;photo()}
+  $('.fp-prev').addEventListener('click',function(){step(-1)});
+  $('.fp-nextp').addEventListener('click',function(){step(1)});
+  root.addEventListener('change',function(e){if(/^pl-/.test(e.target.name))update()});
+  root.addEventListener('input',function(e){if(/^pl-[whn]$/.test(e.target.name))update()});
+  root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
+  update();
+  function initBar(){
+    var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
+    if(!bar||!art)return;
+    var tick=function(){
+      var r=root.getBoundingClientRect(),a=art.getBoundingClientRect();
+      bar.classList.toggle('is-on',r.bottom<74&&a.bottom>window.innerHeight*.6)};
+    window.addEventListener('scroll',tick,{passive:true});window.addEventListener('resize',tick);tick();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBar);else initBar();
+})();
+</script>
+</aside>
+    <div class="shopifycontent blog" itemprop="articleBody">
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Right_Size_for_Your_Custom_Plaque.jpg?v=1748605165" alt="Right Size for Your Custom Plaque" style="float: none;"></div>
+<p dir="ltr"><span>A custom plaque is more than just a functional element, it’s more like a statement of style, craftsmanship, and personal expression. Whether you're displaying your house numbers, family name, business name or logo, or a meaningful inscription, selecting the right size ensures both visibility and aesthetic harmony. </span></p>
+<p dir="ltr"><span>Choosing the correct plaque size involves careful consideration of viewing distance, architectural proportions, material impact, and installation requirements. A plaque that’s too small may go unnoticed, while one that’s too large can overwhelm your home’s façade. This guide will help you navigate these factors to select a plaque that enhances your space with precision and elegance.</span></p>
+<h2 dir="ltr"><span>The Importance of Plaque Size</span></h2>
+<p dir="ltr"><span>The dimensions of your plaque directly influence its effectiveness and visual appeal. A well-proportioned plaque makes clarity certain from a distance while complementing your home’s design. For house numbers or business signage, readability is essential for visitors, delivery personnel, and emergency services. Decorative plaques, on the other hand, should strike a balance between presence and subtlety, integrating naturally with your exterior or interior décor.</span></p>
+<p dir="ltr">Beyond aesthetics, the right size also affects installation. A plaque that’s too large may not fit the intended mounting surface, while one that’s too small could get lost against expansive siding or brickwork. By considering these elements, you can <a href="https://www.modernhousenumbers.com/blogs/news/house-numbers-letters-plaques-and-signs-complete-guide"><strong>choose the best house numbers and plaques</strong></a> that serve their purpose beautifully and enduringly. If you are starting fresh, you can also learn <a href="https://www.modernhousenumbers.com/blogs/news/how-to-quickly-get-a-custom-plaque-for-your-home"><b>how to quickly get a custom plaque</b></a> made for your property.</p>
+<h2 dir="ltr"><span>1. Visibility and Optimal Readability</span></h2>
+<p dir="ltr"><span>The fundamental purpose of any plaque is to display house numbers, a business name or logo, or a commemorative inscription. Making sure that your plaque is easily visible and legible from the appropriate distance is crucial for both functionality and aesthetic impact.</span></p>
+<h3 dir="ltr"><span>Understanding Viewing Distance</span></h3>
+<p dir="ltr"><span>The size of your plaque should correspond to how far away it will typically be viewed. <a href="https://www.aia.org/sites/default/files/2023-11/AIA_Research_Agenda_2019-2020.pdf"><strong>According to the American Institute of Architects (AIA)</strong></a>, numerals should be at least 3 inches tall for every 100 feet of viewing distance (</span><span>Residential Design Standards</span><span>). This guideline guarantees that numbers remain readable even from a moving vehicle or at night.</span></p>
+<p dir="ltr"><span>For most residential properties, the optimal viewing distance falls between 30 to 50 feet, meaning house numbers should be 4 to 6 inches tall for immediate recognition. Homes set further back from the street, such as those with long driveways or situated on large lots, may require larger numerals, typically 6 to 8 inches in height, to maintain visibility.</span></p>
+<h3 dir="ltr"><span>Font Style and Contrast Considerations</span></h3>
+<p dir="ltr"><span>Beyond size, the font style and color contrast between the plaque and its background significantly affect readability.</span></p>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Sans-serif fonts (e.g., Helvetica, Futura) are often the most legible from a distance due to their clean, simple lines.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>High-contrast color pairings, such as white numbers on a dark plaque or black numerals on a light background, enhance visibility.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Reflective or illuminated finishes can further improve nighttime readability, particularly in areas with low exterior lighting.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>For decorative plaques, such as those bearing family names or inspirational quotes, readability at a distance is less critical. These plaques are typically viewed up close, near an entryway or interior space, so a height of 2 to 4 inches is usually sufficient. However, the font should still be chosen carefully to make sure that clarity and stylistic coherence with the overall design.</span></p>
+<h2 dir="ltr"><span>2. Architectural Harmony and Proportion</span></h2>
+<p dir="ltr"><span>A well-chosen plaque should complement your home’s architectural style rather than compete with it. The size, shape, and design of your plaque must harmonize with the scale and aesthetic of your property.</span></p>
+<div style="text-align: left;">
+<img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Architectural_Harmony_and_Proportion.jpg?v=1748605244" alt="Architectural Harmony and Proportion" style="margin-bottom: 16px; float: none;"><br><br><b></b>
+</div>
+<h3 dir="ltr"><span>Matching Plaque Size to Home Style</span></h3>
+<p dir="ltr"><span>Smaller residences benefit from plaques that provide a refined yet noticeable presence without overwhelming the façade. </span><b></b></p>
+<p dir="ltr"><strong>Ideal dimensions typically range from:</strong><b></b></p>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>8x8 inches</span><span> (for a subtle, integrated look)</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>4x16 inches</span><span> (for slightly more prominence)</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Modern and minimalist homes often favor sleek, understated designs with clean typography and simple geometric shapes. A smaller plaque in matte black or brushed metal can enhance contemporary aesthetics without appearing ostentatious.</span><b></b></p>
+<p dir="ltr"><span>Grander homes with expansive façades, gabled entries, or stately columns can accommodate more substantial plaques. </span><b></b></p>
+<p dir="ltr"><strong>Recommended sizes include:</strong><b></b></p>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>10 inch circle</span><span> (for a balanced statement)</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>5x16  inches</span><span> (for maximum impact on large walls or gates)</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>Traditional architectural styles, such as Colonial, Victorian, or Craftsman often pair well with plaques featuring classic serif fonts (e.g., Times New Roman, Garamond) and ornamental borders. Mid-century modern homes, on the other hand, may opt for <a href="https://www.modernhousenumbers.com/blogs/news/how-to-match-numbers-with-your-home-style">bold, minimalist numerals</a> in a mid-sized plaque to reflect the era’s design principles.</span></p>
+<h3 dir="ltr"><span>Material and Typography Influence on Perception</span></h3>
+<div style="text-align: left;">
+<img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Material_and_Typography_Influence_on_Perception.jpg?v=1748605343" alt="Material and Typography Influence on Perception" style="margin-bottom: 16px; float: none;"><br><strong style="font-size: 0.875rem;">The material and font choice can alter how large a plaque appears:</strong>
+</div>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Thicker materials (like ⅜-inch aluminum) add weight and presence, meaning a smaller plaque can still make a strong visual statement).</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Thin, lightweight materials (such as acrylic or stainless steel) may require slightly larger dimensions to achieve the same prominence.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Slim, sans-serif fonts allow for slightly larger plaques without appearing cluttered.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Ornate scripts or bold block lettering may necessitate a more modest size to prevent visual overwhelm.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>By carefully balancing these elements, you can select a plaque that feels intentionally designed rather than arbitrarily sized.</span></p>
+<h2 dir="ltr"><span>3. Material and Thickness Impact</span></h2>
+<p dir="ltr"><span>The substance of your plaque affects not only its durability but also its visual weight and ideal dimensions. </span><a href="https://www.modernhousenumbers.com/"><strong>Modern House Numbers</strong></a><span> crafts plaques from solid, recycled ⅜-inch-thick aluminum, ensuring both longevity and a premium aesthetic.</span></p>
+<h3 dir="ltr"><span>How Material Thickness Affects Plaque Size</span></h3>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Thicker plaques (⅜-inch or more) naturally command attention due to their substantial feel. This means a 4x6 inch plaque in brushed aluminum can make a striking impression without needing to be oversized.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Thinner materials (¼-inch or less) may require slightly larger dimensions to achieve the same presence. However, they can appear sleek and modern when used in the right context.</span></p>
+</li>
+</ul>
+<h3 dir="ltr"><span>Finish and Visual Weight</span></h3>
+<p dir="ltr"><strong>The finish of your plaque also influences its perceived size:</strong><b></b></p>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Matte or textured finishes</span><span> (e.g., powder-coated, brushed metal) absorb light, creating a subtle yet sophisticated look.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span>Polished or glossy finishes</span><span> (e.g., brushed aluminum) reflect light, making the plaque appear more prominent.</span></p>
+</li>
+</ul>
+<p dir="ltr"><span>For a balanced look, consider how the plaque’s finish interacts with its surroundings. A high-gloss plaque on a brick wall may stand out dramatically, while a matte-finished plaque on smooth siding blends more seamlessly.</span></p>
+<div style="text-align: left;">
+<img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Finish_and_Visual_Weight.jpg?v=1748605429" alt="Finish and Visual Weight" style="margin-bottom: 16px; float: none;"><b></b>
+</div>
+<h2 dir="ltr"><span>4. Mounting Surface and Installation</span></h2>
+<p dir="ltr"><span>Before finalizing your plaque size, assess where it will be installed. The mounting surface’s dimensions, texture, and surrounding elements all play a role in determining the ideal plaque size.</span></p>
+<h3 dir="ltr"><span>Choosing the Right Location</span></h3>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span><strong>Brick or Stone Walls:</strong> </span><span>These surfaces can accommodate larger plaques (5x16 inches or more) due to their rugged texture and expansive area.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><span><strong>Siding or Wood Paneling:</strong> </span><span> A medium-sized plaque (4x12 to 3x8 inches) works best to avoid overwhelming the linear pattern of siding.</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Doors or Narrow Entryways:</strong><span> Compact plaques (5 inch circle, 7 inch circle and 3x8 inches) are ideal to prevent interference with door hardware or adjacent decor.</span></p>
+</li>
+</ul>
+<h3 dir="ltr"><span>Installation Considerations</span></h3>
+<p dir="ltr"><span>Our plaques come with full-scale drilling templates and concealed hardware, guaranteeing a professional installation regardless of size. This makes it easy to <a href="https://www.modernhousenumbers.com/blogs/news/how-to-install-house-numbers-the-easy-way"><b>install house numbers the easy way</b></a>, even for beginners. Additional factors to consider:</span><b></b></p>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Surrounding Elements:</strong><span> Make sure that the plaque doesn’t clash with light fixtures, house numbers, or landscaping.</span></p>
+</li>
+</ul>
+<p dir="ltr"><strong>Final Recommendations for Plaque Sizing</strong></p>
+<p><b><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Plaque_Sizing.jpg?v=1748605516" alt=""></b><b></b></p>
+<p dir="ltr"><span>For optimal visibility, plaques should be installed at eye level (approx. 5-6 feet from the ground) unless mounted on a door.</span></p>
+<p dir="ltr"><span>To simplify your decision-making, here are our general guidelines based on common use cases:</span><b></b></p>
+<ul>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Standard House Numbers (30-50 ft visibility):</strong><span> 4-6 inches tall</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Large Properties or Long Driveways:</strong><span> 8-12 inches tall</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Decorative Name Plaques (Near Entryways):</strong><span> 2-4 inches tall</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Modern Minimalist Homes:</strong><span> 8x8 inches to 4x12 inches</span></p>
+</li>
+<li dir="ltr">
+<p role="presentation" dir="ltr"><strong>Grand or Traditional Homes:</strong><span> 10 inch circle to 5x16 inches</span></p>
+</li>
+</ul>
+<h2 dir="ltr"><span>A Perfect Fit for Your Home</span></h2>
+<div style="text-align: left;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Perfect_Fit_for_Your_Home.jpg?v=1748605634" alt="Perfect Fit for Your Home" style="margin-bottom: 16px; float: none;"></div>
+<p> </p>
+<p dir="ltr"><span>Choosing the right plaque size is a blend of practicality and design sensibility. By considering visibility, architectural scale, material impact, and installation requirements, you can select a plaque that <a href="https://www.modernhousenumbers.com/blogs/news/why-custom-plaques-are-perfect-for-any-property">enhances your home’s beauty</a> while serving its purpose flawlessly.</span><b></b></p>
+<p dir="ltr"><span>At </span><span>Modern House Numbers</span><span>, we <a href="https://www.modernhousenumbers.com/products/plaque">craft each plaque to order,</a> ensuring precision and quality. Our hand-finished aluminum designs are built to last, with thoughtful details like concealed mounting hardware and custom drilling templates for effortless installation.</span><b></b></p>
+<p dir="ltr"><span>Ready to enhance your home with a perfectly proportioned plaque? Explore our collection today and find the ideal size for your space.</span><b id="docs-internal-guid-245e1bee-7fff-8547-4f27-658a161ab80d"></b></p>
+    </div>
+    </div>
+    <div class="post-tail">
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img loading="lazy" decoding="async" src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_rick.png"
+                         alt="Picture of the Author"
+                         class="mx-auto object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">rick mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Rick is a licensed architect at Repp McLain Design & Construction. He holds a Bachelor of Architecture from the University of Arizona and an MS from the Department of Architecture at the Massachusetts Institute of Technology (MIT). When he’s not designing and fabricating he enjoys spending time with Brandy, Jack, Avery & Taylor and restoring his grandfather’s Ford pickup truck. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Rick on the <a itemprop="url"  href="https://reppmclain.com/people/" title="Repp McLain team page" target="_blank">Repp McLain Website</a>, on <a href="https://www.linkedin.com/in/rickmclain" title="Rick's LinkedIn Profile" target="_blank">LinkedIn</a>, or on <a href="https://www.facebook.com/reppmclain" title="The Repp McLain Facebook Page" target="_blank">Facebook</a>.
+                    </p>
+                </div>
+            </div>
+<div class="my-4 text-center">
+    <div class="text-sm font-semibold uppercase">You may also be interested in:</div>
+    <div class="flex flex-wrap justify-center">
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-concrete-monument-sign-metal-lettering.jpg?crop=center&height=600&v=1794415363&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.11.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs">Brick vs. Stone vs. Concrete Monument Signs: Which Suits Your Property?</a></h3>
+    <div class="text-sm">
+            <p>A monument sign is a freestanding, ground-level structure, typically built from brick, stone, or concrete, that marks a property's entrance and establishes its identity for drivers and pedestrians alike. Choosing the right material shapes how long that sign lasts, how much it costs to install and maintain, and how well it represents the property behind it. This guide covers what...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/brick-vs-stone-vs-concrete-monument-signs"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-wayfinding-directional-signage-examples.jpg?crop=center&height=600&v=1793814478&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="15 Wayfinding Signage Examples to Inspire Your Building&#39;s System"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">11.04.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples">15 Wayfinding Signage Examples to Inspire Your Building's System</a></h3>
+    <div class="text-sm">
+            <p>Wayfinding signage is the system of identification, directional, informational, and regulatory signs that helps people orient themselves and move confidently through a building. Fifteen real-world examples, from airports and hospitals to campuses and cultural buildings, show what separates an intuitive system from a confusing one. This guide covers the foundations of wayfinding and strategic planning, information organization and lobby entrances,...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/wayfinding-signage-examples"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+    </div>
+</div>
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+    </div>
+  </article>
+</div>
+</main>
+<div class="mhnfp-bar"><a href="#mhn-plaque-picker">Select your plaque size</a></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://cms.modernhousenumbers.com/partner/">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/building-supplies/modern-house-numbers-pfvwus-pf~1988483036" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
