@@ -271,109 +271,51 @@ img{max-width:100%;display:block}
   .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
 }
 @media(max-width:359px){.mhnfp .fp-card{grid-template-columns:1fr}.mhnfp .fp-body{padding-left:10px;padding-right:10px}.mhnfp .fp-opt span{font-size:11px;letter-spacing:0}}
-.mhnfp .pl-title{margin:0 0 8px;padding:0;font:400 17px/1.3 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
-.mhnfp .pl-in{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:9px}
-.mhnfp .pl-in label{display:block;font-size:12px;line-height:1.3}
-.mhnfp .pl-in input{display:block;width:100%;height:30px;margin:2px 0 0;padding:2px 8px;border:1px solid #8a8a8a;border-radius:0;background:#fff;color:#393838;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif}
-.mhnfp .pl-in input:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
-.mhnfp .pl-cols{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:10px;align-items:start}
-.mhnfp .pl-rows{display:grid;gap:3px}
-.mhnfp .pl-rows .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:1px 7px;min-height:27px;padding:4px 7px;align-items:center;font-size:12px}
+.mhnfp .pl-title{margin:0 0 10px;padding:0;font:400 20px/1.25 "Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;color:#393838}
+.mhnfp .pl-cols{display:grid;grid-template-columns:minmax(0,1fr) 136px;gap:12px;align-items:start}
+.mhnfp .pl-rows{display:grid;gap:4px}
+.mhnfp .pl-rows .fp-opt span{display:grid;grid-template-columns:12px 1fr;gap:2px 7px;min-height:30px;padding:5px 7px;align-items:center;font-size:12px}
 .mhnfp .pl-rows b{font-weight:400}
-.mhnfp .pl-rows em{font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;color:#b3470a}
-.mhnfp .pl-rows small{grid-column:1 / -1;display:none;font-size:12px;line-height:1.35;letter-spacing:0;text-transform:none}
+.mhnfp .pl-rows em{display:block;font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;color:#b3470a}
+.mhnfp .pl-rows small{grid-column:1 / -1;display:none;font-size:12.5px;line-height:1.4;letter-spacing:0;text-transform:none}
 .mhnfp .pl-rows input:checked+span small{display:block}
-.mhnfp .pl-rows u{grid-column:2;font-size:12px;letter-spacing:0;text-transform:none;text-decoration:none;color:#5a5a5a}
-.mhnfp .pl-rows u:empty{display:none}
-.mhnfp .pl-rows .fp-opt.is-off{cursor:default}
-.mhnfp .pl-rows .is-off input{cursor:default}
-.mhnfp .pl-rows .is-off span,.mhnfp .pl-rows .is-off:hover span{background:#fafafa;color:#767676}
-.mhnfp .pl-rows .is-off i{border-color:#a5a5a5}
-.mhnfp .pl-rows .is-off em{display:none}
-.mhnfp .pl-cols .fp-photo,.mhnfp .pl-cols .fp-photo img{width:120px;height:120px}
-.mhnfp .pl-cap{margin:4px 0 0;padding:0;font-size:12px;text-align:right}
-.mhnfp .pl-none{margin:10px 0 0;padding:0;font-size:13px}
-.mhnfp .pl-none a{color:#393838;text-decoration:underline}
-@media(max-width:999px){.mhnfp .pl-rows .fp-opt span{min-height:44px}.mhnfp .pl-in input{height:44px;font-size:16px}}
-@media(max-width:359px){.mhnfp .pl-cols{grid-template-columns:1fr}.mhnfp .pl-cap{text-align:left}}
+.mhnfp .pl-cols img{display:block;width:136px;height:136px;margin:0;object-fit:cover;background:#f0f0f0}
+@media(max-width:999px){.mhnfp .pl-rows .fp-opt span{min-height:44px}}
+@media(max-width:359px){.mhnfp .pl-cols{grid-template-columns:1fr}}
 </style>
 <form class="fp-box" autocomplete="off">
   <div class="fp-body">
-  <p class="pl-title" id="mhnpl-title">Modern shapes. Memorable style.</p>
-  <fieldset>
-    <legend>Space available to install (inches):</legend>
-    <div class="pl-in">
-      <label>Width<input type="number" name="pl-w" min="1" max="200" step="any" inputmode="decimal"></label>
-      <label>Height<input type="number" name="pl-h" min="1" max="200" step="any" inputmode="decimal"></label>
-      <label>Characters<input type="number" name="pl-n" min="1" max="8" step="1" inputmode="numeric"></label>
-    </div>
-  </fieldset>
+  <p class="pl-title" id="mhnpl-title">Modern shapes.<br>Memorable style.</p>
   <fieldset>
     <legend>Select your size and shape:</legend>
     <div class="pl-cols">
       <div class="pl-rows">
-        <label class="fp-opt"><input type="radio" name="pl-size" value="0"><span><i></i><b>5" Circle</b><u></u><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height.</small></span></label>
-        <label class="fp-opt"><input type="radio" name="pl-size" value="1"><span><i></i><b>7" Circle</b><u></u><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height.</small></span></label>
-        <label class="fp-opt"><input type="radio" name="pl-size" value="2"><span><i></i><b>10" Circle</b><u></u><small>Medium. Modern and stylish. Legible at 50’ or less, varies by font and finish. 2”-4” average text height.</small></span></label>
-        <label class="fp-opt"><input type="radio" name="pl-size" value="3"><span><i></i><b>3"x8" Rectangle</b><u></u><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height.</small></span></label>
-        <label class="fp-opt"><input type="radio" name="pl-size" value="4"><span><i></i><b>4"x11" Rectangle</b><u></u><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height.</small></span></label>
-        <label class="fp-opt"><input type="radio" name="pl-size" value="5" checked><span><i></i><b>5"x16" Rectangle <em>our most popular</em></b><u></u><small>Medium. Legible at 50’ or less, varies by font and finish. 2”- 4” average text height.</small></span></label>
-        <label class="fp-opt"><input type="radio" name="pl-size" value="6"><span><i></i><b>8" Square</b><u></u><small>Medium. On trend. Legible at 50’ or less, varies by font and finish. 2”-4” average text height.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="0"><span><i></i><b>5" Circle</b><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height. Up to 2 characters.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="1"><span><i></i><b>7" Circle</b><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height. Up to 4 characters.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="2"><span><i></i><b>10" Circle</b><small>Medium. Modern and stylish. Legible at 50’ or less, varies by font and finish. 2”-4” average text height. Up to 7 characters.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="3"><span><i></i><b>3"x8" Rectangle</b><small>Petite. Legible at 35’ or less. Ideal for interiors, or viewing at close range. 2”-3” average text height. Up to 4 characters.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="4"><span><i></i><b>4"x11" Rectangle</b><small>Small. Legible at 35’ or less. Ideal for viewing at close range. 2”-3” average text height. Up to 6 characters.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="5" checked><span><i></i><b>5"x16" Rectangle <em>our most popular</em></b><small>Medium. Legible at 50’ or less, varies by font and finish. 2”- 4” average text height. Up to 8 characters.</small></span></label>
+        <label class="fp-opt"><input type="radio" name="pl-size" value="6"><span><i></i><b>8" Square</b><small>Medium. On trend. Legible at 50’ or less, varies by font and finish. 2”-4” average text height. Up to 6 characters.</small></span></label>
       </div>
-      <div><div class="fp-photo"><img src="https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_1.jpg" width="120" height="120" alt="5&quot;x16&quot; Rectangle plaque"><button type="button" class="fp-prev" aria-label="Previous photo">&lsaquo;</button><button type="button" class="fp-nextp" aria-label="Next photo">&rsaquo;</button></div><p class="pl-cap">5"x16" Rectangle</p></div>
+      <img src="https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg" width="136" height="136" alt="5&quot;x16&quot; Rectangle plaque">
     </div>
   </fieldset>
-  <div aria-live="polite"><p class="pl-none" hidden>No standard plaque fits. <a href="https://www.modernhousenumbers.com/pages/custom">Custom shapes and sizes</a> are available upon request.</p></div>
   <a class="fp-cta" href="https://www.modernhousenumbers.com/products/plaque">Shop plaques</a>
   </div>
 </form>
 <script>
 (function(){
   var root=document.getElementById('mhn-plaque-picker');if(!root)return;
-  var D=[{"n":"5\" Circle","w":5,"h":5,"m":2,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_4.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_3.jpg"]},{"n":"7\" Circle","w":7,"h":7,"m":4,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_4.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_5.jpg"]},{"n":"10\" Circle","w":10,"h":10,"m":7,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_2.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_3.jpg"]},{"n":"3\"x8\" Rectangle","w":8,"h":3,"m":4,"v":3,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_2.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_4.jpg"]},{"n":"4\"x11\" Rectangle","w":11,"h":4,"m":6,"v":4,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_4.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_6.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_1.jpg"]},{"n":"5\"x16\" Rectangle","w":16,"h":5,"m":8,"v":6,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_1.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_4.jpg"]},{"n":"8\" Square","w":8,"h":8,"m":6,"v":0,"i":["https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_5.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_7.jpg","https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_4.jpg"]}],DEF=5;
-  var $=function(s){return root.querySelector(s)};
-  var img=$('.fp-photo img'),cap=$('.pl-cap'),cta=$('.fp-cta'),none=$('.pl-none'),cur=-1,pic=0;
-  var rows=Array.prototype.slice.call(root.querySelectorAll('[name=pl-size]'));
-  function num(n){var v=parseFloat($('[name='+n+']').value);return v>0?v:0}
-  function state(p,w,h,n){
-    var room=function(a,b){return (!w||w>=a)&&(!h||h>=b)};
-    var flat=room(p.w,p.h),up=p.v>0&&room(p.h,p.w);
-    if(flat&&(!n||n<=p.m))return ['h',''];
-    if(up&&(!n||n<=p.v))return ['v','fits vertically'];
-    if(n>p.m)return ['','max '+p.m+' characters'];
-    if(!flat&&up)return ['','vertical: max '+p.v+' characters'];
-    return ['','needs '+p.w+' x '+p.h+' in'];
-  }
-  function photo(){
-    var u=D[cur].i[pic];if(img.getAttribute('src')===u)return;
-    img.style.visibility='hidden';img.alt=D[cur].n+' plaque';img.src=u;
+  var D=[{"n":"5\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-5_1.jpg"},{"n":"7\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-7_1.jpg"},{"n":"10\" Circle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_circle-10_2.jpg"},{"n":"3\"x8\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-3-8_2.jpg"},{"n":"4\"x11\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-4-11_4.jpg"},{"n":"5\"x16\" Rectangle","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_rect-5-16_2.jpg"},{"n":"8\" Square","i":"https://cms.modernhousenumbers.com/assets/guide_plaque_shape_square_5.jpg"}],img=root.querySelector('.pl-cols img');
+  function show(d){
+    if(img.getAttribute('src')===d.i)return;
+    img.style.visibility='hidden';img.alt=d.n+' plaque';img.src=d.i;
   }
   img.addEventListener('load',function(){img.style.visibility='visible'});
-  function show(k){
-    if(k!==cur){cur=k;pic=0}
-    photo();cap.textContent=D[k].n;cta.textContent='Shop '+D[k].n+' plaques';
-  }
-  function update(){
-    var w=num('pl-w'),h=num('pl-h'),n=num('pl-n'),ok=[];
-    rows.forEach(function(r,k){
-      var s=state(D[k],w,h,n);r.disabled=!s[0];
-      r.parentNode.classList.toggle('is-off',!s[0]);
-      r.parentNode.querySelector('u').textContent=s[1];
-      if(s[0])ok.push(k);
-    });
-    none.hidden=ok.length>0;cta.hidden=!ok.length;
-    if(!ok.length){rows.forEach(function(r){r.checked=false});return}
-    var c=rows.findIndex(function(r){return r.checked&&!r.disabled});
-    if(c<0){c=ok.indexOf(DEF)>=0?DEF:ok[0];rows[c].checked=true}
-    show(c);
-  }
-  function step(n){if(cur<0)return;var t=D[cur].i.length;pic=(pic+n+t)%t;photo()}
-  $('.fp-prev').addEventListener('click',function(){step(-1)});
-  $('.fp-nextp').addEventListener('click',function(){step(1)});
-  root.addEventListener('change',function(e){if(/^pl-/.test(e.target.name))update()});
-  root.addEventListener('input',function(e){if(/^pl-[whn]$/.test(e.target.name))update()});
+  root.addEventListener('change',function(e){if(e.target.name==='pl-size')show(D[+e.target.value])});
   root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
-  update();
+  show(D[+root.querySelector('[name=pl-size]:checked').value]);
   function initBar(){
     var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
     if(!bar||!art)return;
