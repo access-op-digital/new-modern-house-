@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<!--
+  FONT PICKER on a copy of the Modern House Numbers blog post
+  Static replica of https://www.modernhousenumbers.com/blogs/news/top-5-fonts-for-modern-house-numbers
+  Article copy, author box and related posts: live post, copied 2026-11-25.
+  The picker block is generated from mhn-font-picker/build/embed.html; change it there and re-run compose.py.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top 5 Fonts for Modern House Numbers</title>
+<meta name="description" content="Showcasing the top 5 modern fonts for stylish house numbers, featuring sleek, minimalist, and bold typefaces perfect for contemporary curb appeal.">
+<link rel="canonical" href="https://www.modernhousenumbers.com/blogs/news/top-5-fonts-for-modern-house-numbers">
+<meta name="robots" content="noindex,nofollow">
+<!-- Preview deployment: noindex so this copy never competes with the live post it replicates. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,600,700%7CBarlow:200,300,400,500,600,700%7CLibre+Baskerville">
+<style>
+:root{
+  --ink:#393838;--orange:#f36a10;--orange-dk:#d65c0c;--line-soft:#e9e9eb;--maxw:1180px;
+  --head:Barlow,Helvetica,Arial,sans-serif;--body:Muli,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---- header ---- */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:74px}
+.nav .logo img{height:38px;width:auto}
+.nav-links{display:flex;gap:1.6rem;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a[aria-current]{color:var(--orange)}
+@media(max-width:900px){.nav-links{display:none}}
+
+
+/* ---- footer: dark, three link columns + signup, as on the live site ---- */
+.site-footer{background:#2b2b2b;color:#d9d7d4;padding:44px 0 28px;font-size:.8rem}
+.foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(min-width:900px){.foot-grid{grid-template-columns:repeat(3,1fr) 1.4fr;gap:36px}}
+@media(max-width:620px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+.foot-col h3{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:#fff;margin:0 0 .8rem}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.foot-col a{color:#d9d7d4;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.foot-col a:hover{color:var(--orange)}
+.foot-signup p{font-size:.74rem;color:#b5b2ae;margin:0 0 .7rem}
+.foot-signup input{width:100%;padding:.5rem .6rem;border:1px solid #4a4a4a;background:#232323;
+  color:#fff;font-family:var(--body);font-size:.8rem;border-radius:0}
+.foot-signup button{margin-top:.6rem;width:100%;padding:.55rem 1rem;border:0;background:var(--orange);
+  color:#fff;font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;cursor:pointer}
+.foot-signup button:hover{background:var(--orange-dk)}
+.foot-social{display:flex;gap:.9rem;margin-bottom:1rem}
+.foot-social a{color:#d9d7d4}.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-social a:hover{color:var(--orange)}
+.foot-legal{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:32px;padding-top:18px;
+  border-top:1px solid #3d3d3d;font-size:.72rem;color:#b5b2ae}
+.foot-legal a{color:#b5b2ae}.foot-legal a:hover{color:var(--orange)}
+
+
+/* ---- blog post, measured from the live post at 1280 and 375 px ---- */
+.post{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--ink)}
+.post h1,.post h2,.post h3,.post p,.post ul,.post ol{margin:0;padding:0}
+.post img{display:block;max-width:100%;height:auto}
+.post-wrap{max-width:768px;margin:0 auto;padding:12px 8px 24px}
+@media(min-width:768px){.post-wrap{padding-left:48px;padding-right:48px}}
+.post-meta{color:rgba(183,182,182,.75);text-align:left}
+.post-return{color:var(--orange);margin-bottom:24px}
+.post-return a{color:var(--orange)}
+.post-date{font-size:12px;line-height:18px}
+.post-rule{width:96px;height:9px;border-bottom:1px solid rgba(183,182,182,.75)}
+.post-h1{margin:16px 0;font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif;
+  font-size:28.8px;font-weight:300;line-height:1.2;text-align:left;color:var(--ink)}
+@media(min-width:768px){.post-h1{font-size:35.2px}}
+.post .shopifycontent{margin-bottom:48px;font-size:18px;line-height:27px;text-align:left}
+.post .shopifycontent p{margin:0 0 16px;line-height:1.5}
+.post .shopifycontent h2{margin:24px 0 12px;font-family:var(--body);font-size:24px;font-weight:500;line-height:24px}
+.post .shopifycontent h3{margin:24px 0 48px;font-family:var(--head);font-size:24px;font-weight:700;line-height:36px;text-transform:uppercase}
+.post .shopifycontent ul{list-style:disc;margin:0 0 2em 20px}
+.post .shopifycontent ol{list-style:none}
+.post .shopifycontent img{margin-bottom:1em}
+.post .shopifycontent a,.post p a{font-weight:600;text-decoration:underline;color:var(--ink)}
+.post .shopifycontent a:hover,.post p a:hover{color:var(--orange)}
+.post-back{display:inline-block;margin-top:16px;padding:4px 16px;background:#f0f0f0;color:#000;
+  font-size:12px;line-height:18px;letter-spacing:.3px}
+.post-back:hover{background:var(--ink);color:#fff}
+
+/* ---- the theme utilities the author box and related posts use ---- */
+.post .flex{display:flex}.post .flex-wrap{flex-wrap:wrap}.post .justify-center{justify-content:center}
+.post .w-full{width:100%}.post .mx-auto{margin-left:auto;margin-right:auto}
+.post .text-left{text-align:left}.post .text-center{text-align:center}
+.post .p-6{padding:1.5rem}.post .pl-6{padding-left:1.5rem}.post .py-4{padding-top:1rem;padding-bottom:1rem}
+.post .py-1{padding-top:.25rem;padding-bottom:.25rem}.post .px-4{padding-left:1rem;padding-right:1rem}.post .pb-4{padding-bottom:1rem}
+.post .my-1{margin-top:.25rem;margin-bottom:.25rem}.post .my-4{margin-top:1rem;margin-bottom:1rem}
+.post .mt-4{margin-top:1rem}.post .mb-4{margin-bottom:1rem}.post .mt-6{margin-top:1.5rem}.post .mb-2{margin-bottom:.5rem}
+.post .mb-12{margin-bottom:3rem}.post .mb-24{margin-bottom:6rem}
+.post .text-xs{font-size:.75rem}.post .text-sm{font-size:.875rem}.post .text-base{font-size:1rem}.post .text-xl{font-size:1.25rem}
+.post .leading-7{line-height:1.75rem}.post .leading-tight{line-height:1.25}
+.post .font-light{font-weight:300}.post .font-semibold{font-weight:600}
+.post .uppercase{text-transform:uppercase}.post .normal-case{text-transform:none}.post .tracking-wide{letter-spacing:.025em}
+.post .inline-block{display:inline-block}.post .rounded-full{border-radius:9999px}.post .object-contain{object-fit:contain}
+.post .text-barlow{font-family:Barlow,Helvetica,Arial,sans-serif}
+.post .text-blogserif{font-family:"Libre Baskerville","Palatino Linotype",Palatino,Baskerville,Georgia,serif}
+.post .text-grayMediumLight{color:rgba(183,182,182,.75)}.post .text-black{color:#000}
+.post .bg-grayLight{background:#f0f0f0}
+.post .hover\:text-white:hover{color:#fff}.post .hover\:bg-gray:hover{background:var(--ink)}
+.post h3.text-blogserif a{color:var(--ink)}
+@media(min-width:640px){.post .sm\:w-1\/2{width:50%}}
+@media(min-width:768px){
+  .post .md\:flex{display:flex}.post .md\:p-0{padding:0}.post .md\:px-2{padding-left:.5rem;padding-right:.5rem}
+  .post .md\:pb-8{padding-bottom:2rem}.post .md\:w-1\/4{width:25%}.post .md\:w-3\/4{width:75%}.post .md\:w-1\/3{width:33.333333%}
+  .post .md\:text-left{text-align:left}
+}
+
+
+/* ---- phones ---- */
+.nav-mobile{display:none;position:relative}
+@media(max-width:900px){
+  .nav-mobile{display:block;flex:0 0 auto}
+  .nav-mobile summary{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 2px 0 8px;list-style:none;cursor:pointer;
+    font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .nav-mobile summary::-webkit-details-marker{display:none}
+  .nav-burger{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before,.nav-burger::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .nav-burger::before{top:-6px}.nav-burger::after{top:6px}
+  .nav-mobile nav{position:absolute;right:0;top:calc(100% + 16px);z-index:70;min-width:210px;padding:6px 0;background:#fff;
+    border:1px solid var(--line-soft);box-shadow:0 10px 28px rgba(57,56,56,.14)}
+  .nav-mobile nav a{display:block;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-mobile nav a:hover{color:var(--orange)}
+  /* The wide logo (1156 x 112) keeps its proportions and shrinks to fit beside the menu. */
+  .nav .logo{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:44px}
+  .nav .logo img{width:auto;height:auto;max-width:100%;max-height:38px}
+}
+/* Bigger tap areas, same look. */
+.post-return a{display:inline-block;padding:12px 0;margin:-12px 0}
+.post a.bg-grayLight,.post .post-back{position:relative}
+.post a.bg-grayLight::after,.post .post-back::after{content:"";position:absolute;left:0;right:0;top:-9px;bottom:-9px}
+/* The live theme draws the author photo in a 3:2 box (312 x 208 on a phone, 168 x 112 on desktop). */
+.post .md\:flex.mb-24 img{width:100%;aspect-ratio:3/2;object-fit:contain}
+@media(max-width:620px){
+  .foot-col h3{font-size:.8rem}
+  .foot-col ul{gap:0}
+  .foot-col a{display:inline-block;padding:12px 0;font-size:.8rem}
+  /* Full-size social tap targets need the whole row, so the signup block spans both columns. */
+  .foot-signup{grid-column:1/-1}
+  .foot-signup p{font-size:.85rem}
+  .foot-signup input{min-height:44px;font-size:16px}
+  .foot-signup button{min-height:44px;font-size:.8rem}
+  .foot-social{gap:2px;margin-left:-13px}
+  .foot-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+  .foot-legal{gap:0 18px;font-size:.8rem}
+  .foot-legal a{display:inline-block;padding:12px 0}
+}
+
+
+/* ---- article + sticky font picker: the picker stays beside the article and stops where the article ends ---- */
+.post-wrap.has-side{max-width:1156px}
+.post-cols{display:grid;grid-template-columns:minmax(0,1fr)}
+.post-cols .mhnfp{margin:0 0 28px}
+.post-cols .shopifycontent{margin-bottom:0}
+.post .post-h1{margin:16px 0}
+.post-tail{max-width:672px;margin-top:48px}
+.post .shopifycontent h2 img{margin-top:12px}
+@media(min-width:1000px){
+  .post-cols{grid-template-columns:minmax(0,672px) 340px;column-gap:48px}
+  .post-cols .post-head{grid-column:1;grid-row:1}
+  .post-cols .shopifycontent{grid-column:1;grid-row:2}
+  .post-cols .mhnfp{grid-column:2;grid-row:1 / span 2;margin:0}
+}
+@media(min-width:1000px) and (max-width:1099px){.post-cols{column-gap:28px;grid-template-columns:minmax(0,1fr) 330px}.post-wrap.has-side{padding-left:24px;padding-right:24px}}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:200;background:#fff;padding:.7rem 1rem;border:2px solid var(--orange)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="logo" href="https://www.modernhousenumbers.com" aria-label="Modern House Numbers home">
+      <img src="https://www.modernhousenumbers.com/cdn/shop/t/16/assets/logo_wide.png"
+           alt="Modern House Numbers" width="180" height="38">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="https://www.modernhousenumbers.com/collections/all">Shop</a>
+      <a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a>
+      <a href="https://www.modernhousenumbers.com/pages/resources">Resources</a>
+      <a href="/trade">Trade</a>
+      <a href="https://www.modernhousenumbers.com/pages/our-story">About</a>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="nav-burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Mobile"><a href="https://www.modernhousenumbers.com/collections/all">Shop</a><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a><a href="/trade">Trade</a><a href="https://www.modernhousenumbers.com/pages/our-story">About</a></nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" class="post">
+<div class="post-wrap has-side">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="post-cols">
+    <div class="post-head">
+      <div class="post-meta">
+        <div class="post-return">&laquo; <a href="https://www.modernhousenumbers.com/blogs/news">Return to Blog</a></div>
+        <div class="post-date">04.22.25</div>
+        <div class="post-rule"></div>
+      </div>
+      <h1 class="post-h1" itemprop="name">Top 5 Fonts for Modern House Numbers</h1>
+    </div>
+<!-- MHN font picker. Rules and wording come from the client's font images (email, 20 Nov 2026). -->
+<aside class="mhnfp" id="mhn-font-picker" aria-labelledby="mhnfp-title">
+<style>
+@font-face{font-family:mhnfp-ps;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/palmsprings-mhn.woff) format("woff");font-display:swap}
+@font-face{font-family:mhnfp-sc;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/socal.woff) format("woff");font-display:swap}
+@font-face{font-family:mhnfp-sb;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/santabarbara.woff) format("woff");font-display:swap}
+@font-face{font-family:mhnfp-bb;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/backbay.woff) format("woff");font-display:swap}
+@font-face{font-family:mhnfp-so;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/southbeach.woff) format("woff");font-display:swap}
+@font-face{font-family:mhnfp-sh;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/soho.woff) format("woff");font-display:swap}
+@font-face{font-family:mhnfp-au;src:url(https://www.modernhousenumbers.com/cdn/shop/t/16/assets/UptownRegular.woff) format("woff");font-display:swap}
+.mhnfp,.mhnfp *{box-sizing:border-box}
+.mhnfp{font-family:Muli,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4;color:#393838;text-align:left}
+.mhnfp .fp-box{background:#fff;border:1px solid #dcdcdc;padding:13px 16px 14px}
+.mhnfp .fp-prev{position:relative;margin:0 0 9px}
+.mhnfp .fp-title{margin:0 0 9px;padding:0;font:300 21px/1.15 Barlow,Helvetica,Arial,sans-serif;text-transform:none;letter-spacing:0;color:#393838}
+.mhnfp .fp-title b{font-weight:600}
+.mhnfp .fp-label{position:absolute;left:8px;top:4px;font-size:12px;line-height:1.2;color:#555;pointer-events:none}
+.mhnfp .fp-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mhnfp .fp-num{display:block;width:100%;height:82px;margin:0;padding:16px 8px 0;border:0;border-bottom:2px solid #393838;border-radius:0;background:#f0f0f0;color:#393838;font-size:52px;line-height:64px;text-align:center;-webkit-appearance:none;appearance:none}
+.mhnfp .fp-num::placeholder{color:#767676;opacity:1}
+.mhnfp fieldset{margin:0;padding:0;border:0;min-width:0}
+.mhnfp legend{padding:0;margin:0 0 4px;font-size:13px;color:#555}
+.mhnfp .fp-mode{display:grid;grid-template-columns:1fr 1fr;margin-bottom:8px}
+.mhnfp .fp-opt{position:relative;display:block;margin:0;cursor:pointer}
+.mhnfp .fp-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.mhnfp .fp-opt span{display:flex;align-items:center;min-height:29px;padding:2px 8px;background:#f0f0f0;border:1px solid #f0f0f0;font-size:13px;line-height:1.2}
+.mhnfp .fp-mode .fp-opt span{justify-content:center;min-height:34px;text-align:center;border-color:#393838;background:#fff;font-weight:600}
+.mhnfp .fp-mode .fp-opt+.fp-opt span{border-left:0}
+.mhnfp .fp-opt:hover span{border-color:#393838}
+.mhnfp .fp-opt input:checked+span{background:#393838;border-color:#393838;color:#fff}
+.mhnfp .fp-opt input:focus-visible+span,.mhnfp .fp-num:focus-visible,.mhnfp .fp-alt button:focus-visible,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:2px}
+.mhnfp .fp-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.mhnfp .fp-list{display:grid;gap:4px}
+.mhnfp .fp-list .fp-opt span{flex-direction:column;align-items:flex-start;justify-content:center;min-height:52px}
+.mhnfp .fp-list small{font-size:12px;font-weight:400}
+.mhnfp [hidden]{display:none!important}
+.mhnfp .fp-out{margin-top:9px;padding-top:9px;border-top:1px solid #dcdcdc}
+.mhnfp .fp-alt{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:7px}
+.mhnfp .fp-alt button{flex:1 1 auto;min-height:30px;padding:3px 8px;border:1px solid #393838;border-radius:0;background:#fff;color:#393838;font:600 13px/1.2 Muli,Helvetica,Arial,sans-serif;cursor:pointer}
+.mhnfp .fp-alt button[aria-pressed=true]{background:#393838;color:#fff}
+.mhnfp .fp-name{margin:0;padding:0;font:500 21px/1.2 Barlow,Helvetica,Arial,sans-serif;color:#393838}
+.mhnfp .fp-name em{margin-left:6px;font:italic 400 13px/1 Muli,Helvetica,Arial,sans-serif;color:#b3470a}
+.mhnfp .fp-why{margin:1px 0 8px;padding:0;font-size:13px;line-height:1.4}
+.mhnfp a.fp-cta{display:block;padding:11px 10px;background:#f36a10;color:#000;text-align:center;text-decoration:none;font:600 15px/1.2 Barlow,Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.mhnfp a.fp-cta:hover{background:#393838;color:#fff}
+.mhnfp .fp-next{margin:6px 0 0;padding:0;font-size:12px;line-height:1.35;color:#555;text-align:center}
+.mhnfp-bar{display:none}
+@media(min-width:1000px){
+  .mhnfp{position:sticky;top:86px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;overscroll-behavior:contain}
+}
+@media(min-width:1000px) and (max-height:690px){.mhnfp .fp-next{display:none}.mhnfp .fp-num{height:74px;padding-top:12px}.mhnfp .fp-opt span{min-height:27px}}
+@media(max-width:999px){
+  .mhnfp .fp-opt span{min-height:44px;font-size:14px}
+  .mhnfp .fp-mode .fp-opt span,.mhnfp .fp-alt button{min-height:44px;font-size:14px}
+  .mhnfp a.fp-cta{padding:15px 10px}
+  .mhnfp{scroll-margin-top:86px}
+  .mhnfp-bar.is-on{display:block;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #dcdcdc}
+  .mhnfp-bar a{display:block;max-width:640px;margin:0 auto;padding:14px 10px;background:#f36a10;color:#000;text-align:center;text-decoration:none;font:600 15px/1.2 Barlow,Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+}
+</style>
+<form class="fp-box" autocomplete="off">
+  <h2 class="fp-title" id="mhnfp-title">How to pick a <b>Signature Font</b></h2>
+  <div class="fp-prev"><label class="fp-label" for="mhnfp-num">House number</label>
+  <input class="fp-num" id="mhnfp-num" type="text" inputmode="text" maxlength="6" placeholder="1234" aria-describedby="mhnfp-name"></div>
+  <fieldset>
+    <legend>Choose the font by</legend>
+    <div class="fp-mode">
+      <label class="fp-opt"><input type="radio" name="fp-mode" value="style" checked><span>Architectural style</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-mode" value="taste"><span>Design preference</span></label>
+    </div>
+  </fieldset>
+  <fieldset data-pane="style">
+    <legend class="fp-vh">Home or building style</legend>
+    <div class="fp-grid">
+      <label class="fp-opt"><input type="radio" name="fp-style" value="midcentury"><span>Mid-century modern</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="modern"><span>Modern</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="scandinavian"><span>Scandinavian</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="minimalist"><span>Minimalist</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="traditional"><span>Traditional</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="spanish"><span>Spanish colonial</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="craftsman"><span>Classic craftsman</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="bungalow"><span>Cozy bungalow</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="commercial"><span>Commercial</span></label>
+      <label class="fp-opt"><input type="radio" name="fp-style" value="trend"><span>Trend-forward</span></label>
+    </div>
+  </fieldset>
+  <fieldset data-pane="taste" hidden>
+    <legend class="fp-vh">Preferred look</legend>
+    <div class="fp-list">
+      <label class="fp-opt"><input type="radio" name="fp-taste" value="minimal"><span>Modern + Minimal<small>Clean lines, timeless style, effortless cool</small></span></label>
+      <label class="fp-opt"><input type="radio" name="fp-taste" value="bold"><span>Bold + Confident<small>A strong first impression</small></span></label>
+      <label class="fp-opt"><input type="radio" name="fp-taste" value="unique"><span>Charming + Unique<small>Warmth and character for any space</small></span></label>
+    </div>
+  </fieldset>
+  <div class="fp-out">
+    <div class="fp-alt" role="group" aria-label="Matching fonts" hidden></div>
+    <div aria-live="polite">
+      <p class="fp-name" id="mhnfp-name">Palm Springs <em>our most popular</em></p>
+      <p class="fp-why">A favorite among mid-century enthusiasts and design minimalists.</p>
+    </div>
+    <a class="fp-cta" href="https://www.modernhousenumbers.com/products/house-numbers-letters">Shop Palm Springs</a>
+    <p class="fp-next">Select <b>Palm Springs</b> on the product page.</p>
+  </div>
+</form>
+<script>
+(function(){
+  var root=document.getElementById('mhn-font-picker');if(!root)return;
+  var F={
+    ps:{n:'Palm Springs',f:'PalmSprings,mhnfp-ps',top:1,w:'A favorite among mid-century enthusiasts and design minimalists.',t:'Iconic and timeless.'},
+    sc:{n:'SoCal',f:'Socal,mhnfp-sc',w:'Thin and elegant with a perfectly round zero.',t:'Thin, sleek, and subtle with a contemporary twist.'},
+    sb:{n:'Santa Barbara',f:'SantaBarbara,mhnfp-sb',w:'The only serif style, blending vintage elegance with decorative flair.',t:'Elegant serif with vintage glam and standout sophistication.'},
+    bb:{n:'Backbay',f:'Backbay,mhnfp-bb',w:'Sleek and space-saving with elongated lines and a confident presence.',t:'Compact and perfect for tight spaces.'},
+    so:{n:'South Beach',f:'Southbeach,mhnfp-so',w:'A commanding, contemporary silhouette made to stand out.',t:'Wide, modern, and unapologetically bold.'},
+    sh:{n:'SoHo',f:'Soho,mhnfp-sh',w:'Confident and clean with crisp lines and a striking presence.',t:'Classic and clean with commercial appeal.'},
+    au:{n:'Austin',f:'Austin,mhnfp-au',w:'Thin lines, elegant curves, and modern angles.',t:'Thin lines with playful elegance.'}
+  };
+  var STYLE={midcentury:['ps','so'],modern:['sc'],scandinavian:['sc'],minimalist:['sc','ps'],traditional:['sb'],spanish:['sb'],craftsman:['so'],bungalow:['bb'],commercial:['sh','bb'],trend:['au']};
+  var TASTE={minimal:['ps','sc','au'],bold:['so','sh','bb'],unique:['bb','au','sb']};
+  var $=function(s){return root.querySelector(s)};
+  var num=$('.fp-num'),alt=$('.fp-alt'),name=$('.fp-name'),why=$('.fp-why'),cta=$('.fp-cta'),next=$('.fp-next');
+  var mode='style',cur='ps';
+  function val(n){var e=root.querySelector('input[name='+n+']:checked');return e?e.value:''}
+  function list(){var v=val('fp-'+mode);return v?(mode==='style'?STYLE:TASTE)[v]:['ps']}
+  function fit(){
+    var size=52;num.style.fontSize=size+'px';
+    while(size>24&&num.scrollWidth>num.clientWidth){size-=2;num.style.fontSize=size+'px'}
+  }
+  function show(k){
+    cur=k;var d=F[k];
+    num.style.fontFamily=d.f+',sans-serif';
+    name.textContent=d.n+' ';
+    if(d.top){var e=document.createElement('em');e.textContent='our most popular';name.appendChild(e)}
+    why.textContent=mode==='taste'&&val('fp-taste')?d.t:d.w;
+    cta.textContent='Shop '+d.n;
+    next.textContent='';next.appendChild(document.createTextNode('Select '));
+    var b=document.createElement('b');b.textContent=d.n;next.appendChild(b);
+    next.appendChild(document.createTextNode(num.value?' and enter '+num.value+' on the product page.':' on the product page.'));
+    Array.prototype.forEach.call(alt.children,function(x){x.setAttribute('aria-pressed',x.dataset.k===k?'true':'false')});
+    fit();
+  }
+  function update(){
+    var l=list();alt.textContent='';alt.hidden=l.length<2;
+    if(l.length>1)l.forEach(function(k){
+      var b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=F[k].n;
+      b.addEventListener('click',function(){show(k)});alt.appendChild(b)});
+    show(l[0]);
+  }
+  root.addEventListener('change',function(e){
+    if(e.target.name==='fp-mode'){
+      mode=e.target.value;
+      root.querySelectorAll('[data-pane]').forEach(function(p){p.hidden=p.dataset.pane!==mode});
+    }
+    if(/^fp-/.test(e.target.name))update();
+  });
+  num.addEventListener('input',function(){
+    var c=num.value.replace(/[^0-9A-Za-z]/g,'');if(c!==num.value)num.value=c;show(cur)});
+  root.querySelector('form').addEventListener('submit',function(e){e.preventDefault()});
+  cta.addEventListener('click',function(){
+    if(window.dataLayer&&window.dataLayer.push)window.dataLayer.push({event:'mhn_font_picker',font:F[cur].n,choose_by:mode,answer:val('fp-'+mode)||'default'})});
+  if(document.fonts&&document.fonts.addEventListener)document.fonts.addEventListener('loadingdone',fit);
+  update();
+  // Phones and small tablets: a bar returns to the form while the article is being read.
+  function initBar(){
+    var bar=document.querySelector('.mhnfp-bar'),art=document.querySelector('[itemprop=articleBody]');
+    if(!bar||!art)return;
+    var tick=function(){
+      var r=root.getBoundingClientRect(),a=art.getBoundingClientRect();
+      bar.classList.toggle('is-on',r.bottom<74&&a.bottom>window.innerHeight*.6)};
+    window.addEventListener('scroll',tick,{passive:true});
+    window.addEventListener('resize',function(){tick();fit()});tick();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initBar);else initBar();
+})();
+</script>
+</aside>
+    <div class="shopifycontent blog" itemprop="articleBody">
+<p dir="ltr"><span style="font-size: 0.875rem;"><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Top_5_Fonts_for_Modern_House_Numbers_8fd544ed-ff50-4c8b-8627-1f8a5c67d455.jpg?v=1745075677" alt=""><br></span></p>
+<p dir="ltr"><span>House numbers are more than mere identifiers, they are a design statement that defines a home’s personality and enhances its visual appeal. The right font ensures not only readability but also architectural harmony, reinforcing the character of your home’s exterior. Modern typography strikes a balance between precision, clarity, and sophistication, making <a href="https://www.modernhousenumbers.com/"><strong>house numbers</strong></a> a seamless yet impactful design element.</span></p>
+<p dir="ltr"><span>Palm Springs, Santa Barbara, Backbay, South Beach, and Soho stand out as top-tier fonts for house numbers, each offering a distinct blend of style, elegance, and visibility. Whether aiming for mid-century modern charm, coastal sophistication, or minimalist refinement, selecting the right typeface transforms an address into a bold design statement.</span></p>
+<h2 dir="ltr"><span>1. Palm Springs: A Classic Mid-Century Modern Choice<br><br><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/A_Classic_Mid-Century_Modern_Choice.jpg?v=1745075781" alt=""><br></span></h2>
+<p dir="ltr"><span>Palm Springs is a font that embodies the essence of mid-century modern design. Inspired by the architecture and aesthetics of the famed desert city, this font features clean lines, geometric balance, and a timeless elegance.</span></p>
+<p dir="ltr"><strong>Characteristics:</strong></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Sleek, elongated letterforms</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Well-balanced proportions for optimal readability</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Subtle retro influence without appearing outdated</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Sans-Serif font</span><span><br></span></p>
+</li>
+</ul>
+<p dir="ltr"><strong>Ideal Applications:</strong><span> Palm Springs is an excellent choice for mid-century modern homes, contemporary facades, and minimalist exteriors. Its refined look ensures that house numbers remain stylish while being highly legible from a distance. This font is perfect for those who want to combine sophistication with a nostalgic touch.Studies show that house numbers in <a href="https://soporte.ujcv.edu.hn/uploaded-files/zYrCqW/6S9112/History%20Of%20Palm%20Springs%20California.pdf"><strong>mid-century modern fonts like Palm Springs</strong></a> increase curb appeal by up to <strong data-start="1688" data-end="1695">25%</strong>, as they complement clean architectural lines and minimalist designs.</span></p>
+<h2 dir="ltr"><span>2. Santa Barbara: The Embodiment of Coastal Elegance<br><br></span></h2>
+<div style="text-align: left;"><img style="margin-bottom: 16px; float: none;" alt="Santa Barbara Coastal Elegance" src="https://cdn.shopify.com/s/files/1/0326/2541/files/Embodiment_of_Coastal_Elegance_21_11zon.webp?v=1747927591"></div>
+<div style="text-align: left;">
+<span></span><br>
+</div>
+<p dir="ltr"><span>Santa Barbara is a font that exudes elegance and grace. Its design is inspired by the relaxed yet refined aesthetic of craftsman architecture, making it an ideal choice for homes that embrace a classic and sophisticated look.</span></p>
+<p dir="ltr"><strong>Characteristics:</strong></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Soft, curved letterforms with balanced spacing</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>A blend of contemporary and traditional elements</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Excellent readability, even in varying lighting conditions</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Classic Serif font</span><span><br></span></p>
+</li>
+</ul>
+<p dir="ltr"><strong>Ideal Applications:</strong><span><strong> </strong>Homes with Mediterranean, coastal, or Spanish-style architecture will benefit from Santa Barbara’s effortless charm. It provides a subtle yet distinct presence, making house numbers easy to read while <a href="https://www.modernhousenumbers.com/blogs/news/custom-logos-and-fonts-elevate-your-home-s-curb-appeal"><strong>enhancing the home’s curb appeal</strong></a>. This font is particularly effective when paired with natural materials like stone, wood, and stucco.</span></p>
+<h2 dir="ltr"><span>3. Backbay: A Bold and Modern Statement<br><br></span></h2>
+<div style="text-align: left;"><img style="float: none;" alt="Bold and Modern Backbay" src="https://cdn.shopify.com/s/files/1/0326/2541/files/A_Bold_and_Modern_Statement_14_11zon.webp?v=1747925715"></div>
+<p dir="ltr"> </p>
+<p dir="ltr"><span>For homeowners looking for a striking, contemporary aesthetic, Backbay is an excellent option. This font commands attention with its bold yet refined design, making it one of the most readable choices for house numbers.</span></p>
+<p dir="ltr"><strong>Characteristics:</strong></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Strong, compact elongated lines</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>High contrast between thick and thin elements</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Perfect for tight installs thanks to its narrow width</span><span><br></span></p>
+</li>
+</ul>
+<p dir="ltr"><strong>Ideal Applications:</strong><span><strong> </strong>Backbay is ideal for modern, industrial, and high-contrast architectural designs. Its bold structure ensures that house numbers remain legible even from a moving vehicle or under low-light conditions. Whether mounted on metal, glass, or dark-painted facades, this font makes a powerful statement without overwhelming the exterior design.</span></p>
+<h2 dir="ltr"><span>4. South Beach: Contemporary with a Touch of Art Deco<br><br></span></h2>
+<p dir="ltr"><span><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Contemporary_with_a_Touch_of_Art_Deco_18_11zon.webp?v=1747927051" alt=""><br></span></p>
+<p dir="ltr"><span>South Beach is a font that merges contemporary style with a hint of Art Deco influence. It offers a unique bold balance between sharp angles and smooth curves, giving it a distinctive yet highly functional look.</span></p>
+<p dir="ltr"><strong>Characteristics:</strong></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>A blend of angular and rounded letterforms</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Wider square proportions for increased presence and readability</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Evokes a sense of modern luxury</span><span><br></span></p>
+</li>
+</ul>
+<p dir="ltr"><strong>Ideal Applications:</strong><span> This font is well-suited for homes with sleek, modern, or high-end architectural features. It works exceptionally well with polished metal finishes and glass paneling, making it a great choice for urban homes, apartments, and commercial properties. South Beach enhances both curb appeal and functionality by offering a visually striking yet easily readable design.</span></p>
+<h2 dir="ltr"><span>5. SoCal: Minimalist and Chic</span></h2>
+<p dir="ltr"><span><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Minimalist_and_Chic.jpg?v=1746128630" alt=""></span></p>
+<p dir="ltr"><span>SoCal is a quintessential modern font known for its clean, simple, and elegant design. It is the epitome of minimalist typography, making it an excellent choice for contemporary homes that favor subtle sophistication.</span></p>
+<p dir="ltr"><strong>Characteristics:</strong></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Thin, even strokes for a refined appearance</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Minimalist approach with high clarity</span><span><br></span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Strong geometric foundations</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><span>Sans-serif font</span><span><br></span></p>
+</li>
+</ul>
+<p dir="ltr"><strong>Ideal Applications:</strong><span> SoCal works best on homes with modern, Scandinavian, or industrial aesthetics. It pairs well with materials like raw concrete, steel, and natural wood. The font’s understated elegance allows house numbers to blend seamlessly into contemporary architecture while maintaining maximum readability.</span></p>
+<h2 dir="ltr"><span>Choosing the Right Font for Your Home</span></h2>
+<p dir="ltr"><span>Selecting the right font for house numbers is a critical design decision that affects both aesthetics and functionality. A well-chosen typeface ensures optimal visibility while seamlessly integrating with your home’s architectural style. To achieve the perfect balance of form and function, consider these key factors:</span></p>
+<ul>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><strong>Visibility:</strong><span> House numbers must be legible from a distance, whether viewed by guests, delivery drivers, or emergency responders. Opt for fonts with strong contrast, clear letterforms, and balanced spacing to ensure maximum readability.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><strong>Architectural Harmony:</strong><span> The font should complement the design language of your home. A sleek, minimalist typeface suits contemporary homes, while a more decorative or classic font aligns with traditional and coastal exteriors. Cohesion between typography and architecture enhances curb appeal.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><strong>Material Compatibility:</strong><span> Fonts interact differently with various materials such as metal, acrylic, wood, or glass. Consider how the letterforms will appear when laser-cut, engraved, or mounted. The right combination of font and material creates a polished, high-end look. For durability, <strong>aluminum house numbers</strong> are a great choice</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><strong>Lighting &amp; Legibility:</strong><span> If house numbers need to remain visible at night, choose a font with high contrast and clarity under different lighting conditions. Backlit or reflective numbers further improve nighttime readability.</span></p>
+</li>
+<li dir="ltr" aria-level="1">
+<p dir="ltr" role="presentation"><strong>Personal Expression:</strong><span> House numbers are a subtle yet impactful detail that reflects your individual style. Whether you prefer a bold, modern statement or an understated, elegant design, the right font enhances both identity and sophistication. House numbers are a subtle yet impactful detail that reflects your individual style. Whether you prefer a bold, modern statement or an understated, elegant design, the right font enhances both identity and sophistication. For modern options, check out <a href="https://www.modernhousenumbers.com/blogs/news/how-to-quickly-get-modern-house-numbers-for-your-home"><strong>how to quickly get modern house numbers</strong></a></span></p>
+</li>
+</ul>
+<p dir="ltr"><span>By carefully considering these elements, you can select a typeface that not only enhances your home's exterior but also reinforces its unique character.</span></p>
+<h2 dir="ltr"><span>The Impact of Typography on Modern House Numbers<br><br></span></h2>
+<p><span><img src="https://cdn.shopify.com/s/files/1/0326/2541/files/Impact_of_Typography_on_Modern_House_Numbers.jpg?v=1745076023" alt=""></span><br></p>
+<p dir="ltr"><span>Typography is a defining element in both the functionality and aesthetic appeal of house numbers. The five distinguished fonts; Palm Springs, Santa Barbara, Backbay, South Beach, and SoCal—offer a balance of style, readability, and architectural harmony. Whether you prefer the timeless sophistication of Santa Barbara, the bold presence of South Beach, or the refined minimalism of Palm Springs, selecting the right typeface enhances both visibility and curb appeal.</span></p>
+<p dir="ltr"><span>A thoughtfully chosen font ensures that house numbers are not just practical identifiers but an integral part of your home’s exterior design. High-quality, well-crafted numbers provide a lasting impression, combining elegance with durability.</span></p>
+<p dir="ltr"><span>Enhance your home’s exterior with</span><span> <a href="https://www.modernhousenumbers.com/"><strong>modern house numbers</strong></a> </span><span>that exude style and clarity. Choose a font that complements your architecture and makes a distinguished statement.</span></p>
+    </div>
+    </div>
+    <div class="post-tail">
+<div class="md:flex mb-24">
+                <div class="w-full text-center md:w-1/4 p-6 md:p-0">
+                    <img loading="lazy" decoding="async" src="https://cms.modernhousenumbers.com/wp-content/uploads/2022/08/about_rick.png"
+                         alt="Picture of the Author"
+                         class="mx-auto object-contain rounded-full"/>
+                </div>
+                <div class="w-full text-left md:w-3/4 pl-6">
+                    <span class="text-xl mb-2 text-barlow" itemprop="author" itemscope itemtype="https://schema.org/Person">rick mclain, author</span>
+                    <p class="text-base font-light leading-tight">
+                        Rick is a licensed architect at Repp McLain Design & Construction. He holds a Bachelor of Architecture from the University of Arizona and an MS from the Department of Architecture at the Massachusetts Institute of Technology (MIT). When he’s not designing and fabricating he enjoys spending time with Brandy, Jack, Avery & Taylor and restoring his grandfather’s Ford pickup truck. 
+                    </p>
+                    <p class="mt-6">
+                        You can learn more about Rick on the <a itemprop="url"  href="https://reppmclain.com/people/" title="Repp McLain team page" target="_blank">Repp McLain Website</a>, on <a href="https://www.linkedin.com/in/rickmclain" title="Rick's LinkedIn Profile" target="_blank">LinkedIn</a>, or on <a href="https://www.facebook.com/reppmclain" title="The Repp McLain Facebook Page" target="_blank">Facebook</a>.
+                    </p>
+                </div>
+            </div>
+<div class="my-4 text-center">
+    <div class="text-sm font-semibold uppercase">You may also be interested in:</div>
+    <div class="flex flex-wrap justify-center">
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/best-wood-for-outdoor-signs-types-durability-care"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-house-number-wood-slat-wall.png?crop=center&height=600&v=1784646556&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="Best Wood for Outdoor Signs: Types, Durability &amp; Care"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">07.21.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/best-wood-for-outdoor-signs-types-durability-care">Best Wood for Outdoor Signs: Types, Durability & Care</a></h3>
+    <div class="text-sm">
+            <p>The best wood for outdoor signs is a naturally durable species, such as cedar, redwood, or teak, selected to match the specific climate, budget, and design demands of the installation. Exterior plaques and wayfinding signage built from the right material can last decades; those built from the wrong one often fail within a few years. This guide covers wood types...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/best-wood-for-outdoor-signs-types-durability-care"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+                <div class="sm:w-1/2 md:w-1/3 md:px-2 py-4 md:pb-8">
+    <a href="https://www.modernhousenumbers.com/blogs/news/house-number-plaque-vs-frame-which-is-best-for-you"><img loading="lazy" decoding="async" src="https://www.modernhousenumbers.com/cdn/shop/articles/modern-house-number-plaque-wood-frame-display_45693eb4-ede9-46b2-8d55-dd48a67a8c01.jpg?crop=center&height=600&v=1783524225&width=600"
+                                     class="object-contain animated pb-4 scroll-fade"
+                                     alt="House Number Plaque vs. Frame: Which is Best for You?"/></a>
+    <div class="text-grayMediumLight uppercase">
+        <div class="text-xs">07.02.26</div>
+        <div class="my-1 text-xs text-grayMediumLight tagwrapper">
+        </div>
+    </div>
+    <h3 class="text-blogserif text-xl leading-7 font-semibold mt-4 mb-4 normal-case"><a
+                href="https://www.modernhousenumbers.com/blogs/news/house-number-plaque-vs-frame-which-is-best-for-you">House Number Plaque vs. Frame: Which is Best for You?</a></h3>
+    <div class="text-sm">
+            <p>A house number plaque is a single unified plate that combines background and numerals into one fixed display, while a frame is a modular border that holds interchangeable individual digits against the wall surface behind them. This guide covers how each option differs structurally and visually, the advantages and trade-offs of plaques and frames, how cost and long-term value compare,...</p>
+        <br/><a href="https://www.modernhousenumbers.com/blogs/news/house-number-plaque-vs-frame-which-is-best-for-you"
+                class="text-black inline-block mt-4 bg-grayLight py-1 text-xs tracking-wide px-4 hover:text-white hover:bg-gray"
+                title="read more!">READ MORE</a>
+    </div>
+</div>
+    </div>
+</div>
+    <div class="text-center md:text-left mb-12"><a class="post-back" href="https://www.modernhousenumbers.com/blogs/news">&laquo; BACK</a></div>
+    </div>
+  </article>
+</div>
+</main>
+<div class="mhnfp-bar"><a href="#mhn-font-picker">Find a matching font</a></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+
+      <nav class="foot-col" aria-label="Shop">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/products/house-numbers-letters">Numbers + Letters</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/quick-ship">QuickShip</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/plaque">Plaques</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/restroom-signs">Restroom Signs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Decals</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/custom">Custom</a></li>
+          <li><a href="https://www.modernhousenumbers.com/products/gift-card">Gift Cards</a></li>
+          <li><a href="/">Trade</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="Help">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/contact">Contact Us</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/installation">Installation</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/faqs">FAQs</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources">Resources</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#design-guides">Design Guides</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/resources#specifications">Specifications</a></li>
+          <li><a href="https://app.modernhousenumbers.com/">Trade Portal</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/trade-program-signup">Trade Program Signup</a></li>
+        </ul>
+      </nav>
+
+      <nav class="foot-col" aria-label="About">
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.modernhousenumbers.com/pages/our-story">Our Story</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/gallery">Gallery</a></li>
+          <li><a href="https://www.modernhousenumbers.com/blogs/news">Blog</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/sustainability">Sustainability</a></li>
+          <li><a href="https://www.modernhousenumbers.com/pages/recycle-it">Recycle It</a></li>
+          <li><a href="https://cms.modernhousenumbers.com/partner/">Collaborate</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col foot-signup">
+        <div class="foot-social">
+        <a href="https://www.instagram.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .46 1.4.9.44.43.7.83.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.46 1-.9 1.4-.43.44-.83.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.46-1.4-.9-.44-.43-.7-.83-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.46-1 .9-1.4.43-.44.83-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 1 0 0 8.8 4.4 4.4 0 0 0 0-8.8zm0 7.2a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+        <a href="https://www.facebook.com/modernhousenumbers" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.29-.04-1.27-.13-2.41-.13-2.38 0-4.01 1.45-4.01 4.12V9.9H7.6V13h2.68v8h3.22z"/></svg></a>
+        <a href="https://www.pinterest.com/modernhousenumbers/" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3c-.09-.78-.17-1.98.03-2.83.18-.78 1.19-4.98 1.19-4.98s-.3-.6-.3-1.5c0-1.4.82-2.45 1.83-2.45.86 0 1.28.65 1.28 1.43 0 .87-.56 2.17-.84 3.38-.24 1.01.5 1.83 1.5 1.83 1.8 0 3.19-1.9 3.19-4.65 0-2.43-1.75-4.13-4.24-4.13-2.89 0-4.59 2.17-4.59 4.4 0 .88.34 1.81.76 2.32.08.1.1.19.07.29l-.28 1.15c-.05.18-.15.22-.34.13-1.26-.59-2.05-2.43-2.05-3.92 0-3.19 2.32-6.12 6.68-6.12 3.51 0 6.24 2.5 6.24 5.84 0 3.49-2.2 6.29-5.25 6.29-1.03 0-1.99-.53-2.32-1.17l-.63 2.4c-.23.88-.85 1.99-1.26 2.66A10 10 0 1 0 12 2z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/building-supplies/modern-house-numbers-pfvwus-pf~1988483036" target="_blank" rel="noopener" aria-label="Houzz"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h4.4v5.3L20 10.6V22h-6.9v-5.2h-2.2V22H4V2z"/></svg></a>
+        <a href="https://www.youtube.com/@modernhousenumbers" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.24.05-2 .85-.6.6-.79 2-.79 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.19 1.4.79 2c.76.8 1.76.78 2.21.86 1.6.15 6.6.2 6.6.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.6V8.9l5.2 2.86L10 14.6z"/></svg></a>
+        </div>
+        <h3>Sign me up</h3>
+        <p>Get exclusive access to new products and deals. Unsubscribe at any time.</p>
+        <form method="get" action="https://www.modernhousenumbers.com/pages/trade-program-signup">
+          <label class="skip" for="foot-email">Email</label>
+          <input id="foot-email" name="email" type="email" placeholder="email" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="foot-legal">
+      <span>&copy; 2025 Modern House Numbers</span>
+      <span>Proudly Made in USA</span>
+      <a href="https://www.modernhousenumbers.com/policies/refund-policy">Policies</a>
+      <a href="https://www.modernhousenumbers.com/policies/privacy-policy">Privacy</a>
+      <a href="https://www.modernhousenumbers.com/pages/accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
