@@ -240,7 +240,7 @@ img{max-width:100%;display:block}
 .mhnfp .fp-box>img{grid-area:p;align-self:start;display:block;width:120px;height:120px;margin:0 0 8px;object-fit:cover;background:#f0f0f0}
 .mhnfp .fp-box>img.is-drawing{object-position:50% 61%;background:#fff}
 .mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "r" "p" "c"}
-.mhnfp.is-sets .fp-box>img{width:270px;max-width:100%;height:172px;margin:6px auto 0}
+.mhnfp.is-sets .fp-box>img,.mhnfp.is-sets .fp-box>img.is-drawing{width:100%;height:auto;aspect-ratio:720/559;margin:10px 0 0;object-fit:contain;object-position:50% 50%;background:#fff}
 .mhnfp a.fp-cta{grid-area:c;display:block;margin-top:10px;padding:10px;background:#393838;color:#fff;text-align:center;text-decoration:none;font:400 14px/1.2 Muli,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
 .mhnfp a.fp-cta:hover{background:#f36a10;color:#000}
 @container (min-width:560px){
@@ -253,7 +253,7 @@ img{max-width:100%;display:block}
   .mhnfp small{grid-column:2;font-size:13.5px}
   .mhnfp .fp-box>img{width:270px;height:270px;margin:4px 0 0}
   .mhnfp.is-sets .fp-box{grid-template-columns:minmax(0,1fr) 270px;grid-template-areas:"t p" "r p" "c p" ". p"}
-  .mhnfp.is-sets .fp-box>img{width:270px;height:270px;margin:4px 0 0}
+  .mhnfp.is-sets .fp-box>img,.mhnfp.is-sets .fp-box>img.is-drawing{width:270px;height:270px;aspect-ratio:auto;margin:4px 0 0}
   .mhnfp a.fp-cta{justify-self:start;padding:11px 26px;margin-top:14px}
 }
 @container (max-width:310px){.mhnfp .fp-box{grid-template-columns:1fr;grid-template-areas:"t" "r" "p" "c"}.mhnfp .fp-box>img{margin:10px 0 0}}
@@ -272,13 +272,13 @@ img{max-width:100%;display:block}
   <fieldset>
     <legend>Choose the right number of sets for your project:</legend>
     <div class="fp-rows">
-      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="0" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="1 set mailbox decals"><span><i></i><b>1 set <em>wall-mounted mailboxes</em></b><small>Ideal for wall-mounted mailboxes. One set for the front or flap. MHN PRO TIP: If you choose one set for the front flap, consider adding another set in a larger size for the side/s.</small></span></label>
-      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="1" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="2 sets mailbox decals" checked><span><i></i><b>2 sets <em>our most popular, free-standing</em></b><small>Ideal for free-standing mailboxes. One number set for each side in the same text size. Each of the two sets will arrive in the same size. MHN PRO TIP: If you choose two sets for the sides, consider adding another set in a smaller size for the front flap.</small></span></label>
-      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="2" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="3 sets mailbox decals"><span><i></i><b>3 sets <em>mailbox plus door or window</em></b><small>Best for multiple mailboxes, or a coordinated address set. For example, two for your mailbox and a matching third set for a glass entry door or window. Each of the three sets will arrive in the same size.</small></span></label>
-      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="3" data-img="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" data-alt="4 sets mailbox decals"><span><i></i><b>4 sets <em>multiple mailboxes, mailbox and door</em></b><small>Best for multiple mailboxes, or coordinate your mailbox and door. Each of the four sets will arrive in the same size.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="0" data-img="/images/blog-forms/mhn-decal-sets-1.png" data-alt="1 set mailbox decals"><span><i></i><b>1 set <em>wall-mounted mailboxes</em></b><small>Ideal for wall-mounted mailboxes. One set for the front or flap. MHN PRO TIP: If you choose one set for the front flap, consider adding another set in a larger size for the side/s.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="1" data-img="/images/blog-forms/mhn-decal-sets-2.png" data-alt="2 sets mailbox decals" checked><span><i></i><b>2 sets <em>our most popular, free-standing</em></b><small>Ideal for free-standing mailboxes. One number set for each side in the same text size. Each of the two sets will arrive in the same size. MHN PRO TIP: If you choose two sets for the sides, consider adding another set in a smaller size for the front flap.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="2" data-img="/images/blog-forms/mhn-decal-sets-all.png" data-alt="3 sets mailbox decals"><span><i></i><b>3 sets <em>mailbox plus door or window</em></b><small>Best for multiple mailboxes, or a coordinated address set. For example, two for your mailbox and a matching third set for a glass entry door or window. Each of the three sets will arrive in the same size.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-sets" value="3" data-img="/images/blog-forms/mhn-decal-sets-all.png" data-alt="4 sets mailbox decals"><span><i></i><b>4 sets <em>multiple mailboxes, mailbox and door</em></b><small>Best for multiple mailboxes, or coordinate your mailbox and door. Each of the four sets will arrive in the same size.</small></span></label>
     </div>
   </fieldset>
-  <img src="https://cms.modernhousenumbers.com/assets/guide_decal_sets.png" width="270" height="270" alt="2 sets mailbox decals">
+  <img src="/images/blog-forms/mhn-decal-sets-2.png" width="270" height="270" alt="2 sets mailbox decals">
   <a class="fp-cta" href="https://www.modernhousenumbers.com/products/mailbox-numbers-letters">Shop mailbox decals</a>
 </form>
 <script>
