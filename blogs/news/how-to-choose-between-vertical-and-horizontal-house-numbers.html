@@ -237,6 +237,7 @@ img{max-width:100%;display:block}
 .mhnfp input:focus-visible+span,.mhnfp .fp-cta:focus-visible{outline:3px solid #f36a10;outline-offset:1px}
 .mhnfp b{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:7px;font-weight:400;font-size:12px;line-height:1.25;letter-spacing:.04em;text-transform:uppercase}
 .mhnfp em{font-style:italic;font-size:12px;line-height:1.25;letter-spacing:0;text-transform:none;color:#b3470a}
+.mhnfp em.fp-note{color:#767676}
 .mhnfp small{display:none;grid-column:1 / -1;margin-top:2px;font-size:12.5px;line-height:1.4}
 .mhnfp input:checked+span small{display:block}
 .mhnfp .fp-box>img{grid-area:p;align-self:start;display:block;width:120px;height:120px;margin:0 0 8px;object-fit:cover;background:#f0f0f0}
@@ -275,8 +276,8 @@ img{max-width:100%;display:block}
     <legend>Select your orientation:</legend>
     <div class="fp-rows">
       <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="0" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_h_2.jpg" data-alt="Horizontal Installation installation" checked><span><i></i><b>Horizontal Installation <em>our most popular</em></b><small>Receive a horizontal drilling template with your numbers and letters, carefully spaced by our team, for a worry-free install.</small></span></label>
-      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="1" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_v_7.jpg" data-alt="Vertical Installation installation"><span><i></i><b>Vertical Installation <em>narrow areas</em></b><small>Receive a vertical drilling template with your numbers and letters, carefully spaced by our team, for a worry-free install. Vertical orientation is ideal for narrow areas or if you're tight on space.</small></span></label>
-      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="2" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_b_1.jpg" data-alt="Both installation"><span><i></i><b>Both <em>optional add on - additional cost</em></b><small>Can't decide? Upgrade and get both horizontal and vertical templates.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="1" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_v_7.jpg" data-alt="Vertical Installation installation"><span><i></i><b>Vertical Installation</b><small>Receive a vertical drilling template with your numbers and letters, carefully spaced by our team, for a worry-free install. Vertical orientation is ideal for narrow areas or if you're tight on space.</small></span></label>
+      <label class="fp-opt"><input type="radio" name="mhnfp-orient" value="2" data-img="https://cms.modernhousenumbers.com/assets/guide_nl_orient_b_1.jpg" data-alt="Both installation"><span><i></i><b>Both <em class="fp-note">(optional add on - additional cost)</em></b><small>Can't decide? Upgrade and get both horizontal and vertical templates.</small></span></label>
     </div>
   </fieldset>
   <img src="https://cms.modernhousenumbers.com/assets/guide_nl_orient_h_2.jpg" width="270" height="270" alt="Horizontal Installation installation">
